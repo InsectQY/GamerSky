@@ -1,0 +1,15 @@
+# 网络请求
+github "Moya/Moya"
+# 字典转模型
+github "SwiftyJSON/SwiftyJSON"
+# 图片缓存
+github "onevcat/Kingfisher"
+# 轮播图
+github "WenchaoD/FSPagerView"
+# 通知
+github "100mango/SwiftNotificationCenter"
+# 主题
+github "jiecao-fm/SwiftTheme"
+# 数据库
+github "stephencelis/SQLite.swift"
+github "nmdias/DefaultsKit"

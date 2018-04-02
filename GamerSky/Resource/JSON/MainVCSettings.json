@@ -1,0 +1,32 @@
+[
+ {
+    "vcName": "NewsViewController",
+    "title": "新闻",
+    "normalImg": "common_Button_XinWen_UIMode_Day",
+    "selImg": "common_Button_XinWen_Selected_UIMode_Day"
+ },
+ {
+     "vcName": "GameViewController",
+     "title": "游戏",
+     "normalImg": "common_Button_YouXiKu_UIMode_Day",
+     "selImg": "common_Button_YouXiKu_Selected_UIMode_Day"
+ },
+ {
+     "vcName": "CircleViewController",
+     "title": "圈子",
+     "normalImg": "common_Button_Club",
+     "selImg": "common_Button_Club_Selected"
+ },
+ {
+     "vcName": "OriginalViewController",
+     "title": "原创",
+     "normalImg": "common_Button_YouMinYuanChuang_UIMode_Day",
+     "selImg": "common_Button_YouMinYuanChuang_Selected_UIMode_Day"
+ },
+ {
+     "vcName": "MineViewController",
+     "title": "我的",
+     "normalImg": "common_Button_WoDe_UIMode_Day",
+     "selImg": "common_Button_WoDe_Selected_UIMode_Day"
+ }
+ ]
