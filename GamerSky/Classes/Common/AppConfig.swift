@@ -18,7 +18,13 @@ public let kTopH: CGFloat = kStatusBarH + kNaviBarH
 public let KTabbarH: CGFloat = AppDelegate.tabBarContoller.tabBar.frame.height
 public let KBottomH: CGFloat = isX ? KTabbarH + 34: KTabbarH
 
+/// 主机地址
 public let HostIP = "http://appapi2.gamersky.com"
+/// 系统版本
+public let osVersion = UIDevice.current.systemVersion
+/// 设备 ID
+let deviceID = UIDevice.current.identifierForVendor!.uuidString
+
 
 // MARK: -- 颜色
 

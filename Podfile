@@ -8,5 +8,6 @@ use_frameworks!
 pod 'MJRefresh'
 pod 'SVProgressHUD'
 pod 'FDFullscreenPopGesture'
+pod 'DNSPageView'
 
 end

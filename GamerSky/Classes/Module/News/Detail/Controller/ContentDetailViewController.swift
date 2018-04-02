@@ -9,7 +9,7 @@
 import UIKit
 import WebKit
 
-class ContentDetailViewController: UIViewController {
+class ContentDetailViewController: BaseViewController {
 
     var contentID = 0
     
@@ -22,6 +22,7 @@ class ContentDetailViewController: UIViewController {
         return webView
     }()
     
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -50,7 +51,8 @@ extension ContentDetailViewController {
     // MARK: - 加载新闻详情
     @objc private func loadContentDetail() {
         
-        guard let URL = URL(string: "\(HostIP)/v1/ContentDetail/\(contentID)/1?fontSize=0&nullImageMode=1&tag=news&deviceid=624EAB46-BDFB-4C58-BCE3-130C63F6814A&platform=ios&nightMode=0&v=") else {return}
+        guard let URL = URL(string: "\(HostIP)/v1/ContentDetail/\(contentID)/1?fontSize=0&nullImageMode=1&tag=news&deviceid=\(deviceID)&platform=ios&nightMode=0&v=") else {return}
+        
         webView.load(URLRequest(url: URL))
     }
 }

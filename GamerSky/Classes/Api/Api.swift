@@ -9,19 +9,6 @@
 import UIKit
 import Moya
 
-extension Api {
-    
-    /// 系统版本
-    public var osVersion: String {
-        return UIDevice.current.systemVersion
-    }
-    
-    /// 设备 deviceID
-    public var deviceID: String {
-        return UIDevice.current.identifierForVendor!.uuidString
-    }
-}
-
 let timeoutClosure = {(endpoint: Endpoint, closure: MoyaProvider<Api>.RequestResultClosure) -> Void in
     
     if var urlRequest = try? endpoint.urlRequest() {
@@ -38,7 +25,8 @@ enum Api {
     
     /// 新闻频道
     case allChannel
-    case allChannelList(Int)
+    /// 频道列表
+    case allChannelList(Int, Int)
 }
 
 extension Api: TargetType {
@@ -52,7 +40,7 @@ extension Api: TargetType {
         switch self {
         case .allChannel:
             return "v2/allchannel"
-        case .allChannelList(_):
+        case .allChannelList(_, _):
             return "v2/AllChannelList"
         }
     }
@@ -80,10 +68,10 @@ extension Api: TargetType {
         case .allChannel:
             
             parmeters["request"] = ["type" : "0"]
-        case let .allChannelList(page):
+        case let .allChannelList(page, nodeID):
             
             parmeters["request"] = ["parentNodeId" : "news",
-                                    "nodeIds" : "0",
+                                    "nodeIds" : "\(nodeID)",
                                     "pageIndex": "\(page)",
                                     "elementsCountPerPage" : "20"]
         }

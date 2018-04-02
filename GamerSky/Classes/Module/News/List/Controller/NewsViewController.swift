@@ -12,6 +12,7 @@ import SwiftNotificationCenter
 class NewsViewController: BaseViewController {
 
     private var page = 1
+    public  var nodeID = 0
     
     private lazy var channelListAry = [ChannelList]()
     private lazy var tableView: UITableView = {
@@ -34,18 +35,17 @@ class NewsViewController: BaseViewController {
         return headerView
     }()
     
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setUpNavi()
         setUpUI()
-        loadAllChannel()
     }
     
     override func repeatClickTabBar() {
         print("\(self)")
     }
-
 }
 
 extension NewsViewController {
@@ -60,7 +60,6 @@ extension NewsViewController {
     private func setUpNavi() {
         
         automaticallyAdjustsScrollViewInsets = false
-//        navigationItem.rightBarButtonItem = UIBarButtonItem()
     }
     
     // MARK: - 设置刷新
@@ -81,21 +80,11 @@ extension NewsViewController {
 // MARK: - 网络请求
 extension NewsViewController {
     
-    // MARK: - 加载频道数据
-    private func loadAllChannel() {
-       
-        ApiProvider.request(.allChannel, objectModel: BaseModel<[Channel]>.self, success: {
-            print("成功----\($0)")
-        }) {
-            print("失败----\($0)")
-        }
-    }
-    
     @objc private func loadNewChannelLists() {
         
         page = 1
         tableView.mj_footer.endRefreshing()
-        ApiProvider.request(.allChannelList(page), objectModel: BaseModel<[ChannelList]>.self, success: {
+        ApiProvider.request(.allChannelList(page, nodeID), objectModel: BaseModel<[ChannelList]>.self, success: {
             
             self.channelListAry = $0.result
             self.headerView.channelListAry = $0.result.first?.childElements
@@ -111,7 +100,7 @@ extension NewsViewController {
         
         page += 1
         tableView.mj_header.endRefreshing()
-        ApiProvider.request(.allChannelList(page), objectModel: BaseModel<[ChannelList]>.self, success: {
+        ApiProvider.request(.allChannelList(page, nodeID), objectModel: BaseModel<[ChannelList]>.self, success: {
             
             self.channelListAry += $0.result
             self.tableView.reloadData()
@@ -144,6 +133,7 @@ extension NewsViewController: UITableViewDelegate {
         
         let vc = ContentDetailViewController()
         vc.contentID = channelListAry[indexPath.row].contentId
+        
         navigationController?.pushViewController(vc, animated: true)
     }
 }

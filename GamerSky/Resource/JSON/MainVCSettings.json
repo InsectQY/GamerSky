@@ -1,6 +1,6 @@
 [
  {
-    "vcName": "NewsViewController",
+    "vcName": "NewsPageViewController",
     "title": "新闻",
     "normalImg": "common_Button_XinWen_UIMode_Day",
     "selImg": "common_Button_XinWen_Selected_UIMode_Day"
