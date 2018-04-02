@@ -38,7 +38,7 @@ enum Api {
     
     /// 新闻频道
     case allChannel
-    case allChannelList
+    case allChannelList(Int)
 }
 
 extension Api: TargetType {
@@ -52,7 +52,7 @@ extension Api: TargetType {
         switch self {
         case .allChannel:
             return "v2/allchannel"
-        case .allChannelList:
+        case .allChannelList(_):
             return "v2/AllChannelList"
         }
     }
@@ -80,11 +80,11 @@ extension Api: TargetType {
         case .allChannel:
             
             parmeters["request"] = ["type" : "0"]
-        case .allChannelList:
+        case let .allChannelList(page):
             
             parmeters["request"] = ["parentNodeId" : "news",
                                     "nodeIds" : "0",
-                                    "pageIndex": "1",
+                                    "pageIndex": "\(page)",
                                     "elementsCountPerPage" : "20"]
         }
         
