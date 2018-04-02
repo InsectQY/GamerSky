@@ -36,6 +36,7 @@ let ApiProvider = MoyaProvider<Api>(requestClosure: timeoutClosure)
 
 enum Api {
     
+    /// 新闻频道
     case allChannel
     case allChannelList
 }

@@ -43,6 +43,7 @@
 		99E7999B2071E10E005C3408 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E7999A2071E10E005C3408 /* AppDelegate.swift */; };
 		99E799A22071E10E005C3408 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99E799A12071E10E005C3408 /* Assets.xcassets */; };
 		99E799A52071E10E005C3408 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99E799A32071E10E005C3408 /* LaunchScreen.storyboard */; };
+		99EECD7D207226B300C8E914 /* UIFont + Runtime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EECD7C207226B300C8E914 /* UIFont + Runtime.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +86,7 @@
 		99E799A12071E10E005C3408 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		99E799A42071E10E005C3408 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		99E799A62071E10E005C3408 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		99EECD7C207226B300C8E914 /* UIFont + Runtime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont + Runtime.swift"; sourceTree = "<group>"; };
 		A0B9C44C57C7BCE246F09E2C /* Pods-GamerSky.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GamerSky.release.xcconfig"; path = "Pods/Target Support Files/Pods-GamerSky/Pods-GamerSky.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -176,6 +178,7 @@
 			children = (
 				998F0C612071F18D00C587C2 /* Moya + Codable.swift */,
 				998F0C442071EEC500C587C2 /* UIView + Frame.swift */,
+				99EECD7C207226B300C8E914 /* UIFont + Runtime.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -591,6 +594,7 @@
 				998F0C602071EFB100C587C2 /* QYRefresh.swift in Sources */,
 				998F0C422071EEAB00C587C2 /* UITableView+Reusable.swift in Sources */,
 				998F0C5F2071EFB100C587C2 /* GetVc.swift in Sources */,
+				99EECD7D207226B300C8E914 /* UIFont + Runtime.swift in Sources */,
 				998F0C762071F7E100C587C2 /* MineViewController.swift in Sources */,
 				9906819520721F8700A825AC /* Channel.swift in Sources */,
 				998F0C6A2071F72800C587C2 /* GameViewController.swift in Sources */,
