@@ -20,6 +20,8 @@
 		9906818A2072000200A825AC /* SwiftTheme.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 998F0C4A2071EF1800C587C2 /* SwiftTheme.framework */; };
 		9906818B2072000200A825AC /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 998F0C4F2071EF1800C587C2 /* SwiftyJSON.framework */; };
 		9906818D2072019E00A825AC /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9906818C2072019E00A825AC /* BaseViewController.swift */; };
+		9906819220721AAA00A825AC /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9906819120721AAA00A825AC /* BaseModel.swift */; };
+		9906819520721F8700A825AC /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9906819420721F8700A825AC /* Channel.swift */; };
 		998F0C2E2071EB9A00C587C2 /* MainVCSettings.json in Resources */ = {isa = PBXBuildFile; fileRef = 998F0C2D2071EB9A00C587C2 /* MainVCSettings.json */; };
 		998F0C322071EBCE00C587C2 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998F0C302071EBCE00C587C2 /* TabBarController.swift */; };
 		998F0C332071EBCE00C587C2 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998F0C312071EBCE00C587C2 /* NavigationController.swift */; };
@@ -48,6 +50,8 @@
 		71BFE174E127314FD3FBE57C /* Pods_GamerSky.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GamerSky.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		990681802071FD5B00A825AC /* TabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		9906818C2072019E00A825AC /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		9906819120721AAA00A825AC /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
+		9906819420721F8700A825AC /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		998F0C2D2071EB9A00C587C2 /* MainVCSettings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MainVCSettings.json; sourceTree = "<group>"; };
 		998F0C302071EBCE00C587C2 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		998F0C312071EBCE00C587C2 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
@@ -115,6 +119,23 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		9906819020721A8C00A825AC /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				9906818C2072019E00A825AC /* BaseViewController.swift */,
+				9906819120721AAA00A825AC /* BaseModel.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		9906819320721F7400A825AC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9906819420721F8700A825AC /* Channel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		998F0C262071EACC00C587C2 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +190,7 @@
 		998F0C2C2071EB6E00C587C2 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				9906819020721A8C00A825AC /* Base */,
 				998F0C732071F7D000C587C2 /* Mine */,
 				998F0C6F2071F79500C587C2 /* Original */,
 				998F0C6B2071F75D00C587C2 /* Circle */,
@@ -185,7 +207,6 @@
 				990681802071FD5B00A825AC /* TabBar.swift */,
 				998F0C312071EBCE00C587C2 /* NavigationController.swift */,
 				998F0C302071EBCE00C587C2 /* TabBarController.swift */,
-				9906818C2072019E00A825AC /* BaseViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -245,6 +266,7 @@
 		998F0C632071F6DB00C587C2 /* News */ = {
 			isa = PBXGroup;
 			children = (
+				9906819320721F7400A825AC /* Model */,
 				998F0C642071F6E600C587C2 /* Controller */,
 			);
 			path = News;
@@ -540,11 +562,13 @@
 				998F0C332071EBCE00C587C2 /* NavigationController.swift in Sources */,
 				998F0C432071EEAB00C587C2 /* NibLoadable.swift in Sources */,
 				998F0C6E2071F77800C587C2 /* CircleViewController.swift in Sources */,
+				9906819220721AAA00A825AC /* BaseModel.swift in Sources */,
 				998F0C402071EEAB00C587C2 /* UICollectionView+Reusable.swift in Sources */,
 				998F0C602071EFB100C587C2 /* QYRefresh.swift in Sources */,
 				998F0C422071EEAB00C587C2 /* UITableView+Reusable.swift in Sources */,
 				998F0C5F2071EFB100C587C2 /* GetVc.swift in Sources */,
 				998F0C762071F7E100C587C2 /* MineViewController.swift in Sources */,
+				9906819520721F8700A825AC /* Channel.swift in Sources */,
 				998F0C6A2071F72800C587C2 /* GameViewController.swift in Sources */,
 				998F0C3A2071EE8800C587C2 /* Api.swift in Sources */,
 				998F0C662071F6F700C587C2 /* NewsViewController.swift in Sources */,

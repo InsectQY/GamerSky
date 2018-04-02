@@ -15,6 +15,7 @@ class NewsViewController: BaseViewController {
         super.viewDidLoad()
 
         setUpUI()
+        loadAllChannel()
     }
     
     override func repeatClickTabBar() {
@@ -27,6 +28,20 @@ extension NewsViewController {
     
     private func setUpUI() {
         
-        view.backgroundColor = .white
+        
+    }
+}
+
+// MARK: - 网络请求
+extension NewsViewController {
+    
+    // MARK: - 加载频道数据
+    private func loadAllChannel() {
+       
+        ApiProvider.request(Api.allChannel, objectModel: BaseModel<[Channel]>.self, success: {
+            print("成功----\($0)")
+        }) {
+            print("失败----\($0)")
+        }
     }
 }
