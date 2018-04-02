@@ -33,6 +33,7 @@ class NewsPageViewController: BaseViewController {
             titles.append(channel.nodeName)
             let controller = NewsViewController()
             controller.nodeID = channel.nodeId
+            self.addChildViewController(controller)
             return controller
         }
         

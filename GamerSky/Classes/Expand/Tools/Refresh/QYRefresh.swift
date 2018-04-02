@@ -23,6 +23,8 @@ class QYRefreshFooter: MJRefreshAutoNormalFooter {
     override func prepare() {
         
         super.prepare()
+        // 设置控件的高度
+        mj_h = 50
         setTitle("没有更多数据啦", for: .noMoreData)
     }
 }
