@@ -139,6 +139,7 @@
 		998F0C262071EACC00C587C2 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				99EECD7A2072226700C8E914 /* Assets */,
 				998F0C272071EAD500C587C2 /* JSON */,
 			);
 			path = Resource;
@@ -365,17 +366,40 @@
 		99E799992071E10D005C3408 /* GamerSky */ = {
 			isa = PBXGroup;
 			children = (
-				998F0C382071EE7E00C587C2 /* Api */,
-				998F0C352071EDB700C587C2 /* Common */,
-				998F0C2C2071EB6E00C587C2 /* Module */,
-				998F0C292071EB4300C587C2 /* Expand */,
+				99EECD7B2072229700C8E914 /* Classes */,
+				99EECD792072225B00C8E914 /* LaunchScreen */,
 				998F0C282071EAFC00C587C2 /* Application */,
 				998F0C262071EACC00C587C2 /* Resource */,
-				99E799A12071E10E005C3408 /* Assets.xcassets */,
-				99E799A32071E10E005C3408 /* LaunchScreen.storyboard */,
 				99E799A62071E10E005C3408 /* Info.plist */,
 			);
 			path = GamerSky;
+			sourceTree = "<group>";
+		};
+		99EECD792072225B00C8E914 /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				99E799A32071E10E005C3408 /* LaunchScreen.storyboard */,
+			);
+			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		99EECD7A2072226700C8E914 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				99E799A12071E10E005C3408 /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		99EECD7B2072229700C8E914 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				998F0C292071EB4300C587C2 /* Expand */,
+				998F0C2C2071EB6E00C587C2 /* Module */,
+				998F0C352071EDB700C587C2 /* Common */,
+				998F0C382071EE7E00C587C2 /* Api */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		BD54EF30B74AD17A3CC3BA2D /* Frameworks */ = {
