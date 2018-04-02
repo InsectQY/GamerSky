@@ -12,12 +12,12 @@ import Moya
 extension Api {
     
     /// 系统版本
-    private var osVersion: String {
+    public var osVersion: String {
         return UIDevice.current.systemVersion
     }
     
     /// 设备 deviceID
-    private var deviceID: String {
+    public var deviceID: String {
         return UIDevice.current.identifierForVendor!.uuidString
     }
 }
@@ -44,7 +44,7 @@ enum Api {
 extension Api: TargetType {
     
     var baseURL: URL {
-        return URL(string: "http://appapi2.gamersky.com")!
+        return URL(string: HostIP)!
     }
     
     var path: String {

@@ -59,6 +59,10 @@ extension NewsTableHeaderView: FSPagerViewDelegate {
     
     func pagerView(_ pagerView: FSPagerView, didHighlightItemAt index: Int) {
         
+        let id = channelListAry?[index].contentId ?? 0
+        let vc = ContentDetailViewController()
+        vc.contentID = id
+        parentVC?.navigationController?.pushViewController(vc, animated: true)
     }
     
     func pagerView(_ pagerView: FSPagerView, willDisplay cell: FSPagerViewCell, forItemAt index: Int) {

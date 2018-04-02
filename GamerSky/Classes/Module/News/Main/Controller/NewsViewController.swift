@@ -142,6 +142,8 @@ extension NewsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        
+        let vc = ContentDetailViewController()
+        vc.contentID = channelListAry[indexPath.row].contentId
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

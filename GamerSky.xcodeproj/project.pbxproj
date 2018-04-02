@@ -49,6 +49,7 @@
 		E56802E120724EEB00CF944E /* Kingfisher + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56802E020724EEB00CF944E /* Kingfisher + Extension.swift */; };
 		E56802E520725C9100CF944E /* NewsTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56802E420725C9100CF944E /* NewsTableHeaderView.swift */; };
 		E56802E720725CBE00CF944E /* NewsTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E56802E620725CBE00CF944E /* NewsTableHeaderView.xib */; };
+		E56802EC207268A500CF944E /* ContentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56802EB207268A500CF944E /* ContentDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +99,7 @@
 		E56802E020724EEB00CF944E /* Kingfisher + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Kingfisher + Extension.swift"; sourceTree = "<group>"; };
 		E56802E420725C9100CF944E /* NewsTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableHeaderView.swift; sourceTree = "<group>"; };
 		E56802E620725CBE00CF944E /* NewsTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsTableHeaderView.xib; sourceTree = "<group>"; };
+		E56802EB207268A500CF944E /* ContentDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -281,9 +283,8 @@
 		998F0C632071F6DB00C587C2 /* News */ = {
 			isa = PBXGroup;
 			children = (
-				E56802DB20724AA600CF944E /* View */,
-				9906819320721F7400A825AC /* Model */,
-				998F0C642071F6E600C587C2 /* Controller */,
+				E56802E92072688000CF944E /* Detail */,
+				E56802E82072686A00CF944E /* Main */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -462,6 +463,32 @@
 			path = Header;
 			sourceTree = "<group>";
 		};
+		E56802E82072686A00CF944E /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				E56802DB20724AA600CF944E /* View */,
+				9906819320721F7400A825AC /* Model */,
+				998F0C642071F6E600C587C2 /* Controller */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		E56802E92072688000CF944E /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				E56802EA2072688700CF944E /* Controller */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		E56802EA2072688700CF944E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E56802EB207268A500CF944E /* ContentDetailViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -636,6 +663,7 @@
 				9906819220721AAA00A825AC /* BaseModel.swift in Sources */,
 				998F0C402071EEAB00C587C2 /* UICollectionView+Reusable.swift in Sources */,
 				998F0C602071EFB100C587C2 /* QYRefresh.swift in Sources */,
+				E56802EC207268A500CF944E /* ContentDetailViewController.swift in Sources */,
 				998F0C422071EEAB00C587C2 /* UITableView+Reusable.swift in Sources */,
 				998F0C5F2071EFB100C587C2 /* GetVc.swift in Sources */,
 				99EECD7D207226B300C8E914 /* UIFont + Runtime.swift in Sources */,

@@ -18,6 +18,8 @@ public let kTopH: CGFloat = kStatusBarH + kNaviBarH
 public let KTabbarH: CGFloat = AppDelegate.tabBarContoller.tabBar.frame.height
 public let KBottomH: CGFloat = isX ? KTabbarH + 34: KTabbarH
 
+public let HostIP = "http://appapi2.gamersky.com"
+
 // MARK: -- 颜色
 
 public let MainColor = RGB(233, g: 50, b: 56)
