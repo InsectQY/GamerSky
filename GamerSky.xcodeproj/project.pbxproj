@@ -24,6 +24,9 @@
 		9906819520721F8700A825AC /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9906819420721F8700A825AC /* Channel.swift */; };
 		9966510F20735FFB0010430E /* MineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9966510D20735FFB0010430E /* MineViewController.swift */; };
 		9966511020735FFB0010430E /* MineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9966510E20735FFB0010430E /* MineViewController.xib */; };
+		9966511420736D7D0010430E /* default_theme.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9966511320736D7D0010430E /* default_theme.plist */; };
+		9966511620736D8C0010430E /* night_theme.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9966511520736D8C0010430E /* night_theme.plist */; };
+		9966511820736F580010430E /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9966511720736F580010430E /* AppTheme.swift */; };
 		998F0C2E2071EB9A00C587C2 /* MainVCSettings.json in Resources */ = {isa = PBXBuildFile; fileRef = 998F0C2D2071EB9A00C587C2 /* MainVCSettings.json */; };
 		998F0C322071EBCE00C587C2 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998F0C302071EBCE00C587C2 /* TabBarController.swift */; };
 		998F0C332071EBCE00C587C2 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998F0C312071EBCE00C587C2 /* NavigationController.swift */; };
@@ -63,6 +66,9 @@
 		9906819420721F8700A825AC /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		9966510D20735FFB0010430E /* MineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineViewController.swift; sourceTree = "<group>"; };
 		9966510E20735FFB0010430E /* MineViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineViewController.xib; sourceTree = "<group>"; };
+		9966511320736D7D0010430E /* default_theme.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = default_theme.plist; sourceTree = "<group>"; };
+		9966511520736D8C0010430E /* night_theme.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = night_theme.plist; sourceTree = "<group>"; };
+		9966511720736F580010430E /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		998F0C2D2071EB9A00C587C2 /* MainVCSettings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MainVCSettings.json; sourceTree = "<group>"; };
 		998F0C302071EBCE00C587C2 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		998F0C312071EBCE00C587C2 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
@@ -161,9 +167,19 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		9966511220736D2C0010430E /* Plist */ = {
+			isa = PBXGroup;
+			children = (
+				9966511320736D7D0010430E /* default_theme.plist */,
+				9966511520736D8C0010430E /* night_theme.plist */,
+			);
+			path = Plist;
+			sourceTree = "<group>";
+		};
 		998F0C262071EACC00C587C2 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				9966511220736D2C0010430E /* Plist */,
 				99EECD7A2072226700C8E914 /* Assets */,
 				998F0C272071EAD500C587C2 /* JSON */,
 			);
@@ -243,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				998F0C362071EE2E00C587C2 /* AppConfig.swift */,
+				9966511720736F580010430E /* AppTheme.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -588,6 +605,8 @@
 				998F0C2E2071EB9A00C587C2 /* MainVCSettings.json in Resources */,
 				E56802E720725CBE00CF944E /* NewsTableHeaderView.xib in Resources */,
 				9966511020735FFB0010430E /* MineViewController.xib in Resources */,
+				9966511420736D7D0010430E /* default_theme.plist in Resources */,
+				9966511620736D8C0010430E /* night_theme.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -685,6 +704,7 @@
 				99E7999B2071E10E005C3408 /* AppDelegate.swift in Sources */,
 				990681812071FD5B00A825AC /* TabBar.swift in Sources */,
 				9966510F20735FFB0010430E /* MineViewController.swift in Sources */,
+				9966511820736F580010430E /* AppTheme.swift in Sources */,
 				998F0C372071EE2E00C587C2 /* AppConfig.swift in Sources */,
 				998F0C452071EEC500C587C2 /* UIView + Frame.swift in Sources */,
 				E56802DE20724AEB00CF944E /* ChannelListCell.swift in Sources */,

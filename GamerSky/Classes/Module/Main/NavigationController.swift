@@ -8,6 +8,7 @@
 
 import UIKit
 import FDFullscreenPopGesture
+import SwiftTheme
 
 class NavigationController: UINavigationController {
     
@@ -18,7 +19,7 @@ class NavigationController: UINavigationController {
         
         // 导航栏背景和文字设置
         let naviBar: UINavigationBar = UINavigationBar.appearance()
-        naviBar.barTintColor = .white
+        naviBar.theme_barTintColor = "colors.navigationBarTintColor"
         naviBar.backgroundColor = .white
         
         view.backgroundColor = .white
