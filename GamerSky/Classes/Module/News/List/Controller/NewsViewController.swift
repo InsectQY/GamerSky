@@ -65,8 +65,39 @@ extension NewsViewController {
     // MARK: - 设置刷新
     private func setUpRefresh() {
         
-        tableView.mj_header = QYRefreshHeader(refreshingTarget: self, refreshingAction: #selector(loadNewChannelLists))
-        tableView.mj_footer = QYRefreshFooter(refreshingTarget: self, refreshingAction: #selector(loadMoreChannelLists))
+        tableView.mj_header = QYRefreshHeader { [weak self] in
+            
+            guard let strongSelf = self else {return}
+            strongSelf.page = 1
+            strongSelf.tableView.mj_footer.endRefreshing()
+            ApiProvider.request(.allChannelList(strongSelf.page, strongSelf.nodeID), objectModel: BaseModel<[ChannelList]>.self, success: {
+                
+                strongSelf.channelListAry = $0.result
+                strongSelf.headerView.channelListAry = $0.result.first?.childElements
+                strongSelf.channelListAry.removeFirst()
+                strongSelf.tableView.reloadData()
+                strongSelf.tableView.mj_footer.isHidden = false
+                strongSelf.tableView.mj_header.endRefreshing()
+            }) { _ in
+                strongSelf.tableView.mj_header.endRefreshing()
+            }
+        }
+
+        tableView.mj_footer = QYRefreshFooter { [weak self] in
+            
+            guard let strongSelf = self else {return}
+            strongSelf.page += 1
+            strongSelf.tableView.mj_header.endRefreshing()
+            ApiProvider.request(.allChannelList(strongSelf.page, strongSelf.nodeID), objectModel: BaseModel<[ChannelList]>.self, success: {
+                
+                strongSelf.channelListAry += $0.result
+                strongSelf.tableView.reloadData()
+                strongSelf.tableView.mj_footer.endRefreshing()
+            }) { _ in
+                strongSelf.tableView.mj_footer.endRefreshing()
+            }
+        }
+        
         tableView.mj_footer.isHidden = true
         tableView.mj_header.beginRefreshing()
     }
@@ -75,41 +106,6 @@ extension NewsViewController {
     private func setUpHeaderView() {
     
         tableView.tableHeaderView = headerView
-    }
-}
-
-// MARK: - 网络请求
-extension NewsViewController {
-    
-    @objc private func loadNewChannelLists() {
-        
-        page = 1
-        tableView.mj_footer.endRefreshing()
-        ApiProvider.request(.allChannelList(page, nodeID), objectModel: BaseModel<[ChannelList]>.self, success: {
-            
-            self.channelListAry = $0.result
-            self.headerView.channelListAry = $0.result.first?.childElements
-            self.channelListAry.removeFirst()
-            self.tableView.reloadData()
-            self.tableView.mj_footer.isHidden = false
-            self.tableView.mj_header.endRefreshing()
-        }) { _ in
-            self.tableView.mj_header.endRefreshing()
-        }
-    }
-    
-    @objc private func loadMoreChannelLists() {
-        
-        page += 1
-        tableView.mj_header.endRefreshing()
-        ApiProvider.request(.allChannelList(page, nodeID), objectModel: BaseModel<[ChannelList]>.self, success: {
-            
-            self.channelListAry += $0.result
-            self.tableView.reloadData()
-            self.tableView.mj_footer.endRefreshing()
-        }) { _ in
-            self.tableView.mj_footer.endRefreshing()
-        }
     }
 }
 
@@ -133,9 +129,7 @@ extension NewsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let vc = ContentDetailViewController()
-        vc.contentID = channelListAry[indexPath.row].contentId
-        
+        let vc = ContentDetailViewController(ID: channelListAry[indexPath.row].contentId)
         navigationController?.pushViewController(vc, animated: true)
     }
 }

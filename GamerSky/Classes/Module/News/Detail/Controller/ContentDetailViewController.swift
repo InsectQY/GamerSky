@@ -30,6 +30,13 @@ class ContentDetailViewController: BaseViewController {
         setUpNavi()
         setUpRefresh()
     }
+    
+    // MARK: - convenience
+    convenience init(ID: Int) {
+        
+        self.init()
+        contentID = ID
+    }
 }
 
 extension ContentDetailViewController {
@@ -44,16 +51,13 @@ extension ContentDetailViewController {
     // MARK: - 设置刷新
     private func setUpRefresh() {
         
-        webView.scrollView.mj_header = QYRefreshHeader(refreshingTarget: self, refreshingAction: #selector(loadContentDetail))
+        webView.scrollView.mj_header = QYRefreshHeader { [weak self] in
+            
+            guard let strongSelf = self else {return}
+            guard let URL = URL(string: "\(HostIP)/v1/ContentDetail/\(strongSelf.contentID)/1?fontSize=0&nullImageMode=1&tag=news&deviceid=\(deviceID)&platform=ios&nightMode=0&v=") else {return}
+            strongSelf.webView.load(URLRequest(url: URL))
+        }
         webView.scrollView.mj_header.beginRefreshing()
-    }
-    
-    // MARK: - 加载新闻详情
-    @objc private func loadContentDetail() {
-        
-        guard let URL = URL(string: "\(HostIP)/v1/ContentDetail/\(contentID)/1?fontSize=0&nullImageMode=1&tag=news&deviceid=\(deviceID)&platform=ios&nightMode=0&v=") else {return}
-        
-        webView.load(URLRequest(url: URL))
     }
 }
 

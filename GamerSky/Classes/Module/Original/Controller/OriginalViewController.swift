@@ -53,9 +53,39 @@ extension OriginalViewController {
     // MARK: - 设置刷新
     private func setUpRefresh() {
         
-        tableView.mj_header = QYRefreshHeader(refreshingTarget: self, refreshingAction: #selector(loadNewColumnContent))
-        tableView.mj_footer = QYRefreshFooter(refreshingTarget: self, refreshingAction: #selector(loadMoreColumnContent))
+        tableView.mj_header = QYRefreshHeader(refreshingBlock: { [weak self] in
+            
+            guard let strongSelf = self else {return}
+            strongSelf.page = 1
+            strongSelf.tableView.mj_footer.endRefreshing()
+            ApiProvider.request(.columnContent(strongSelf.page, 47), objectModel: BaseModel<ColumnContent>.self, success: {
+                
+                strongSelf.columnAry = $0.result.childElements
+                strongSelf.tableView.mj_footer.isHidden = false
+                strongSelf.tableView.reloadData()
+                strongSelf.tableView.mj_header.endRefreshing()
+            }) { _ in
+                strongSelf.tableView.mj_header.endRefreshing()
+            }
+        })
+        
+        tableView.mj_footer = QYRefreshFooter(refreshingBlock: { [weak self] in
+            
+            guard let strongSelf = self else {return}
+            strongSelf.page += 1
+            strongSelf.tableView.mj_header.endRefreshing()
+            ApiProvider.request(.columnContent(strongSelf.page, 47), objectModel: BaseModel<ColumnContent>.self, success: {
+                
+                strongSelf.columnAry += $0.result.childElements
+                strongSelf.tableView.reloadData()
+                strongSelf.tableView.mj_footer.endRefreshing()
+            }) { _ in
+                strongSelf.tableView.mj_footer.endRefreshing()
+            }
+        })
+        
         tableView.mj_header.beginRefreshing()
+        tableView.mj_footer.isHidden = true
     }
     
     // MARK: - 设置导航栏
@@ -72,33 +102,6 @@ extension OriginalViewController {
 // MARK: - 网络请求
 extension OriginalViewController {
     
-    @objc private func loadNewColumnContent() {
-        
-        page = 1
-        tableView.mj_footer.endRefreshing()
-        ApiProvider.request(Api.columnContent(page, 47), objectModel: BaseModel<ColumnContent>.self, success: {
-            
-            self.columnAry = $0.result.childElements
-            self.tableView.reloadData()
-            self.tableView.mj_header.endRefreshing()
-        }) { _ in
-            self.tableView.mj_header.endRefreshing()
-        }
-    }
-    
-    @objc private func loadMoreColumnContent() {
-        
-        page += 1
-        tableView.mj_header.endRefreshing()
-        ApiProvider.request(Api.columnContent(page, 47), objectModel: BaseModel<ColumnContent>.self, success: {
-            
-            self.columnAry += $0.result.childElements
-            self.tableView.reloadData()
-            self.tableView.mj_footer.endRefreshing()
-        }) { _ in
-            self.tableView.mj_footer.endRefreshing()
-        }
-    }
 }
 
 // MARK: - UITableViewDataSource
@@ -121,5 +124,7 @@ extension OriginalViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        let vc = ContentDetailViewController(ID: columnAry[indexPath.row].Id)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
