@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftTheme
 
 class ColumnListCell: UITableViewCell, NibReusable {
 
@@ -31,10 +32,29 @@ class ColumnListCell: UITableViewCell, NibReusable {
         }
     }
     
+    // MARK: - 重写frame
+    override var frame: CGRect {
+        
+        didSet {
+            
+            var newFrame = frame
+            newFrame.origin.x += 10
+            newFrame.size.width -= 20
+            newFrame.origin.y += 15
+            newFrame.size.height -= 15
+            super.frame = newFrame
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        
+        setUpTheme()
     }
     
+    // MARK: - 设置主题
+    private func setUpTheme() {
+        
+        contentView.theme_backgroundColor = "colors.backgroundColor"
+    }
 }

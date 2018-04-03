@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftNotificationCenter
+import SwiftTheme
 
 class OriginalViewController: BaseViewController {
 
@@ -21,6 +22,9 @@ class OriginalViewController: BaseViewController {
         tableView.delegate = self
         tableView.register(cellType: ColumnListCell.self)
         tableView.rowHeight = 250
+        tableView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
+        tableView.contentInset = UIEdgeInsetsMake(kTopH, 0, 0, 0)
+        tableView.scrollIndicatorInsets = UIEdgeInsetsMake(kTopH, 0, 0, 0)
         tableView.separatorStyle = .none
         return tableView
     }()
@@ -29,6 +33,7 @@ class OriginalViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setUpNavi()
         setUpUI()
     }
     
@@ -51,6 +56,16 @@ extension OriginalViewController {
         tableView.mj_header = QYRefreshHeader(refreshingTarget: self, refreshingAction: #selector(loadNewColumnContent))
         tableView.mj_footer = QYRefreshFooter(refreshingTarget: self, refreshingAction: #selector(loadMoreColumnContent))
         tableView.mj_header.beginRefreshing()
+    }
+    
+    // MARK: - 设置导航栏
+    private func setUpNavi() {
+        
+        automaticallyAdjustsScrollViewInsets = false
+        let leftItem = UILabel(frame: CGRect(x: 10, y: 0, width: 300, height: kNaviBarH))
+        leftItem.font = PFM18Font
+        leftItem.text = "游民原创"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftItem)
     }
 }
 

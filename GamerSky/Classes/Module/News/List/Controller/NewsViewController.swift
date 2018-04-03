@@ -67,6 +67,7 @@ extension NewsViewController {
         
         tableView.mj_header = QYRefreshHeader(refreshingTarget: self, refreshingAction: #selector(loadNewChannelLists))
         tableView.mj_footer = QYRefreshFooter(refreshingTarget: self, refreshingAction: #selector(loadMoreChannelLists))
+        tableView.mj_footer.isHidden = true
         tableView.mj_header.beginRefreshing()
     }
     
@@ -90,6 +91,7 @@ extension NewsViewController {
             self.headerView.channelListAry = $0.result.first?.childElements
             self.channelListAry.removeFirst()
             self.tableView.reloadData()
+            self.tableView.mj_footer.isHidden = false
             self.tableView.mj_header.endRefreshing()
         }) { _ in
             self.tableView.mj_header.endRefreshing()

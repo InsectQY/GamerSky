@@ -11,6 +11,8 @@
 	</dict>
 	<key>colors</key>
 	<dict>
+		<key>backgroundColor</key>
+		<string>#fff</string>
 		<key>tabbarTintColor</key>
 		<string>#fff</string>
 		<key>navigationBarTintColor</key>
