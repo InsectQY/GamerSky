@@ -11,6 +11,7 @@ import SwiftNotificationCenter
 
 class CircleViewController: BaseViewController {
 
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -11,6 +11,7 @@ import SwiftNotificationCenter
 
 class OriginalViewController: BaseViewController {
 
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
