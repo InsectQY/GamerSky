@@ -4,10 +4,17 @@
 <dict>
 	<key>colors</key>
 	<dict>
+		<key>tabbarTintColor</key>
+		<string>#01040D</string>
 		<key>navigationBarTintColor</key>
 		<string>#01040D</string>
 	</dict>
 	<key>images</key>
-	<dict/>
+	<dict>
+		<key>common_Button_XinWen_Selected</key>
+		<string>common_Button_XinWen_Selected_UIMode_Night</string>
+		<key>common_Button_XinWen</key>
+		<string>common_Button_XinWen_UIMode_Night</string>
+	</dict>
 </dict>
 </plist>

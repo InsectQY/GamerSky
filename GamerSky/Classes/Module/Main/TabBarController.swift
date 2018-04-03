@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftTheme
 
 class TabBarController: UITabBarController {
     
@@ -16,6 +17,7 @@ class TabBarController: UITabBarController {
         
         setUpTabBar()
         seUpTabBarAttr()
+
         guard let jsonPath = Bundle.main.path(forResource: "MainVCSettings.json", ofType: nil) else {
             
             print("没有获取到对应的文件路径")
@@ -46,13 +48,17 @@ class TabBarController: UITabBarController {
     }
 }
 
+extension TabBarController {
+    
+}
+
 // MARK: - 设置 TabBar 属性
 extension TabBarController {
     
     private func setUpTabBar() {
         
         let tabBar = TabBar()
-        tabBar.backgroundColor = .white
+        tabBar.theme_barTintColor = "colors.tabbarTintColor"
         setValue(tabBar, forKey: "tabBar")
     }
     

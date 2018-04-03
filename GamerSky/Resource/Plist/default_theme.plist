@@ -3,9 +3,16 @@
 <plist version="1.0">
 <dict>
 	<key>images</key>
-	<dict/>
+	<dict>
+		<key>common_Button_XinWen_Selected</key>
+		<string>common_Button_XinWen_Selected_UIMode_Day</string>
+		<key>common_Button_XinWen</key>
+		<string>common_Button_XinWen_UIMode_Day</string>
+	</dict>
 	<key>colors</key>
 	<dict>
+		<key>tabbarTintColor</key>
+		<string>#fff</string>
 		<key>navigationBarTintColor</key>
 		<string>#fff</string>
 	</dict>
