@@ -21,12 +21,49 @@ let timeoutClosure = {(endpoint: Endpoint, closure: MoyaProvider<Api>.RequestRes
 
 let ApiProvider = MoyaProvider<Api>(requestClosure: timeoutClosure)
 
+enum GameType: String {
+    /// 最期待的游戏
+    case expected = "most-expected"
+    /// 大家都在玩的游戏
+    case hot = "recent-hot"
+    /// 即将上市的游戏
+    case newSelling = "new-selling"
+}
+
+enum GameRanking: String {
+    /// 热门榜
+    case hot = "hot"
+    /// 高分榜
+    case score = "fractions"
+}
+
 enum Api {
     
+    ///////////////  新闻  ///////////////
     /// 新闻频道
     case allChannel
-    /// 频道列表
+    /// 频道列表(第一个参数是 page 第二个参数是频道 ID)
     case allChannelList(Int, Int)
+    
+    ///////////////  游戏  ///////////////
+    /// 特色专题(参数是 page)
+    case gameSpecialList(Int)
+    /// 游戏类型(第一个参数是 page, GameType: 游戏类型)
+    case gameHomePage(Int, GameType)
+    /// 游戏排行(第一个参数是 page, GameRanking: 排行榜类型, 第二个参数是游戏种类 FPS,ACT 这种传 ID, 第三个参数是年代, 热门榜总榜才有年)
+    case gameRankingList(Int, GameRanking, String, String)
+    /// 找游戏, 游戏标签
+    case gameTags
+    /// 新游推荐(第一个参数是 page 第二个参数是 ID)
+    case gameSpecialDetail(Int, String)
+    
+    ///////////////  圈子  ///////////////
+    
+    ///////////////  原创  ///////////////
+    /// 全部栏目
+    case columnNodeList
+    /// 最新动态(第一个参数是 page 第二个参数是频道 ID)
+    case columnContent(Int, Int)
 }
 
 extension Api: TargetType {
@@ -40,8 +77,22 @@ extension Api: TargetType {
         switch self {
         case .allChannel:
             return "v2/allchannel"
-        case .allChannelList(_, _):
+        case .allChannelList:
             return "v2/AllChannelList"
+        case .gameSpecialList:
+            return "game/gameSpecialList"
+        case .gameHomePage:
+            return "game/gameHomePage"
+        case .gameRankingList:
+            return "game/rankingList"
+        case .gameTags:
+            return "game/GameTags"
+        case .gameSpecialDetail:
+            return "game/gameSpecialDetail"
+        case .columnNodeList:
+            return "v2/ColumnNodeList"
+        case .columnContent:
+            return "v2/ColumnContent"
         }
     }
     
@@ -72,8 +123,43 @@ extension Api: TargetType {
             
             parmeters["request"] = ["parentNodeId" : "news",
                                     "nodeIds" : "\(nodeID)",
-                                    "pageIndex": "\(page)",
-                                    "elementsCountPerPage" : "20"]
+                                    "pageIndex": page,
+                                    "elementsCountPerPage" : 20]
+            
+        case let .gameSpecialList(page):
+            parmeters["request"] = ["nodeId" : "1",
+                                    "pageIndex" : page,
+                                    "elementsCountPerPage": 20]
+        case let .gameHomePage(page, type):
+            parmeters["request"] = ["extraField1" : "Position",
+                                    "extraField2" : "wantplayCount,gsScore",
+                                    "group" : type.rawValue,
+                                    "pageIndex" :  page,
+                                    "elementsCountPerPage" : 20]
+        case let .gameRankingList(page, rankType, gameClass, annualClass):
+            parmeters["request"] = ["type" : rankType.rawValue,
+                                    "gameClass" : gameClass,
+                                    "annualClass" : annualClass,
+                                    "extraField1" : "Position",
+                                    "extraField2" : "gsScore",
+                                    "pageIndex" : page,
+                                    "elementsCountPerPage" : 20]
+        case let .gameSpecialDetail(page , nodeID):
+            parmeters["request"] = ["extraField1" : "Position",
+                                    "extraField2" : "gsScore",
+                                    "extraField3" : "largeImage,description",
+                                    "nodeId" : nodeID,
+                                    "pageIndex" : page,
+                                    "elementsCountPerPage" : 20]
+        case .columnNodeList:
+            parmeters["request"] = ["date" : Date()]
+        case let .columnContent(page, id):
+            parmeters["request"] = ["id" : id,
+                                    "pageIndex" : page,
+                                    "elementsCountPerPage" : 20]
+        default:
+            return .requestPlain
+            
         }
         
         return .requestParameters(parameters: parmeters, encoding: JSONEncoding.default)
