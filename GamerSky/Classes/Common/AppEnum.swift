@@ -66,3 +66,13 @@ enum SearchType: String {
     /// 新闻
     case news = "news"
 }
+
+enum ThirdPartyLogin: String {
+    
+    /// QQ
+    case QQ = "qq"
+    /// 微信
+    case WeChat = "weixin"
+    /// 微博
+    case WeiBo = "weibo"
+}

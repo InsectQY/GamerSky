@@ -26,19 +26,19 @@ enum Api {
     ///////////////  新闻  ///////////////
     /// 新闻频道
     case allChannel
-    /// 频道列表(第一个参数是 page 第二个参数是频道 ID)
+    /// 频道列表(参数依次是: page, 频道 ID)
     case allChannelList(Int, Int)
     
     ///////////////  游戏  ///////////////
     /// 特色专题(参数是 page)
     case gameSpecialList(Int)
-    /// 游戏类型(第一个参数是 page, GameType: 游戏类型)
+    /// 游戏类型(参数依次是: page, 游戏类型)
     case gameHomePage(Int, GameType)
-    /// 游戏排行(第一个参数是 page, GameRanking: 排行榜类型, 第二个参数是游戏种类 FPS,ACT 这种传 ID, 第三个参数是年代, 热门榜总榜才有年)
+    /// 游戏排行(参数依次是: page, 排行榜类型, 游戏种类ID, 年代[热门榜总榜才有年])
     case gameRankingList(Int, GameRanking, String, String)
     /// 找游戏, 游戏标签
     case gameTags
-    /// 新游推荐(第一个参数是 page 第二个参数是 ID)
+    /// 新游推荐(参数依次是: page, ID)
     case gameSpecialDetail(Int, String)
     
     ///////////////  圈子  ///////////////
@@ -46,15 +46,29 @@ enum Api {
     ///////////////  原创  ///////////////
     /// 全部栏目
     case columnNodeList
-    /// 最新动态(第一个参数是 page 第二个参数是频道 ID)
+    /// 最新动态(参数依次是: page, 频道 ID)
     case columnContent(Int, Int)
     
     ///////////////  搜索 ///////////////
     
     /// 热搜
     case hotSearch
-    /// 搜索(第一个参数是 page, 第二个参数是搜索类型, 第三个参数是搜索内容)
+    /// 搜索(参数依次是: page, 搜索类型, 搜索内容)
     case twoSearch(Int, SearchType, String)
+    
+    
+    ///////////////  登陆注册 ///////////////
+    
+    /// 获取短信验证码(参数依次是: 手机号)
+    case getVerificationCode(String)
+    /// 校验验证码(参数依次是: 手机号, 验证码)
+    case checkCode(String, String)
+    /// 获取随机用户名
+    case getRandomUserName
+    /// 注册账号(参数依次是: 手机号, 用户名, 密码, token)
+    case register(String, String, String, String)
+    /// 第三方登陆(参数依次是: 第三方平台类型, 授权ID)
+    case thirdPartyLogin(ThirdPartyLogin, String)
 }
 
 extension Api: TargetType {
@@ -88,6 +102,16 @@ extension Api: TargetType {
             return "v2/SearchHotDict"
         case .twoSearch:
             return "v2/TwoSearch"
+        case .getVerificationCode:
+            return "v2/GetVerificationCode"
+        case .checkCode:
+            return "v2/CheckCode"
+        case .getRandomUserName:
+            return "v2/GetRandomUserName"
+        case .register:
+            return "v2/Register"
+        case .thirdPartyLogin:
+            return "v2/ThirdPartyLogin"
         }
     }
     
@@ -159,9 +183,28 @@ extension Api: TargetType {
                                     "searchKey" : searchKey,
                                     "pageIndex" : page,
                                     "elementsCountPerPage" : 20]
+        case let .getVerificationCode(phoneNumber):
+            parmeters["request"] = ["codetype" : 1,
+                                    "phoneNumber" : phoneNumber,
+                                    "email" : "",
+                                    "username" : ""]
+        case let .checkCode(phoneNumber, code):
+            parmeters["request"] = ["codeType" : 1,
+                                    "phone" : phoneNumber,
+                                    "email" : "",
+                                    "veriCode" : code]
+        case .getRandomUserName:
+            parmeters["request"] = ["" : ""]
+        case let .register(phoneNumber, userName, password, varifyToken):
+            parmeters["request"] = ["phoneNumber" : phoneNumber,
+                                    "userName" : userName,
+                                    "password" : password,
+                                    "varifyToken" : varifyToken]
+        case let .thirdPartyLogin(thirdParty, thirdPartyID):
+            parmeters["request"] = ["thirdParty" : thirdParty.rawValue,
+                                    "thirdPartyID" : thirdPartyID]
         default:
             return .requestPlain
-            
         }
         
         return .requestParameters(parameters: parmeters, encoding: JSONEncoding.default)
