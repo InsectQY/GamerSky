@@ -21,22 +21,6 @@ let timeoutClosure = {(endpoint: Endpoint, closure: MoyaProvider<Api>.RequestRes
 
 let ApiProvider = MoyaProvider<Api>(requestClosure: timeoutClosure)
 
-enum GameType: String {
-    /// 最期待的游戏
-    case expected = "most-expected"
-    /// 大家都在玩的游戏
-    case hot = "recent-hot"
-    /// 即将上市的游戏
-    case newSelling = "new-selling"
-}
-
-enum GameRanking: String {
-    /// 热门榜
-    case hot = "hot"
-    /// 高分榜
-    case score = "fractions"
-}
-
 enum Api {
     
     ///////////////  新闻  ///////////////
@@ -64,6 +48,13 @@ enum Api {
     case columnNodeList
     /// 最新动态(第一个参数是 page 第二个参数是频道 ID)
     case columnContent(Int, Int)
+    
+    ///////////////  搜索 ///////////////
+    
+    /// 热搜
+    case hotSearch
+    /// 搜索(第一个参数是 page, 第二个参数是搜索类型, 第三个参数是搜索内容)
+    case twoSearch(Int, SearchType, String)
 }
 
 extension Api: TargetType {
@@ -93,6 +84,10 @@ extension Api: TargetType {
             return "v2/ColumnNodeList"
         case .columnContent:
             return "v2/ColumnContent"
+        case .hotSearch:
+            return "v2/SearchHotDict"
+        case .twoSearch:
+            return "v2/TwoSearch"
         }
     }
     
@@ -155,6 +150,13 @@ extension Api: TargetType {
             parmeters["request"] = ["date" : Date()]
         case let .columnContent(page, id):
             parmeters["request"] = ["id" : id,
+                                    "pageIndex" : page,
+                                    "elementsCountPerPage" : 20]
+        case .hotSearch:
+            parmeters["request"] = ["searchType" : "strategy"]
+        case let .twoSearch(page, searchType, searchKey):
+            parmeters["request"] = ["searchType" : searchType.rawValue,
+                                    "searchKey" : searchKey,
                                     "pageIndex" : page,
                                     "elementsCountPerPage" : 20]
         default:

@@ -44,6 +44,9 @@ extension ContentDetailViewController {
     // MARK: - 设置导航栏
     private func setUpNavi() {
         
+        if #available(iOS 11.0, *) {
+            webView.scrollView.contentInsetAdjustmentBehavior = .never
+        }
         automaticallyAdjustsScrollViewInsets = false
         //        navigationItem.rightBarButtonItem = UIBarButtonItem()
     }
@@ -52,7 +55,7 @@ extension ContentDetailViewController {
     private func setUpRefresh() {
         
         webView.scrollView.mj_header = QYRefreshHeader { [weak self] in
-            
+
             guard let strongSelf = self else {return}
             guard let URL = URL(string: "\(HostIP)/v1/ContentDetail/\(strongSelf.contentID)/1?fontSize=0&nullImageMode=1&tag=news&deviceid=\(deviceID)&platform=ios&nightMode=0&v=") else {return}
             strongSelf.webView.load(URLRequest(url: URL))

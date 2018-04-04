@@ -18,13 +18,13 @@ class NewsViewController: BaseViewController {
     private lazy var tableView: UITableView = {
         
         let tableView = UITableView(frame: UIScreen.main.bounds)
-        tableView.rowHeight = ScreenWidth * 0.22
         tableView.separatorStyle = .none
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(cellType: ChannelListCell.self)
         tableView.contentInset = UIEdgeInsetsMake(kTopH, 0, KBottomH, 0)
         tableView.scrollIndicatorInsets = UIEdgeInsetsMake(kTopH, 0, KBottomH, 0)
+        tableView.rowHeight = ScreenWidth * 0.22
         return tableView
     }()
     
@@ -104,7 +104,6 @@ extension NewsViewController {
     
     // MARK: - 设置头部视图
     private func setUpHeaderView() {
-    
         tableView.tableHeaderView = headerView
     }
 }

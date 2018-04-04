@@ -11,7 +11,7 @@ import UIKit
 //MARK:- 全局公用属性
 public let ScreenWidth: CGFloat = UIScreen.main.bounds.size.width
 public let ScreenHeight: CGFloat = UIScreen.main.bounds.size.height
-let isX:Bool = (ScreenHeight == CGFloat(812) && ScreenWidth == CGFloat(375))
+public let isX:Bool = (ScreenHeight == CGFloat(812) && ScreenWidth == CGFloat(375))
 public let kStatusBarH: CGFloat = UIApplication.shared.statusBarFrame.size.height
 public let kNaviBarH: CGFloat = 44
 public let kTopH: CGFloat = kStatusBarH + kNaviBarH
@@ -23,7 +23,7 @@ public let HostIP = "http://appapi2.gamersky.com"
 /// 系统版本
 public let osVersion = UIDevice.current.systemVersion
 /// 设备 ID
-let deviceID = UIDevice.current.identifierForVendor!.uuidString
+public let deviceID = UIDevice.current.identifierForVendor!.uuidString
 
 
 // MARK: -- 颜色
