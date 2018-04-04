@@ -17,7 +17,7 @@ class NewsViewController: BaseViewController {
     private lazy var channelListAry = [ChannelList]()
     private lazy var tableView: UITableView = {
         
-        let tableView = UITableView(frame: UIScreen.main.bounds)
+        let tableView = BaseTableView(frame: UIScreen.main.bounds)
         tableView.separatorStyle = .none
         tableView.dataSource = self
         tableView.delegate = self

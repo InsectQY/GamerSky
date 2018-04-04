@@ -8,9 +8,9 @@
 
 import UIKit
 
-class MineViewController: UIViewController {
+class MineViewController: BaseViewController {
 
-    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: BaseTableView!
     
     private let mineCellID = "mineCellID"
     
@@ -26,6 +26,7 @@ class MineViewController: UIViewController {
         super.viewDidLoad()
 
         setUpNavi()
+        setUpTableView()
     }
 }
 
@@ -36,6 +37,11 @@ extension MineViewController {
         
         automaticallyAdjustsScrollViewInsets = false
         fd_prefersNavigationBarHidden = true
+    }
+    
+    // MARK: - 设置tableView
+    private func setUpTableView() {
+//        tableView.qy_themeBackgroundColor = "colors.gainTableViewBackgroundColor"
     }
 }
 
@@ -55,7 +61,7 @@ extension MineViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = UITableViewCell(style: .value1, reuseIdentifier: mineCellID)
+        let cell = BaseTableViewCell(style: .value1, reuseIdentifier: mineCellID)
         cell.textLabel?.text = "夜间模式"
         cell.selectionStyle = .none
         cell.contentView.addSubview(nightModeSwitch)

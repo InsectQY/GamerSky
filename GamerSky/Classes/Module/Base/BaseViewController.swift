@@ -8,14 +8,23 @@
 
 import UIKit
 import SwiftNotificationCenter
+import SwiftTheme
 
 class BaseViewController: UIViewController {
 
+    /// 主题背景颜色(传路径)
+    public var qy_themeBackgroundColor = "colors.backgroundColor" {
+        
+        didSet {
+            initTheme()
+        }
+    }
+    
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .white
+        initTheme()
         registerNotification()
     }
     
@@ -24,6 +33,14 @@ class BaseViewController: UIViewController {
     }
     
     func repeatClickTabBar() {}
+}
+
+extension BaseViewController {
+    
+    // MARK: - 主题设置
+    private func initTheme() {
+        view.theme_backgroundColor = ThemeColorPicker(keyPath: qy_themeBackgroundColor)
+    }
 }
 
 // MARK: - 通知

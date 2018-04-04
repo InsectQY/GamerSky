@@ -2,6 +2,17 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>colors</key>
+	<dict>
+		<key>textColor</key>
+		<string>#000</string>
+		<key>backgroundColor</key>
+		<string>#fff</string>
+		<key>tabbarTintColor</key>
+		<string>#fff</string>
+		<key>navigationBarTintColor</key>
+		<string>#fff</string>
+	</dict>
 	<key>images</key>
 	<dict>
 		<key>common_Icon_Recommend_10x10</key>
@@ -10,17 +21,6 @@
 		<string>common_Button_XinWen_Selected_UIMode_Day</string>
 		<key>common_Button_XinWen</key>
 		<string>common_Button_XinWen_UIMode_Day</string>
-	</dict>
-	<key>colors</key>
-	<dict>
-		<key>textColor</key>
-		<string>#A9A9A9</string>
-		<key>backgroundColor</key>
-		<string>#fff</string>
-		<key>tabbarTintColor</key>
-		<string>#fff</string>
-		<key>navigationBarTintColor</key>
-		<string>#fff</string>
 	</dict>
 </dict>
 </plist>

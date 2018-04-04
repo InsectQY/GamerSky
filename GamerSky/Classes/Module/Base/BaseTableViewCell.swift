@@ -12,7 +12,7 @@ import SwiftTheme
 class BaseTableViewCell: UITableViewCell {
 
     /// 主题背景颜色(传路径)
-    public var themeBackgroundColor = "colors.backgroundColor" {
+    public var qy_themeBackgroundColor = "colors.backgroundColor" {
         
         didSet {
             initTheme()
@@ -20,7 +20,7 @@ class BaseTableViewCell: UITableViewCell {
     }
     
     /// 主题文字颜色(传路径)
-    public var themeTextLabelColor = "colors.textColor" {
+    public var qy_themeTextLabelColor = "colors.textColor" {
         
         didSet {
             initTheme()
@@ -49,7 +49,7 @@ extension BaseTableViewCell {
     // MARK: - 主题设置
     private func initTheme() {
         
-        theme_backgroundColor = ThemeColorPicker(keyPath: themeBackgroundColor)
-        textLabel?.theme_textColor = ThemeColorPicker(keyPath: themeTextLabelColor)
+        theme_backgroundColor = ThemeColorPicker(keyPath: qy_themeBackgroundColor)
+        textLabel?.theme_textColor = ThemeColorPicker(keyPath: qy_themeTextLabelColor)
     }
 }

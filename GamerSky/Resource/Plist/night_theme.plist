@@ -5,7 +5,7 @@
 	<key>colors</key>
 	<dict>
 		<key>textColor</key>
-		<string>#D3D3D3</string>
+		<string>#808080</string>
 		<key>backgroundColor</key>
 		<string>#01040D</string>
 		<key>tabbarTintColor</key>

@@ -12,7 +12,7 @@ import SwiftTheme
 class BaseView: UIView {
 
     /// 主题背景颜色(传路径)
-    public var themeBackgroundColor = "colors.backgroundColor" {
+    public var qy_themeBackgroundColor = "colors.backgroundColor" {
         
         didSet {
             initTheme()
@@ -40,6 +40,6 @@ extension BaseView {
     
     // MARK: - 主题设置
     private func initTheme() {
-        theme_backgroundColor = ThemeColorPicker(keyPath: themeBackgroundColor)
+        theme_backgroundColor = ThemeColorPicker(keyPath: qy_themeBackgroundColor)
     }
 }

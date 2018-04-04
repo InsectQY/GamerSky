@@ -8,12 +8,13 @@
 
 import UIKit
 import FSPagerView
+import SwiftTheme
 
-private let CycleCellID = "CycleCellID"
+class NewsTableHeaderView: BaseView, NibReusable {
 
-class NewsTableHeaderView: UIView, NibReusable {
-
-    @IBOutlet private weak var pageContentView: UIView!
+    private let CycleCellID = "CycleCellID"
+    
+    @IBOutlet private weak var pageContentView: BaseView!
     @IBOutlet private weak var titleLabel: UILabel!
     
     var channelListAry: [ChannelList]? {
@@ -35,7 +36,7 @@ class NewsTableHeaderView: UIView, NibReusable {
 
     // MARK: - awakeFromNib
     override func awakeFromNib() {
-       
+       theme_backgroundColor = ThemeColorPicker(keyPath: "colors.backgroundColor")
         pageContentView.addSubview(pagerView)
     }    
 }

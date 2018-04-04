@@ -12,7 +12,7 @@ import SwiftTheme
 class BaseLabel: UILabel {
 
     /// 主题文字颜色(传路径)
-    public var themeTextColor = "colors.textColor" {
+    public var qy_themeTextColor = "colors.textColor" {
         
         didSet {
             initTheme()
@@ -50,6 +50,6 @@ extension BaseLabel {
     
     // MARK: - 主题设置
     private func initTheme() {
-        theme_textColor = ThemeColorPicker(keyPath: themeTextColor)
+        theme_textColor = ThemeColorPicker(keyPath: qy_themeTextColor)
     }
 }
