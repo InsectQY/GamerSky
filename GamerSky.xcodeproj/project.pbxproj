@@ -25,6 +25,15 @@
 		994141082074605E0016AC01 /* AppEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994141072074605E0016AC01 /* AppEnum.swift */; };
 		9941410E20747B0C0016AC01 /* BaseLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9941410D20747B0C0016AC01 /* BaseLabel.swift */; };
 		9941411020747F8C0016AC01 /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9941410F20747F8C0016AC01 /* BaseButton.swift */; };
+		994141132074A2CD0016AC01 /* NewsSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994141122074A2CD0016AC01 /* NewsSectionHeaderView.swift */; };
+		994141152074A2D90016AC01 /* NewsSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 994141142074A2D90016AC01 /* NewsSectionHeaderView.xib */; };
+		994141172074B1820016AC01 /* BaseTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994141162074B1820016AC01 /* BaseTableView.swift */; };
+		994141192074B3B80016AC01 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994141182074B3B80016AC01 /* BaseTableViewCell.swift */; };
+		9941411D2074B45E0016AC01 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9941411A2074B45E0016AC01 /* BaseCollectionViewCell.swift */; };
+		9941411E2074B45E0016AC01 /* BaseCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9941411B2074B45E0016AC01 /* BaseCollectionView.swift */; };
+		9941411F2074B45E0016AC01 /* BaseCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9941411C2074B45E0016AC01 /* BaseCollectionReusableView.swift */; };
+		994141212074B5340016AC01 /* BaseTableHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994141202074B5340016AC01 /* BaseTableHeaderFooterView.swift */; };
+		994141232074B7C00016AC01 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994141222074B7C00016AC01 /* BaseView.swift */; };
 		9966510F20735FFB0010430E /* MineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9966510D20735FFB0010430E /* MineViewController.swift */; };
 		9966511020735FFB0010430E /* MineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9966510E20735FFB0010430E /* MineViewController.xib */; };
 		9966511420736D7D0010430E /* default_theme.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9966511320736D7D0010430E /* default_theme.plist */; };
@@ -74,6 +83,15 @@
 		994141072074605E0016AC01 /* AppEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnum.swift; sourceTree = "<group>"; };
 		9941410D20747B0C0016AC01 /* BaseLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseLabel.swift; sourceTree = "<group>"; };
 		9941410F20747F8C0016AC01 /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
+		994141122074A2CD0016AC01 /* NewsSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsSectionHeaderView.swift; sourceTree = "<group>"; };
+		994141142074A2D90016AC01 /* NewsSectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsSectionHeaderView.xib; sourceTree = "<group>"; };
+		994141162074B1820016AC01 /* BaseTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableView.swift; sourceTree = "<group>"; };
+		994141182074B3B80016AC01 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		9941411A2074B45E0016AC01 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		9941411B2074B45E0016AC01 /* BaseCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCollectionView.swift; sourceTree = "<group>"; };
+		9941411C2074B45E0016AC01 /* BaseCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCollectionReusableView.swift; sourceTree = "<group>"; };
+		994141202074B5340016AC01 /* BaseTableHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableHeaderFooterView.swift; sourceTree = "<group>"; };
+		994141222074B7C00016AC01 /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		9966510D20735FFB0010430E /* MineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineViewController.swift; sourceTree = "<group>"; };
 		9966510E20735FFB0010430E /* MineViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineViewController.xib; sourceTree = "<group>"; };
 		9966511320736D7D0010430E /* default_theme.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = default_theme.plist; sourceTree = "<group>"; };
@@ -160,6 +178,13 @@
 		9906819020721A8C00A825AC /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				994141222074B7C00016AC01 /* BaseView.swift */,
+				994141202074B5340016AC01 /* BaseTableHeaderFooterView.swift */,
+				9941411C2074B45E0016AC01 /* BaseCollectionReusableView.swift */,
+				9941411B2074B45E0016AC01 /* BaseCollectionView.swift */,
+				9941411A2074B45E0016AC01 /* BaseCollectionViewCell.swift */,
+				994141182074B3B80016AC01 /* BaseTableViewCell.swift */,
+				994141162074B1820016AC01 /* BaseTableView.swift */,
 				9906818C2072019E00A825AC /* BaseViewController.swift */,
 				9906819120721AAA00A825AC /* BaseModel.swift */,
 				9941410D20747B0C0016AC01 /* BaseLabel.swift */,
@@ -174,6 +199,15 @@
 				9906819420721F8700A825AC /* Channel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		994141112074A2940016AC01 /* SectionHeader */ = {
+			isa = PBXGroup;
+			children = (
+				994141122074A2CD0016AC01 /* NewsSectionHeaderView.swift */,
+				994141142074A2D90016AC01 /* NewsSectionHeaderView.xib */,
+			);
+			path = SectionHeader;
 			sourceTree = "<group>";
 		};
 		99665111207362A00010430E /* Cell */ = {
@@ -249,13 +283,13 @@
 		998F0C2C2071EB6E00C587C2 /* Module */ = {
 			isa = PBXGroup;
 			children = (
-				9906819020721A8C00A825AC /* Base */,
-				998F0C732071F7D000C587C2 /* Mine */,
-				998F0C6F2071F79500C587C2 /* Original */,
-				998F0C6B2071F75D00C587C2 /* Circle */,
-				998F0C672071F70B00C587C2 /* Game */,
-				998F0C632071F6DB00C587C2 /* News */,
 				998F0C2F2071EBA800C587C2 /* Main */,
+				9906819020721A8C00A825AC /* Base */,
+				998F0C632071F6DB00C587C2 /* News */,
+				998F0C672071F70B00C587C2 /* Game */,
+				998F0C6B2071F75D00C587C2 /* Circle */,
+				998F0C6F2071F79500C587C2 /* Original */,
+				998F0C732071F7D000C587C2 /* Mine */,
 			);
 			path = Module;
 			sourceTree = "<group>";
@@ -488,7 +522,8 @@
 		E56802DB20724AA600CF944E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E56802E320725C2700CF944E /* Header */,
+				994141112074A2940016AC01 /* SectionHeader */,
+				E56802E320725C2700CF944E /* TableHeader */,
 				E56802E220725C1B00CF944E /* Cell */,
 			);
 			path = View;
@@ -503,13 +538,13 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		E56802E320725C2700CF944E /* Header */ = {
+		E56802E320725C2700CF944E /* TableHeader */ = {
 			isa = PBXGroup;
 			children = (
 				E56802E420725C9100CF944E /* NewsTableHeaderView.swift */,
 				E56802E620725CBE00CF944E /* NewsTableHeaderView.xib */,
 			);
-			path = Header;
+			path = TableHeader;
 			sourceTree = "<group>";
 		};
 		E56802E82072686A00CF944E /* List */ = {
@@ -642,6 +677,7 @@
 				998F0C2E2071EB9A00C587C2 /* MainVCSettings.json in Resources */,
 				E5F8116920739AAB00E9883F /* ColumnHeaderView.xib in Resources */,
 				E56802E720725CBE00CF944E /* NewsTableHeaderView.xib in Resources */,
+				994141152074A2D90016AC01 /* NewsSectionHeaderView.xib in Resources */,
 				9966511020735FFB0010430E /* MineViewController.xib in Resources */,
 				E5F8116D20739B3400E9883F /* ColumnListCell.xib in Resources */,
 				9966511420736D7D0010430E /* default_theme.plist in Resources */,
@@ -743,15 +779,19 @@
 				99E7999B2071E10E005C3408 /* AppDelegate.swift in Sources */,
 				990681812071FD5B00A825AC /* TabBar.swift in Sources */,
 				9966510F20735FFB0010430E /* MineViewController.swift in Sources */,
+				994141172074B1820016AC01 /* BaseTableView.swift in Sources */,
 				E5F8116720739A8C00E9883F /* ColumnHeaderView.swift in Sources */,
 				9966511820736F580010430E /* AppTheme.swift in Sources */,
 				998F0C372071EE2E00C587C2 /* AppConfig.swift in Sources */,
 				998F0C452071EEC500C587C2 /* UIView + Frame.swift in Sources */,
+				994141132074A2CD0016AC01 /* NewsSectionHeaderView.swift in Sources */,
 				E56802DE20724AEB00CF944E /* ChannelListCell.swift in Sources */,
 				E56802E120724EEB00CF944E /* Kingfisher + Extension.swift in Sources */,
 				9906818D2072019E00A825AC /* BaseViewController.swift in Sources */,
 				998F0C332071EBCE00C587C2 /* NavigationController.swift in Sources */,
+				9941411E2074B45E0016AC01 /* BaseCollectionView.swift in Sources */,
 				E56802E520725C9100CF944E /* NewsTableHeaderView.swift in Sources */,
+				9941411F2074B45E0016AC01 /* BaseCollectionReusableView.swift in Sources */,
 				998F0C432071EEAB00C587C2 /* NibLoadable.swift in Sources */,
 				998F0C6E2071F77800C587C2 /* CircleViewController.swift in Sources */,
 				9906819220721AAA00A825AC /* BaseModel.swift in Sources */,
@@ -759,18 +799,22 @@
 				998F0C602071EFB100C587C2 /* QYRefresh.swift in Sources */,
 				E5F8116520738C2400E9883F /* Column.swift in Sources */,
 				994141082074605E0016AC01 /* AppEnum.swift in Sources */,
+				994141192074B3B80016AC01 /* BaseTableViewCell.swift in Sources */,
 				E56802EC207268A500CF944E /* ContentDetailViewController.swift in Sources */,
+				994141212074B5340016AC01 /* BaseTableHeaderFooterView.swift in Sources */,
 				E56802F0207274E900CF944E /* NewsPageViewController.swift in Sources */,
 				998F0C422071EEAB00C587C2 /* UITableView+Reusable.swift in Sources */,
 				9941410E20747B0C0016AC01 /* BaseLabel.swift in Sources */,
 				998F0C5F2071EFB100C587C2 /* GetVc.swift in Sources */,
 				9906819520721F8700A825AC /* Channel.swift in Sources */,
+				9941411D2074B45E0016AC01 /* BaseCollectionViewCell.swift in Sources */,
 				E5F8116C20739B3400E9883F /* ColumnListCell.swift in Sources */,
 				998F0C6A2071F72800C587C2 /* GameViewController.swift in Sources */,
 				998F0C3A2071EE8800C587C2 /* Api.swift in Sources */,
 				998F0C662071F6F700C587C2 /* NewsViewController.swift in Sources */,
 				998F0C322071EBCE00C587C2 /* TabBarController.swift in Sources */,
 				998F0C412071EEAB00C587C2 /* Reusable.swift in Sources */,
+				994141232074B7C00016AC01 /* BaseView.swift in Sources */,
 				9941411020747F8C0016AC01 /* BaseButton.swift in Sources */,
 				998F0C722071F7AD00C587C2 /* OriginalViewController.swift in Sources */,
 			);

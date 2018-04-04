@@ -33,6 +33,7 @@ class NewsTableHeaderView: UIView, NibReusable {
         return pagerView
     }()
 
+    // MARK: - awakeFromNib
     override func awakeFromNib() {
        
         pageContentView.addSubview(pagerView)

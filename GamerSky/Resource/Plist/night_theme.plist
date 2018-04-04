@@ -4,6 +4,8 @@
 <dict>
 	<key>colors</key>
 	<dict>
+		<key>textColor</key>
+		<string>#D3D3D3</string>
 		<key>backgroundColor</key>
 		<string>#01040D</string>
 		<key>tabbarTintColor</key>
@@ -13,6 +15,8 @@
 	</dict>
 	<key>images</key>
 	<dict>
+		<key>common_Icon_Recommend_10x10</key>
+		<string>common_Icon_Recommend_10x10_UIMode_Night</string>
 		<key>common_Button_XinWen_Selected</key>
 		<string>common_Button_XinWen_Selected_UIMode_Night</string>
 		<key>common_Button_XinWen</key>

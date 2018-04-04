@@ -42,8 +42,6 @@ extension MineViewController {
 extension MineViewController {
     
     @objc private func nightModeSwitchChanged() {
-        
-        print("开关\(nightModeSwitch.isOn)")
         AppTheme.switchNight(nightModeSwitch.isOn)
     }
 }

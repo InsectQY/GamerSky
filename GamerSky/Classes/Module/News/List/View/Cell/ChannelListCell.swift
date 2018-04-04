@@ -29,9 +29,19 @@ class ChannelListCell: UITableViewCell, NibReusable {
         }
     }
     
+    // MARK: - awakeFromNib
     override func awakeFromNib() {
         super.awakeFromNib()
+        setUpTheme()
         commentCountBtn.customFont = PFR12Font
     }
+}
+
+extension ChannelListCell {
     
+    // MARK: - 设置主题
+    private func setUpTheme() {
+        
+        contentView.theme_backgroundColor = "colors.backgroundColor"
+    }
 }

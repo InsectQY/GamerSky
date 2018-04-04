@@ -10,7 +10,7 @@
     </dependencies>
     <customFonts key="customFonts">
         <array key="PingFang.ttc">
-            <string>PingFangSC-Regular</string>
+            <string>PingFangSC-Medium</string>
         </array>
     </customFonts>
     <objects>
@@ -21,16 +21,16 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GQQ-Zr-Jxz" customClass="BaseLabel" customModule="GamerSky" customModuleProvider="target">
-                    <rect key="frame" x="7" y="210" width="368" height="30"/>
+                    <rect key="frame" x="7" y="201" width="368" height="44"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="CBb-sM-h1x"/>
+                        <constraint firstAttribute="height" constant="44" id="CBb-sM-h1x"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="17"/>
+                    <fontDescription key="fontDescription" name="PingFangSC-Medium" family="PingFang SC" pointSize="18"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rgw-nJ-JH6">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="205"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="201"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>
@@ -38,9 +38,9 @@
             <constraints>
                 <constraint firstItem="GQQ-Zr-Jxz" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="7" id="Ctj-9S-dU3"/>
                 <constraint firstItem="rgw-nJ-JH6" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Vf7-rw-iae"/>
-                <constraint firstAttribute="bottom" secondItem="GQQ-Zr-Jxz" secondAttribute="bottom" constant="5" id="XMI-Ia-cTs"/>
+                <constraint firstAttribute="bottom" secondItem="GQQ-Zr-Jxz" secondAttribute="bottom" id="XMI-Ia-cTs"/>
                 <constraint firstAttribute="trailing" secondItem="GQQ-Zr-Jxz" secondAttribute="trailing" id="XQi-f4-l0K"/>
-                <constraint firstItem="GQQ-Zr-Jxz" firstAttribute="top" secondItem="rgw-nJ-JH6" secondAttribute="bottom" constant="5" id="eE5-q3-PZb"/>
+                <constraint firstItem="GQQ-Zr-Jxz" firstAttribute="top" secondItem="rgw-nJ-JH6" secondAttribute="bottom" id="eE5-q3-PZb"/>
                 <constraint firstAttribute="trailing" secondItem="rgw-nJ-JH6" secondAttribute="trailing" id="jYD-uQ-tCd"/>
                 <constraint firstItem="rgw-nJ-JH6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="kb2-7v-G1U"/>
             </constraints>

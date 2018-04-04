@@ -22,6 +22,7 @@ class NewsViewController: BaseViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(cellType: ChannelListCell.self)
+        tableView.register(headerFooterViewType: NewsSectionHeaderView.self)
         tableView.contentInset = UIEdgeInsetsMake(kTopH, 0, KBottomH, 0)
         tableView.scrollIndicatorInsets = UIEdgeInsetsMake(kTopH, 0, KBottomH, 0)
         tableView.rowHeight = ScreenWidth * 0.22
@@ -31,7 +32,7 @@ class NewsViewController: BaseViewController {
     private lazy var headerView: NewsTableHeaderView = {
         
         let headerView = NewsTableHeaderView.loadFromNib()
-        headerView.frame = CGRect(x: 0, y: 0, width: ScreenWidth, height: ScreenHeight * 0.3)
+        headerView.frame = CGRect(x: 0, y: 0, width: ScreenWidth, height: ScreenHeight * 0.31)
         return headerView
     }()
     
@@ -125,6 +126,16 @@ extension NewsViewController: UITableViewDataSource {
 
 // MARK: - UITableViewDelegate
 extension NewsViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let headerView = tableView.dequeueReusableHeaderFooterView(NewsSectionHeaderView.self)
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30
+    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
