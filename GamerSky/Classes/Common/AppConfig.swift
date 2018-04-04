@@ -16,7 +16,8 @@ public let KTabbarH: CGFloat = AppDelegate.tabBarContoller.tabBar.frame.height
 public let KBottomH: CGFloat = Device.Size() == .iPhoneX ? KTabbarH + 34: KTabbarH
 
 /// 主机地址
-public let HostIP = "http://appapi2.gamersky.com"
+public let AppHostIP = "http://appapi2.gamersky.com"
+public let IHostIP = "http://i.gamersky.com"
 /// 系统版本
 public let osVersion = UIDevice.current.systemVersion
 /// 设备 ID

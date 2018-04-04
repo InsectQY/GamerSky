@@ -69,12 +69,14 @@ enum Api {
     case register(String, String, String, String)
     /// 第三方登陆(参数依次是: 第三方平台类型, 授权ID)
     case thirdPartyLogin(ThirdPartyLogin, String)
+    /// 账号密码登陆(参数依次是: 账号, 密码)
+    case twoLogin(String, String)
 }
 
 extension Api: TargetType {
     
     var baseURL: URL {
-        return URL(string: HostIP)!
+        return URL(string: AppHostIP)!
     }
     
     var path: String {
@@ -112,6 +114,8 @@ extension Api: TargetType {
             return "v2/Register"
         case .thirdPartyLogin:
             return "v2/ThirdPartyLogin"
+        case .twoLogin:
+            return "v2/TwoLogin"
         }
     }
     
@@ -203,6 +207,9 @@ extension Api: TargetType {
         case let .thirdPartyLogin(thirdParty, thirdPartyID):
             parmeters["request"] = ["thirdParty" : thirdParty.rawValue,
                                     "thirdPartyID" : thirdPartyID]
+        case let .twoLogin(userInfo, passWord):
+            parmeters["request"] = ["userInfo" : userInfo,
+                                    "passWord" : passWord]
         default:
             return .requestPlain
         }
