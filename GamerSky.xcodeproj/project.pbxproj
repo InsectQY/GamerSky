@@ -23,6 +23,8 @@
 		9906819220721AAA00A825AC /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9906819120721AAA00A825AC /* BaseModel.swift */; };
 		9906819520721F8700A825AC /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9906819420721F8700A825AC /* Channel.swift */; };
 		994141082074605E0016AC01 /* AppEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994141072074605E0016AC01 /* AppEnum.swift */; };
+		9941410E20747B0C0016AC01 /* BaseLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9941410D20747B0C0016AC01 /* BaseLabel.swift */; };
+		9941411020747F8C0016AC01 /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9941410F20747F8C0016AC01 /* BaseButton.swift */; };
 		9966510F20735FFB0010430E /* MineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9966510D20735FFB0010430E /* MineViewController.swift */; };
 		9966511020735FFB0010430E /* MineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9966510E20735FFB0010430E /* MineViewController.xib */; };
 		9966511420736D7D0010430E /* default_theme.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9966511320736D7D0010430E /* default_theme.plist */; };
@@ -48,7 +50,6 @@
 		99E7999B2071E10E005C3408 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E7999A2071E10E005C3408 /* AppDelegate.swift */; };
 		99E799A22071E10E005C3408 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99E799A12071E10E005C3408 /* Assets.xcassets */; };
 		99E799A52071E10E005C3408 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99E799A32071E10E005C3408 /* LaunchScreen.storyboard */; };
-		99EECD7D207226B300C8E914 /* UIFont + Runtime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EECD7C207226B300C8E914 /* UIFont + Runtime.swift */; };
 		E56802DE20724AEB00CF944E /* ChannelListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56802DC20724AEB00CF944E /* ChannelListCell.swift */; };
 		E56802DF20724AEB00CF944E /* ChannelListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E56802DD20724AEB00CF944E /* ChannelListCell.xib */; };
 		E56802E120724EEB00CF944E /* Kingfisher + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56802E020724EEB00CF944E /* Kingfisher + Extension.swift */; };
@@ -71,6 +72,8 @@
 		9906819120721AAA00A825AC /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		9906819420721F8700A825AC /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		994141072074605E0016AC01 /* AppEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnum.swift; sourceTree = "<group>"; };
+		9941410D20747B0C0016AC01 /* BaseLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseLabel.swift; sourceTree = "<group>"; };
+		9941410F20747F8C0016AC01 /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
 		9966510D20735FFB0010430E /* MineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineViewController.swift; sourceTree = "<group>"; };
 		9966510E20735FFB0010430E /* MineViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineViewController.xib; sourceTree = "<group>"; };
 		9966511320736D7D0010430E /* default_theme.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = default_theme.plist; sourceTree = "<group>"; };
@@ -108,7 +111,6 @@
 		99E799A12071E10E005C3408 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		99E799A42071E10E005C3408 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		99E799A62071E10E005C3408 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		99EECD7C207226B300C8E914 /* UIFont + Runtime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont + Runtime.swift"; sourceTree = "<group>"; };
 		A0B9C44C57C7BCE246F09E2C /* Pods-GamerSky.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GamerSky.release.xcconfig"; path = "Pods/Target Support Files/Pods-GamerSky/Pods-GamerSky.release.xcconfig"; sourceTree = "<group>"; };
 		E56802DC20724AEB00CF944E /* ChannelListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelListCell.swift; sourceTree = "<group>"; };
 		E56802DD20724AEB00CF944E /* ChannelListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChannelListCell.xib; sourceTree = "<group>"; };
@@ -160,6 +162,8 @@
 			children = (
 				9906818C2072019E00A825AC /* BaseViewController.swift */,
 				9906819120721AAA00A825AC /* BaseModel.swift */,
+				9941410D20747B0C0016AC01 /* BaseLabel.swift */,
+				9941410F20747F8C0016AC01 /* BaseButton.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -230,7 +234,6 @@
 				E56802E020724EEB00CF944E /* Kingfisher + Extension.swift */,
 				998F0C612071F18D00C587C2 /* Moya + Codable.swift */,
 				998F0C442071EEC500C587C2 /* UIView + Frame.swift */,
-				99EECD7C207226B300C8E914 /* UIFont + Runtime.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -759,8 +762,8 @@
 				E56802EC207268A500CF944E /* ContentDetailViewController.swift in Sources */,
 				E56802F0207274E900CF944E /* NewsPageViewController.swift in Sources */,
 				998F0C422071EEAB00C587C2 /* UITableView+Reusable.swift in Sources */,
+				9941410E20747B0C0016AC01 /* BaseLabel.swift in Sources */,
 				998F0C5F2071EFB100C587C2 /* GetVc.swift in Sources */,
-				99EECD7D207226B300C8E914 /* UIFont + Runtime.swift in Sources */,
 				9906819520721F8700A825AC /* Channel.swift in Sources */,
 				E5F8116C20739B3400E9883F /* ColumnListCell.swift in Sources */,
 				998F0C6A2071F72800C587C2 /* GameViewController.swift in Sources */,
@@ -768,6 +771,7 @@
 				998F0C662071F6F700C587C2 /* NewsViewController.swift in Sources */,
 				998F0C322071EBCE00C587C2 /* TabBarController.swift in Sources */,
 				998F0C412071EEAB00C587C2 /* Reusable.swift in Sources */,
+				9941411020747F8C0016AC01 /* BaseButton.swift in Sources */,
 				998F0C722071F7AD00C587C2 /* OriginalViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

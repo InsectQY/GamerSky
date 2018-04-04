@@ -11,7 +11,7 @@ import UIKit
 class ChannelListCell: UITableViewCell, NibReusable {
 
     @IBOutlet private weak var thumbImageView: UIImageView!
-    @IBOutlet private weak var commentCountBtn: UIButton!
+    @IBOutlet private weak var commentCountBtn: BaseButton!
     @IBOutlet private weak var updateTimeLabel: UILabel!
     @IBOutlet private weak var titleLabel: UILabel!
     
@@ -31,8 +31,7 @@ class ChannelListCell: UITableViewCell, NibReusable {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        
+        commentCountBtn.customFont = PFR12Font
     }
     
 }

@@ -9,14 +9,11 @@
 import UIKit
 
 //MARK:- 全局公用属性
-public let ScreenWidth: CGFloat = UIScreen.main.bounds.size.width
-public let ScreenHeight: CGFloat = UIScreen.main.bounds.size.height
-public let isX:Bool = (ScreenHeight == CGFloat(812) && ScreenWidth == CGFloat(375))
 public let kStatusBarH: CGFloat = UIApplication.shared.statusBarFrame.size.height
 public let kNaviBarH: CGFloat = 44
 public let kTopH: CGFloat = kStatusBarH + kNaviBarH
 public let KTabbarH: CGFloat = AppDelegate.tabBarContoller.tabBar.frame.height
-public let KBottomH: CGFloat = isX ? KTabbarH + 34: KTabbarH
+public let KBottomH: CGFloat = Device.Size() == .iPhoneX ? KTabbarH + 34: KTabbarH
 
 /// 主机地址
 public let HostIP = "http://appapi2.gamersky.com"

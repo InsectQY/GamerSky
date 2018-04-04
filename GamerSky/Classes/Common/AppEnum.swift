@@ -6,7 +6,38 @@
 //  Copyright © 2018年 engic. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+public let ScreenWidth: CGFloat = UIScreen.main.bounds.size.width
+public let ScreenHeight: CGFloat = UIScreen.main.bounds.size.height
+
+enum Device {
+    
+    case iPhone4
+    case iPhone5
+    case iPhone6
+    case iPhone6p
+    case iPhoneX
+    
+    // MARK: - 判断屏幕尺寸
+    static func Size() -> Device {
+        
+        switch (ScreenWidth, ScreenHeight) {
+        case (320, 480), (480, 320):
+            return .iPhone4
+        case (320, 568), (568, 320):
+            return .iPhone5
+        case (375, 667), (667, 375):
+            return .iPhone6
+        case (414, 736), (736, 414):
+            return .iPhone6p
+        case (375, 812), (812, 375):
+            return .iPhoneX
+        default:
+            return .iPhone6
+        }
+    }
+}
 
 enum GameType: String {
     /// 最期待的游戏

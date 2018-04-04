@@ -15,7 +15,7 @@ class ColumnListCell: UITableViewCell, NibReusable {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var updateTimeLabel: UILabel!
     @IBOutlet private weak var authorNameLabel: UILabel!
-    @IBOutlet private weak var commentsBtn: UIButton!
+    @IBOutlet private weak var commentsBtn: BaseButton!
     @IBOutlet private weak var thumbImageView: UIImageView!
     @IBOutlet private weak var authorImageView: UIImageView!
     
@@ -50,6 +50,7 @@ class ColumnListCell: UITableViewCell, NibReusable {
         super.awakeFromNib()
         
         setUpTheme()
+        commentsBtn.customFont = PFR12Font
     }
     
     // MARK: - 设置主题
