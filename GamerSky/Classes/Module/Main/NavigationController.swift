@@ -36,6 +36,30 @@ class NavigationController: UINavigationController {
         
         super.pushViewController(viewController, animated: animated)
     }
+    
+    // MARK: - 全屏滑动返回(不想用第三方的话可以使用这个方法)
+    private func fullscreenPop() {
+        
+        // 1.获取系统的Pop手势
+        guard let systemGes = interactivePopGestureRecognizer else { return }
+        
+        // 2.获取手势添加到的View中
+        guard let gesView = systemGes.view else { return }
+        
+        let targets = systemGes.value(forKey: "_targets") as? [NSObject]
+        guard let targetObjc = targets?.first else { return }
+        
+        // 3.2.取出target
+        guard let target = targetObjc.value(forKey: "target") else { return }
+        
+        // 3.3.取出Action
+        let action = Selector(("handleNavigationTransition:"))
+        
+        // 4.创建自己的Pan手势
+        let panGes = UIPanGestureRecognizer()
+        gesView.addGestureRecognizer(panGes)
+        panGes.addTarget(target, action: action)
+    }
 }
 
 // MARK: - 返回点击事件

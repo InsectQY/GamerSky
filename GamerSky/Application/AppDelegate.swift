@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         setUpRootViewController()
         fitiOSEleven()
+        loadTheme()
         return true
     }
 }
@@ -38,5 +39,12 @@ extension AppDelegate {
         if #available(iOS 11.0, *) {
             UIScrollView.appearance().contentInsetAdjustmentBehavior = .never
         }
+    }
+    
+    // MARK: - 加载主题
+    private func loadTheme() {
+        
+        guard let preference = QYUserDefaults.getUserPreference() else {return}
+        AppTheme.switchTo(preference.currentTheme)
     }
 }

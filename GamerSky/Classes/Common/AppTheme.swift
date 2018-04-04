@@ -9,7 +9,7 @@
 import Foundation
 import SwiftTheme
 
-enum AppTheme: Int {
+enum AppTheme: Int, Codable {
     
     case day = 0
     case night = 1

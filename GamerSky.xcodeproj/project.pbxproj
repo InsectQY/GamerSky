@@ -34,6 +34,8 @@
 		9941411F2074B45E0016AC01 /* BaseCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9941411C2074B45E0016AC01 /* BaseCollectionReusableView.swift */; };
 		994141212074B5340016AC01 /* BaseTableHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994141202074B5340016AC01 /* BaseTableHeaderFooterView.swift */; };
 		994141232074B7C00016AC01 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994141222074B7C00016AC01 /* BaseView.swift */; };
+		994141272074C2740016AC01 /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994141262074C2740016AC01 /* Preference.swift */; };
+		9941412A2074C2E60016AC01 /* QYUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994141292074C2E60016AC01 /* QYUserDefaults.swift */; };
 		9966510F20735FFB0010430E /* MineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9966510D20735FFB0010430E /* MineViewController.swift */; };
 		9966511020735FFB0010430E /* MineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9966510E20735FFB0010430E /* MineViewController.xib */; };
 		9966511420736D7D0010430E /* default_theme.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9966511320736D7D0010430E /* default_theme.plist */; };
@@ -92,6 +94,8 @@
 		9941411C2074B45E0016AC01 /* BaseCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCollectionReusableView.swift; sourceTree = "<group>"; };
 		994141202074B5340016AC01 /* BaseTableHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableHeaderFooterView.swift; sourceTree = "<group>"; };
 		994141222074B7C00016AC01 /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		994141262074C2740016AC01 /* Preference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preference.swift; sourceTree = "<group>"; };
+		994141292074C2E60016AC01 /* QYUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QYUserDefaults.swift; sourceTree = "<group>"; };
 		9966510D20735FFB0010430E /* MineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineViewController.swift; sourceTree = "<group>"; };
 		9966510E20735FFB0010430E /* MineViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineViewController.xib; sourceTree = "<group>"; };
 		9966511320736D7D0010430E /* default_theme.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = default_theme.plist; sourceTree = "<group>"; };
@@ -210,6 +214,30 @@
 			path = SectionHeader;
 			sourceTree = "<group>";
 		};
+		994141242074C2410016AC01 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				994141252074C24D0016AC01 /* Model */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		994141252074C24D0016AC01 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				994141262074C2740016AC01 /* Preference.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		994141282074C2A80016AC01 /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				994141292074C2E60016AC01 /* QYUserDefaults.swift */,
+			);
+			path = UserDefaults;
+			sourceTree = "<group>";
+		};
 		99665111207362A00010430E /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -284,6 +312,7 @@
 			isa = PBXGroup;
 			children = (
 				998F0C2F2071EBA800C587C2 /* Main */,
+				994141242074C2410016AC01 /* User */,
 				9906819020721A8C00A825AC /* Base */,
 				998F0C632071F6DB00C587C2 /* News */,
 				998F0C672071F70B00C587C2 /* Game */,
@@ -336,6 +365,7 @@
 		998F0C5A2071EF9000C587C2 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				994141282074C2A80016AC01 /* UserDefaults */,
 				998F0C5B2071EFB100C587C2 /* GetVc */,
 				998F0C5D2071EFB100C587C2 /* Refresh */,
 			);
@@ -785,6 +815,7 @@
 				998F0C372071EE2E00C587C2 /* AppConfig.swift in Sources */,
 				998F0C452071EEC500C587C2 /* UIView + Frame.swift in Sources */,
 				994141132074A2CD0016AC01 /* NewsSectionHeaderView.swift in Sources */,
+				994141272074C2740016AC01 /* Preference.swift in Sources */,
 				E56802DE20724AEB00CF944E /* ChannelListCell.swift in Sources */,
 				E56802E120724EEB00CF944E /* Kingfisher + Extension.swift in Sources */,
 				9906818D2072019E00A825AC /* BaseViewController.swift in Sources */,
@@ -810,6 +841,7 @@
 				9941411D2074B45E0016AC01 /* BaseCollectionViewCell.swift in Sources */,
 				E5F8116C20739B3400E9883F /* ColumnListCell.swift in Sources */,
 				998F0C6A2071F72800C587C2 /* GameViewController.swift in Sources */,
+				9941412A2074C2E60016AC01 /* QYUserDefaults.swift in Sources */,
 				998F0C3A2071EE8800C587C2 /* Api.swift in Sources */,
 				998F0C662071F6F700C587C2 /* NewsViewController.swift in Sources */,
 				998F0C322071EBCE00C587C2 /* TabBarController.swift in Sources */,
