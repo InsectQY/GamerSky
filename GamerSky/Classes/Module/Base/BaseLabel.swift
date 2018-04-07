@@ -50,6 +50,9 @@ extension BaseLabel {
     
     // MARK: - 主题设置
     private func initTheme() {
+        
+        // 如果不想设置主题颜色，把 tag 值设置为777即可
+        guard tag != 777 else {return}
         theme_textColor = ThemeColorPicker(keyPath: qy_themeTextColor)
     }
 }

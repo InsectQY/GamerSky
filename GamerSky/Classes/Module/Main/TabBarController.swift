@@ -48,10 +48,6 @@ class TabBarController: UITabBarController {
     }
 }
 
-extension TabBarController {
-    
-}
-
 // MARK: - 设置 TabBar 属性
 extension TabBarController {
     

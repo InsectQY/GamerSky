@@ -15,12 +15,19 @@ class OriginalViewController: BaseViewController {
     private var page = 1
     private lazy var columnAry = [ColumnElement]()
     
+    private lazy var headerView: ColumnHeaderView = {
+        
+        let headerView = ColumnHeaderView.loadFromNib()
+        headerView.frame = CGRect(x: 0, y: 0, width: ScreenWidth, height: 150)
+        return headerView
+    }()
+    
     private lazy var tableView: UITableView = {
         
         let tableView = UITableView(frame: UIScreen.main.bounds)
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(cellType: ColumnListCell.self)
+        tableView.register(cellType: ColumnElementCell.self)
         tableView.rowHeight = 250
         tableView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
         tableView.contentInset = UIEdgeInsetsMake(kTopH, 0, 0, 0)
@@ -47,6 +54,7 @@ extension OriginalViewController {
     private func setUpUI() {
         
         view.addSubview(tableView)
+        tableView.tableHeaderView = headerView
         setUpRefresh()
     }
     
@@ -99,11 +107,6 @@ extension OriginalViewController {
     }
 }
 
-// MARK: - 网络请求
-extension OriginalViewController {
-    
-}
-
 // MARK: - UITableViewDataSource
 extension OriginalViewController: UITableViewDataSource {
     
@@ -113,7 +116,7 @@ extension OriginalViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(for: indexPath, cellType: ColumnListCell.self)
+        let cell = tableView.dequeueReusableCell(for: indexPath, cellType: ColumnElementCell.self)
         cell.columnElement = columnAry[indexPath.row]
         return cell
     }

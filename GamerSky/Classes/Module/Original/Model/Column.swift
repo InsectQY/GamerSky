@@ -17,7 +17,7 @@ struct ColumnList: Codable {
     /// 图片
     var icon: String
     /// 描述
-    var description: String
+//    var description: String
 }
 
 struct ColumnContent: Codable {

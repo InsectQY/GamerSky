@@ -44,6 +44,8 @@ enum Api {
     ///////////////  圈子  ///////////////
     
     ///////////////  原创  ///////////////
+    
+    
     /// 全部栏目
     case columnNodeList
     /// 最新动态(参数依次是: page, 频道 ID)
@@ -175,7 +177,7 @@ extension Api: TargetType {
                                     "pageIndex" : page,
                                     "elementsCountPerPage" : 20]
         case .columnNodeList:
-            parmeters["request"] = ["date" : Date()]
+            parmeters["request"] = ["date" : 1523099947744]
         case let .columnContent(page, id):
             parmeters["request"] = ["id" : id,
                                     "pageIndex" : page,
