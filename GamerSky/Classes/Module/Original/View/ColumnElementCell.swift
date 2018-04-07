@@ -9,7 +9,7 @@
 import UIKit
 import SwiftTheme
 
-class ColumnListCell: UITableViewCell, NibReusable {
+class ColumnElementCell: UITableViewCell, NibReusable {
 
     @IBOutlet private weak var columnNameLabel: UILabel!
     @IBOutlet private weak var titleLabel: UILabel!
