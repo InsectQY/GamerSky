@@ -18,7 +18,7 @@ class OriginalViewController: BaseViewController {
     private lazy var headerView: ColumnHeaderView = {
         
         let headerView = ColumnHeaderView.loadFromNib()
-        headerView.frame = CGRect(x: 0, y: 0, width: ScreenWidth, height: 150)
+        headerView.frame = CGRect(x: 0, y: 0, width: ScreenWidth, height: 130)
         return headerView
     }()
     
@@ -28,6 +28,7 @@ class OriginalViewController: BaseViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(cellType: ColumnElementCell.self)
+        tableView.register(headerFooterViewType: ColumnSectionHeader.self)
         tableView.rowHeight = 250
         tableView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
         tableView.contentInset = UIEdgeInsetsMake(kTopH, 0, 0, 0)
@@ -75,6 +76,14 @@ extension OriginalViewController {
             }) { _ in
                 strongSelf.tableView.mj_header.endRefreshing()
             }
+            
+            // 加载栏目数据
+            ApiProvider.request(.columnNodeList, objectModel: BaseModel<[ColumnList]>.self, success: {
+                
+                print($0.result)
+            }, failure: {
+                print($0)
+            })
         })
         
         tableView.mj_footer = QYRefreshFooter(refreshingBlock: { [weak self] in
@@ -100,7 +109,7 @@ extension OriginalViewController {
     private func setUpNavi() {
         
         automaticallyAdjustsScrollViewInsets = false
-        let leftItem = UILabel(frame: CGRect(x: 10, y: 0, width: 300, height: kNaviBarH))
+        let leftItem = UILabel(frame: CGRect(x: 10, y: 0, width: 200, height: kNaviBarH))
         leftItem.font = PFM18Font
         leftItem.text = "游民原创"
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftItem)
@@ -129,5 +138,15 @@ extension OriginalViewController: UITableViewDelegate {
         
         let vc = ContentDetailViewController(ID: columnAry[indexPath.row].Id)
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let header = tableView.dequeueReusableHeaderFooterView(ColumnSectionHeader.self)
+        return header
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30
     }
 }

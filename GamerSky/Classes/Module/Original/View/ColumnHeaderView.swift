@@ -11,13 +11,13 @@ import UIKit
 /// cell 之间间距
 private let kItemMargin: CGFloat = 15
 /// 左右间距
-private let kEdge: CGFloat = 5
+private let kEdge: CGFloat = 10
 /// 每行最大列数
 private let kMaxCol: CGFloat = 4
 /// cell 宽度
 private let kColumnListCellW = (ScreenWidth - (2 * kEdge) - ((kMaxCol - 1) * kItemMargin)) / kMaxCol
 /// cell 高度
-private let kItemH: CGFloat = 100
+private let kItemH: CGFloat = 90
 
 class ColumnHeaderView: UIView, NibLoadable {
     
