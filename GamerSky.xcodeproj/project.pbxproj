@@ -63,6 +63,8 @@
 		99E7999B2071E10E005C3408 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E7999A2071E10E005C3408 /* AppDelegate.swift */; };
 		99E799A22071E10E005C3408 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99E799A12071E10E005C3408 /* Assets.xcassets */; };
 		99E799A52071E10E005C3408 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99E799A32071E10E005C3408 /* LaunchScreen.storyboard */; };
+		E534FACC207A60F5006CE008 /* ColumnNavTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E534FACA207A60F5006CE008 /* ColumnNavTitleView.swift */; };
+		E534FACD207A60F5006CE008 /* ColumnNavTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E534FACB207A60F5006CE008 /* ColumnNavTitleView.xib */; };
 		E56802DE20724AEB00CF944E /* ChannelListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56802DC20724AEB00CF944E /* ChannelListCell.swift */; };
 		E56802DF20724AEB00CF944E /* ChannelListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E56802DD20724AEB00CF944E /* ChannelListCell.xib */; };
 		E56802E120724EEB00CF944E /* Kingfisher + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56802E020724EEB00CF944E /* Kingfisher + Extension.swift */; };
@@ -140,6 +142,8 @@
 		99E799A42071E10E005C3408 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		99E799A62071E10E005C3408 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0B9C44C57C7BCE246F09E2C /* Pods-GamerSky.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GamerSky.release.xcconfig"; path = "Pods/Target Support Files/Pods-GamerSky/Pods-GamerSky.release.xcconfig"; sourceTree = "<group>"; };
+		E534FACA207A60F5006CE008 /* ColumnNavTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColumnNavTitleView.swift; sourceTree = "<group>"; };
+		E534FACB207A60F5006CE008 /* ColumnNavTitleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColumnNavTitleView.xib; sourceTree = "<group>"; };
 		E56802DC20724AEB00CF944E /* ChannelListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelListCell.swift; sourceTree = "<group>"; };
 		E56802DD20724AEB00CF944E /* ChannelListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChannelListCell.xib; sourceTree = "<group>"; };
 		E56802E020724EEB00CF944E /* Kingfisher + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Kingfisher + Extension.swift"; sourceTree = "<group>"; };
@@ -258,10 +262,10 @@
 		996DADD72079F05B00CCAC2E /* Header */ = {
 			isa = PBXGroup;
 			children = (
-				E59EAE102075F92100D6284F /* ColumnListCell.swift */,
-				E59EAE112075F92100D6284F /* ColumnListCell.xib */,
 				E5F8116620739A8C00E9883F /* ColumnHeaderView.swift */,
 				E5F8116820739AAB00E9883F /* ColumnHeaderView.xib */,
+				E59EAE102075F92100D6284F /* ColumnListCell.swift */,
+				E59EAE112075F92100D6284F /* ColumnListCell.xib */,
 			);
 			path = Header;
 			sourceTree = "<group>";
@@ -462,9 +466,7 @@
 		998F0C6F2071F79500C587C2 /* Original */ = {
 			isa = PBXGroup;
 			children = (
-				E5F8116320738C1100E9883F /* Model */,
-				E5F8116220738B8500E9883F /* View */,
-				998F0C702071F79F00C587C2 /* Controller */,
+				E534FAC0207A5237006CE008 /* Main */,
 			);
 			path = Original;
 			sourceTree = "<group>";
@@ -578,6 +580,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E534FAC0207A5237006CE008 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				E5F8116320738C1100E9883F /* Model */,
+				E5F8116220738B8500E9883F /* View */,
+				998F0C702071F79F00C587C2 /* Controller */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		E534FACE207A60F8006CE008 /* TitleView */ = {
+			isa = PBXGroup;
+			children = (
+				E534FACA207A60F5006CE008 /* ColumnNavTitleView.swift */,
+				E534FACB207A60F5006CE008 /* ColumnNavTitleView.xib */,
+			);
+			path = TitleView;
+			sourceTree = "<group>";
+		};
 		E56802DB20724AA600CF944E /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -651,6 +672,7 @@
 		E5F8116220738B8500E9883F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E534FACE207A60F8006CE008 /* TitleView */,
 				996DADD82079F07900CCAC2E /* Cell */,
 				996DADD72079F05B00CCAC2E /* Header */,
 				99D32ADC2079B441008A6B52 /* SectionHeader */,
@@ -738,6 +760,7 @@
 				E56802E720725CBE00CF944E /* NewsTableHeaderView.xib in Resources */,
 				994141152074A2D90016AC01 /* NewsSectionHeaderView.xib in Resources */,
 				9966511020735FFB0010430E /* MineViewController.xib in Resources */,
+				E534FACD207A60F5006CE008 /* ColumnNavTitleView.xib in Resources */,
 				E5F8116D20739B3400E9883F /* ColumnElementCell.xib in Resources */,
 				E59EAE132075F92100D6284F /* ColumnListCell.xib in Resources */,
 				9966511420736D7D0010430E /* default_theme.plist in Resources */,
@@ -848,6 +871,7 @@
 				994141272074C2740016AC01 /* Preference.swift in Sources */,
 				E56802DE20724AEB00CF944E /* ChannelListCell.swift in Sources */,
 				E56802E120724EEB00CF944E /* Kingfisher + Extension.swift in Sources */,
+				E534FACC207A60F5006CE008 /* ColumnNavTitleView.swift in Sources */,
 				E59EAE122075F92100D6284F /* ColumnListCell.swift in Sources */,
 				9906818D2072019E00A825AC /* BaseViewController.swift in Sources */,
 				998F0C332071EBCE00C587C2 /* NavigationController.swift in Sources */,

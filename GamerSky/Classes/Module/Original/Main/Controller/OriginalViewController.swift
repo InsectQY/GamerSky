@@ -12,8 +12,22 @@ import SwiftTheme
 
 class OriginalViewController: BaseViewController {
 
+    /// 其他栏目
+    public var columnList: ColumnList?
+    
     private var page = 1
+    
+    /// 其他栏目的数据
+    private lazy var columnListAry = [ColumnElement]()
+    /// 原创首页的数据
     private lazy var columnAry = [[ColumnElement]]()
+    
+    private lazy var titleView: ColumnNavTitleView = {
+        
+        let titleView = ColumnNavTitleView.loadFromNib()
+        titleView.frame = CGRect(x: 0, y: 0, width: ScreenWidth, height: kNaviBarH)
+        return titleView
+    }()
     
     private lazy var headerView: ColumnHeaderView = {
         
@@ -54,21 +68,28 @@ extension OriginalViewController {
     private func setUpUI() {
         
         view.addSubview(tableView)
-        tableView.tableHeaderView = headerView
+        setUpHeaderView()
         setUpRefresh()
     }
     
     // MARK: - 设置刷新
     private func setUpRefresh() {
         
+        let columnID = columnList == nil ? 47 : columnList!.Id
+        
         tableView.mj_header = QYRefreshHeader(refreshingBlock: { [weak self] in
             
             guard let strongSelf = self else {return}
             strongSelf.page = 1
             strongSelf.tableView.mj_footer.endRefreshing()
-            ApiProvider.request(.columnContent(strongSelf.page, 47), objectModel: BaseModel<ColumnContent>.self, success: {
+            ApiProvider.request(.columnContent(strongSelf.page, columnID), objectModel: BaseModel<ColumnContent>.self, success: {
                 
-                strongSelf.columnAry = [$0.result.childElements]
+                if strongSelf.columnList == nil {
+                    strongSelf.columnAry = [$0.result.childElements]
+                }else {
+                    strongSelf.columnListAry = $0.result.childElements
+                }
+                
                 strongSelf.tableView.mj_footer.isHidden = false
                 strongSelf.tableView.reloadData()
                 strongSelf.tableView.mj_header.endRefreshing()
@@ -82,9 +103,14 @@ extension OriginalViewController {
             guard let strongSelf = self else {return}
             strongSelf.page += 1
             strongSelf.tableView.mj_header.endRefreshing()
-            ApiProvider.request(.columnContent(strongSelf.page, 47), objectModel: BaseModel<ColumnContent>.self, success: {
+            ApiProvider.request(.columnContent(strongSelf.page, columnID), objectModel: BaseModel<ColumnContent>.self, success: {
                 
-                strongSelf.columnAry += [$0.result.childElements]
+                if strongSelf.columnList == nil {
+                    strongSelf.columnAry += [$0.result.childElements]
+                }else {
+                    strongSelf.columnListAry += $0.result.childElements
+                }
+
                 strongSelf.tableView.reloadData()
                 strongSelf.tableView.mj_footer.endRefreshing()
             }) { _ in
@@ -100,10 +126,24 @@ extension OriginalViewController {
     private func setUpNavi() {
         
         automaticallyAdjustsScrollViewInsets = false
-        let leftItem = UILabel(frame: CGRect(x: 10, y: 0, width: 200, height: kNaviBarH))
-        leftItem.font = PFM18Font
-        leftItem.text = "游民原创"
-        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftItem)
+        if let columnList = columnList {
+            
+            navigationItem.titleView = titleView
+            titleView.column = columnList
+        }else {
+           
+            let leftItem = UILabel(frame: CGRect(x: 10, y: 0, width: 200, height: kNaviBarH))
+            leftItem.font = PFM18Font
+            leftItem.text = "游民原创"
+            navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftItem)
+        }
+    }
+    
+    // MARK: - 设置HeaderView
+    private func setUpHeaderView() {
+        
+        guard columnList == nil else {return}
+        tableView.tableHeaderView = headerView
     }
 }
 
@@ -111,16 +151,17 @@ extension OriginalViewController {
 extension OriginalViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return columnAry.count
+        return columnList == nil ? columnAry.count : 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return columnAry[section].count
+        return columnList == nil ? columnAry[section].count : columnListAry.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        let element = columnList == nil ? columnAry[indexPath.section][indexPath.row] : columnListAry[indexPath.row]
         let cell = tableView.dequeueReusableCell(for: indexPath, cellType: ColumnElementCell.self)
-        cell.columnElement = columnAry[indexPath.section][indexPath.row]
+        cell.columnElement = element
         cell.indexPath = indexPath
         return cell
     }
@@ -131,14 +172,15 @@ extension OriginalViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let vc = ContentDetailViewController(ID: columnAry[indexPath.section][indexPath.row].Id)
+        let id = columnList == nil ? columnAry[indexPath.section][indexPath.row].Id : columnListAry[indexPath.row].Id
+        let vc = ContentDetailViewController(ID: id)
         navigationController?.pushViewController(vc, animated: true)
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let header = tableView.dequeueReusableHeaderFooterView(ColumnSectionHeader.self)
-        return header
+        return columnList == nil ? header : nil
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
