@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="51"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="originalAllColumns10x10" translatesAutoresizingMaskIntoConstraints="NO" id="kRg-9J-Zel">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="common_Icon_Timer_10x10" translatesAutoresizingMaskIntoConstraints="NO" id="kRg-9J-Zel">
                     <rect key="frame" x="10" y="20.5" width="10" height="10"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最新动态" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oQx-fy-fGl">
@@ -37,6 +37,6 @@
         </view>
     </objects>
     <resources>
-        <image name="originalAllColumns10x10" width="10" height="10"/>
+        <image name="common_Icon_Timer_10x10" width="10" height="10"/>
     </resources>
 </document>

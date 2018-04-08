@@ -65,6 +65,8 @@
 		99E799A52071E10E005C3408 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99E799A32071E10E005C3408 /* LaunchScreen.storyboard */; };
 		E534FACC207A60F5006CE008 /* ColumnNavTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E534FACA207A60F5006CE008 /* ColumnNavTitleView.swift */; };
 		E534FACD207A60F5006CE008 /* ColumnNavTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E534FACB207A60F5006CE008 /* ColumnNavTitleView.xib */; };
+		E534FAD0207A6506006CE008 /* ColumnDescHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E534FACF207A6506006CE008 /* ColumnDescHeaderView.swift */; };
+		E534FAD2207A650E006CE008 /* ColumnDescHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E534FAD1207A650E006CE008 /* ColumnDescHeaderView.xib */; };
 		E56802DE20724AEB00CF944E /* ChannelListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56802DC20724AEB00CF944E /* ChannelListCell.swift */; };
 		E56802DF20724AEB00CF944E /* ChannelListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E56802DD20724AEB00CF944E /* ChannelListCell.xib */; };
 		E56802E120724EEB00CF944E /* Kingfisher + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56802E020724EEB00CF944E /* Kingfisher + Extension.swift */; };
@@ -144,6 +146,8 @@
 		A0B9C44C57C7BCE246F09E2C /* Pods-GamerSky.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GamerSky.release.xcconfig"; path = "Pods/Target Support Files/Pods-GamerSky/Pods-GamerSky.release.xcconfig"; sourceTree = "<group>"; };
 		E534FACA207A60F5006CE008 /* ColumnNavTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColumnNavTitleView.swift; sourceTree = "<group>"; };
 		E534FACB207A60F5006CE008 /* ColumnNavTitleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColumnNavTitleView.xib; sourceTree = "<group>"; };
+		E534FACF207A6506006CE008 /* ColumnDescHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnDescHeaderView.swift; sourceTree = "<group>"; };
+		E534FAD1207A650E006CE008 /* ColumnDescHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColumnDescHeaderView.xib; sourceTree = "<group>"; };
 		E56802DC20724AEB00CF944E /* ChannelListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelListCell.swift; sourceTree = "<group>"; };
 		E56802DD20724AEB00CF944E /* ChannelListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChannelListCell.xib; sourceTree = "<group>"; };
 		E56802E020724EEB00CF944E /* Kingfisher + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Kingfisher + Extension.swift"; sourceTree = "<group>"; };
@@ -266,6 +270,8 @@
 				E5F8116820739AAB00E9883F /* ColumnHeaderView.xib */,
 				E59EAE102075F92100D6284F /* ColumnListCell.swift */,
 				E59EAE112075F92100D6284F /* ColumnListCell.xib */,
+				E534FACF207A6506006CE008 /* ColumnDescHeaderView.swift */,
+				E534FAD1207A650E006CE008 /* ColumnDescHeaderView.xib */,
 			);
 			path = Header;
 			sourceTree = "<group>";
@@ -753,6 +759,7 @@
 			files = (
 				99E799A52071E10E005C3408 /* LaunchScreen.storyboard in Resources */,
 				E56802DF20724AEB00CF944E /* ChannelListCell.xib in Resources */,
+				E534FAD2207A650E006CE008 /* ColumnDescHeaderView.xib in Resources */,
 				99E799A22071E10E005C3408 /* Assets.xcassets in Resources */,
 				998F0C2E2071EB9A00C587C2 /* MainVCSettings.json in Resources */,
 				99D32AE02079B47B008A6B52 /* ColumnSectionHeader.xib in Resources */,
@@ -896,6 +903,7 @@
 				9906819520721F8700A825AC /* Channel.swift in Sources */,
 				9941411D2074B45E0016AC01 /* BaseCollectionViewCell.swift in Sources */,
 				E5F8116C20739B3400E9883F /* ColumnElementCell.swift in Sources */,
+				E534FAD0207A6506006CE008 /* ColumnDescHeaderView.swift in Sources */,
 				998F0C6A2071F72800C587C2 /* GameViewController.swift in Sources */,
 				9941412A2074C2E60016AC01 /* QYUserDefaults.swift in Sources */,
 				998F0C3A2071EE8800C587C2 /* Api.swift in Sources */,

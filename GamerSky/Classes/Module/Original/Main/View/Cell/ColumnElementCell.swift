@@ -19,7 +19,7 @@ class ColumnElementCell: UITableViewCell, NibReusable {
     @IBOutlet private weak var thumbImageView: UIImageView!
     @IBOutlet private weak var authorImageView: UIImageView!
     
-    var indexPath = IndexPath(row: 0, section: 0)
+    var row = 0
     
     var columnElement: ColumnElement? {
         
@@ -40,7 +40,7 @@ class ColumnElementCell: UITableViewCell, NibReusable {
         didSet {
             
             var newFrame = frame
-            if indexPath.row != 0 {
+            if row != 0 {
                 
                 newFrame.origin.y += 15
                 newFrame.size.height -= 15

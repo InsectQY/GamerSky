@@ -29,6 +29,13 @@ class OriginalViewController: BaseViewController {
         return titleView
     }()
     
+    private lazy var descHeaderView: ColumnDescHeaderView = {
+        
+        let descHeaderView = ColumnDescHeaderView.loadFromNib()
+        descHeaderView.frame = CGRect(x: 0, y: 0, width: ScreenWidth, height: 35)
+        return descHeaderView
+    }()
+    
     private lazy var headerView: ColumnHeaderView = {
         
         let headerView = ColumnHeaderView.loadFromNib()
@@ -59,7 +66,7 @@ class OriginalViewController: BaseViewController {
     }
     
     override func repeatClickTabBar() {
-        print("\(self)")
+        tableView.mj_header.beginRefreshing()
     }
 }
 
@@ -132,7 +139,7 @@ extension OriginalViewController {
             titleView.column = columnList
         }else {
            
-            let leftItem = UILabel(frame: CGRect(x: 10, y: 0, width: 200, height: kNaviBarH))
+            let leftItem = BaseLabel(frame: CGRect(x: 10, y: 0, width: 200, height: kNaviBarH))
             leftItem.font = PFM18Font
             leftItem.text = "游民原创"
             navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftItem)
@@ -142,8 +149,13 @@ extension OriginalViewController {
     // MARK: - 设置HeaderView
     private func setUpHeaderView() {
         
-        guard columnList == nil else {return}
-        tableView.tableHeaderView = headerView
+        if let columnList = columnList {
+            
+            tableView.tableHeaderView = descHeaderView
+            descHeaderView.desc = columnList.description
+        }else {
+            tableView.tableHeaderView = headerView
+        }
     }
 }
 
@@ -162,7 +174,7 @@ extension OriginalViewController: UITableViewDataSource {
         let element = columnList == nil ? columnAry[indexPath.section][indexPath.row] : columnListAry[indexPath.row]
         let cell = tableView.dequeueReusableCell(for: indexPath, cellType: ColumnElementCell.self)
         cell.columnElement = element
-        cell.indexPath = indexPath
+        cell.row = indexPath.row
         return cell
     }
 }

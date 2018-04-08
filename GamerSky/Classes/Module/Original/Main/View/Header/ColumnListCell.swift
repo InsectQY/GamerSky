@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ColumnListCell: UICollectionViewCell, NibReusable {
+class ColumnListCell: BaseCollectionViewCell, NibReusable {
 
     @IBOutlet private weak var columnLabel: UILabel!
     @IBOutlet private weak var columnImageView: UIImageView!
@@ -22,9 +22,18 @@ class ColumnListCell: UICollectionViewCell, NibReusable {
         }
     }
     
+    // MARK: - awakeFromNib
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        setUpTheme()
     }
+}
 
+extension ColumnListCell {
+    
+    // MARK: - 设置主题
+    private func setUpTheme() {
+        
+//        qy_themeBackgroundColor = ""
+    }
 }
