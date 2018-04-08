@@ -13,24 +13,23 @@ import SwiftTheme
 class OriginalViewController: BaseViewController {
 
     private var page = 1
-    private lazy var columnAry = [ColumnElement]()
+    private lazy var columnAry = [[ColumnElement]]()
     
     private lazy var headerView: ColumnHeaderView = {
         
         let headerView = ColumnHeaderView.loadFromNib()
-        headerView.frame = CGRect(x: 0, y: 0, width: ScreenWidth, height: 130)
+        headerView.frame = CGRect(x: 0, y: 0, width: ScreenWidth, height: 125)
         return headerView
     }()
     
     private lazy var tableView: UITableView = {
         
-        let tableView = UITableView(frame: UIScreen.main.bounds)
+        let tableView = BaseTableView(frame: UIScreen.main.bounds, style: .grouped)
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(cellType: ColumnElementCell.self)
         tableView.register(headerFooterViewType: ColumnSectionHeader.self)
         tableView.rowHeight = 250
-        tableView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
         tableView.contentInset = UIEdgeInsetsMake(kTopH, 0, 0, 0)
         tableView.scrollIndicatorInsets = UIEdgeInsetsMake(kTopH, 0, 0, 0)
         tableView.separatorStyle = .none
@@ -69,21 +68,13 @@ extension OriginalViewController {
             strongSelf.tableView.mj_footer.endRefreshing()
             ApiProvider.request(.columnContent(strongSelf.page, 47), objectModel: BaseModel<ColumnContent>.self, success: {
                 
-                strongSelf.columnAry = $0.result.childElements
+                strongSelf.columnAry = [$0.result.childElements]
                 strongSelf.tableView.mj_footer.isHidden = false
                 strongSelf.tableView.reloadData()
                 strongSelf.tableView.mj_header.endRefreshing()
             }) { _ in
                 strongSelf.tableView.mj_header.endRefreshing()
             }
-            
-            // 加载栏目数据
-            ApiProvider.request(.columnNodeList, objectModel: BaseModel<[ColumnList]>.self, success: {
-                
-                print($0.result)
-            }, failure: {
-                print($0)
-            })
         })
         
         tableView.mj_footer = QYRefreshFooter(refreshingBlock: { [weak self] in
@@ -93,7 +84,7 @@ extension OriginalViewController {
             strongSelf.tableView.mj_header.endRefreshing()
             ApiProvider.request(.columnContent(strongSelf.page, 47), objectModel: BaseModel<ColumnContent>.self, success: {
                 
-                strongSelf.columnAry += $0.result.childElements
+                strongSelf.columnAry += [$0.result.childElements]
                 strongSelf.tableView.reloadData()
                 strongSelf.tableView.mj_footer.endRefreshing()
             }) { _ in
@@ -119,14 +110,18 @@ extension OriginalViewController {
 // MARK: - UITableViewDataSource
 extension OriginalViewController: UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return columnAry.count
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return columnAry[section].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(for: indexPath, cellType: ColumnElementCell.self)
-        cell.columnElement = columnAry[indexPath.row]
+        cell.columnElement = columnAry[indexPath.section][indexPath.row]
+        cell.indexPath = indexPath
         return cell
     }
 }
@@ -136,7 +131,7 @@ extension OriginalViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let vc = ContentDetailViewController(ID: columnAry[indexPath.row].Id)
+        let vc = ContentDetailViewController(ID: columnAry[indexPath.section][indexPath.row].Id)
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -147,6 +142,10 @@ extension OriginalViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 30
+        return 35
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.001
     }
 }

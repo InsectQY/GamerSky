@@ -15,9 +15,9 @@ struct ColumnList: Codable {
     /// 标题
     var title: String
     /// 图片
-    var icon: String
+    var icon: String?
     /// 描述
-//    var description: String
+    var description: String
 }
 
 struct ColumnContent: Codable {

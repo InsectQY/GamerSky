@@ -17,7 +17,7 @@ class NewsViewController: BaseViewController {
     private lazy var channelListAry = [ChannelList]()
     private lazy var tableView: UITableView = {
         
-        let tableView = BaseTableView(frame: UIScreen.main.bounds)
+        let tableView = BaseTableView(frame: UIScreen.main.bounds, style: .grouped)
         tableView.separatorStyle = .none
         tableView.dataSource = self
         tableView.delegate = self
@@ -134,7 +134,7 @@ extension NewsViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 30
+        return 20
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

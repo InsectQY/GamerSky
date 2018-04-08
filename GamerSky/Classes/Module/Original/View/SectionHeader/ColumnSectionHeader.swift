@@ -12,4 +12,8 @@ class ColumnSectionHeader: UITableViewHeaderFooterView, NibReusable {
 
     @IBOutlet private weak var headerImageView: UIImageView!
     @IBOutlet private weak var headerTitleLabel: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
 }

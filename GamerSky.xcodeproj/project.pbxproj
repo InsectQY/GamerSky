@@ -255,6 +255,26 @@
 			path = Plist;
 			sourceTree = "<group>";
 		};
+		996DADD72079F05B00CCAC2E /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				E59EAE102075F92100D6284F /* ColumnListCell.swift */,
+				E59EAE112075F92100D6284F /* ColumnListCell.xib */,
+				E5F8116620739A8C00E9883F /* ColumnHeaderView.swift */,
+				E5F8116820739AAB00E9883F /* ColumnHeaderView.xib */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		996DADD82079F07900CCAC2E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E5F8116A20739B3400E9883F /* ColumnElementCell.swift */,
+				E5F8116B20739B3400E9883F /* ColumnElementCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		998F0C262071EACC00C587C2 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -631,13 +651,9 @@
 		E5F8116220738B8500E9883F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				996DADD82079F07900CCAC2E /* Cell */,
+				996DADD72079F05B00CCAC2E /* Header */,
 				99D32ADC2079B441008A6B52 /* SectionHeader */,
-				E5F8116620739A8C00E9883F /* ColumnHeaderView.swift */,
-				E5F8116820739AAB00E9883F /* ColumnHeaderView.xib */,
-				E5F8116A20739B3400E9883F /* ColumnElementCell.swift */,
-				E5F8116B20739B3400E9883F /* ColumnElementCell.xib */,
-				E59EAE102075F92100D6284F /* ColumnListCell.swift */,
-				E59EAE112075F92100D6284F /* ColumnListCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
