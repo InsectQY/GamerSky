@@ -4,6 +4,10 @@
 <dict>
 	<key>colors</key>
 	<dict>
+		<key>whiteSmoke</key>
+		<string>#F5F5F5</string>
+		<key>dimBlack</key>
+		<string>#fff</string>
 		<key>textColor</key>
 		<string>#000</string>
 		<key>backgroundColor</key>

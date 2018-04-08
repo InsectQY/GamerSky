@@ -4,8 +4,12 @@
 <dict>
 	<key>colors</key>
 	<dict>
+		<key>whiteSmoke</key>
+		<string>#01040D</string>
+		<key>dimBlack</key>
+		<string>#1A1A1A</string>
 		<key>textColor</key>
-		<string>#808080</string>
+		<string>#A9A9A9</string>
 		<key>backgroundColor</key>
 		<string>#01040D</string>
 		<key>tabbarTintColor</key>

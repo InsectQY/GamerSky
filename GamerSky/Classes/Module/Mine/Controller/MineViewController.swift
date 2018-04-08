@@ -10,7 +10,7 @@ import UIKit
 
 class MineViewController: BaseViewController {
 
-    @IBOutlet private weak var tableView: BaseTableView!
+    @IBOutlet private weak var tableView: UITableView!
     
     private let mineCellID = "mineCellID"
     
@@ -25,8 +25,9 @@ class MineViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
         setUpNavi()
-        setUpTableView()
+        setUpTheme()
         loadLocalPreference()
     }
 }
@@ -41,8 +42,9 @@ extension MineViewController {
     }
     
     // MARK: - 设置tableView
-    private func setUpTableView() {
-//        tableView.qy_themeBackgroundColor = "colors.gainTableViewBackgroundColor"
+    private func setUpTheme() {
+        
+        qy_themeBackgroundColor = "colors.whiteSmoke"
     }
     
     // MARK: - 加载本地偏好设置

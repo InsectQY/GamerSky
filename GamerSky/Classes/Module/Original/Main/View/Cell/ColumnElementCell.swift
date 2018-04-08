@@ -9,8 +9,9 @@
 import UIKit
 import SwiftTheme
 
-class ColumnElementCell: UITableViewCell, NibReusable {
+class ColumnElementCell: BaseTableViewCell, NibReusable {
 
+    @IBOutlet private weak var bottomContentView: BaseView!
     @IBOutlet private weak var columnNameLabel: UILabel!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var updateTimeLabel: UILabel!
@@ -58,10 +59,13 @@ class ColumnElementCell: UITableViewCell, NibReusable {
         setUpTheme()
         commentsBtn.customFont = PFR12Font
     }
+}
+
+extension ColumnElementCell {
     
     // MARK: - 设置主题
     private func setUpTheme() {
         
-        contentView.theme_backgroundColor = "colors.backgroundColor"
+        bottomContentView.qy_themeBackgroundColor = "colors.dimBlack"
     }
 }

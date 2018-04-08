@@ -35,6 +35,7 @@ class ContentDetailViewController: BaseViewController {
     convenience init(ID: Int) {
         
         self.init()
+        webView.backgroundColor = .clear
         contentID = ID
     }
 }
@@ -54,10 +55,11 @@ extension ContentDetailViewController {
     // MARK: - 设置刷新
     private func setUpRefresh() {
         
+        let nightMode = QYUserDefaults.getUserPreference()?.currentTheme == .night ? 1 : 0
         webView.scrollView.mj_header = QYRefreshHeader { [weak self] in
 
             guard let strongSelf = self else {return}
-            guard let URL = URL(string: "\(AppHostIP)/v1/ContentDetail/\(strongSelf.contentID)/1?fontSize=0&nullImageMode=1&tag=news&deviceid=\(deviceID)&platform=ios&nightMode=0&v=") else {return}
+            guard let URL = URL(string: "\(AppHostIP)/v1/ContentDetail/\(strongSelf.contentID)/1?fontSize=0&nullImageMode=1&tag=news&deviceid=\(deviceID)&platform=ios&nightMode=\(nightMode)&v=") else {return}
             strongSelf.webView.load(URLRequest(url: URL))
         }
         webView.scrollView.mj_header.beginRefreshing()

@@ -34,6 +34,6 @@ extension ColumnListCell {
     // MARK: - 设置主题
     private func setUpTheme() {
         
-//        qy_themeBackgroundColor = ""
+        qy_themeBackgroundColor = "colors.dimBlack"
     }
 }

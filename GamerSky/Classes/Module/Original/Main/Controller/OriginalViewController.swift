@@ -45,7 +45,7 @@ class OriginalViewController: BaseViewController {
     
     private lazy var tableView: UITableView = {
         
-        let tableView = BaseTableView(frame: UIScreen.main.bounds, style: .grouped)
+        let tableView = UITableView(frame: UIScreen.main.bounds, style: .grouped)
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(cellType: ColumnElementCell.self)
@@ -54,6 +54,7 @@ class OriginalViewController: BaseViewController {
         tableView.contentInset = UIEdgeInsetsMake(kTopH, 0, 0, 0)
         tableView.scrollIndicatorInsets = UIEdgeInsetsMake(kTopH, 0, 0, 0)
         tableView.separatorStyle = .none
+        tableView.backgroundColor = .clear
         return tableView
     }()
     
@@ -74,6 +75,7 @@ extension OriginalViewController {
     
     private func setUpUI() {
         
+        qy_themeBackgroundColor = "colors.whiteSmoke"
         view.addSubview(tableView)
         setUpHeaderView()
         setUpRefresh()
