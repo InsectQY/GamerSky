@@ -25,7 +25,7 @@ class NewsViewController: BaseViewController {
         tableView.register(headerFooterViewType: NewsSectionHeaderView.self)
         tableView.contentInset = UIEdgeInsetsMake(kTopH, 0, KBottomH, 0)
         tableView.scrollIndicatorInsets = UIEdgeInsetsMake(kTopH, 0, KBottomH, 0)
-        tableView.rowHeight = ScreenWidth * 0.22
+        tableView.rowHeight = ChannelListCell.cellHeight
         return tableView
     }()
     
@@ -134,7 +134,7 @@ extension NewsViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 20
+        return NewsSectionHeaderView.headerHeight
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

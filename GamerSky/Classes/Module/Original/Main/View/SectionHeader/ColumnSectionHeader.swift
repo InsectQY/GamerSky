@@ -10,6 +10,8 @@ import UIKit
 
 class ColumnSectionHeader: UITableViewHeaderFooterView, NibReusable {
 
+    static let sectionHeight: CGFloat = 35
+    
     @IBOutlet private weak var headerImageView: UIImageView!
     @IBOutlet private weak var headerTitleLabel: UILabel!
     

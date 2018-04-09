@@ -32,14 +32,14 @@ class OriginalViewController: BaseViewController {
     private lazy var descHeaderView: ColumnDescHeaderView = {
         
         let descHeaderView = ColumnDescHeaderView.loadFromNib()
-        descHeaderView.frame = CGRect(x: 0, y: 0, width: ScreenWidth, height: 35)
+        descHeaderView.frame = CGRect(x: 0, y: 0, width: ScreenWidth, height: ColumnHeaderView.headerHeight)
         return descHeaderView
     }()
     
     private lazy var headerView: ColumnHeaderView = {
         
         let headerView = ColumnHeaderView.loadFromNib()
-        headerView.frame = CGRect(x: 0, y: 0, width: ScreenWidth, height: 125)
+        headerView.frame = CGRect(x: 0, y: 0, width: ScreenWidth, height: ColumnHeaderView.headerHeight)
         return headerView
     }()
     
@@ -50,7 +50,7 @@ class OriginalViewController: BaseViewController {
         tableView.delegate = self
         tableView.register(cellType: ColumnElementCell.self)
         tableView.register(headerFooterViewType: ColumnSectionHeader.self)
-        tableView.rowHeight = 250
+        tableView.rowHeight = ColumnElementCell.cellHeight
         tableView.contentInset = UIEdgeInsetsMake(kTopH, 0, 0, 0)
         tableView.scrollIndicatorInsets = UIEdgeInsetsMake(kTopH, 0, 0, 0)
         tableView.separatorStyle = .none
@@ -198,7 +198,7 @@ extension OriginalViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 35
+        return ColumnSectionHeader.sectionHeight
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {

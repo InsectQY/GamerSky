@@ -11,6 +11,8 @@ import SwiftTheme
 
 class NewsSectionHeaderView: UITableViewHeaderFooterView, NibReusable {
 
+    static let headerHeight: CGFloat = 20
+    
     @IBOutlet private weak var headerImageView: UIImageView!
     @IBOutlet private weak var headerLabel: UILabel!
     

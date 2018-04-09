@@ -11,6 +11,8 @@ import SwiftTheme
 
 class ColumnElementCell: BaseTableViewCell, NibReusable {
 
+    static let cellHeight: CGFloat = 250
+    
     @IBOutlet private weak var bottomContentView: BaseView!
     @IBOutlet private weak var columnNameLabel: UILabel!
     @IBOutlet private weak var titleLabel: UILabel!

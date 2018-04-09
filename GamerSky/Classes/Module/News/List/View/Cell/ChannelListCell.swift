@@ -15,6 +15,8 @@ class ChannelListCell: BaseTableViewCell, NibReusable {
     @IBOutlet private weak var updateTimeLabel: UILabel!
     @IBOutlet private weak var titleLabel: UILabel!
     
+    static let cellHeight: CGFloat = ScreenWidth * 0.22
+    
     var channel: ChannelList? {
         
         didSet {

@@ -21,6 +21,8 @@ private let kItemH: CGFloat = 90
 
 class ColumnHeaderView: UIView, NibLoadable {
     
+    static let headerHeight: CGFloat = 125
+    
     @IBOutlet private weak var flowLayout: UICollectionViewFlowLayout!
     @IBOutlet private weak var colletcionView: UICollectionView!
     
