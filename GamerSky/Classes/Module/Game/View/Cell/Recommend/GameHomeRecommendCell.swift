@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Cosmos
 
 class GameHomeRecommendCell: UICollectionViewCell, NibReusable {
 
@@ -26,16 +25,20 @@ class GameHomeRecommendCell: UICollectionViewCell, NibReusable {
             backgroundImageView.qy_setImage(detail?.largeImage, "")
             nameLabel.text = detail?.Title
             descLabel.text = detail?.description
-//            ratingView.rating = 4
+            let score = Double(detail?.gsScore ?? "") ?? 0
+            ratingView.rating = score * 0.5
         }
     }
-    
+        
     // MARK: - inital
     override func awakeFromNib() {
         
         super.awakeFromNib()
-        backContentView.layer.borderColor = UIColor.white.cgColor
-        backContentView.layer.borderWidth = 1
-        backContentView.layer.masksToBounds = true
+        backContentView.layer.borderColor = UIColor.white.withAlphaComponent(0.6).cgColor
+    }
+    
+    override func prepareForReuse() {
+        
+        ratingView.prepareForReuse()
     }
 }

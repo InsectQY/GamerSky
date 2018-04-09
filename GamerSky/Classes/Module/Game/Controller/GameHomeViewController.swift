@@ -118,6 +118,7 @@ extension GameHomeViewController: UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(for: indexPath, cellType: GameHomeRecommendContentCell.self)
         cell.gameSpecialDetail = gameSpecialDetail
+        
         return cell
     }
 }
