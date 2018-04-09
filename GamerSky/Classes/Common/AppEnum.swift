@@ -39,6 +39,16 @@ enum Device {
     }
 }
 
+enum GameHome: String {
+    
+    case recommend = "新游推荐"
+    case hot = "最近大家都在玩"
+    case column = "特色专题"
+    case expected = "最期待游戏"
+    case newSelling = "即将上市"
+    case gameTag = "找游戏"
+}
+
 enum GameType: String {
     /// 最期待的游戏
     case expected = "most-expected"

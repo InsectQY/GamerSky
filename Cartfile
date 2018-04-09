@@ -13,3 +13,5 @@ github "jiecao-fm/SwiftTheme"
 # 数据库
 github "stephencelis/SQLite.swift"
 github "nmdias/DefaultsKit"
+# 打分
+github "evgenyneu/Cosmos"

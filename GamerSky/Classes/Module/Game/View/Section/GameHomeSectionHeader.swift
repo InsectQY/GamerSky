@@ -10,5 +10,5 @@ import UIKit
 
 class GameHomeSectionHeader: UITableViewHeaderFooterView, NibReusable {
 
-    static let sectionHeight: CGFloat = 35
+    static let sectionHeight: CGFloat = 44
 }

@@ -12,14 +12,18 @@ import SwiftNotificationCenter
 class GameHomeViewController: BaseViewController {
 
     // MARK: - Lazyload
+    
+    /// 新游推荐
+    public lazy var gameSpecialDetail = [GameSpecialDetail]()
+    
     private lazy var tableView: UITableView = {
         
         let tableView = UITableView(frame: UIScreen.main.bounds, style: .grouped)
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(cellType: GameHomeCell.self)
+        tableView.register(cellType: GameHomeRecommendContentCell.self)
         tableView.register(headerFooterViewType: GameHomeSectionHeader.self)
-        tableView.rowHeight = 150
+        tableView.rowHeight = GameHomeRecommendContentCell.cellHeight
         tableView.contentInset = UIEdgeInsetsMake(kTopH, 0, 0, 0)
         tableView.scrollIndicatorInsets = UIEdgeInsetsMake(kTopH, 0, 0, 0)
         tableView.separatorStyle = .none
@@ -39,10 +43,39 @@ class GameHomeViewController: BaseViewController {
 
         setUpUI()
         setUpNavi()
+        setUpRefresh()
     }
     
     override func repeatClickTabBar() {
         print("\(self)")
+    }
+}
+
+extension GameHomeViewController {
+    
+    private func setUpRefresh() {
+        
+        tableView.mj_header = QYRefreshHeader(refreshingBlock: { [weak self] in
+            
+            guard let strongSelf = self else {return}
+            
+            // 新游推荐
+            ApiProvider.request(Api.gameSpecialDetail(1, "13"), objectModel: BaseModel<[GameSpecialDetail]>.self, success: {
+                
+                print($0)
+                strongSelf.gameSpecialDetail = $0.result
+                strongSelf.tableView.reloadData()
+                strongSelf.tableView.mj_header.endRefreshing()
+            }, failure: {
+                strongSelf.tableView.mj_header.endRefreshing()
+                print($0)
+            })
+            
+            // 最近大家都在玩
+            
+        })
+        
+        tableView.mj_header.beginRefreshing()
     }
 }
 
@@ -83,7 +116,8 @@ extension GameHomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(for: indexPath, cellType: GameHomeCell.self)
+        let cell = tableView.dequeueReusableCell(for: indexPath, cellType: GameHomeRecommendContentCell.self)
+        cell.gameSpecialDetail = gameSpecialDetail
         return cell
     }
 }
@@ -105,4 +139,3 @@ extension GameHomeViewController: UITableViewDelegate {
         return GameHomeSectionHeader.sectionHeight
     }
 }
-
