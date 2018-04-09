@@ -6,7 +6,7 @@
     "selImg": "common_Button_XinWen_Selected_UIMode_Day"
  },
  {
-     "vcName": "GameViewController",
+     "vcName": "GameHomeViewController",
      "title": "游戏",
      "normalImg": "common_Button_YouXiKu_UIMode_Day",
      "selImg": "common_Button_YouXiKu_Selected_UIMode_Day"
