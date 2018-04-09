@@ -35,4 +35,10 @@ struct GameSpecialDetail: Codable {
     var largeImage: String
     /// 描述
     var description: String
+    /// 评分
+    lazy var score: Double = {
+        
+        let score = Double(gsScore ?? "") ?? 0
+        return score * 0.5
+    }()
 }

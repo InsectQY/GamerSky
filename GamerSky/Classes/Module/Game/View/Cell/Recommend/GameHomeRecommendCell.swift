@@ -25,8 +25,7 @@ class GameHomeRecommendCell: UICollectionViewCell, NibReusable {
             backgroundImageView.qy_setImage(detail?.largeImage, "")
             nameLabel.text = detail?.Title
             descLabel.text = detail?.description
-            let score = Double(detail?.gsScore ?? "") ?? 0
-            ratingView.rating = score * 0.5
+            ratingView.rating = detail?.score ?? 0
         }
     }
         
