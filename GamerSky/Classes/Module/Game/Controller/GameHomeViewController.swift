@@ -95,14 +95,14 @@ extension GameHomeViewController: UITableViewDelegate {
         
     }
     
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        
-//        let sectionHeader = tableView.dequeueReusableHeaderFooterView(GameHomeSectionHeader.self)
-//        return sectionHeader
-//    }
-//    
-//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return GameHomeSectionHeader.sectionHeight
-//    }
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let sectionHeader = tableView.dequeueReusableHeaderFooterView(GameHomeSectionHeader.self)
+        return sectionHeader
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return GameHomeSectionHeader.sectionHeight
+    }
 }
 

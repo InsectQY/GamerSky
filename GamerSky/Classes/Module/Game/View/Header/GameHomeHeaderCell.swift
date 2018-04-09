@@ -10,12 +10,15 @@ import UIKit
 
 class GameHomeHeaderCell: UICollectionViewCell, NibReusable {
 
-    // MARK: - LazyLoad
+    @IBOutlet private weak var titleLabel: BaseLabel!
+    @IBOutlet private weak var imageView: UIImageView!
     
-    
-    // MARK: - inital
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    var header: GameHomeHeader? {
         
+        didSet {
+            
+            titleLabel.text = header?.title
+            imageView.image = UIImage(named: header?.image ?? "")
+        }
     }
 }

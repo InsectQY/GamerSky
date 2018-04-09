@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChannelListCell: BaseTableViewCell, NibReusable {
+class ChannelListCell: UITableViewCell, NibReusable {
 
     @IBOutlet private weak var thumbImageView: UIImageView!
     @IBOutlet private weak var commentCountBtn: BaseButton!

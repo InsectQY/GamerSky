@@ -9,7 +9,7 @@
 import UIKit
 import SwiftTheme
 
-class ColumnElementCell: BaseTableViewCell, NibReusable {
+class ColumnElementCell: UITableViewCell, NibReusable {
 
     static let cellHeight: CGFloat = 250
     

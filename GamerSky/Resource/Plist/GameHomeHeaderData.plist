@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>image</key>
+		<string>gameHomePageSpecial_48x48</string>
+		<key>title</key>
+		<string>特色专题</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>gameHomePageRanking_48x48</string>
+		<key>title</key>
+		<string>排行榜</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>gameHomePageSale_48x48</string>
+		<key>title</key>
+		<string>发售表</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>gameHomePageComment_48x48</string>
+		<key>title</key>
+		<string>玩家点评</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>gameHomePageFindGame_48x48</string>
+		<key>title</key>
+		<string>找游戏</string>
+	</dict>
+</array>
+</plist>
