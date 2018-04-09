@@ -51,7 +51,7 @@ extension NewsTableHeaderView: FSPagerViewDataSource {
     func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
         
         let cell = pagerView.dequeueReusableCell(withReuseIdentifier: CycleCellID, at: index)
-        cell.imageView?.setImage(channelListAry?[index].thumbnailURLs?.first)
+        cell.imageView?.qy_setImage(channelListAry?[index].thumbnailURLs?.first)
         return cell
     }
 }

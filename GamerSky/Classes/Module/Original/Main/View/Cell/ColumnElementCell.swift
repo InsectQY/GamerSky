@@ -29,8 +29,8 @@ class ColumnElementCell: BaseTableViewCell, NibReusable {
             columnNameLabel.text = columnElement?.zhuanlanTitle
             titleLabel.text = columnElement?.title
             authorNameLabel.text = columnElement?.authorName
-            thumbImageView.setImage(columnElement?.thumbnailURL, "")
-            authorImageView.setImage(columnElement?.authorPhoto, "")
+            thumbImageView.qy_setImage(columnElement?.thumbnailURL, "")
+            authorImageView.qy_setImage(columnElement?.authorPhoto, "")
             commentsBtn.setTitle("\(columnElement?.commentsCount ?? 0)", for: .normal)
         }
     }

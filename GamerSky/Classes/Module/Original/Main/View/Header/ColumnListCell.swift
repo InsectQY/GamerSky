@@ -18,7 +18,7 @@ class ColumnListCell: BaseCollectionViewCell, NibReusable {
         didSet {
             
             columnLabel.text = column?.title
-            columnImageView.setImage(column?.icon, "")
+            columnImageView.qy_setImage(column?.icon, "")
         }
     }
     

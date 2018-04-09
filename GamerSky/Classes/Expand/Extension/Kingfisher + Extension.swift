@@ -1,9 +1,5 @@
 //
 //  KingfisherExtension.swift
-//  XMGTV
-//
-//  Created by apple on 16/11/9.
-//  Copyright © 2016年 coderwhy. All rights reserved.
 //
 
 import UIKit
@@ -11,7 +7,7 @@ import Kingfisher
 
 extension UIImageView {
     
-    func setImage(_ URLString: String?, _ placeHolderName: String? = nil,progress: ((_ receivedSize: Int64, _ totalSize: Int64) -> ())? = nil, completionHandler: ((_ image: Image?, _ error: NSError?, _ cacheType: CacheType, _ imageURL: URL?) -> ())? = nil) {
+    func qy_setImage(_ URLString: String?, _ placeHolderName: String? = nil,progress: ((_ receivedSize: Int64, _ totalSize: Int64) -> ())? = nil, completionHandler: ((_ image: Image?, _ error: NSError?, _ cacheType: CacheType, _ imageURL: URL?) -> ())? = nil) {
         
         guard let URLString = URLString else {return}
         
@@ -34,15 +30,15 @@ extension UIImageView {
         }
     }
     
-    func setImage(_ URLString: String?, _ placeHolderName: String? = nil) {
+    func qy_setImage(_ URLString: String?, _ placeHolderName: String? = nil) {
         
-       setImage(URLString, placeHolderName, progress: nil, completionHandler: nil)
+       qy_setImage(URLString, placeHolderName, progress: nil, completionHandler: nil)
     }
 }
 
 extension UIButton {
     
-    func setBackgroundImage(_ URLString: String?, _ placeHolderName: String? = nil, _ state:UIControlState = .normal ,progress: ((_ receivedSize: Int64, _ totalSize: Int64) -> ())? = nil, completionHandler: ((_ image: Image?, _ error: NSError?, _ cacheType: CacheType, _ imageURL: URL?) -> ())? = nil) {
+    func qy_setBackgroundImage(_ URLString: String?, _ placeHolderName: String? = nil, _ state:UIControlState = .normal ,progress: ((_ receivedSize: Int64, _ totalSize: Int64) -> ())? = nil, completionHandler: ((_ image: Image?, _ error: NSError?, _ cacheType: CacheType, _ imageURL: URL?) -> ())? = nil) {
         
         guard let URLString = URLString else {return}
         
@@ -65,11 +61,11 @@ extension UIButton {
         })
     }
     
-    func setBackgroundImage(_ URLString: String?, _ placeHolderName: String? = nil,_ state: UIControlState? = .normal) {
-        setBackgroundImage(URLString, placeHolderName, state)
+    func qy_setBackgroundImage(_ URLString: String?, _ placeHolderName: String? = nil,_ state: UIControlState? = .normal) {
+        qy_setBackgroundImage(URLString, placeHolderName, state)
     }
     
-    func setImage(_ URLString: String?, _ placeHolderName: String? = nil, _ state:UIControlState = .normal ,progress: ((_ receivedSize: Int64, _ totalSize: Int64) -> ())? = nil, completionHandler: ((_ image: Image?, _ error: NSError?, _ cacheType: CacheType, _ imageURL: URL?) -> ())? = nil) {
+    func qy_setImage(_ URLString: String?, _ placeHolderName: String? = nil, _ state:UIControlState = .normal ,progress: ((_ receivedSize: Int64, _ totalSize: Int64) -> ())? = nil, completionHandler: ((_ image: Image?, _ error: NSError?, _ cacheType: CacheType, _ imageURL: URL?) -> ())? = nil) {
         
         guard let URLString = URLString else {return}
         
@@ -92,7 +88,7 @@ extension UIButton {
         })
     }
     
-    func setImage(_ URLString: String?, _ placeHolderName: String? = nil,_ state: UIControlState? = .normal) {
-        setImage(URLString, placeHolderName, state)
+    func qy_setImage(_ URLString: String?, _ placeHolderName: String? = nil,_ state: UIControlState? = .normal) {
+        qy_setImage(URLString, placeHolderName, state)
     }
 }

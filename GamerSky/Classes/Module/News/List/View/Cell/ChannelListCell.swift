@@ -24,7 +24,7 @@ class ChannelListCell: BaseTableViewCell, NibReusable {
             titleLabel.text = channel.title
             commentCountBtn.setTitle("\(channel.commentsCount)", for: .normal)
             if let urls = channel.thumbnailURLs {
-                thumbImageView.setImage(urls.first, "")
+                thumbImageView.qy_setImage(urls.first, "")
             }
         }
     }
