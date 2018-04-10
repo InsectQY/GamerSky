@@ -31,6 +31,7 @@ class GameHomeViewController: BaseViewController {
         tableView.register(cellType: GameHomeHotContentCell.self)
         tableView.register(cellType: GameHomeWaitSellContentCell.self)
         tableView.register(cellType: GameHomeExpectedContentCell.self)
+        tableView.register(cellType: GameHomeRankingContentCell.self)
         tableView.register(headerFooterViewType: GameHomeSectionHeader.self)
         tableView.contentInset = UIEdgeInsetsMake(kTopH, 0, 0, 0)
         tableView.scrollIndicatorInsets = UIEdgeInsetsMake(kTopH, 0, 0, 0)
@@ -169,10 +170,14 @@ extension GameHomeViewController: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(for: indexPath, cellType: GameHomeWaitSellContentCell.self)
             cell.waitSellGame = waitSellGame
             return cell
-        }else {
+        }else if indexPath.section == 3 {
             
             let cell = tableView.dequeueReusableCell(for: indexPath, cellType: GameHomeExpectedContentCell.self)
             cell.expectedGame = expectedGame
+            return cell
+        }else {
+            
+            let cell = tableView.dequeueReusableCell(for: indexPath, cellType: GameHomeRankingContentCell.self)
             return cell
         }
     }
@@ -196,8 +201,12 @@ extension GameHomeViewController: UITableViewDelegate {
             return GameHomeRecommendContentCell.cellHeight
         }else if indexPath.section == 1 {
             return GameHomeHotContentCell.cellHeight
-        }else {
+        }else if indexPath.section == 2 {
             return GameHomeWaitSellContentCell.cellHeight
+        }else if indexPath.section == 3 {
+            return GameHomeExpectedContentCell.cellHeight
+        }else {
+            return GameHomeRankingContentCell.cellHeight
         }
     }
     
