@@ -87,6 +87,8 @@
 		E550C934207CDBE200C4AF2D /* GameHomeColumnContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E550C932207CDBE200C4AF2D /* GameHomeColumnContentCell.xib */; };
 		E550C937207CDCBB00C4AF2D /* GameHomeColumnCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E550C935207CDCBB00C4AF2D /* GameHomeColumnCell.swift */; };
 		E550C938207CDCBB00C4AF2D /* GameHomeColumnCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E550C936207CDCBB00C4AF2D /* GameHomeColumnCell.xib */; };
+		E550C93C207CEB9000C4AF2D /* GameHomeContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E550C93A207CEB9000C4AF2D /* GameHomeContentCell.swift */; };
+		E550C93D207CEB9000C4AF2D /* GameHomeContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E550C93B207CEB9000C4AF2D /* GameHomeContentCell.xib */; };
 		E56802DE20724AEB00CF944E /* ChannelListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56802DC20724AEB00CF944E /* ChannelListCell.swift */; };
 		E56802DF20724AEB00CF944E /* ChannelListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E56802DD20724AEB00CF944E /* ChannelListCell.xib */; };
 		E56802E120724EEB00CF944E /* Kingfisher + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56802E020724EEB00CF944E /* Kingfisher + Extension.swift */; };
@@ -215,6 +217,8 @@
 		E550C932207CDBE200C4AF2D /* GameHomeColumnContentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameHomeColumnContentCell.xib; sourceTree = "<group>"; };
 		E550C935207CDCBB00C4AF2D /* GameHomeColumnCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHomeColumnCell.swift; sourceTree = "<group>"; };
 		E550C936207CDCBB00C4AF2D /* GameHomeColumnCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameHomeColumnCell.xib; sourceTree = "<group>"; };
+		E550C93A207CEB9000C4AF2D /* GameHomeContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHomeContentCell.swift; sourceTree = "<group>"; };
+		E550C93B207CEB9000C4AF2D /* GameHomeContentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameHomeContentCell.xib; sourceTree = "<group>"; };
 		E56802DC20724AEB00CF944E /* ChannelListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelListCell.swift; sourceTree = "<group>"; };
 		E56802DD20724AEB00CF944E /* ChannelListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChannelListCell.xib; sourceTree = "<group>"; };
 		E56802E020724EEB00CF944E /* Kingfisher + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Kingfisher + Extension.swift"; sourceTree = "<group>"; };
@@ -767,6 +771,15 @@
 			path = Column;
 			sourceTree = "<group>";
 		};
+		E550C939207CEB5800C4AF2D /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+				E550C93A207CEB9000C4AF2D /* GameHomeContentCell.swift */,
+				E550C93B207CEB9000C4AF2D /* GameHomeContentCell.xib */,
+			);
+			path = HomePage;
+			sourceTree = "<group>";
+		};
 		E56802DB20724AA600CF944E /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -869,6 +882,7 @@
 		E5CD6987207B95E7001A1A0A /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				E550C939207CEB5800C4AF2D /* HomePage */,
 				E550C930207CDBAD00C4AF2D /* Column */,
 				E550C927207CD0AC00C4AF2D /* Tag */,
 				99446ABF207CA4D4004048C7 /* Ranking */,
@@ -1023,6 +1037,7 @@
 				E550C92F207CD21200C4AF2D /* GameTagContentCell.xib in Resources */,
 				99E799A52071E10E005C3408 /* LaunchScreen.storyboard in Resources */,
 				99446AC9207CAC19004048C7 /* GameHomeRankingContentCell.xib in Resources */,
+				E550C93D207CEB9000C4AF2D /* GameHomeContentCell.xib in Resources */,
 				E56802DF20724AEB00CF944E /* ChannelListCell.xib in Resources */,
 				99446AA1207C55B9004048C7 /* GameHomeHotContentCell.xib in Resources */,
 				E534FAD2207A650E006CE008 /* ColumnDescHeaderView.xib in Resources */,
@@ -1154,6 +1169,7 @@
 				994141172074B1820016AC01 /* BaseTableView.swift in Sources */,
 				E5F8116720739A8C00E9883F /* ColumnHeaderView.swift in Sources */,
 				E5CD69BF207BCF5F001A1A0A /* CosmosSize.swift in Sources */,
+				E550C93C207CEB9000C4AF2D /* GameHomeContentCell.swift in Sources */,
 				E5CD69A1207BB360001A1A0A /* Game.swift in Sources */,
 				9966511820736F580010430E /* AppTheme.swift in Sources */,
 				998F0C372071EE2E00C587C2 /* AppConfig.swift in Sources */,

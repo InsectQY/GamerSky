@@ -76,67 +76,70 @@ extension GameHomeViewController {
             
             guard let strongSelf = self else {return}
             
+            let group = DispatchGroup()
             // 新游推荐
+            group.enter()
             ApiProvider.request(.gameSpecialDetail(1, "13"), objectModel: BaseModel<[GameInfo]>.self, success: {
                 
                 strongSelf.gameSpecialDetail = $0.result
-                strongSelf.tableView.reloadData()
-                strongSelf.tableView.mj_header.endRefreshing()
+                group.leave()
             }, failure: { _ in
                 strongSelf.tableView.mj_header.endRefreshing()
             })
             
             // 最近大家都在玩
+            group.enter()
             ApiProvider.request(.gameHomePage(1, GameType.hot), objectModel: BaseModel<[GameInfo]>.self, success: {
                 
                 strongSelf.hotGame = $0.result
-                strongSelf.tableView.reloadData()
-                strongSelf.tableView.mj_header.endRefreshing()
+                group.leave()
             }, failure: {_ in
                 strongSelf.tableView.mj_header.endRefreshing()
             })
             
             // 即将发售
+            group.enter()
             ApiProvider.request(.gameHomePage(1, GameType.waitSell), objectModel: BaseModel<[GameInfo]>.self, success: {
                 
                 strongSelf.waitSellGame = $0.result
-                strongSelf.tableView.reloadData()
-                strongSelf.tableView.mj_header.endRefreshing()
-                print($0)
-            }, failure: {
-                print($0)
+                group.leave()
+            }, failure: { _ in
+                
                 strongSelf.tableView.mj_header.endRefreshing()
             })
             
             // 最期待游戏
+            group.enter()
             ApiProvider.request(.gameHomePage(1, GameType.expected), objectModel: BaseModel<[GameInfo]>.self, success: {
                 
                 strongSelf.expectedGame = $0.result
-                strongSelf.tableView.reloadData()
-                strongSelf.tableView.mj_header.endRefreshing()
+                group.leave()
             }, failure: { _ in
                 strongSelf.tableView.mj_header.endRefreshing()
             })
             
             // 找游戏
+            group.enter()
             ApiProvider.request(.gameTags, objectModel: BaseModel<[GameTag]>.self, success: {
                 
                 strongSelf.gameTags = $0.result
-                strongSelf.tableView.reloadData()
+                group.leave()
             }) { _ in
                 strongSelf.tableView.mj_header.endRefreshing()
             }
             
             // 特色专题
+            group.enter()
             ApiProvider.request(.gameSpecialList(1), objectModel: BaseModel<[GameSpecialList]>.self, success: {
                 
                 strongSelf.gameColumn = $0.result
-                strongSelf.tableView.reloadData()
+                group.leave()
             }) { _ in
                 strongSelf.tableView.mj_header.endRefreshing()
             }
             
             // 高分榜
+            group.enter()
             ApiProvider.request(.gameRankingList(1, GameRanking.score, "0", "all"), objectModel: BaseModel<[GameInfo]>.self, success: {
                 
                 strongSelf.rankingGame = [Array($0.result.prefix(5))]
@@ -152,7 +155,7 @@ extension GameHomeViewController {
                         ApiProvider.request(.gameRankingList(1, GameRanking.score, "20042", "all"), objectModel: BaseModel<[GameInfo]>.self, success: {
                             
                             strongSelf.rankingGame += [Array($0.result.prefix(5))]
-                            strongSelf.tableView.reloadData()
+                            group.leave()
                         }, failure: { _ in
                             strongSelf.tableView.mj_header.endRefreshing()
                         })
@@ -165,8 +168,13 @@ extension GameHomeViewController {
             }, failure: { _ in
                 strongSelf.tableView.mj_header.endRefreshing()
             })
+            
+            group.notify(queue: DispatchQueue.main, execute: {
+                
+                strongSelf.tableView.reloadData()
+                strongSelf.tableView.mj_header.endRefreshing()
+            })
         })
-        
         
         tableView.mj_header.beginRefreshing()
     }
