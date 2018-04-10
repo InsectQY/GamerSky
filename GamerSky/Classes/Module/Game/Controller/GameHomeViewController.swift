@@ -25,6 +25,8 @@ class GameHomeViewController: BaseViewController {
     private lazy var rankingGame = [[GameInfo]]()
     /// 找游戏
     private lazy var gameTags = [GameTag]()
+    /// 特色专题
+    private lazy var gameColumn = [GameSpecialList]()
     
     private lazy var tableView: UITableView = {
         
@@ -37,6 +39,7 @@ class GameHomeViewController: BaseViewController {
         tableView.register(cellType: GameHomeExpectedContentCell.self)
         tableView.register(cellType: GameHomeRankingContentCell.self)
         tableView.register(cellType: GameTagContentCell.self)
+        tableView.register(cellType: GameHomeColumnContentCell.self)
         tableView.register(headerFooterViewType: GameHomeSectionHeader.self)
         tableView.contentInset = UIEdgeInsetsMake(kTopH, 0, 0, 0)
         tableView.scrollIndicatorInsets = UIEdgeInsetsMake(kTopH, 0, 0, 0)
@@ -124,6 +127,15 @@ extension GameHomeViewController {
                 strongSelf.tableView.mj_header.endRefreshing()
             }
             
+            // 特色专题
+            ApiProvider.request(.gameSpecialList(1), objectModel: BaseModel<[GameSpecialList]>.self, success: {
+                
+                strongSelf.gameColumn = $0.result
+                strongSelf.tableView.reloadData()
+            }) { _ in
+                strongSelf.tableView.mj_header.endRefreshing()
+            }
+            
             // 高分榜
             ApiProvider.request(.gameRankingList(1, GameRanking.score, "0", "all"), objectModel: BaseModel<[GameInfo]>.self, success: {
                 
@@ -188,7 +200,7 @@ extension GameHomeViewController {
 extension GameHomeViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 6
+        return 7
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -209,18 +221,23 @@ extension GameHomeViewController: UITableViewDataSource {
             return cell
         }else if indexPath.section == 2 {
             
-            let cell = tableView.dequeueReusableCell(for: indexPath, cellType: GameHomeWaitSellContentCell.self)
-            cell.waitSellGame = waitSellGame
+            let cell = tableView.dequeueReusableCell(for: indexPath, cellType: GameHomeColumnContentCell.self)
+            cell.columnGame = gameColumn
             return cell
         }else if indexPath.section == 3 {
             
-            let cell = tableView.dequeueReusableCell(for: indexPath, cellType: GameHomeExpectedContentCell.self)
-            cell.expectedGame = expectedGame
+            let cell = tableView.dequeueReusableCell(for: indexPath, cellType: GameHomeWaitSellContentCell.self)
+            cell.waitSellGame = waitSellGame
             return cell
         }else if indexPath.section == 4 {
             
             let cell = tableView.dequeueReusableCell(for: indexPath, cellType: GameHomeRankingContentCell.self)
             cell.rankingGame = rankingGame
+            return cell
+        }else if indexPath.section == 5 {
+            
+            let cell = tableView.dequeueReusableCell(for: indexPath, cellType: GameHomeExpectedContentCell.self)
+            cell.expectedGame = expectedGame
             return cell
         }else {
             
@@ -245,16 +262,19 @@ extension GameHomeViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
         if indexPath.section == 0 {
             return GameHomeRecommendContentCell.cellHeight
         }else if indexPath.section == 1 {
             return GameHomeHotContentCell.cellHeight
         }else if indexPath.section == 2 {
-            return GameHomeWaitSellContentCell.cellHeight
+            return GameHomeColumnContentCell.cellHeight
         }else if indexPath.section == 3 {
-            return GameHomeExpectedContentCell.cellHeight
+            return GameHomeWaitSellContentCell.cellHeight
         }else if indexPath.section == 4 {
             return GameHomeRankingContentCell.cellHeight
+        }else if indexPath.section == 5{
+            return GameHomeExpectedContentCell.cellHeight
         }else {
             return GameTagContentCell.cellHeight
         }

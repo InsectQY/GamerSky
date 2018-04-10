@@ -93,7 +93,7 @@
                             <constraint firstAttribute="height" constant="18" id="mJw-eX-SuB"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="16"/>
-                        <state key="normal" backgroundImage="common_Icon_Index1_16x18">
+                        <state key="normal">
                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </state>
                     </button>
@@ -120,7 +120,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="common_Icon_Index1_16x18" width="16" height="18"/>
         <image name="common_Icon_Star_12x12" width="12" height="12"/>
         <image name="common_Icon_Star_12x12_Actived" width="12" height="12"/>
         <image name="gameHomePageRankingsRightMask_10x60_UIMode_Day" width="10" height="60"/>

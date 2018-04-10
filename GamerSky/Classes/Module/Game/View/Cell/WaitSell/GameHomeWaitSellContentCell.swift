@@ -41,7 +41,7 @@ class GameHomeWaitSellContentCell: UITableViewCell, NibReusable {
     // MARK: - setUpCollectionView
     private func setUpCollectionView() {
         
-        flowLayout.itemSize = CGSize(width: kItemW, height: GameHomeHotContentCell.cellHeight)
+        flowLayout.itemSize = CGSize(width: kItemW, height: GameHomeWaitSellContentCell.cellHeight - 30)
         flowLayout.sectionInset = UIEdgeInsetsMake(0, kEdge, 0, kEdge)
         flowLayout.minimumLineSpacing = kItemMargin
         collectionView.register(cellType: GameHomePageCell.self)

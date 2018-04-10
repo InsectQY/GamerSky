@@ -16,14 +16,22 @@ class GameHomeRankingCell: UICollectionViewCell, NibReusable {
     @IBOutlet private weak var gameImageView: UIImageView!
     @IBOutlet private weak var gameNameLabel: UILabel!
     
-    var row = 0 {
+    private var rankingImage = [#imageLiteral(resourceName: "common_Icon_Index1_16x18"), #imageLiteral(resourceName: "common_Icon_Index2_16x18"), #imageLiteral(resourceName: "common_Icon_Index3_16x18")]
+    
+    public var row = 0 {
         
         didSet {
-            rankingBtn.setTitle("\(row)", for: .normal)
+            
+            guard row > rankingImage.count - 1 else {
+                
+                rankingBtn.setImage(rankingImage[row], for: .normal)
+                return
+            }
+            rankingBtn.setTitle("\(row + 1)", for: .normal)
         }
     }
     
-    var info: GameInfo? {
+    public var info: GameInfo? {
         
         didSet {
             
