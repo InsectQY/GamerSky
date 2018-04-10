@@ -19,6 +19,8 @@ class GameHomeViewController: BaseViewController {
     private lazy var hotGame = [GameInfo]()
     /// 即将发售
     private lazy var waitSellGame = [GameInfo]()
+    /// 最期待游戏
+    private lazy var expectedGame = [GameInfo]()
     
     private lazy var tableView: UITableView = {
         
@@ -28,6 +30,7 @@ class GameHomeViewController: BaseViewController {
         tableView.register(cellType: GameHomeRecommendContentCell.self)
         tableView.register(cellType: GameHomeHotContentCell.self)
         tableView.register(cellType: GameHomeWaitSellContentCell.self)
+        tableView.register(cellType: GameHomeExpectedContentCell.self)
         tableView.register(headerFooterViewType: GameHomeSectionHeader.self)
         tableView.contentInset = UIEdgeInsetsMake(kTopH, 0, 0, 0)
         tableView.scrollIndicatorInsets = UIEdgeInsetsMake(kTopH, 0, 0, 0)
@@ -96,6 +99,18 @@ extension GameHomeViewController {
                 strongSelf.tableView.mj_header.endRefreshing()
             })
             
+            // 最期待游戏
+            ApiProvider.request(.gameHomePage(1, GameType.expected), objectModel: BaseModel<[GameInfo]>.self, success: {
+                
+                strongSelf.expectedGame = $0.result
+                strongSelf.tableView.reloadData()
+                strongSelf.tableView.mj_header.endRefreshing()
+                print($0)
+            }, failure: {
+                print($0)
+                strongSelf.tableView.mj_header.endRefreshing()
+            })
+            
         })
         
         tableView.mj_header.beginRefreshing()
@@ -149,10 +164,15 @@ extension GameHomeViewController: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(for: indexPath, cellType: GameHomeHotContentCell.self)
             cell.hotGame = hotGame
             return cell
-        }else {
+        }else if indexPath.section == 2 {
             
             let cell = tableView.dequeueReusableCell(for: indexPath, cellType: GameHomeWaitSellContentCell.self)
             cell.waitSellGame = waitSellGame
+            return cell
+        }else {
+            
+            let cell = tableView.dequeueReusableCell(for: indexPath, cellType: GameHomeExpectedContentCell.self)
+            cell.expectedGame = expectedGame
             return cell
         }
     }
