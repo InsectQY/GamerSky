@@ -17,24 +17,28 @@ struct GameSpecialList: Codable {
     var des: String
 }
 
-struct GameSpecialDetail: Codable {
+struct GameInfo: Codable {
     
     /// ID
     var Id: Int
-    /// 所属分类
-    var subgroup: String
     /// 标题
     var Title: String
     /// 默认图
     var DefaultPicUrl: String
+    /// 所属分类
+    var subgroup: String?
     /// 是否包含活动(包含则显示活动图片)
     var Position: String?
     /// 得分
     var gsScore: String?
     /// 大图
-    var largeImage: String
+    var largeImage: String?
     /// 描述
-    var description: String
+    var description: String?
+    /// 想玩的人数
+    var wantplayCount: Int?
+    /// 发售时间
+    var allTimeT: String?
     /// 评分
     lazy var score: Double = {
         

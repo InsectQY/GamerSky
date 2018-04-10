@@ -36,6 +36,10 @@
 		994141232074B7C00016AC01 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994141222074B7C00016AC01 /* BaseView.swift */; };
 		994141272074C2740016AC01 /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994141262074C2740016AC01 /* Preference.swift */; };
 		9941412A2074C2E60016AC01 /* QYUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994141292074C2E60016AC01 /* QYUserDefaults.swift */; };
+		99446AA0207C55B9004048C7 /* GameHomeHotContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99446A9E207C55B9004048C7 /* GameHomeHotContentCell.swift */; };
+		99446AA1207C55B9004048C7 /* GameHomeHotContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99446A9F207C55B9004048C7 /* GameHomeHotContentCell.xib */; };
+		99446AA4207C5695004048C7 /* GameHomePageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99446AA2207C5695004048C7 /* GameHomePageCell.swift */; };
+		99446AA5207C5695004048C7 /* GameHomePageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99446AA3207C5695004048C7 /* GameHomePageCell.xib */; };
 		9966510F20735FFB0010430E /* MineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9966510D20735FFB0010430E /* MineViewController.swift */; };
 		9966511020735FFB0010430E /* MineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9966510E20735FFB0010430E /* MineViewController.xib */; };
 		9966511420736D7D0010430E /* default_theme.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9966511320736D7D0010430E /* default_theme.plist */; };
@@ -131,6 +135,10 @@
 		994141222074B7C00016AC01 /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		994141262074C2740016AC01 /* Preference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preference.swift; sourceTree = "<group>"; };
 		994141292074C2E60016AC01 /* QYUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QYUserDefaults.swift; sourceTree = "<group>"; };
+		99446A9E207C55B9004048C7 /* GameHomeHotContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHomeHotContentCell.swift; sourceTree = "<group>"; };
+		99446A9F207C55B9004048C7 /* GameHomeHotContentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameHomeHotContentCell.xib; sourceTree = "<group>"; };
+		99446AA2207C5695004048C7 /* GameHomePageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHomePageCell.swift; sourceTree = "<group>"; };
+		99446AA3207C5695004048C7 /* GameHomePageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameHomePageCell.xib; sourceTree = "<group>"; };
 		9966510D20735FFB0010430E /* MineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineViewController.swift; sourceTree = "<group>"; };
 		9966510E20735FFB0010430E /* MineViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineViewController.xib; sourceTree = "<group>"; };
 		9966511320736D7D0010430E /* default_theme.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = default_theme.plist; sourceTree = "<group>"; };
@@ -197,7 +205,6 @@
 		E5CD699B207BAADC001A1A0A /* GameHomeRecommendCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameHomeRecommendCell.xib; sourceTree = "<group>"; };
 		E5CD699E207BAE3D001A1A0A /* Cosmos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cosmos.framework; path = Carthage/Build/iOS/Cosmos.framework; sourceTree = "<group>"; };
 		E5CD69A0207BB360001A1A0A /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
-		E5CD69A6207BC650001A1A0A /* Cosmos.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Cosmos.h; path = Carthage/Checkouts/Cosmos/Cosmos/Cosmos.h; sourceTree = "<group>"; };
 		E5CD69AA207BCF5F001A1A0A /* StarFillMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarFillMode.swift; sourceTree = "<group>"; };
 		E5CD69AB207BCF5F001A1A0A /* StarLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarLayer.swift; sourceTree = "<group>"; };
 		E5CD69AC207BCF5F001A1A0A /* CosmosAccessibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosAccessibility.swift; sourceTree = "<group>"; };
@@ -308,6 +315,17 @@
 				994141292074C2E60016AC01 /* QYUserDefaults.swift */,
 			);
 			path = UserDefaults;
+			sourceTree = "<group>";
+		};
+		99446A9D207C5582004048C7 /* Hot */ = {
+			isa = PBXGroup;
+			children = (
+				99446A9E207C55B9004048C7 /* GameHomeHotContentCell.swift */,
+				99446A9F207C55B9004048C7 /* GameHomeHotContentCell.xib */,
+				99446AA2207C5695004048C7 /* GameHomePageCell.swift */,
+				99446AA3207C5695004048C7 /* GameHomePageCell.xib */,
+			);
+			path = Hot;
 			sourceTree = "<group>";
 		};
 		9966511220736D2C0010430E /* Plist */ = {
@@ -574,7 +592,6 @@
 		99E7998E2071E10D005C3408 = {
 			isa = PBXGroup;
 			children = (
-				E5CD69A6207BC650001A1A0A /* Cosmos.h */,
 				99E799992071E10D005C3408 /* GamerSky */,
 				99E799982071E10D005C3408 /* Products */,
 				69104DBA025C838A1AB55654 /* Pods */,
@@ -769,6 +786,7 @@
 		E5CD6987207B95E7001A1A0A /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				99446A9D207C5582004048C7 /* Hot */,
 				E5CD6999207BAAA9001A1A0A /* Recommend */,
 			);
 			path = Cell;
@@ -916,12 +934,14 @@
 			files = (
 				99E799A52071E10E005C3408 /* LaunchScreen.storyboard in Resources */,
 				E56802DF20724AEB00CF944E /* ChannelListCell.xib in Resources */,
+				99446AA1207C55B9004048C7 /* GameHomeHotContentCell.xib in Resources */,
 				E534FAD2207A650E006CE008 /* ColumnDescHeaderView.xib in Resources */,
 				99E799A22071E10E005C3408 /* Assets.xcassets in Resources */,
 				998F0C2E2071EB9A00C587C2 /* MainVCSettings.json in Resources */,
 				E5CD6991207B9DAC001A1A0A /* GameHomeHeaderData.plist in Resources */,
 				99D32AE02079B47B008A6B52 /* ColumnSectionHeader.xib in Resources */,
 				E5F8116920739AAB00E9883F /* ColumnHeaderView.xib in Resources */,
+				99446AA5207C5695004048C7 /* GameHomePageCell.xib in Resources */,
 				E56802E720725CBE00CF944E /* NewsTableHeaderView.xib in Resources */,
 				E5CD6998207BAA9C001A1A0A /* GameHomeRecommendContentCell.xib in Resources */,
 				E5CD698B207B9794001A1A0A /* GameHomeHeaderCell.xib in Resources */,
@@ -1027,6 +1047,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99446AA0207C55B9004048C7 /* GameHomeHotContentCell.swift in Sources */,
 				998F0C622071F18D00C587C2 /* Moya + Codable.swift in Sources */,
 				99E7999B2071E10E005C3408 /* AppDelegate.swift in Sources */,
 				990681812071FD5B00A825AC /* TabBar.swift in Sources */,
@@ -1051,6 +1072,7 @@
 				E534FACC207A60F5006CE008 /* ColumnNavTitleView.swift in Sources */,
 				E5CD698A207B9794001A1A0A /* GameHomeHeaderCell.swift in Sources */,
 				E5CD69BE207BCF5F001A1A0A /* CosmosDefaultSettings.swift in Sources */,
+				99446AA4207C5695004048C7 /* GameHomePageCell.swift in Sources */,
 				E59EAE122075F92100D6284F /* ColumnListCell.swift in Sources */,
 				E5CD6994207B9EC9001A1A0A /* GameHomeHeader.swift in Sources */,
 				9906818D2072019E00A825AC /* BaseViewController.swift in Sources */,
