@@ -14,9 +14,11 @@ class GameHomeViewController: BaseViewController {
     // MARK: - Lazyload
     
     /// 新游推荐
-    public lazy var gameSpecialDetail = [GameInfo]()
+    private lazy var gameSpecialDetail = [GameInfo]()
     /// 最近大家都在玩
-    public lazy var hotGame = [GameInfo]()
+    private lazy var hotGame = [GameInfo]()
+    /// 即将发售
+    private lazy var waitSellGame = [GameInfo]()
     
     private lazy var tableView: UITableView = {
         
@@ -25,6 +27,7 @@ class GameHomeViewController: BaseViewController {
         tableView.delegate = self
         tableView.register(cellType: GameHomeRecommendContentCell.self)
         tableView.register(cellType: GameHomeHotContentCell.self)
+        tableView.register(cellType: GameHomeWaitSellContentCell.self)
         tableView.register(headerFooterViewType: GameHomeSectionHeader.self)
         tableView.contentInset = UIEdgeInsetsMake(kTopH, 0, 0, 0)
         tableView.scrollIndicatorInsets = UIEdgeInsetsMake(kTopH, 0, 0, 0)
@@ -72,14 +75,25 @@ extension GameHomeViewController {
             })
             
             // 最近大家都在玩
-            ApiProvider.request(Api.gameHomePage(1, GameType.hot), objectModel: BaseModel<[GameInfo]>.self, success: {
+            ApiProvider.request(.gameHomePage(1, GameType.hot), objectModel: BaseModel<[GameInfo]>.self, success: {
                 
                 strongSelf.hotGame = $0.result
+                strongSelf.tableView.reloadData()
+                strongSelf.tableView.mj_header.endRefreshing()
+            }, failure: {_ in
+                strongSelf.tableView.mj_header.endRefreshing()
+            })
+            
+            // 即将发售
+            ApiProvider.request(.gameHomePage(1, GameType.waitSell), objectModel: BaseModel<[GameInfo]>.self, success: {
+                
+                strongSelf.waitSellGame = $0.result
                 strongSelf.tableView.reloadData()
                 strongSelf.tableView.mj_header.endRefreshing()
                 print($0)
             }, failure: {
                 print($0)
+                strongSelf.tableView.mj_header.endRefreshing()
             })
             
         })
@@ -130,13 +144,17 @@ extension GameHomeViewController: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(for: indexPath, cellType: GameHomeRecommendContentCell.self)
             cell.gameSpecialDetail = gameSpecialDetail
             return cell
-        }else {
+        }else if indexPath.section == 1 {
             
             let cell = tableView.dequeueReusableCell(for: indexPath, cellType: GameHomeHotContentCell.self)
             cell.hotGame = hotGame
             return cell
+        }else {
+            
+            let cell = tableView.dequeueReusableCell(for: indexPath, cellType: GameHomeWaitSellContentCell.self)
+            cell.waitSellGame = waitSellGame
+            return cell
         }
-        
     }
 }
 
@@ -156,8 +174,10 @@ extension GameHomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
             return GameHomeRecommendContentCell.cellHeight
-        }else {
+        }else if indexPath.section == 1 {
             return GameHomeHotContentCell.cellHeight
+        }else {
+            return GameHomeWaitSellContentCell.cellHeight
         }
     }
     

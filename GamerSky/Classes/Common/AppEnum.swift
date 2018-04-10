@@ -55,7 +55,7 @@ enum GameType: String {
     /// 大家都在玩的游戏
     case hot = "recent-hot"
     /// 即将上市的游戏
-    case newSelling = "new-selling"
+    case waitSell = "new-selling"
 }
 
 enum GameRanking: String {

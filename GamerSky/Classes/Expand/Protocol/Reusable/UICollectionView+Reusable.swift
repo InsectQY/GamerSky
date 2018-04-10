@@ -59,7 +59,7 @@ public extension UICollectionView {
         (ofKind elementKind: String, for indexPath: IndexPath, viewType: T.Type = T.self) -> T
         where T: Reusable {
             
-            let view = self.dequeueReusableSupplementaryView(
+            let view = dequeueReusableSupplementaryView(
                 ofKind: elementKind,
                 withReuseIdentifier: viewType.ID,
                 for: indexPath

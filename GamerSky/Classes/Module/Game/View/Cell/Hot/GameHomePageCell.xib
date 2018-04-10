@@ -55,7 +55,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="骑马与砍杀2领主" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dla-kj-vNN" customClass="BaseLabel" customModule="GamerSky" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="168" width="98" height="36.5"/>
+                        <rect key="frame" x="0.0" y="166" width="98" height="36.5"/>
                         <fontDescription key="fontDescription" name="PingFangSC-Medium" family="PingFang SC" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -74,7 +74,7 @@
                 <constraint firstItem="xtn-aq-zHp" firstAttribute="leading" secondItem="Dph-1l-HoN" secondAttribute="trailing" constant="5" id="nI1-Jk-pTW"/>
                 <constraint firstItem="dla-kj-vNN" firstAttribute="trailing" secondItem="wWl-2T-Dv7" secondAttribute="trailing" id="ocf-DQ-1lt"/>
                 <constraint firstItem="xtn-aq-zHp" firstAttribute="centerY" secondItem="Dph-1l-HoN" secondAttribute="centerY" id="qfT-PB-aXj"/>
-                <constraint firstItem="dla-kj-vNN" firstAttribute="top" secondItem="xtn-aq-zHp" secondAttribute="bottom" constant="5" id="tPh-g8-1Zq"/>
+                <constraint firstItem="dla-kj-vNN" firstAttribute="top" secondItem="xtn-aq-zHp" secondAttribute="bottom" constant="3" id="tPh-g8-1Zq"/>
                 <constraint firstItem="wWl-2T-Dv7" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="0.68" id="zk7-jH-glO"/>
             </constraints>
             <size key="customSize" width="98" height="206"/>
