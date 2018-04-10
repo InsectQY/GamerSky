@@ -51,6 +51,7 @@ class GameHomeHeaderView: BaseView {
     }
 }
 
+// MARK: - 加载本地数据
 extension GameHomeHeaderView {
     
     private func loadHeaderData() {

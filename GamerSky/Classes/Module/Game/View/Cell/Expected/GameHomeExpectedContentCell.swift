@@ -19,7 +19,7 @@ private let kItemW = (ScreenWidth - (2 * kEdge) - ((kMaxCol - 1) * kItemMargin))
 
 class GameHomeExpectedContentCell: UITableViewCell, NibReusable {
 
-    static let cellHeight: CGFloat = ScreenHeight * 0.3
+    static let cellHeight: CGFloat = ScreenHeight * 0.25
     
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var flowLayout: UICollectionViewFlowLayout!

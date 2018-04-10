@@ -27,6 +27,8 @@ class GameHomeViewController: BaseViewController {
     private lazy var gameTags = [GameTag]()
     /// 特色专题
     private lazy var gameColumn = [GameSpecialList]()
+    /// section 数据
+    private lazy var sectionData = [GameHomeSection]()
     
     private lazy var tableView: UITableView = {
         
@@ -77,6 +79,11 @@ extension GameHomeViewController {
             guard let strongSelf = self else {return}
             
             let group = DispatchGroup()
+            
+            // sectionHeader 数据
+            let data = try! Data(contentsOf: Bundle.main.url(forResource: "GameHomeSectionData.plist", withExtension: nil)!)
+            strongSelf.sectionData = try! PropertyListDecoder().decode([GameHomeSection].self, from: data)
+
             // 新游推荐
             group.enter()
             ApiProvider.request(.gameSpecialDetail(1, "13"), objectModel: BaseModel<[GameInfo]>.self, success: {
@@ -171,6 +178,7 @@ extension GameHomeViewController {
             
             group.notify(queue: DispatchQueue.main, execute: {
                 
+                strongSelf.setUpTableHeader()
                 strongSelf.tableView.reloadData()
                 strongSelf.tableView.mj_header.endRefreshing()
             })
@@ -184,7 +192,6 @@ extension GameHomeViewController {
     
     private func setUpUI() {
         view.addSubview(tableView)
-        setUpTableHeader()
     }
     
     // MARK: - 设置导航栏
@@ -208,7 +215,7 @@ extension GameHomeViewController {
 extension GameHomeViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 7
+        return sectionData.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -266,6 +273,7 @@ extension GameHomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let sectionHeader = tableView.dequeueReusableHeaderFooterView(GameHomeSectionHeader.self)
+        sectionHeader.sectionData = sectionData[section]
         return sectionHeader
     }
     

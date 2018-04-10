@@ -62,8 +62,8 @@ extension GameHomeRankingContentCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: GameHomeRankingCell.self)
+        cell.tag = indexPath.row
         cell.info = rankingGame[indexPath.section][indexPath.row]
-        cell.row = indexPath.row
         return cell
     }
 }
@@ -75,4 +75,3 @@ extension GameHomeRankingContentCell: UICollectionViewDelegate {
         
     }
 }
-

@@ -17,15 +17,15 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z1y-jX-vad">
-                    <rect key="frame" x="10" y="18.5" width="4" height="17.5"/>
+                    <rect key="frame" x="10" y="20" width="4" height="15"/>
                     <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="4" id="Ii2-8z-VkN"/>
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="新游推荐" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dsE-vt-u7I" customClass="BaseLabel" customModule="GamerSky" customModuleProvider="target">
-                    <rect key="frame" x="24" y="16" width="64" height="22.5"/>
-                    <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="16"/>
+                    <rect key="frame" x="24" y="17.5" width="56" height="20"/>
+                    <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="14"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -59,6 +59,10 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="leftTitleLabel" destination="dsE-vt-u7I" id="4wL-cq-Clr"/>
+                <outlet property="rightTitleBtn" destination="Ctd-2h-lh3" id="2hY-wD-qlx"/>
+            </connections>
             <point key="canvasLocation" x="-3.5" y="249"/>
         </view>
     </objects>
