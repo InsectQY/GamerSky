@@ -12,10 +12,8 @@ import UIKit
 private let kItemMargin: CGFloat = 10
 /// 左右间距
 private let kEdge: CGFloat = 10
-/// 每行最大列数
-private let kMaxCol: CGFloat = 1
 /// cell 宽度
-private let kItemW: CGFloat = ScreenWidth * 0.8
+private let kItemW: CGFloat = ScreenWidth * 0.85
 /// cell 高度
 private let kItemH: CGFloat = 60
 
@@ -61,3 +59,12 @@ extension GameHomeRankingContentCell: UICollectionViewDataSource {
         return cell
     }
 }
+
+// MARK: - UICollectionViewDelegate
+extension GameHomeRankingContentCell: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+    }
+}
+

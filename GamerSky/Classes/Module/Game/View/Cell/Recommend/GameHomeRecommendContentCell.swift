@@ -15,7 +15,7 @@ private let kEdge: CGFloat = 10
 /// 每行最大列数
 private let kMaxCol: CGFloat = 1
 /// cell 宽度
-private let kItemW = (ScreenWidth - (2 * kEdge) - ((kMaxCol - 1) * kItemMargin)) / kMaxCol
+private let kItemW = ScreenWidth
 
 class GameHomeRecommendContentCell: UITableViewCell, NibReusable {
 
@@ -42,9 +42,9 @@ class GameHomeRecommendContentCell: UITableViewCell, NibReusable {
     func setUpCollectionView() {
         
         flowLayout.itemSize = CGSize(width: kItemW, height: GameHomeRecommendContentCell.cellHeight)
-        flowLayout.sectionInset = UIEdgeInsetsMake(0, kEdge, 0, kEdge)
-        flowLayout.minimumLineSpacing = kItemMargin
-        flowLayout.minimumInteritemSpacing = kItemMargin
+//        flowLayout.sectionInset = UIEdgeInsetsMake(0, kEdge, 0, kEdge)
+        flowLayout.minimumLineSpacing = 0
+        flowLayout.minimumInteritemSpacing = 0
         collectionView.register(cellType: GameHomeRecommendCell.self)
     }
 }

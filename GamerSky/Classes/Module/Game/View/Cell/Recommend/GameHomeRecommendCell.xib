@@ -19,13 +19,13 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="y8E-iA-kNt">
-                        <rect key="frame" x="0.0" y="0.0" width="430" height="210"/>
+                        <rect key="frame" x="10" y="0.0" width="415" height="210"/>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="esv-5D-LGg" userLabel="HUD">
-                        <rect key="frame" x="0.0" y="0.0" width="430" height="210"/>
+                        <rect key="frame" x="10" y="0.0" width="415" height="210"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xnv-KM-m44">
-                                <rect key="frame" x="10" y="8" width="410" height="194"/>
+                                <rect key="frame" x="10" y="8" width="395" height="194"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" tag="777" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="孤岛惊魂5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mIU-0I-hIZ" customClass="BaseLabel" customModule="GamerSky" customModuleProvider="target">
                                         <rect key="frame" x="10" y="86" width="74" height="22.5"/>
@@ -66,7 +66,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" tag="777" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="《逃出生天》利用强制性的双人人合作玩法来成就这款游戏的精彩。和朋友一起体验到一场令人难忘的电影化冒险。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UjU-qQ-eGp" customClass="BaseLabel" customModule="GamerSky" customModuleProvider="target">
-                                        <rect key="frame" x="10" y="114" width="390" height="80"/>
+                                        <rect key="frame" x="10" y="114" width="375" height="80"/>
                                         <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -102,13 +102,13 @@
             </view>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="y8E-iA-kNt" secondAttribute="bottom" id="3qE-3e-4xL"/>
-                <constraint firstItem="y8E-iA-kNt" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="863-6i-3o8"/>
+                <constraint firstItem="y8E-iA-kNt" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="863-6i-3o8"/>
                 <constraint firstItem="y8E-iA-kNt" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Rjv-T3-NJf"/>
-                <constraint firstAttribute="trailing" secondItem="esv-5D-LGg" secondAttribute="trailing" id="RyZ-7A-2dh"/>
+                <constraint firstAttribute="trailing" secondItem="esv-5D-LGg" secondAttribute="trailing" constant="5" id="RyZ-7A-2dh"/>
                 <constraint firstAttribute="bottom" secondItem="esv-5D-LGg" secondAttribute="bottom" id="fFO-vJ-X4J"/>
-                <constraint firstItem="esv-5D-LGg" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="hDQ-Ro-0aZ"/>
+                <constraint firstItem="esv-5D-LGg" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="hDQ-Ro-0aZ"/>
                 <constraint firstItem="esv-5D-LGg" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="lOM-bY-QIb"/>
-                <constraint firstAttribute="trailing" secondItem="y8E-iA-kNt" secondAttribute="trailing" id="wt1-mf-GbF"/>
+                <constraint firstAttribute="trailing" secondItem="y8E-iA-kNt" secondAttribute="trailing" constant="5" id="wt1-mf-GbF"/>
             </constraints>
             <size key="customSize" width="430" height="210"/>
             <connections>
