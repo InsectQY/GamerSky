@@ -21,7 +21,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IPC-Fo-BtE">
                         <rect key="frame" x="0.0" y="0.0" width="346" height="20"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12月" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EmM-Rj-ihK">
+                            <label opaque="NO" userInteractionEnabled="NO" tag="777" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12月" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EmM-Rj-ihK" customClass="BaseLabel" customModule="GamerSky" customModuleProvider="target">
                                 <rect key="frame" x="10" y="-0.5" width="30" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="9v9-xG-y1F"/>

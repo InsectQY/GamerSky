@@ -25,10 +25,20 @@ class GameHomeWaitSellContentCell: UITableViewCell, NibReusable {
     @IBOutlet private weak var flowLayout: UICollectionViewFlowLayout!
     
     public var sectionHeader: GameHomeSection?
+    /// 按月份分割好的数组
+    private var allWaitSellGame = [[GameInfo]]()
     
     public var waitSellGame = [GameInfo]() {
         
         didSet {
+            
+            allWaitSellGame.removeAll()
+            // 按12个月分割数组
+            (1...12).forEach { num in
+                
+                let result = waitSellGame.filter {$0.month == "\(num)"}
+                if result.count > 0 {allWaitSellGame.append(result)}
+            }
             collectionView.reloadData()
         }
     }
@@ -55,18 +65,19 @@ class GameHomeWaitSellContentCell: UITableViewCell, NibReusable {
 extension GameHomeWaitSellContentCell: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        return allWaitSellGame.count
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return waitSellGame.count
+        return allWaitSellGame[section].count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: GameHomePageCell.self)
+        cell.tag = indexPath.row
         cell.sectionType = sectionHeader?.sectionType
-        cell.info = waitSellGame[indexPath.item]
+        cell.info = allWaitSellGame[indexPath.section][indexPath.row]
         return cell
     }
 }

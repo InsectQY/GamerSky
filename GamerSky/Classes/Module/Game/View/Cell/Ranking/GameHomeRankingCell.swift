@@ -14,7 +14,7 @@ class GameHomeRankingCell: UICollectionViewCell, NibReusable {
     @IBOutlet private weak var rankingBtn: UIButton!
     @IBOutlet private weak var percentLabel: BaseLabel!
     @IBOutlet private weak var gameImageView: UIImageView!
-    @IBOutlet private weak var gameNameLabel: UILabel!
+    @IBOutlet private weak var gameNameLabel: BaseLabel!
     
     private var rankingImage = [#imageLiteral(resourceName: "common_Icon_Index1_16x18"), #imageLiteral(resourceName: "common_Icon_Index2_16x18"), #imageLiteral(resourceName: "common_Icon_Index3_16x18")]
         

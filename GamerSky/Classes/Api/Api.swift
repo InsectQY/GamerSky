@@ -156,7 +156,7 @@ extension Api: TargetType {
                                     "pageIndex" : page,
                                     "elementsCountPerPage": 20]
         case let .gameHomePage(page, type):
-            parmeters["request"] = ["extraField1" : "Position",
+            parmeters["request"] = ["extraField1" : "Position,AllTimeT",
                                     "extraField2" : "wantplayCount,gsScore",
                                     "group" : type.rawValue,
                                     "pageIndex" :  page,

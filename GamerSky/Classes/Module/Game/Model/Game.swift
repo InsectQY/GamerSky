@@ -42,8 +42,17 @@ struct GameInfo: Codable {
     var description: String?
     /// 想玩的人数
     var wantplayCount: Int?
-    /// 发售时间
-    var allTimeT: String?
+    /// 发售时间(时间格式: 2018/4/25 0:00:00)
+    var AllTimeT: String?
+    /// 发售月份    
+    var month: String? {
+        
+        get {
+            
+            let date = AllTimeT?.components(separatedBy: "/")
+            return date != nil ? date![1] : "未知"
+        }
+    }
     /// 评分
     lazy var score: Double = {
         

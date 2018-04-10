@@ -40,6 +40,8 @@ class GameHomePageCell: UICollectionViewCell, NibReusable {
             percentLabel.text = info?.gsScore
             gameImageView.qy_setImage(info?.DefaultPicUrl, "")
             ratingView.rating = info?.score ?? 0
+            sellMonthLabel.isHidden = tag != 0
+            sellMonthLabel.text = "\(info?.month ?? "")月"
         }
     }
 }
