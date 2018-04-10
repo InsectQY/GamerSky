@@ -10,10 +10,15 @@ import Foundation
 
 struct GameSpecialList: Codable {
 
+    /// ID
     var nodeId: Int
+    /// 标题
     var title: String
+    /// 大图
     var image: String
+    /// 小图
     var smallImage: String
+    /// 描述
     var des: String
 }
 
@@ -49,6 +54,8 @@ struct GameInfo: Codable {
 
 struct GameTag: Codable {
     
+    /// ID
     var searchid: Int
+    /// 标签名称
     var name: String
 }

@@ -232,6 +232,7 @@ extension GameHomeViewController: UITableViewDataSource {
         }else if indexPath.section == 1 {
             
             let cell = tableView.dequeueReusableCell(for: indexPath, cellType: GameHomeHotContentCell.self)
+            cell.sectionHeader = sectionData[indexPath.section]
             cell.hotGame = hotGame
             return cell
         }else if indexPath.section == 2 {
@@ -242,6 +243,7 @@ extension GameHomeViewController: UITableViewDataSource {
         }else if indexPath.section == 3 {
             
             let cell = tableView.dequeueReusableCell(for: indexPath, cellType: GameHomeWaitSellContentCell.self)
+            cell.sectionHeader = sectionData[indexPath.section]
             cell.waitSellGame = waitSellGame
             return cell
         }else if indexPath.section == 4 {
@@ -252,6 +254,7 @@ extension GameHomeViewController: UITableViewDataSource {
         }else if indexPath.section == 5 {
             
             let cell = tableView.dequeueReusableCell(for: indexPath, cellType: GameHomeExpectedContentCell.self)
+            cell.sectionHeader = sectionData[indexPath.section]
             cell.expectedGame = expectedGame
             return cell
         }else {

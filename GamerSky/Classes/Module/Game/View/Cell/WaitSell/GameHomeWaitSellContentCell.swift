@@ -24,6 +24,8 @@ class GameHomeWaitSellContentCell: UITableViewCell, NibReusable {
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var flowLayout: UICollectionViewFlowLayout!
     
+    public var sectionHeader: GameHomeSection?
+    
     public var waitSellGame = [GameInfo]() {
         
         didSet {
@@ -41,9 +43,10 @@ class GameHomeWaitSellContentCell: UITableViewCell, NibReusable {
     // MARK: - setUpCollectionView
     private func setUpCollectionView() {
         
-        flowLayout.itemSize = CGSize(width: kItemW, height: GameHomeWaitSellContentCell.cellHeight - 30)
+        flowLayout.itemSize = CGSize(width: kItemW, height: GameHomeWaitSellContentCell.cellHeight + 20)
         flowLayout.sectionInset = UIEdgeInsetsMake(0, kEdge, 0, kEdge)
         flowLayout.minimumLineSpacing = kItemMargin
+        flowLayout.minimumInteritemSpacing = 0
         collectionView.register(cellType: GameHomePageCell.self)
     }
 }
@@ -62,6 +65,7 @@ extension GameHomeWaitSellContentCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: GameHomePageCell.self)
+        cell.sectionType = sectionHeader?.sectionType
         cell.info = waitSellGame[indexPath.item]
         return cell
     }

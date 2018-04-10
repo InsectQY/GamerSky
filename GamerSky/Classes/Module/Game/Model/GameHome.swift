@@ -8,25 +8,37 @@
 
 import Foundation
 
-enum GameHome: String, Codable {
+enum GameHomeSectionType: Int, Codable {
     
-    case recommend = "新游推荐"
-    case hot = "最近大家都在玩"
-    case column = "特色专题"
-    case expected = "最期待游戏"
-    case newSelling = "即将上市"
-    case gameTag = "找游戏"
+    /// 新游推荐
+    case recommend = 0
+    /// 最近大家都在玩
+    case hot = 1
+    /// 特色专题
+    case column = 2
+    /// 即将上市
+    case waitSelling = 3
+    /// 排行榜
+    case ranking = 4
+    /// 最期待游戏
+    case expected = 5
+    /// 找游戏
+    case gameTag = 6
 }
 
 struct GameHomeSection: Codable {
     
+    /// 左边标题
     var leftTitle: String
+    /// 右边标题
     var rightTitle: String
-    var sectionType: GameHome?
+    var sectionType: GameHomeSectionType
 }
 
 struct GameHomeHeader: Codable {
 
+    /// 文字
     var title: String
+    /// 图片
     var image: String
 }

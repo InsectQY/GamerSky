@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="195" id="KGk-i7-Jjw" customClass="GameHomeWaitSellContentCell" customModule="GamerSky" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" indentationWidth="10" rowHeight="195" id="KGk-i7-Jjw" customClass="GameHomeWaitSellContentCell" customModule="GamerSky" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="346" height="195"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -19,10 +19,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IPC-Fo-BtE">
-                        <rect key="frame" x="0.0" y="0.0" width="346" height="30"/>
+                        <rect key="frame" x="0.0" y="0.0" width="346" height="20"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12月" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EmM-Rj-ihK">
-                                <rect key="frame" x="10" y="-0.5" width="30" height="30"/>
+                                <rect key="frame" x="10" y="-0.5" width="30" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="9v9-xG-y1F"/>
                                 </constraints>
@@ -31,7 +31,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gameComingSoonSpacing_414_UIMode_Day" translatesAutoresizingMaskIntoConstraints="NO" id="F6Y-Bz-hEq">
-                                <rect key="frame" x="40" y="13" width="296" height="3"/>
+                                <rect key="frame" x="40" y="8" width="296" height="3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="3" id="iSH-e2-tYY"/>
                                 </constraints>
@@ -43,13 +43,13 @@
                             <constraint firstItem="F6Y-Bz-hEq" firstAttribute="centerY" secondItem="EmM-Rj-ihK" secondAttribute="centerY" id="JsP-iE-ui0"/>
                             <constraint firstItem="EmM-Rj-ihK" firstAttribute="centerY" secondItem="IPC-Fo-BtE" secondAttribute="centerY" id="LTY-tE-Lpb"/>
                             <constraint firstAttribute="trailing" secondItem="F6Y-Bz-hEq" secondAttribute="trailing" constant="10" id="VsA-BZ-6Z6"/>
-                            <constraint firstAttribute="height" constant="30" id="ab7-aw-Yaa"/>
+                            <constraint firstAttribute="height" constant="20" id="ab7-aw-Yaa"/>
                             <constraint firstItem="EmM-Rj-ihK" firstAttribute="height" secondItem="IPC-Fo-BtE" secondAttribute="height" id="gyL-cj-PEv"/>
                             <constraint firstItem="EmM-Rj-ihK" firstAttribute="leading" secondItem="IPC-Fo-BtE" secondAttribute="leading" constant="10" id="nzL-ta-83O"/>
                         </constraints>
                     </view>
-                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="IaY-pn-vSz">
-                        <rect key="frame" x="0.0" y="30" width="346" height="164"/>
+                    <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="IaY-pn-vSz">
+                        <rect key="frame" x="0.0" y="25" width="346" height="169"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Jsm-9B-kiT">
                             <size key="itemSize" width="50" height="50"/>
@@ -63,9 +63,10 @@
                         </connections>
                     </collectionView>
                 </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="IaY-pn-vSz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="14g-tx-t0H"/>
-                    <constraint firstItem="IaY-pn-vSz" firstAttribute="top" secondItem="IPC-Fo-BtE" secondAttribute="bottom" id="1Sq-xU-eji"/>
+                    <constraint firstItem="IaY-pn-vSz" firstAttribute="top" secondItem="IPC-Fo-BtE" secondAttribute="bottom" constant="5" id="1Sq-xU-eji"/>
                     <constraint firstItem="IPC-Fo-BtE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="KfC-bF-jD2"/>
                     <constraint firstAttribute="trailing" secondItem="IaY-pn-vSz" secondAttribute="trailing" id="Pbg-VG-ae9"/>
                     <constraint firstItem="IPC-Fo-BtE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="R3N-ge-Dlf"/>

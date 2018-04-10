@@ -3,6 +3,8 @@
 <plist version="1.0">
 <array>
 	<dict>
+		<key>sectionType</key>
+		<real>0</real>
 		<key>leftTitle</key>
 		<string>新游推荐</string>
 		<key>rightTitle</key>
@@ -13,32 +15,44 @@
 		<string>最近大家都在玩</string>
 		<key>rightTitle</key>
 		<string>全部</string>
+		<key>sectionType</key>
+		<integer>1</integer>
 	</dict>
 	<dict>
+		<key>sectionType</key>
+		<integer>2</integer>
 		<key>leftTitle</key>
 		<string>特色专题</string>
 		<key>rightTitle</key>
 		<string>全部</string>
 	</dict>
 	<dict>
+		<key>sectionType</key>
+		<integer>3</integer>
 		<key>leftTitle</key>
 		<string>即将上市</string>
 		<key>rightTitle</key>
 		<string>查看发售表</string>
 	</dict>
 	<dict>
+		<key>sectionType</key>
+		<integer>4</integer>
 		<key>leftTitle</key>
 		<string>高分榜</string>
 		<key>rightTitle</key>
 		<string></string>
 	</dict>
 	<dict>
+		<key>sectionType</key>
+		<integer>5</integer>
 		<key>leftTitle</key>
 		<string>最期待游戏</string>
 		<key>rightTitle</key>
 		<string>全部</string>
 	</dict>
 	<dict>
+		<key>sectionType</key>
+		<integer>6</integer>
 		<key>leftTitle</key>
 		<string>找游戏</string>
 		<key>rightTitle</key>

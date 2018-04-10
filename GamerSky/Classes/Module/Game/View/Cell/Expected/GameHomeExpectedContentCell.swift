@@ -24,6 +24,8 @@ class GameHomeExpectedContentCell: UITableViewCell, NibReusable {
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var flowLayout: UICollectionViewFlowLayout!
     
+    public var sectionHeader: GameHomeSection?
+    
     public var expectedGame = [GameInfo]() {
         
         didSet {
@@ -58,6 +60,7 @@ extension GameHomeExpectedContentCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: GameHomePageCell.self)
+        cell.sectionType = sectionHeader?.sectionType
         cell.info = expectedGame[indexPath.item]
         return cell
     }
