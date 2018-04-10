@@ -46,3 +46,9 @@ struct GameInfo: Codable {
         return score * 0.5
     }()
 }
+
+struct GameTag: Codable {
+    
+    var searchid: Int
+    var name: String
+}

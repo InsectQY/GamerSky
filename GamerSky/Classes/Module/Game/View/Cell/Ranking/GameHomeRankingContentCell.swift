@@ -21,6 +21,12 @@ class GameHomeRankingContentCell: UITableViewCell, NibReusable {
 
     static let cellHeight: CGFloat = 350
     
+    public var rankingGame = [[GameInfo]]()  {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
+
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var flowLayout: UICollectionViewFlowLayout!
     
@@ -32,7 +38,7 @@ class GameHomeRankingContentCell: UITableViewCell, NibReusable {
     }
     
     // MARK: - setUpCollectionView
-    func setUpCollectionView() {
+    private func setUpCollectionView() {
         
         flowLayout.itemSize = CGSize(width: kItemW, height: kItemH)
         flowLayout.sectionInset = UIEdgeInsetsMake(0, kEdge, 0, kEdge)
@@ -46,16 +52,18 @@ class GameHomeRankingContentCell: UITableViewCell, NibReusable {
 extension GameHomeRankingContentCell: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 4
+        return rankingGame.count
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return rankingGame[section].count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: GameHomeRankingCell.self)
+        cell.info = rankingGame[indexPath.section][indexPath.row]
+        cell.row = indexPath.row
         return cell
     }
 }

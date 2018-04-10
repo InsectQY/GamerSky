@@ -21,6 +21,10 @@ class GameHomeViewController: BaseViewController {
     private lazy var waitSellGame = [GameInfo]()
     /// 最期待游戏
     private lazy var expectedGame = [GameInfo]()
+    /// 排行榜
+    private lazy var rankingGame = [[GameInfo]]()
+    /// 找游戏
+    private lazy var gameTags = [GameTag]()
     
     private lazy var tableView: UITableView = {
         
@@ -32,6 +36,7 @@ class GameHomeViewController: BaseViewController {
         tableView.register(cellType: GameHomeWaitSellContentCell.self)
         tableView.register(cellType: GameHomeExpectedContentCell.self)
         tableView.register(cellType: GameHomeRankingContentCell.self)
+        tableView.register(cellType: GameTagContentCell.self)
         tableView.register(headerFooterViewType: GameHomeSectionHeader.self)
         tableView.contentInset = UIEdgeInsetsMake(kTopH, 0, 0, 0)
         tableView.scrollIndicatorInsets = UIEdgeInsetsMake(kTopH, 0, 0, 0)
@@ -106,13 +111,50 @@ extension GameHomeViewController {
                 strongSelf.expectedGame = $0.result
                 strongSelf.tableView.reloadData()
                 strongSelf.tableView.mj_header.endRefreshing()
-                print($0)
-            }, failure: {
-                print($0)
+            }, failure: { _ in
                 strongSelf.tableView.mj_header.endRefreshing()
             })
             
+            // 找游戏
+            ApiProvider.request(.gameTags, objectModel: BaseModel<[GameTag]>.self, success: {
+                
+                strongSelf.gameTags = $0.result
+                strongSelf.tableView.reloadData()
+            }) { _ in
+                strongSelf.tableView.mj_header.endRefreshing()
+            }
+            
+            // 高分榜
+            ApiProvider.request(.gameRankingList(1, GameRanking.score, "0", "all"), objectModel: BaseModel<[GameInfo]>.self, success: {
+                
+                strongSelf.rankingGame = [Array($0.result.prefix(5))]
+                // 热门榜
+                ApiProvider.request(.gameRankingList(1, GameRanking.hot, "0", "all"), objectModel: BaseModel<[GameInfo]>.self, success: {
+                    
+                    strongSelf.rankingGame += [Array($0.result.prefix(5))]
+                    // 高分 FPS
+                    ApiProvider.request(.gameRankingList(1, GameRanking.score, "20066", "all"), objectModel: BaseModel<[GameInfo]>.self, success: {
+                        
+                        strongSelf.rankingGame += [Array($0.result.prefix(5))]
+                        // 高分 ACT
+                        ApiProvider.request(.gameRankingList(1, GameRanking.score, "20042", "all"), objectModel: BaseModel<[GameInfo]>.self, success: {
+                            
+                            strongSelf.rankingGame += [Array($0.result.prefix(5))]
+                            strongSelf.tableView.reloadData()
+                        }, failure: { _ in
+                            strongSelf.tableView.mj_header.endRefreshing()
+                        })
+                    }, failure: { _ in
+                        strongSelf.tableView.mj_header.endRefreshing()
+                    })
+                }, failure: { _ in
+                    strongSelf.tableView.mj_header.endRefreshing()
+                })
+            }, failure: { _ in
+                strongSelf.tableView.mj_header.endRefreshing()
+            })
         })
+        
         
         tableView.mj_header.beginRefreshing()
     }
@@ -175,9 +217,15 @@ extension GameHomeViewController: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(for: indexPath, cellType: GameHomeExpectedContentCell.self)
             cell.expectedGame = expectedGame
             return cell
-        }else {
+        }else if indexPath.section == 4 {
             
             let cell = tableView.dequeueReusableCell(for: indexPath, cellType: GameHomeRankingContentCell.self)
+            cell.rankingGame = rankingGame
+            return cell
+        }else {
+            
+            let cell = tableView.dequeueReusableCell(for: indexPath, cellType: GameTagContentCell.self)
+            cell.gameTag = gameTags
             return cell
         }
     }
@@ -205,8 +253,10 @@ extension GameHomeViewController: UITableViewDelegate {
             return GameHomeWaitSellContentCell.cellHeight
         }else if indexPath.section == 3 {
             return GameHomeExpectedContentCell.cellHeight
-        }else {
+        }else if indexPath.section == 4 {
             return GameHomeRankingContentCell.cellHeight
+        }else {
+            return GameTagContentCell.cellHeight
         }
     }
     

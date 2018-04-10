@@ -79,6 +79,10 @@
 		E534FACD207A60F5006CE008 /* ColumnNavTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E534FACB207A60F5006CE008 /* ColumnNavTitleView.xib */; };
 		E534FAD0207A6506006CE008 /* ColumnDescHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E534FACF207A6506006CE008 /* ColumnDescHeaderView.swift */; };
 		E534FAD2207A650E006CE008 /* ColumnDescHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E534FAD1207A650E006CE008 /* ColumnDescHeaderView.xib */; };
+		E550C92A207CD0E700C4AF2D /* GameHomeTagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E550C928207CD0E700C4AF2D /* GameHomeTagCell.swift */; };
+		E550C92B207CD0E700C4AF2D /* GameHomeTagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E550C929207CD0E700C4AF2D /* GameHomeTagCell.xib */; };
+		E550C92E207CD21200C4AF2D /* GameTagContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E550C92C207CD21200C4AF2D /* GameTagContentCell.swift */; };
+		E550C92F207CD21200C4AF2D /* GameTagContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E550C92D207CD21200C4AF2D /* GameTagContentCell.xib */; };
 		E56802DE20724AEB00CF944E /* ChannelListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56802DC20724AEB00CF944E /* ChannelListCell.swift */; };
 		E56802DF20724AEB00CF944E /* ChannelListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E56802DD20724AEB00CF944E /* ChannelListCell.xib */; };
 		E56802E120724EEB00CF944E /* Kingfisher + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56802E020724EEB00CF944E /* Kingfisher + Extension.swift */; };
@@ -199,6 +203,10 @@
 		E534FACB207A60F5006CE008 /* ColumnNavTitleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColumnNavTitleView.xib; sourceTree = "<group>"; };
 		E534FACF207A6506006CE008 /* ColumnDescHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnDescHeaderView.swift; sourceTree = "<group>"; };
 		E534FAD1207A650E006CE008 /* ColumnDescHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColumnDescHeaderView.xib; sourceTree = "<group>"; };
+		E550C928207CD0E700C4AF2D /* GameHomeTagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHomeTagCell.swift; sourceTree = "<group>"; };
+		E550C929207CD0E700C4AF2D /* GameHomeTagCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameHomeTagCell.xib; sourceTree = "<group>"; };
+		E550C92C207CD21200C4AF2D /* GameTagContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTagContentCell.swift; sourceTree = "<group>"; };
+		E550C92D207CD21200C4AF2D /* GameTagContentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameTagContentCell.xib; sourceTree = "<group>"; };
 		E56802DC20724AEB00CF944E /* ChannelListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelListCell.swift; sourceTree = "<group>"; };
 		E56802DD20724AEB00CF944E /* ChannelListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChannelListCell.xib; sourceTree = "<group>"; };
 		E56802E020724EEB00CF944E /* Kingfisher + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Kingfisher + Extension.swift"; sourceTree = "<group>"; };
@@ -729,6 +737,17 @@
 			path = TitleView;
 			sourceTree = "<group>";
 		};
+		E550C927207CD0AC00C4AF2D /* Tag */ = {
+			isa = PBXGroup;
+			children = (
+				E550C92C207CD21200C4AF2D /* GameTagContentCell.swift */,
+				E550C92D207CD21200C4AF2D /* GameTagContentCell.xib */,
+				E550C928207CD0E700C4AF2D /* GameHomeTagCell.swift */,
+				E550C929207CD0E700C4AF2D /* GameHomeTagCell.xib */,
+			);
+			path = Tag;
+			sourceTree = "<group>";
+		};
 		E56802DB20724AA600CF944E /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -831,6 +850,7 @@
 		E5CD6987207B95E7001A1A0A /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				E550C927207CD0AC00C4AF2D /* Tag */,
 				99446ABF207CA4D4004048C7 /* Ranking */,
 				99446ABA207C9F20004048C7 /* Expected */,
 				99446AA8207C69DC004048C7 /* WaitSell */,
@@ -980,6 +1000,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E550C92F207CD21200C4AF2D /* GameTagContentCell.xib in Resources */,
 				99E799A52071E10E005C3408 /* LaunchScreen.storyboard in Resources */,
 				99446AC9207CAC19004048C7 /* GameHomeRankingContentCell.xib in Resources */,
 				E56802DF20724AEB00CF944E /* ChannelListCell.xib in Resources */,
@@ -994,6 +1015,7 @@
 				E56802E720725CBE00CF944E /* NewsTableHeaderView.xib in Resources */,
 				E5CD6998207BAA9C001A1A0A /* GameHomeRecommendContentCell.xib in Resources */,
 				E5CD698B207B9794001A1A0A /* GameHomeHeaderCell.xib in Resources */,
+				E550C92B207CD0E700C4AF2D /* GameHomeTagCell.xib in Resources */,
 				994141152074A2D90016AC01 /* NewsSectionHeaderView.xib in Resources */,
 				9966511020735FFB0010430E /* MineViewController.xib in Resources */,
 				99446AB0207C6A9B004048C7 /* GameHomeWaitSellContentCell.xib in Resources */,
@@ -1115,6 +1137,7 @@
 				998F0C372071EE2E00C587C2 /* AppConfig.swift in Sources */,
 				998F0C452071EEC500C587C2 /* UIView + Frame.swift in Sources */,
 				994141132074A2CD0016AC01 /* NewsSectionHeaderView.swift in Sources */,
+				E550C92E207CD21200C4AF2D /* GameTagContentCell.swift in Sources */,
 				994141272074C2740016AC01 /* Preference.swift in Sources */,
 				E5CD69BC207BCF5F001A1A0A /* CosmosAccessibility.swift in Sources */,
 				E5CD69BD207BCF5F001A1A0A /* CosmosText.swift in Sources */,
@@ -1175,6 +1198,7 @@
 				9941411020747F8C0016AC01 /* BaseButton.swift in Sources */,
 				E5CD69C1207BCF5F001A1A0A /* CosmosLocalizedRating.swift in Sources */,
 				998F0C722071F7AD00C587C2 /* OriginalViewController.swift in Sources */,
+				E550C92A207CD0E700C4AF2D /* GameHomeTagCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

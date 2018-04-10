@@ -39,7 +39,7 @@ class GameHomeHotContentCell: UITableViewCell, NibReusable {
     }
     
     // MARK: - setUpCollectionView
-    func setUpCollectionView() {
+    private func setUpCollectionView() {
         
         flowLayout.itemSize = CGSize(width: kItemW, height: GameHomeHotContentCell.cellHeight)
         flowLayout.sectionInset = UIEdgeInsetsMake(0, kEdge, 0, kEdge)

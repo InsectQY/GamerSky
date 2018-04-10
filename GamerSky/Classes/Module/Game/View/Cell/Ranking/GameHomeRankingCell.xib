@@ -109,6 +109,13 @@
                 <constraint firstItem="Eza-sF-Jpd" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="0.7" id="ycK-Nr-moz"/>
             </constraints>
             <size key="customSize" width="324" height="65"/>
+            <connections>
+                <outlet property="gameImageView" destination="Eza-sF-Jpd" id="3JB-oo-RwS"/>
+                <outlet property="gameNameLabel" destination="raq-XL-uFX" id="n4g-eJ-Mar"/>
+                <outlet property="percentLabel" destination="zQu-68-hDu" id="Qbe-4a-iT3"/>
+                <outlet property="rankingBtn" destination="bDz-9X-rWG" id="PHf-kl-NuM"/>
+                <outlet property="ratingView" destination="ojV-di-t0B" id="SKV-DX-4Cg"/>
+            </connections>
             <point key="canvasLocation" x="-92" y="8"/>
         </collectionViewCell>
     </objects>
