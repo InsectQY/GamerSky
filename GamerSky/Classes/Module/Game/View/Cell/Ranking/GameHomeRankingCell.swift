@@ -22,7 +22,7 @@ class GameHomeRankingCell: UICollectionViewCell, NibReusable {
         
         didSet {
             
-            guard row > rankingImage.count - 1 else {
+            if row <= rankingImage.count - 1 {
                 
                 rankingBtn.setImage(rankingImage[row], for: .normal)
                 return

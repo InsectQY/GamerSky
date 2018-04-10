@@ -99,6 +99,7 @@
                     </button>
                 </subviews>
             </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="So2-Zx-TNh" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="4CR-TG-ClR"/>
                 <constraint firstItem="bDz-9X-rWG" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="76x-wP-Or6"/>
