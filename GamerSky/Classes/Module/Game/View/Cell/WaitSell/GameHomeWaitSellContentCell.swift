@@ -58,6 +58,7 @@ class GameHomeWaitSellContentCell: UITableViewCell, NibReusable {
         flowLayout.minimumLineSpacing = kItemMargin
         flowLayout.minimumInteritemSpacing = 0
         collectionView.register(cellType: GameHomePageCell.self)
+        collectionView.register(cellType: GameHomeMoreCell.self)
     }
 }
 

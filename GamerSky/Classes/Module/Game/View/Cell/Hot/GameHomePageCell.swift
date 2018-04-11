@@ -10,7 +10,7 @@ import UIKit
 
 class GameHomePageCell: UICollectionViewCell, NibReusable {
 
-    @IBOutlet private weak var percentLabelLeftConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var moreImage: UIImageView!
     @IBOutlet private weak var gameImageTopConstraint: NSLayoutConstraint!
     @IBOutlet private weak var gameImageConstraintH: NSLayoutConstraint!
     @IBOutlet private weak var sellMonthLabel: BaseLabel!
@@ -33,17 +33,14 @@ class GameHomePageCell: UICollectionViewCell, NibReusable {
             
             // 不是最近大家都在玩, 不需要显示评分
             ratingView.isHidden = sectionType != .hot
-            if sectionType != .hot {
-                
-                percentLabelLeftConstraint.priority = UILayoutPriority(rawValue: 1)
-            }
+            percentLabel.textAlignment = .left
         }
     }
     
     public var info: GameInfo? {
         
         didSet {
-            
+                        
             gameNameLabel.text = info?.Title
             gameImageView.qy_setImage(info?.DefaultPicUrl, "")
             sellMonthLabel.isHidden = tag != 0

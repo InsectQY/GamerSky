@@ -47,6 +47,7 @@ class GameHomeHotContentCell: UITableViewCell, NibReusable {
         flowLayout.sectionInset = UIEdgeInsetsMake(0, kEdge, 0, kEdge)
         flowLayout.minimumLineSpacing = kItemMargin
         collectionView.register(cellType: GameHomePageCell.self)
+        collectionView.register(cellType: GameHomeMoreCell.self)
     }
 }
 
@@ -54,14 +55,21 @@ class GameHomeHotContentCell: UITableViewCell, NibReusable {
 extension GameHomeHotContentCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return hotGame.count
+        return hotGame.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: GameHomePageCell.self)
-        cell.sectionType = sectionHeader?.sectionType
-        cell.info = hotGame[indexPath.item]
-        return cell
+        if indexPath.item == hotGame.count { // 最后一个
+            
+            let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: GameHomeMoreCell.self)
+            return cell
+        }else {
+            
+            let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: GameHomePageCell.self)
+            cell.sectionType = sectionHeader?.sectionType
+            cell.info = hotGame[indexPath.item]
+            return cell
+        }
     }
 }
