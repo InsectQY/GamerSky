@@ -20,7 +20,7 @@
                 <subviews>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Ohi-17-BYo">
                         <rect key="frame" x="0.0" y="0.0" width="382" height="242.5"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Zr8-Hj-1Cr">
                             <size key="itemSize" width="50" height="50"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -28,8 +28,8 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <connections>
-                            <outlet property="dataSource" destination="KGk-i7-Jjw" id="AmG-mq-1ma"/>
-                            <outlet property="delegate" destination="KGk-i7-Jjw" id="Ncy-9Q-qwk"/>
+                            <outlet property="dataSource" destination="KGk-i7-Jjw" id="UV9-SM-BaR"/>
+                            <outlet property="delegate" destination="KGk-i7-Jjw" id="I68-CP-o0l"/>
                         </connections>
                     </collectionView>
                 </subviews>

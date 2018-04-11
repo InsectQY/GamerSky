@@ -191,6 +191,7 @@ extension GameHomeViewController {
 extension GameHomeViewController {
     
     private func setUpUI() {
+        
         view.addSubview(tableView)
     }
     

@@ -44,10 +44,12 @@ class GameHomeExpectedContentCell: UITableViewCell, NibReusable {
     private func setUpCollectionView() {
         
         flowLayout.itemSize = CGSize(width: kItemW, height: GameHomeHotContentCell.cellHeight)
-        flowLayout.sectionInset = UIEdgeInsetsMake(0, kEdge, 0, kEdge)
+        flowLayout.footerReferenceSize = CGSize(width: kItemW, height: GameHomeHotContentCell.cellHeight)
+        collectionView.contentInset = UIEdgeInsetsMake(0, kEdge, 0, kEdge)
+        flowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, kItemMargin)
         flowLayout.minimumLineSpacing = kItemMargin
         collectionView.register(cellType: GameHomePageCell.self)
-        collectionView.register(cellType: GameHomeMoreCell.self)
+        collectionView.register(supplementaryViewType: GameHomePageFooterView.self, ofKind: UICollectionElementKindSectionFooter)
     }
 }
 
@@ -55,29 +57,24 @@ class GameHomeExpectedContentCell: UITableViewCell, NibReusable {
 extension GameHomeExpectedContentCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return expectedGame.count + 1
+        return expectedGame.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        if indexPath.item == expectedGame.count { // 最后一个
-            
-            let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: GameHomeMoreCell.self)
-            return cell
-        }else {
-            
-            let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: GameHomePageCell.self)
-            cell.sectionType = sectionHeader?.sectionType
-            cell.info = expectedGame[indexPath.item]
-            return cell
-        }
+        let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: GameHomePageCell.self)
+        cell.sectionType = sectionHeader?.sectionType
+        cell.info = expectedGame[indexPath.item]
+        return cell
     }
 }
 
 // MARK: - UICollectionViewDelegate
 extension GameHomeExpectedContentCell: UICollectionViewDelegate {
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        let footer = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionFooter, for: indexPath, viewType: GameHomePageFooterView.self)
+        return footer
     }
 }

@@ -33,6 +33,7 @@
                         </connections>
                     </collectionView>
                 </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="Uoz-wl-hWV" secondAttribute="trailing" id="7tc-9n-2o3"/>
                     <constraint firstItem="Uoz-wl-hWV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="I0b-N2-5pJ"/>

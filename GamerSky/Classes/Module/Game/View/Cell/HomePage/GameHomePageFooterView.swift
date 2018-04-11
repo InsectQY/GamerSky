@@ -1,16 +1,14 @@
 //
-//  GameHomeMoreCell.swift
+//  GameHomePageFooterView.swift
 //  GamerSky
 //
-//  Created by InsectQY on 2018/4/11.
+//  Created by InsectQY on 2018/4/12.
 //Copyright © 2018年 engic. All rights reserved.
 //
 
 import UIKit
 
-class GameHomeMoreCell: UICollectionViewCell, NibReusable {
-
-    // MARK: - LazyLoad
+class GameHomePageFooterView: UICollectionReusableView, NibReusable {
     
     
     // MARK: - inital

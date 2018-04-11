@@ -44,10 +44,12 @@ class GameHomeHotContentCell: UITableViewCell, NibReusable {
     private func setUpCollectionView() {
         
         flowLayout.itemSize = CGSize(width: kItemW, height: GameHomeHotContentCell.cellHeight)
-        flowLayout.sectionInset = UIEdgeInsetsMake(0, kEdge, 0, kEdge)
+        flowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, kItemMargin)
+        collectionView.contentInset = UIEdgeInsetsMake(0, kEdge, 0, kEdge)
         flowLayout.minimumLineSpacing = kItemMargin
+        flowLayout.footerReferenceSize = CGSize(width: kItemW, height: GameHomeHotContentCell.cellHeight)
         collectionView.register(cellType: GameHomePageCell.self)
-        collectionView.register(cellType: GameHomeMoreCell.self)
+        collectionView.register(supplementaryViewType: GameHomePageFooterView.self, ofKind: UICollectionElementKindSectionFooter)
     }
 }
 
@@ -55,21 +57,24 @@ class GameHomeHotContentCell: UITableViewCell, NibReusable {
 extension GameHomeHotContentCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return hotGame.count + 1
+        return hotGame.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        if indexPath.item == hotGame.count { // 最后一个
-            
-            let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: GameHomeMoreCell.self)
-            return cell
-        }else {
-            
-            let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: GameHomePageCell.self)
-            cell.sectionType = sectionHeader?.sectionType
-            cell.info = hotGame[indexPath.item]
-            return cell
-        }
+        let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: GameHomePageCell.self)
+        cell.sectionType = sectionHeader?.sectionType
+        cell.info = hotGame[indexPath.item]
+        return cell
+    }
+}
+
+// MARK: - UICollectionViewDelegate
+extension GameHomeHotContentCell: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        let footer = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionFooter, for: indexPath, viewType: GameHomePageFooterView.self)
+        return footer
     }
 }

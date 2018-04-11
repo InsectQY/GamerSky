@@ -37,7 +37,6 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="F6Y-Bz-hEq" firstAttribute="leading" secondItem="EmM-Rj-ihK" secondAttribute="trailing" id="1lO-wf-dLU"/>
                             <constraint firstItem="F6Y-Bz-hEq" firstAttribute="centerY" secondItem="EmM-Rj-ihK" secondAttribute="centerY" id="JsP-iE-ui0"/>
@@ -63,7 +62,6 @@
                         </connections>
                     </collectionView>
                 </subviews>
-                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="IaY-pn-vSz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="14g-tx-t0H"/>
                     <constraint firstItem="IaY-pn-vSz" firstAttribute="top" secondItem="IPC-Fo-BtE" secondAttribute="bottom" constant="5" id="1Sq-xU-eji"/>

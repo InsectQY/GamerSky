@@ -54,11 +54,12 @@ class GameHomeWaitSellContentCell: UITableViewCell, NibReusable {
     private func setUpCollectionView() {
         
         flowLayout.itemSize = CGSize(width: kItemW, height: GameHomeWaitSellContentCell.cellHeight + 20)
-        flowLayout.sectionInset = UIEdgeInsetsMake(0, kEdge, 0, kEdge)
+        flowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, kItemMargin)
+        collectionView.contentInset = UIEdgeInsetsMake(0, kEdge, 0, kEdge)
         flowLayout.minimumLineSpacing = kItemMargin
         flowLayout.minimumInteritemSpacing = 0
         collectionView.register(cellType: GameHomePageCell.self)
-        collectionView.register(cellType: GameHomeMoreCell.self)
+        collectionView.register(supplementaryViewType: GameHomePageFooterView.self, ofKind: UICollectionElementKindSectionFooter)
     }
 }
 
@@ -83,10 +84,20 @@ extension GameHomeWaitSellContentCell: UICollectionViewDataSource {
     }
 }
 
+// MARK: - UICollectionViewDelegateFlowLayout
+extension GameHomeWaitSellContentCell: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        return section == allWaitSellGame.count - 1 ? CGSize(width: kItemW, height: GameHomeWaitSellContentCell.cellHeight) : .zero
+    }
+}
+
 // MARK: - UICollectionViewDelegate
 extension GameHomeWaitSellContentCell: UICollectionViewDelegate {
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
+        let footer = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionFooter, for: indexPath, viewType: GameHomePageFooterView.self)
+        return footer
     }
 }

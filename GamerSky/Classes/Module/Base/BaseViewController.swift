@@ -39,6 +39,8 @@ extension BaseViewController {
     
     // MARK: - 主题设置
     private func initTheme() {
+        
+        view.backgroundColor = .white
         view.theme_backgroundColor = ThemeColorPicker(keyPath: qy_themeBackgroundColor)
     }
 }
