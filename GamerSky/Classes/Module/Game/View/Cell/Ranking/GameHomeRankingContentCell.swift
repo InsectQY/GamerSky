@@ -13,7 +13,7 @@ private let kItemMargin: CGFloat = 10
 /// 左右间距
 private let kEdge: CGFloat = 10
 /// cell 宽度
-private let kItemW: CGFloat = ScreenWidth * 0.85
+private let kItemW: CGFloat = ScreenWidth * 0.8
 /// cell 高度
 private let kItemH: CGFloat = 60
 

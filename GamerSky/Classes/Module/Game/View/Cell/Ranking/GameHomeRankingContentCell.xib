@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -32,11 +33,19 @@
                             <outlet property="delegate" destination="KGk-i7-Jjw" id="fMd-PM-uN8"/>
                         </connections>
                     </collectionView>
+                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jOd-L4-kYJ" userLabel="HUD">
+                        <rect key="frame" x="281.5" y="0.0" width="38.5" height="135.5"/>
+                        <color key="backgroundColor" white="1" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="SHE-Y8-WqE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="2nk-rE-J1l"/>
+                    <constraint firstAttribute="trailing" secondItem="jOd-L4-kYJ" secondAttribute="trailing" id="E9y-PH-d8C"/>
                     <constraint firstAttribute="bottom" secondItem="SHE-Y8-WqE" secondAttribute="bottom" id="R99-a9-hTj"/>
                     <constraint firstItem="SHE-Y8-WqE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="YIL-Xe-CYo"/>
+                    <constraint firstItem="jOd-L4-kYJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Ye2-37-l8l"/>
+                    <constraint firstAttribute="bottom" secondItem="jOd-L4-kYJ" secondAttribute="bottom" id="aO8-wv-kTF"/>
+                    <constraint firstItem="jOd-L4-kYJ" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.12" id="mHG-Sr-Xbo"/>
                     <constraint firstAttribute="trailing" secondItem="SHE-Y8-WqE" secondAttribute="trailing" id="skU-XE-8bX"/>
                 </constraints>
             </tableViewCellContentView>

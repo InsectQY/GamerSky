@@ -94,6 +94,7 @@
                 <outlet property="gameImageView" destination="wWl-2T-Dv7" id="yWn-IP-pcs"/>
                 <outlet property="gameNameLabel" destination="dla-kj-vNN" id="BW8-kz-qS6"/>
                 <outlet property="percentLabel" destination="xtn-aq-zHp" id="w1B-hh-Ak5"/>
+                <outlet property="percentLabelLeftConstraint" destination="nI1-Jk-pTW" id="f50-80-t20"/>
                 <outlet property="ratingView" destination="Dph-1l-HoN" id="HI4-Kh-DJ5"/>
                 <outlet property="sellMonthLabel" destination="Ekj-DC-uwP" id="haS-J6-uxO"/>
             </connections>

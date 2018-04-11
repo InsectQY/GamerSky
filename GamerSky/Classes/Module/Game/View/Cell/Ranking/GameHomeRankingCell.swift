@@ -17,7 +17,7 @@ class GameHomeRankingCell: UICollectionViewCell, NibReusable {
     @IBOutlet private weak var gameNameLabel: BaseLabel!
     
     private var rankingImage = [#imageLiteral(resourceName: "common_Icon_Index1_16x18"), #imageLiteral(resourceName: "common_Icon_Index2_16x18"), #imageLiteral(resourceName: "common_Icon_Index3_16x18")]
-        
+    
     public var info: GameInfo? {
         
         didSet {
@@ -26,13 +26,14 @@ class GameHomeRankingCell: UICollectionViewCell, NibReusable {
             gameImageView.qy_setImage(info?.DefaultPicUrl, "")
             percentLabel.text = info?.gsScore
             ratingView.rating = info?.score ?? 0
-            
-            if tag <= rankingImage.count - 1 {
-                
-                rankingBtn.setImage(rankingImage[tag], for: .normal)
-                return
-            }
             rankingBtn.setTitle("\(tag + 1)", for: .normal)
+            if tag <= rankingImage.count - 1 {
+
+                rankingBtn.setImage(rankingImage[tag], for: .normal)
+            }else {
+                rankingBtn.setTitle("\(tag + 1)", for: .normal)
+                rankingBtn.setImage(nil, for: .normal)
+            }
         }
     }
 }
