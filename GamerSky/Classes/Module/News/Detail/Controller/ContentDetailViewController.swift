@@ -11,7 +11,7 @@ import WebKit
 
 class ContentDetailViewController: BaseViewController {
 
-    var contentID = 0
+    public var contentID = 0
     
     private lazy var webView: WKWebView = {
         

@@ -14,7 +14,7 @@ class GameHomeTagCell: UICollectionViewCell, NibReusable {
     
     static let cellHeight: CGFloat = 30
     
-    var gameTag: GameTag? {
+    public var gameTag: GameTag? {
         
         didSet {
             gameTagLabel.text = gameTag?.name

@@ -13,7 +13,7 @@ class ColumnNavTitleView: UIView, NibLoadable {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var titleImageView: UIImageView!
     
-    var column: ColumnList? {
+    public var column: ColumnList? {
         
         didSet {
             

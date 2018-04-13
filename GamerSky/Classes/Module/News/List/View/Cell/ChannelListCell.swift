@@ -17,7 +17,7 @@ class ChannelListCell: UITableViewCell, NibReusable {
     
     static let cellHeight: CGFloat = ScreenWidth * 0.22
     
-    var channel: ChannelList? {
+    public var channel: ChannelList? {
         
         didSet {
             

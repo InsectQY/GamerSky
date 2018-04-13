@@ -13,7 +13,7 @@ class ColumnListCell: BaseCollectionViewCell, NibReusable {
     @IBOutlet private weak var columnLabel: UILabel!
     @IBOutlet private weak var columnImageView: UIImageView!
     
-    var column: ColumnList? {
+    public var column: ColumnList? {
         
         didSet {
             

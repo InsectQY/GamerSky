@@ -17,7 +17,7 @@ class NewsTableHeaderView: BaseView, NibReusable {
     @IBOutlet private weak var pageContentView: BaseView!
     @IBOutlet private weak var titleLabel: UILabel!
     
-    var channelListAry: [ChannelList]? {
+    public var channelListAry: [ChannelList]? {
         didSet {
             pagerView.reloadData()
         }

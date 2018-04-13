@@ -15,7 +15,7 @@ class ColumnDescHeaderView: UIView, NibLoadable {
     @IBOutlet private weak var descView: UIView!
     @IBOutlet private weak var descLabel: UILabel!
     
-    var desc: String? {
+    public var desc: String? {
         didSet {
             descLabel.text = desc
         }

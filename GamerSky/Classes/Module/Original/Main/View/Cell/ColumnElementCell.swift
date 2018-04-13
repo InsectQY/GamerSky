@@ -22,9 +22,9 @@ class ColumnElementCell: UITableViewCell, NibReusable {
     @IBOutlet private weak var thumbImageView: UIImageView!
     @IBOutlet private weak var authorImageView: UIImageView!
     
-    var row = 0
+    public var row = 0
     
-    var columnElement: ColumnElement? {
+    public var columnElement: ColumnElement? {
         
         didSet {
             

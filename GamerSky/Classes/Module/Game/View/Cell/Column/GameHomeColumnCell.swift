@@ -12,7 +12,7 @@ class GameHomeColumnCell: UICollectionViewCell, NibReusable {
 
     @IBOutlet private weak var columnImageView: UIImageView!
     
-    var column: GameSpecialList? {
+    public var column: GameSpecialList? {
         didSet {
             columnImageView.qy_setImage(column?.smallImage, "")
         }

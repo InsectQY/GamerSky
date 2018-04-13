@@ -13,7 +13,7 @@ class GameHomeHeaderCell: UICollectionViewCell, NibReusable {
     @IBOutlet private weak var titleLabel: BaseLabel!
     @IBOutlet private weak var imageView: UIImageView!
     
-    var header: GameHomeHeader? {
+    public var header: GameHomeHeader? {
         
         didSet {
             

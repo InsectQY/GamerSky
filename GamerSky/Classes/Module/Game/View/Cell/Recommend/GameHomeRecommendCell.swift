@@ -17,7 +17,7 @@ class GameHomeRecommendCell: UICollectionViewCell, NibReusable {
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var backgroundImageView: UIImageView!
     
-    var detail: GameInfo? {
+    public var detail: GameInfo? {
         
         didSet {
             

@@ -15,7 +15,7 @@ class GameHomeSectionHeader: UITableViewHeaderFooterView, NibReusable {
     @IBOutlet private weak var leftTitleLabel: BaseLabel!
     @IBOutlet private weak var rightTitleBtn: UIButton!
     
-    var sectionData: GameHomeSection? {
+    public var sectionData: GameHomeSection? {
         
         didSet {
             

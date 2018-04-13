@@ -21,7 +21,7 @@ class GameHomeColumnContentCell: UITableViewCell, NibReusable {
 
     static let cellHeight: CGFloat = ScreenHeight * 0.18
     
-    var columnGame = [GameSpecialList]() {
+    public var columnGame = [GameSpecialList]() {
         didSet {
             collectionView.reloadData()
         }
