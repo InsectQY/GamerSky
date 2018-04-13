@@ -70,4 +70,8 @@ extension NewsTableHeaderView: FSPagerViewDelegate {
     func pagerView(_ pagerView: FSPagerView, willDisplay cell: FSPagerViewCell, forItemAt index: Int) {
         titleLabel.text = channelListAry?[index].title
     }
+    
+    func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
+        pagerView.deselectItem(at: index, animated: true)
+    }
 }
