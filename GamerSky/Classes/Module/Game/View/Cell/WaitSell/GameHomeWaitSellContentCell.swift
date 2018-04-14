@@ -8,40 +8,62 @@
 
 import UIKit
 
-/// cell 之间间距
-private let kItemMargin: CGFloat = 15
-/// 左右间距
-private let kEdge: CGFloat = 10
-/// 每行最大列数
-private let kMaxCol: CGFloat = 4
-/// cell 宽度
-private let kItemW = (ScreenWidth - (2 * kEdge) - ((kMaxCol - 1) * kItemMargin)) / kMaxCol
-
 class GameHomeWaitSellContentCell: UITableViewCell, NibReusable {
 
-    static let cellHeight: CGFloat = ScreenHeight * 0.3
+    static let waitSellingHeight: CGFloat = ScreenHeight * 0.3
+    static let hotHeight: CGFloat = ScreenHeight * 0.25
     
+    @IBOutlet private weak var collectionViewTopConstraint: NSLayoutConstraint!
+    
+    /// 左右间距
+    private let kEdge: CGFloat = 10
+    /// cell 之间间距
+    private let kItemMargin: CGFloat = 15
+    /// 每行最大列数
+    private let kMaxCol: CGFloat = 4
+    /// cell 宽度
+    private var kItemW: CGFloat {
+        return (ScreenWidth - (2 * kEdge) - ((kMaxCol - 1) * kItemMargin)) / kMaxCol
+    }
+
     // MARK: - IBOutlet
+    @IBOutlet private weak var monthContentView: UIView!
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var flowLayout: UICollectionViewFlowLayout!
     @IBOutlet private weak var monthLabel: BaseLabel!
+    @IBOutlet private weak var collectionViewTopConstraints: NSLayoutConstraint!
     
     // MARK: - public
-    public var sectionHeader: GameHomeSection?
-    /// 按月份分割好的数组
-    private var allWaitSellGame = [[GameInfo]]()
+    public var sectionType: GameHomeSectionType? {
+        
+        didSet {
+            monthContentView.isHidden = sectionType != .waitSelling
+            if sectionType != .waitSelling {
+                collectionViewTopConstraint.priority = UILayoutPriority(rawValue: 1)
+            }else {
+                collectionViewTopConstraint.priority = UILayoutPriority(rawValue: 999)
+            }
+        }
+    }
     
-    public var waitSellGame = [GameInfo]() {
+    /// 按月份分割好的数组
+    private var monthGame = [[GameInfo]]()
+    
+    public var game = [GameInfo]() {
         
         didSet {
             
-            allWaitSellGame.removeAll()
-            // 按12个月分割数组
-            (1...12).forEach { num in
-                
-                let result = waitSellGame.filter {$0.month == "\(num)"}
-                if result.count > 0 {allWaitSellGame.append(result)}
+            if sectionType == .waitSelling {
+               
+                monthGame.removeAll()
+                // 按12个月分割数组
+                (1...12).forEach { num in
+                    
+                    let result = game.filter {$0.month == "\(num)"}
+                    if result.count > 0 {monthGame.append(result)}
+                }
             }
+            
             collectionView.reloadData()
         }
     }
@@ -56,13 +78,12 @@ class GameHomeWaitSellContentCell: UITableViewCell, NibReusable {
     // MARK: - setUpCollectionView
     private func setUpCollectionView() {
         
-        flowLayout.itemSize = CGSize(width: kItemW, height: GameHomeWaitSellContentCell.cellHeight + 20)
         flowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, kItemMargin)
-        collectionView.contentInset = UIEdgeInsetsMake(0, kEdge, 0, kEdge)
         flowLayout.minimumLineSpacing = kItemMargin
-        flowLayout.minimumInteritemSpacing = 0
+        collectionView.contentInset = UIEdgeInsetsMake(0, kEdge, 0, kEdge)
         collectionView.register(cellType: GameHomePageCell.self)
         collectionView.register(supplementaryViewType: GameHomePageFooterView.self, ofKind: UICollectionElementKindSectionFooter)
+        flowLayout.footerReferenceSize = CGSize(width: kItemW, height: 200)
     }
 }
 
@@ -70,19 +91,20 @@ class GameHomeWaitSellContentCell: UITableViewCell, NibReusable {
 extension GameHomeWaitSellContentCell: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return allWaitSellGame.count
+        return sectionType == .waitSelling ? monthGame.count : 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return allWaitSellGame[section].count
+        return sectionType == .waitSelling ? monthGame[section].count : game.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: GameHomePageCell.self)
         cell.tag = indexPath.row
-        cell.sectionType = sectionHeader?.sectionType
-        cell.info = allWaitSellGame[indexPath.section][indexPath.row]
+        cell.sectionType = sectionType
+        let info = sectionType == .waitSelling ? monthGame[indexPath.section][indexPath.row] : game[indexPath.row]
+        cell.info = info
         return cell
     }
 }
@@ -91,16 +113,25 @@ extension GameHomeWaitSellContentCell: UICollectionViewDataSource {
 extension GameHomeWaitSellContentCell: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
-        guard let indexPath = collectionView.indexPathForItem(at: scrollView.contentOffset) else {return}
-        monthLabel.text = "\(allWaitSellGame[indexPath.section][0].month ?? "")月"
+        guard sectionType == .waitSelling, let indexPath = collectionView.indexPathForItem(at: scrollView.contentOffset) else {return}
+        monthLabel.text = "\(monthGame[indexPath.section][0].month ?? "")月"
     }
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
 extension GameHomeWaitSellContentCell: UICollectionViewDelegateFlowLayout {
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return sectionType == .waitSelling ? CGSize(width: kItemW, height: GameHomeWaitSellContentCell.waitSellingHeight + 20) : CGSize(width: kItemW, height: GameHomeWaitSellContentCell.hotHeight)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-        return section == allWaitSellGame.count - 1 ? CGSize(width: kItemW, height: GameHomeWaitSellContentCell.cellHeight) : .zero
+
+        if sectionType == .waitSelling {
+            return section == monthGame.count - 1 ? CGSize(width: kItemW, height: GameHomeWaitSellContentCell.waitSellingHeight) : .zero
+        }else {
+            return CGSize(width: kItemW, height: 1)
+        }
     }
 }
 

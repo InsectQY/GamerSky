@@ -28,6 +28,6 @@ class GameHomeColumnFlowLayout: UICollectionViewFlowLayout {
         scrollDirection = .horizontal
         itemSize = CGSize(width: kItemW, height: GameHomeColumnContentCell.cellHeight)
         sectionInset = UIEdgeInsetsMake(0, kEdge, 0, kEdge)
-        minimumInteritemSpacing = kItemMargin
+        minimumLineSpacing = kItemMargin
     }
 }

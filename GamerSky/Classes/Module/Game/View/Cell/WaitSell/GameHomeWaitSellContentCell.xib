@@ -63,17 +63,21 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="IaY-pn-vSz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="14g-tx-t0H"/>
-                    <constraint firstItem="IaY-pn-vSz" firstAttribute="top" secondItem="IPC-Fo-BtE" secondAttribute="bottom" constant="5" id="1Sq-xU-eji"/>
+                    <constraint firstItem="IaY-pn-vSz" firstAttribute="top" secondItem="IPC-Fo-BtE" secondAttribute="bottom" priority="999" constant="5" id="1Sq-xU-eji"/>
                     <constraint firstItem="IPC-Fo-BtE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="KfC-bF-jD2"/>
                     <constraint firstAttribute="trailing" secondItem="IaY-pn-vSz" secondAttribute="trailing" id="Pbg-VG-ae9"/>
                     <constraint firstItem="IPC-Fo-BtE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="R3N-ge-Dlf"/>
                     <constraint firstAttribute="trailing" secondItem="IPC-Fo-BtE" secondAttribute="trailing" id="fv7-ka-dMS"/>
+                    <constraint firstItem="IaY-pn-vSz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" priority="888" id="kZx-c5-7O6"/>
                     <constraint firstAttribute="bottom" secondItem="IaY-pn-vSz" secondAttribute="bottom" id="kiA-Vf-U89"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="collectionView" destination="IaY-pn-vSz" id="6hl-C2-8gB"/>
+                <outlet property="collectionViewTopConstraint" destination="1Sq-xU-eji" id="Pyn-J0-tyj"/>
+                <outlet property="collectionViewTopConstraints" destination="1Sq-xU-eji" id="Bj7-qt-LDk"/>
                 <outlet property="flowLayout" destination="Jsm-9B-kiT" id="5sh-XJ-l1n"/>
+                <outlet property="monthContentView" destination="IPC-Fo-BtE" id="t1n-Tm-GjG"/>
                 <outlet property="monthLabel" destination="EmM-Rj-ihK" id="FBP-GH-dbG"/>
             </connections>
             <point key="canvasLocation" x="38" y="99.5"/>

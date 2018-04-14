@@ -46,7 +46,6 @@ class GameHomeRecommendContentCell: UITableViewCell, NibReusable {
         flowLayout.itemSize = CGSize(width: kItemW, height: GameHomeRecommendContentCell.cellHeight)
         flowLayout.sectionInset = UIEdgeInsetsMake(0, kEdge, 0, kEdge)
         flowLayout.minimumLineSpacing = kItemMargin
-        flowLayout.minimumInteritemSpacing = kItemMargin
         collectionView.register(cellType: GameHomeRecommendCell.self)
     }
 }

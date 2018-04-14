@@ -36,9 +36,7 @@ class GameHomeViewController: BaseViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(cellType: GameHomeRecommendContentCell.self)
-        tableView.register(cellType: GameHomeHotContentCell.self)
         tableView.register(cellType: GameHomeWaitSellContentCell.self)
-        tableView.register(cellType: GameHomeExpectedContentCell.self)
         tableView.register(cellType: GameHomeRankingContentCell.self)
         tableView.register(cellType: GameTagContentCell.self)
         tableView.register(cellType: GameHomeColumnContentCell.self)
@@ -225,38 +223,38 @@ extension GameHomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        if indexPath.section % 2 == 1 { // 1,3,5
+            
+            let cell = tableView.dequeueReusableCell(for: indexPath, cellType: GameHomeWaitSellContentCell.self)
+            cell.sectionType = sectionData[indexPath.section].sectionType
+            switch indexPath.section {
+                
+            case 1:
+                cell.game = hotGame
+            case 3:
+                cell.game = waitSellGame
+            case 5:
+                cell.game = expectedGame
+            default:
+                break
+            }
+            return cell
+        }
+        
         if indexPath.section == 0 {
             
             let cell = tableView.dequeueReusableCell(for: indexPath, cellType: GameHomeRecommendContentCell.self)
             cell.gameSpecialDetail = gameSpecialDetail
-            return cell
-        }else if indexPath.section == 1 {
-            
-            let cell = tableView.dequeueReusableCell(for: indexPath, cellType: GameHomeHotContentCell.self)
-            cell.sectionHeader = sectionData[indexPath.section]
-            cell.hotGame = hotGame
             return cell
         }else if indexPath.section == 2 {
             
             let cell = tableView.dequeueReusableCell(for: indexPath, cellType: GameHomeColumnContentCell.self)
             cell.columnGame = gameColumn
             return cell
-        }else if indexPath.section == 3 {
-            
-            let cell = tableView.dequeueReusableCell(for: indexPath, cellType: GameHomeWaitSellContentCell.self)
-            cell.sectionHeader = sectionData[indexPath.section]
-            cell.waitSellGame = waitSellGame
-            return cell
         }else if indexPath.section == 4 {
             
             let cell = tableView.dequeueReusableCell(for: indexPath, cellType: GameHomeRankingContentCell.self)
             cell.rankingGame = rankingGame
-            return cell
-        }else if indexPath.section == 5 {
-            
-            let cell = tableView.dequeueReusableCell(for: indexPath, cellType: GameHomeExpectedContentCell.self)
-            cell.sectionHeader = sectionData[indexPath.section]
-            cell.expectedGame = expectedGame
             return cell
         }else {
             
@@ -270,10 +268,6 @@ extension GameHomeViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension GameHomeViewController: UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-    }
-    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let sectionHeader = tableView.dequeueReusableHeaderFooterView(GameHomeSectionHeader.self)
@@ -283,21 +277,8 @@ extension GameHomeViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        if indexPath.section == 0 {
-            return GameHomeRecommendContentCell.cellHeight
-        }else if indexPath.section == 1 {
-            return GameHomeHotContentCell.cellHeight
-        }else if indexPath.section == 2 {
-            return GameHomeColumnContentCell.cellHeight
-        }else if indexPath.section == 3 {
-            return GameHomeWaitSellContentCell.cellHeight
-        }else if indexPath.section == 4 {
-            return GameHomeRankingContentCell.cellHeight
-        }else if indexPath.section == 5{
-            return GameHomeExpectedContentCell.cellHeight
-        }else {
-            return GameTagContentCell.cellHeight
-        }
+        let cellHeight = [GameHomeRecommendContentCell.cellHeight, GameHomeWaitSellContentCell.hotHeight, GameHomeColumnContentCell.cellHeight, GameHomeWaitSellContentCell.waitSellingHeight, GameHomeRankingContentCell.cellHeight, GameHomeWaitSellContentCell.hotHeight,GameTagContentCell.cellHeight]
+        return cellHeight[indexPath.section]
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
