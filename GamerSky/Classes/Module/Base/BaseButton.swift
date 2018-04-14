@@ -10,7 +10,7 @@ import UIKit
 
 class BaseButton: UIButton {
 
-    var customFont: UIFont = UIFont.systemFont(ofSize: 14) {
+    public var qy_fitFont: UIFont = UIFont.systemFont(ofSize: 14) {
         didSet {
             fitFontSize()
         }
@@ -47,6 +47,6 @@ extension BaseButton {
         // 如果不想自适应字体大小，把 tag 值设置为666即可
         guard tag != 666 else {return}
         
-        titleLabel?.font = UIFont(name: customFont.fontName, size: customFont.pointSize * ScreenWidth / 414)
+        titleLabel?.font = UIFont(name: qy_fitFont.fontName, size: qy_fitFont.pointSize * ScreenWidth / 414)
     }
 }

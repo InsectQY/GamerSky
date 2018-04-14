@@ -75,6 +75,9 @@
                             <constraint firstItem="lY2-bG-QpP" firstAttribute="leading" secondItem="Tc6-ci-5BD" secondAttribute="trailing" constant="3" id="oUj-aG-Xkg"/>
                             <constraint firstItem="k14-cS-aun" firstAttribute="leading" secondItem="lY2-bG-QpP" secondAttribute="trailing" constant="8" id="p9y-hh-O2q"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="qy_themeBackgroundColor" value="colors.dimBlack"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0f9-rI-BZF">
                         <rect key="frame" x="0.0" y="0.0" width="333" height="152.5"/>

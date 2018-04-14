@@ -11,21 +11,10 @@ import SwiftTheme
 
 class BaseTableViewCell: UITableViewCell {
 
-    /// 主题背景颜色(传路径)
-    public var qy_themeBackgroundColor = "colors.backgroundColor" {
-        
-        didSet {
-            initTheme()
-        }
-    }
-    
-    /// 主题文字颜色(传路径)
-    public var qy_themeTextLabelColor = "colors.textColor" {
-        
-        didSet {
-            initTheme()
-        }
-    }
+    /// 默认背景颜色
+    private var defaultBackgroundColor = "colors.backgroundColor"
+    /// 默认文字颜色
+    private var defaultTextColor = "colors.textColor"
     
     // MARK: - Inital
     public override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -46,10 +35,44 @@ class BaseTableViewCell: UITableViewCell {
 
 extension BaseTableViewCell {
     
+    /// 主题背景颜色(传路径)
+    @IBInspectable var qy_themeBackgroundColor: String? {
+        
+        set {
+            
+            guard let newValue = newValue else {return}
+            defaultBackgroundColor = newValue
+            initTheme()
+        }
+        
+        get {
+            return defaultBackgroundColor
+        }
+    }
+    
+    /// 主题文字颜色(传路径)
+    @IBInspectable var qy_themeTextColor: String? {
+        
+        set {
+            
+            guard let newValue = newValue else {return}
+            defaultTextColor = newValue
+            initTheme()
+        }
+        
+        get {
+            return defaultTextColor
+        }
+    }
+}
+
+extension BaseTableViewCell {
+    
     // MARK: - 主题设置
     private func initTheme() {
         
-        theme_backgroundColor = ThemeColorPicker(keyPath: qy_themeBackgroundColor)
-        textLabel?.theme_textColor = ThemeColorPicker(keyPath: qy_themeTextLabelColor)
+        contentView.theme_backgroundColor = ThemeColorPicker(keyPath: defaultBackgroundColor)
+        
+        textLabel?.theme_textColor = ThemeColorPicker(keyPath: defaultTextColor)
     }
 }

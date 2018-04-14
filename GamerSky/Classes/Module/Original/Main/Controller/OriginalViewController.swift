@@ -75,6 +75,7 @@ extension OriginalViewController {
     
     private func setUpUI() {
         
+        view.backgroundColor = RGB(245, g: 245, b: 245)
         qy_themeBackgroundColor = "colors.whiteSmoke"
         view.addSubview(tableView)
         setUpHeaderView()

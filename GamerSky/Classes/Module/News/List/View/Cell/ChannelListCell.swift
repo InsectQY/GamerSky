@@ -11,9 +11,13 @@ import UIKit
 class ChannelListCell: UITableViewCell, NibReusable {
 
     @IBOutlet private weak var thumbImageView: UIImageView!
-    @IBOutlet private weak var commentCountBtn: BaseButton!
     @IBOutlet private weak var updateTimeLabel: UILabel!
     @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var commentCountBtn: BaseButton! {
+        didSet {
+            commentCountBtn.qy_fitFont = PFR12Font
+        }
+    }
     
     static let cellHeight: CGFloat = ScreenWidth * 0.22
     
@@ -29,11 +33,5 @@ class ChannelListCell: UITableViewCell, NibReusable {
                 thumbImageView.qy_setImage(urls.first, "")
             }
         }
-    }
-    
-    // MARK: - awakeFromNib
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        commentCountBtn.customFont = PFR12Font
     }
 }

@@ -11,13 +11,8 @@ import SwiftTheme
 
 class BaseLabel: UILabel {
 
-    /// 主题文字颜色(传路径)
-    public var qy_themeTextColor = "colors.textColor" {
-        
-        didSet {
-            initTheme()
-        }
-    }
+    /// 默认颜色
+    private var defaultTextColor = "colors.textColor"
     
     // MARK: - Inital
     public override init(frame: CGRect) {
@@ -39,6 +34,24 @@ class BaseLabel: UILabel {
 }
 
 extension BaseLabel {
+    
+    /// 主题文字颜色(传路径)
+    @IBInspectable var qy_themeTextColor: String? {
+        
+        set {
+            
+            guard let newValue = newValue else {return}
+            defaultTextColor = newValue
+            initTheme()
+        }
+        
+        get {
+            return defaultTextColor
+        }
+    }
+}
+
+extension BaseLabel {
    
     // MARK: - 自适应字体(适应比例一开始我是在5.5寸屏幕上测试的，所以拿5.5的比例去缩放)
     private func fitFontSize() {
@@ -53,6 +66,6 @@ extension BaseLabel {
         
         // 如果不想设置主题颜色，把 tag 值设置为777即可
         guard tag != 777 else {return}
-        theme_textColor = ThemeColorPicker(keyPath: qy_themeTextColor)
+        theme_textColor = ThemeColorPicker(keyPath: defaultTextColor)
     }
 }

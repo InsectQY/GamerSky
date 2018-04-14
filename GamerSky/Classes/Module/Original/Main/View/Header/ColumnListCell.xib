@@ -51,6 +51,9 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="118" height="134"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="string" keyPath="qy_themeBackgroundColor" value="colors.dimBlack"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="columnImageView" destination="CTc-XQ-21Y" id="rNy-RM-WOz"/>
                 <outlet property="columnLabel" destination="Hdc-2U-Cmj" id="qCb-wJ-BsK"/>

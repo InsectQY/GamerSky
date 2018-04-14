@@ -21,19 +21,5 @@ class ColumnListCell: BaseCollectionViewCell, NibReusable {
             columnImageView.qy_setImage(column?.icon, "")
         }
     }
-    
-    // MARK: - awakeFromNib
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        setUpTheme()
-    }
 }
 
-extension ColumnListCell {
-    
-    // MARK: - 设置主题
-    private func setUpTheme() {
-        
-        qy_themeBackgroundColor = "colors.dimBlack"
-    }
-}

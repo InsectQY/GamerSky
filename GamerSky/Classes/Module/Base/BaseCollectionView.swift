@@ -10,14 +10,9 @@ import UIKit
 import SwiftTheme
 
 class BaseCollectionView: UICollectionView {
-
-    /// 主题背景颜色(传路径)
-    public var qy_themeBackgroundColor = "colors.backgroundColor" {
-        
-        didSet {
-            initTheme()
-        }
-    }
+    
+    /// 默认背景颜色
+    private var defaultBackgroundColor = "colors.backgroundColor"
 
     // MARK: - Inital
     public override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
@@ -38,8 +33,27 @@ class BaseCollectionView: UICollectionView {
 
 extension BaseCollectionView {
     
+    /// 主题背景颜色(传路径)
+    @IBInspectable var qy_themeBackgroundColor: String? {
+        
+        set {
+            
+            guard let newValue = newValue else {return}
+            defaultBackgroundColor = newValue
+            initTheme()
+        }
+        
+        get {
+            return defaultBackgroundColor
+        }
+    }
+}
+
+extension BaseCollectionView {
+    
     // MARK: - 主题设置
     private func initTheme() {
-        theme_backgroundColor = ThemeColorPicker(keyPath: qy_themeBackgroundColor)
+        
+        theme_backgroundColor = ThemeColorPicker(keyPath: defaultBackgroundColor)
     }
 }

@@ -18,9 +18,13 @@ class ColumnElementCell: UITableViewCell, NibReusable {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var updateTimeLabel: UILabel!
     @IBOutlet private weak var authorNameLabel: UILabel!
-    @IBOutlet private weak var commentsBtn: BaseButton!
     @IBOutlet private weak var thumbImageView: UIImageView!
     @IBOutlet private weak var authorImageView: UIImageView!
+    @IBOutlet private weak var commentsBtn: BaseButton! {
+        didSet{
+            commentsBtn.qy_fitFont = PFR12Font
+        }
+    }
     
     public var row = 0
     
@@ -52,22 +56,5 @@ class ColumnElementCell: UITableViewCell, NibReusable {
             newFrame.size.width -= 20
             super.frame = newFrame
         }
-    }
-    
-    // MARK: - awakeFromNib
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        setUpTheme()
-        commentsBtn.customFont = PFR12Font
-    }
-}
-
-extension ColumnElementCell {
-    
-    // MARK: - 设置主题
-    private func setUpTheme() {
-        
-        bottomContentView.qy_themeBackgroundColor = "colors.dimBlack"
     }
 }

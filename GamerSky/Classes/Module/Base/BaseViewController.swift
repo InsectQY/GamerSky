@@ -12,27 +12,43 @@ import SwiftTheme
 
 class BaseViewController: UIViewController {
 
-    /// 主题背景颜色(传路径)
-    public var qy_themeBackgroundColor = "colors.backgroundColor" {
-        
-        didSet {
-            initTheme()
-        }
-    }
+    /// 默认背景颜色
+    private var defaultBackgroundColor = "colors.backgroundColor"
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        view.backgroundColor = .white
         initTheme()
         registerNotification()
     }
     
+    // MARK: - deinit
     deinit {
         print("\(self)---销毁")
     }
     
+    /// 重复点击 TabBar
     func repeatClickTabBar() {}
+}
+
+extension BaseViewController {
+    
+    /// 主题背景颜色(传路径)
+    @IBInspectable var qy_themeBackgroundColor: String? {
+        
+        set {
+            
+            guard let newValue = newValue else {return}
+            defaultBackgroundColor = newValue
+            initTheme()
+        }
+        
+        get {
+            return defaultBackgroundColor
+        }
+    }
 }
 
 extension BaseViewController {
@@ -40,8 +56,7 @@ extension BaseViewController {
     // MARK: - 主题设置
     private func initTheme() {
         
-        view.backgroundColor = .white
-        view.theme_backgroundColor = ThemeColorPicker(keyPath: qy_themeBackgroundColor)
+        view.theme_backgroundColor = ThemeColorPicker(keyPath: defaultBackgroundColor)
     }
 }
 

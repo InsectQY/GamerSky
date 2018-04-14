@@ -22,8 +22,11 @@
                         <constraint firstAttribute="height" constant="1" id="hZz-Xx-g5G"/>
                     </constraints>
                 </view>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="common_Icon_Recommend_10x10" translatesAutoresizingMaskIntoConstraints="NO" id="6Jc-4y-gIj">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="common_Icon_Recommend_10x10" translatesAutoresizingMaskIntoConstraints="NO" id="6Jc-4y-gIj" customClass="BaseImageView" customModule="GamerSky" customModuleProvider="target">
                     <rect key="frame" x="10" y="7.5" width="20" height="20"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="qy_themeBackgroundImage" value="images.common_Icon_Recommend_10x10"/>
+                    </userDefinedRuntimeAttributes>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今日推荐" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JEC-op-mFe" customClass="BaseLabel" customModule="GamerSky" customModuleProvider="target">
                     <rect key="frame" x="35" y="9.5" width="48" height="17"/>
