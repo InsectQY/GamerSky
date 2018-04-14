@@ -81,8 +81,6 @@
 		E550C934207CDBE200C4AF2D /* GameHomeColumnContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E550C932207CDBE200C4AF2D /* GameHomeColumnContentCell.xib */; };
 		E550C937207CDCBB00C4AF2D /* GameHomeColumnCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E550C935207CDCBB00C4AF2D /* GameHomeColumnCell.swift */; };
 		E550C938207CDCBB00C4AF2D /* GameHomeColumnCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E550C936207CDCBB00C4AF2D /* GameHomeColumnCell.xib */; };
-		E550C93C207CEB9000C4AF2D /* GameHomeContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E550C93A207CEB9000C4AF2D /* GameHomeContentCell.swift */; };
-		E550C93D207CEB9000C4AF2D /* GameHomeContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E550C93B207CEB9000C4AF2D /* GameHomeContentCell.xib */; };
 		E550C93F207CF06200C4AF2D /* GameHomeSectionData.plist in Resources */ = {isa = PBXBuildFile; fileRef = E550C93E207CF06200C4AF2D /* GameHomeSectionData.plist */; };
 		E550C941207CF51B00C4AF2D /* GameHomeSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = E550C940207CF51B00C4AF2D /* GameHomeSectionHeader.xib */; };
 		E550C943207CF52F00C4AF2D /* GameHomeSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E550C942207CF52F00C4AF2D /* GameHomeSectionHeader.swift */; };
@@ -212,8 +210,6 @@
 		E550C932207CDBE200C4AF2D /* GameHomeColumnContentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameHomeColumnContentCell.xib; sourceTree = "<group>"; };
 		E550C935207CDCBB00C4AF2D /* GameHomeColumnCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHomeColumnCell.swift; sourceTree = "<group>"; };
 		E550C936207CDCBB00C4AF2D /* GameHomeColumnCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameHomeColumnCell.xib; sourceTree = "<group>"; };
-		E550C93A207CEB9000C4AF2D /* GameHomeContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHomeContentCell.swift; sourceTree = "<group>"; };
-		E550C93B207CEB9000C4AF2D /* GameHomeContentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameHomeContentCell.xib; sourceTree = "<group>"; };
 		E550C93E207CF06200C4AF2D /* GameHomeSectionData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = GameHomeSectionData.plist; sourceTree = "<group>"; };
 		E550C940207CF51B00C4AF2D /* GameHomeSectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameHomeSectionHeader.xib; sourceTree = "<group>"; };
 		E550C942207CF52F00C4AF2D /* GameHomeSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHomeSectionHeader.swift; sourceTree = "<group>"; };
@@ -360,6 +356,8 @@
 			children = (
 				99446AAD207C6A9B004048C7 /* GameHomeWaitSellContentCell.swift */,
 				99446AAE207C6A9B004048C7 /* GameHomeWaitSellContentCell.xib */,
+				E586EE76207E5B4000D8F3F0 /* GameHomePageCell.swift */,
+				E586EE77207E5B4000D8F3F0 /* GameHomePageCell.xib */,
 			);
 			path = WaitSell;
 			sourceTree = "<group>";
@@ -759,10 +757,6 @@
 		E550C939207CEB5800C4AF2D /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
-				E586EE76207E5B4000D8F3F0 /* GameHomePageCell.swift */,
-				E586EE77207E5B4000D8F3F0 /* GameHomePageCell.xib */,
-				E550C93A207CEB9000C4AF2D /* GameHomeContentCell.swift */,
-				E550C93B207CEB9000C4AF2D /* GameHomeContentCell.xib */,
 				E586EE7A207E68FA00D8F3F0 /* GameHomePageFooterView.swift */,
 				E586EE7B207E68FA00D8F3F0 /* GameHomePageFooterView.xib */,
 			);
@@ -1024,7 +1018,6 @@
 				E550C92F207CD21200C4AF2D /* GameTagContentCell.xib in Resources */,
 				99E799A52071E10E005C3408 /* LaunchScreen.storyboard in Resources */,
 				99446AC9207CAC19004048C7 /* GameHomeRankingContentCell.xib in Resources */,
-				E550C93D207CEB9000C4AF2D /* GameHomeContentCell.xib in Resources */,
 				E56802DF20724AEB00CF944E /* ChannelListCell.xib in Resources */,
 				E550C93F207CF06200C4AF2D /* GameHomeSectionData.plist in Resources */,
 				E534FAD2207A650E006CE008 /* ColumnDescHeaderView.xib in Resources */,
@@ -1156,7 +1149,6 @@
 				994141172074B1820016AC01 /* BaseTableView.swift in Sources */,
 				E5F8116720739A8C00E9883F /* ColumnHeaderView.swift in Sources */,
 				E5CD69BF207BCF5F001A1A0A /* CosmosSize.swift in Sources */,
-				E550C93C207CEB9000C4AF2D /* GameHomeContentCell.swift in Sources */,
 				E5CD69A1207BB360001A1A0A /* Game.swift in Sources */,
 				9966511820736F580010430E /* AppTheme.swift in Sources */,
 				998F0C372071EE2E00C587C2 /* AppConfig.swift in Sources */,

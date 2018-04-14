@@ -17,6 +17,7 @@ class GameHomeRecommendCell: UICollectionViewCell, NibReusable {
     @IBOutlet private weak var descLabel: UILabel!
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var backgroundImageView: UIImageView!
+    @IBOutlet private weak var activityImageView: UIImageView!
     
     // MARK: - public
     public var detail: GameInfo? {
@@ -28,6 +29,7 @@ class GameHomeRecommendCell: UICollectionViewCell, NibReusable {
             nameLabel.text = detail?.Title
             descLabel.text = detail?.description
             ratingView.rating = detail?.score ?? 0
+            activityImageView.isHidden = !(detail?.Position ?? "").contains("活动")
         }
     }
         

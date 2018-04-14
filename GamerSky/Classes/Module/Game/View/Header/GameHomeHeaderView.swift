@@ -8,18 +8,20 @@
 
 import UIKit
 
-/// cell 之间间距
-private let kItemMargin: CGFloat = 25
-/// 左右间距
-private let kEdge: CGFloat = 10
-/// 每行最大列数
-private let kMaxCol: CGFloat = 5
-/// cell 宽度
-private let kItemW = (ScreenWidth - (2 * kEdge) - ((kMaxCol - 1) * kItemMargin)) / kMaxCol
-
 class GameHomeHeaderView: BaseView {
 
     static let headerHeight: CGFloat = ScreenHeight * 0.16
+    
+    /// cell 之间间距
+    private let kItemMargin: CGFloat = 25
+    /// 左右间距
+    private let kEdge: CGFloat = 10
+    /// 每行最大列数
+    private let kMaxCol: CGFloat = 5
+    /// cell 宽度
+    private var kItemW: CGFloat {
+        return (ScreenWidth - (2 * kEdge) - ((kMaxCol - 1) * kItemMargin)) / kMaxCol
+    }
     
     // MARK: - Lazyload
     private lazy var headerData = [GameHomeHeader]()

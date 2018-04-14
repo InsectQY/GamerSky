@@ -18,6 +18,7 @@ class GameHomePageCell: UICollectionViewCell, NibReusable {
     @IBOutlet private weak var percentLabel: BaseLabel!
     @IBOutlet private weak var ratingView: CosmosView!
     @IBOutlet private weak var gameImageView: UIImageView!
+    @IBOutlet private weak var activityImageView: UIImageView!
     
     // MARK: - public
     public var sectionType: GameHomeSectionType? {
@@ -44,6 +45,7 @@ class GameHomePageCell: UICollectionViewCell, NibReusable {
             gameImageView.qy_setImage(info?.DefaultPicUrl, "")
             sellMonthLabel.isHidden = tag != 0
             sellMonthLabel.text = "\(info?.month ?? "")月"
+            activityImageView.isHidden = !(info?.Position ?? "").contains("活动")
             
             if sectionType == .hot { // 最近大家都在玩,才需要显示评分
                 ratingView.rating = info?.score ?? 0

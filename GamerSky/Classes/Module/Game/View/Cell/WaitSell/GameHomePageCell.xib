@@ -70,11 +70,15 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="common_Icon_PromotionBadge_30x30" translatesAutoresizingMaskIntoConstraints="NO" id="zQd-lz-Wlm">
+                        <rect key="frame" x="68" y="22" width="30" height="30"/>
+                    </imageView>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstItem="Ekj-DC-uwP" firstAttribute="leading" secondItem="wWl-2T-Dv7" secondAttribute="leading" id="1NB-W8-L7D"/>
                 <constraint firstItem="xtn-aq-zHp" firstAttribute="trailing" secondItem="wWl-2T-Dv7" secondAttribute="trailing" constant="-5" id="2Ww-Ws-irj"/>
+                <constraint firstItem="zQd-lz-Wlm" firstAttribute="trailing" secondItem="wWl-2T-Dv7" secondAttribute="trailing" id="42D-cc-hu7"/>
                 <constraint firstItem="Ekj-DC-uwP" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="6s9-cl-hxg"/>
                 <constraint firstItem="Dph-1l-HoN" firstAttribute="top" secondItem="wWl-2T-Dv7" secondAttribute="bottom" constant="8" id="6u0-XJ-6mz"/>
                 <constraint firstItem="dla-kj-vNN" firstAttribute="leading" secondItem="Dph-1l-HoN" secondAttribute="leading" id="Epc-Jz-FAZ"/>
@@ -85,6 +89,7 @@
                 <constraint firstItem="wWl-2T-Dv7" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="RKk-T9-o8c"/>
                 <constraint firstItem="dla-kj-vNN" firstAttribute="trailing" secondItem="wWl-2T-Dv7" secondAttribute="trailing" id="ocf-DQ-1lt"/>
                 <constraint firstItem="xtn-aq-zHp" firstAttribute="centerY" secondItem="Dph-1l-HoN" secondAttribute="centerY" id="qfT-PB-aXj"/>
+                <constraint firstItem="zQd-lz-Wlm" firstAttribute="top" secondItem="wWl-2T-Dv7" secondAttribute="top" id="tFu-TM-3gl"/>
                 <constraint firstItem="dla-kj-vNN" firstAttribute="top" secondItem="xtn-aq-zHp" secondAttribute="bottom" constant="3" id="tPh-g8-1Zq"/>
                 <constraint firstItem="wWl-2T-Dv7" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" priority="100" id="urI-1w-IfD"/>
                 <constraint firstItem="wWl-2T-Dv7" firstAttribute="top" secondItem="Ekj-DC-uwP" secondAttribute="bottom" constant="5" id="z72-ud-793"/>
@@ -92,6 +97,7 @@
             </constraints>
             <size key="customSize" width="98" height="199"/>
             <connections>
+                <outlet property="activityImageView" destination="zQd-lz-Wlm" id="iOp-RQ-Wqb"/>
                 <outlet property="gameImageConstraintH" destination="zk7-jH-glO" id="PtB-Hc-gyl"/>
                 <outlet property="gameImageTopConstraint" destination="z72-ud-793" id="9cn-tO-3l5"/>
                 <outlet property="gameImageView" destination="wWl-2T-Dv7" id="yWn-IP-pcs"/>
@@ -100,10 +106,11 @@
                 <outlet property="ratingView" destination="Dph-1l-HoN" id="HI4-Kh-DJ5"/>
                 <outlet property="sellMonthLabel" destination="Ekj-DC-uwP" id="haS-J6-uxO"/>
             </connections>
-            <point key="canvasLocation" x="-124" y="53"/>
+            <point key="canvasLocation" x="-124" y="52.5"/>
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="common_Icon_PromotionBadge_30x30" width="30" height="30"/>
         <image name="common_Icon_Star_12x12" width="12" height="12"/>
         <image name="common_Icon_Star_12x12_Actived" width="12" height="12"/>
     </resources>

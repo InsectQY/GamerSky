@@ -8,14 +8,14 @@
 
 import UIKit
 
-/// cell 之间间距
-private let kItemMargin: CGFloat = 5
-/// 左右间距
-private let kEdge: CGFloat = 10
-
 class GameTagContentCell: UITableViewCell, NibReusable {
 
     static let cellHeight: CGFloat = 60
+    
+    /// cell 之间间距
+    private let kItemMargin: CGFloat = 5
+    /// 左右间距
+    private let kEdge: CGFloat = 10
     
     // MARK: - public
     public var gameTag = [GameTag]() {

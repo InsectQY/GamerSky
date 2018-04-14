@@ -13,8 +13,6 @@ class GameHomeWaitSellContentCell: UITableViewCell, NibReusable {
     static let waitSellingHeight: CGFloat = ScreenHeight * 0.3
     static let hotHeight: CGFloat = ScreenHeight * 0.25
     
-    @IBOutlet private weak var collectionViewTopConstraint: NSLayoutConstraint!
-    
     /// 左右间距
     private let kEdge: CGFloat = 10
     /// cell 之间间距
@@ -32,6 +30,7 @@ class GameHomeWaitSellContentCell: UITableViewCell, NibReusable {
     @IBOutlet private weak var flowLayout: UICollectionViewFlowLayout!
     @IBOutlet private weak var monthLabel: BaseLabel!
     @IBOutlet private weak var collectionViewTopConstraints: NSLayoutConstraint!
+    @IBOutlet private weak var collectionViewTopConstraint: NSLayoutConstraint!
     
     // MARK: - public
     public var sectionType: GameHomeSectionType? {
