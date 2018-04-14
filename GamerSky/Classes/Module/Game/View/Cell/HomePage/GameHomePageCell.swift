@@ -19,15 +19,12 @@ class GameHomePageCell: UICollectionViewCell, NibReusable {
     @IBOutlet private weak var percentLabel: UILabel!
     @IBOutlet private weak var ratingView: CosmosView!
     @IBOutlet private weak var gameImageView: UIImageView!
-}
-
-// MARK: - public
-public extension GameHomePageCell {
     
-    var sectionType: GameHomeSectionType? {
+    // MARK: - public
+    public var sectionType: GameHomeSectionType? {
         
         didSet {
-            
+    
             guard let sectionType = sectionType else {return}
             
             if sectionType == .waitSelling { // 即将发售的游戏，重新计算图片高度(已在xib里计算好, 调整约束优先级即可)
@@ -45,7 +42,7 @@ public extension GameHomePageCell {
         }
     }
     
-    var info: GameInfo? {
+    public var info: GameInfo? {
         
         didSet {
             
