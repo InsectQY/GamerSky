@@ -10,7 +10,10 @@ import UIKit
 
 class GameHomeRankingContentCell: UITableViewCell, NibReusable {
 
-    static let cellHeight: CGFloat = 350
+    static let cellHeight: CGFloat = 370
+    
+    /// cell 高度
+    private let kItemH: CGFloat = 60
     
     // MARK: - public
     public var rankingGame = [[GameInfo]]()  {
@@ -21,7 +24,7 @@ class GameHomeRankingContentCell: UITableViewCell, NibReusable {
 
     // MARK: - IBOutlet
     @IBOutlet private weak var collectionView: UICollectionView!
-    @IBOutlet private weak var flowLayout: GameRankingFlowLayout!
+    @IBOutlet private weak var flowLayout: UICollectionViewFlowLayout!
     
     // MARK: - inital
     override func awakeFromNib() {
@@ -33,6 +36,9 @@ class GameHomeRankingContentCell: UITableViewCell, NibReusable {
     // MARK: - setUpCollectionView
     private func setUpCollectionView() {
         
+        flowLayout.itemSize = CGSize(width: ScreenWidth, height: kItemH)
+        flowLayout.minimumLineSpacing = 0
+        flowLayout.minimumInteritemSpacing = 0
         collectionView.register(cellType: GameHomeRankingCell.self)
     }
 }

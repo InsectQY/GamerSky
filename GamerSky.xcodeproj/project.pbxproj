@@ -91,7 +91,6 @@
 		E56802E720725CBE00CF944E /* NewsTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E56802E620725CBE00CF944E /* NewsTableHeaderView.xib */; };
 		E56802EC207268A500CF944E /* ContentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56802EB207268A500CF944E /* ContentDetailViewController.swift */; };
 		E56802F0207274E900CF944E /* NewsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56802EF207274E900CF944E /* NewsPageViewController.swift */; };
-		E57C5BA52081F6B500655E0F /* GameRankingFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57C5BA42081F6B500655E0F /* GameRankingFlowLayout.swift */; };
 		E57C5BAC2082402800655E0F /* GameRecommendFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57C5BAA2082402800655E0F /* GameRecommendFooterView.swift */; };
 		E57C5BAD2082402800655E0F /* GameRecommendFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E57C5BAB2082402800655E0F /* GameRecommendFooterView.xib */; };
 		E57C5BB12082460400655E0F /* GameColumnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57C5BB02082460400655E0F /* GameColumnViewController.swift */; };
@@ -227,7 +226,6 @@
 		E56802E620725CBE00CF944E /* NewsTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsTableHeaderView.xib; sourceTree = "<group>"; };
 		E56802EB207268A500CF944E /* ContentDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDetailViewController.swift; sourceTree = "<group>"; };
 		E56802EF207274E900CF944E /* NewsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPageViewController.swift; sourceTree = "<group>"; };
-		E57C5BA42081F6B500655E0F /* GameRankingFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRankingFlowLayout.swift; sourceTree = "<group>"; };
 		E57C5BAA2082402800655E0F /* GameRecommendFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRecommendFooterView.swift; sourceTree = "<group>"; };
 		E57C5BAB2082402800655E0F /* GameRecommendFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameRecommendFooterView.xib; sourceTree = "<group>"; };
 		E57C5BB02082460400655E0F /* GameColumnViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameColumnViewController.swift; sourceTree = "<group>"; };
@@ -383,7 +381,6 @@
 				99446AC7207CAC19004048C7 /* GameHomeRankingContentCell.xib */,
 				99446AC2207CA640004048C7 /* GameHomeRankingCell.swift */,
 				99446AC3207CA640004048C7 /* GameHomeRankingCell.xib */,
-				E57C5BA42081F6B500655E0F /* GameRankingFlowLayout.swift */,
 			);
 			path = Ranking;
 			sourceTree = "<group>";
@@ -1283,7 +1280,6 @@
 				9941410E20747B0C0016AC01 /* BaseLabel.swift in Sources */,
 				E586EE7C207E68FA00D8F3F0 /* GameHomePageFooterView.swift in Sources */,
 				998F0C5F2071EFB100C587C2 /* GetVc.swift in Sources */,
-				E57C5BA52081F6B500655E0F /* GameRankingFlowLayout.swift in Sources */,
 				9906819520721F8700A825AC /* Channel.swift in Sources */,
 				9941411D2074B45E0016AC01 /* BaseCollectionViewCell.swift in Sources */,
 				E5F8116C20739B3400E9883F /* ColumnElementCell.swift in Sources */,

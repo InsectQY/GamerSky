@@ -13,7 +13,7 @@ class GameHomeRecommendContentCell: UITableViewCell, NibReusable {
     static let cellHeight: CGFloat = ScreenHeight * 0.28
     
     //分页序号
-    private var selectedIndex: Int = 0
+    private var selectedIndex: CGFloat = 0
     /// cell 之间间距
     private let kItemMargin: CGFloat = 5
     /// 左右间距
@@ -91,19 +91,17 @@ extension GameHomeRecommendContentCell: UIScrollViewDelegate {
         
         let x = targetContentOffset.pointee.x
         let pageWidth = kItemW + kItemMargin
-        let movedX = x - pageWidth * CGFloat(selectedIndex)
+        let movedX = x - pageWidth * selectedIndex
         if movedX < -kFooterWidth {
-            // Move left
             selectedIndex -= 1
         } else if movedX > kFooterWidth {
-            // Move right
             selectedIndex += 1
         }
         if abs(velocity.x) >= 2 {
-            targetContentOffset.pointee.x = pageWidth * CGFloat(selectedIndex) - kEdge
+            targetContentOffset.pointee.x = pageWidth * selectedIndex - kEdge
         } else {
             targetContentOffset.pointee.x = scrollView.contentOffset.x
-            scrollView.setContentOffset(CGPoint(x: pageWidth * CGFloat(selectedIndex) - kEdge, y: scrollView.contentOffset.y), animated: true)
+            scrollView.setContentOffset(CGPoint(x: pageWidth * selectedIndex - kEdge, y: scrollView.contentOffset.y), animated: true)
         }
     }
 }
