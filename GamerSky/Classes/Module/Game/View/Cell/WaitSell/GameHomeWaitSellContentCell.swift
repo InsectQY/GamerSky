@@ -20,7 +20,7 @@ class GameHomeWaitSellContentCell: UITableViewCell, NibReusable {
     /// 每行最大列数
     private let kMaxCol: CGFloat = 4
     /// cell 宽度
-    private var kItemW: CGFloat {
+    public var kItemW: CGFloat {
         return (ScreenWidth - (2 * kEdge) - ((kMaxCol - 1) * kItemMargin)) / kMaxCol
     }
 

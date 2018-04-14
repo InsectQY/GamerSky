@@ -91,8 +91,9 @@
 		E56802E720725CBE00CF944E /* NewsTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E56802E620725CBE00CF944E /* NewsTableHeaderView.xib */; };
 		E56802EC207268A500CF944E /* ContentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56802EB207268A500CF944E /* ContentDetailViewController.swift */; };
 		E56802F0207274E900CF944E /* NewsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56802EF207274E900CF944E /* NewsPageViewController.swift */; };
-		E57C5BA32081F51600655E0F /* GameHomeColumnFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57C5BA22081F51600655E0F /* GameHomeColumnFlowLayout.swift */; };
 		E57C5BA52081F6B500655E0F /* GameRankingFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57C5BA42081F6B500655E0F /* GameRankingFlowLayout.swift */; };
+		E57C5BAC2082402800655E0F /* GameRecommendFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57C5BAA2082402800655E0F /* GameRecommendFooterView.swift */; };
+		E57C5BAD2082402800655E0F /* GameRecommendFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E57C5BAB2082402800655E0F /* GameRecommendFooterView.xib */; };
 		E586EE78207E5B4100D8F3F0 /* GameHomePageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E586EE76207E5B4000D8F3F0 /* GameHomePageCell.swift */; };
 		E586EE79207E5B4100D8F3F0 /* GameHomePageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E586EE77207E5B4000D8F3F0 /* GameHomePageCell.xib */; };
 		E586EE7C207E68FA00D8F3F0 /* GameHomePageFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E586EE7A207E68FA00D8F3F0 /* GameHomePageFooterView.swift */; };
@@ -220,8 +221,9 @@
 		E56802E620725CBE00CF944E /* NewsTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsTableHeaderView.xib; sourceTree = "<group>"; };
 		E56802EB207268A500CF944E /* ContentDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDetailViewController.swift; sourceTree = "<group>"; };
 		E56802EF207274E900CF944E /* NewsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPageViewController.swift; sourceTree = "<group>"; };
-		E57C5BA22081F51600655E0F /* GameHomeColumnFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHomeColumnFlowLayout.swift; sourceTree = "<group>"; };
 		E57C5BA42081F6B500655E0F /* GameRankingFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRankingFlowLayout.swift; sourceTree = "<group>"; };
+		E57C5BAA2082402800655E0F /* GameRecommendFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRecommendFooterView.swift; sourceTree = "<group>"; };
+		E57C5BAB2082402800655E0F /* GameRecommendFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameRecommendFooterView.xib; sourceTree = "<group>"; };
 		E586EE76207E5B4000D8F3F0 /* GameHomePageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameHomePageCell.swift; sourceTree = "<group>"; };
 		E586EE77207E5B4000D8F3F0 /* GameHomePageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameHomePageCell.xib; sourceTree = "<group>"; };
 		E586EE7A207E68FA00D8F3F0 /* GameHomePageFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHomePageFooterView.swift; sourceTree = "<group>"; };
@@ -749,18 +751,19 @@
 				E550C932207CDBE200C4AF2D /* GameHomeColumnContentCell.xib */,
 				E550C935207CDCBB00C4AF2D /* GameHomeColumnCell.swift */,
 				E550C936207CDCBB00C4AF2D /* GameHomeColumnCell.xib */,
-				E57C5BA22081F51600655E0F /* GameHomeColumnFlowLayout.swift */,
 			);
 			path = Column;
 			sourceTree = "<group>";
 		};
-		E550C939207CEB5800C4AF2D /* HomePage */ = {
+		E550C939207CEB5800C4AF2D /* Footer */ = {
 			isa = PBXGroup;
 			children = (
 				E586EE7A207E68FA00D8F3F0 /* GameHomePageFooterView.swift */,
 				E586EE7B207E68FA00D8F3F0 /* GameHomePageFooterView.xib */,
+				E57C5BAA2082402800655E0F /* GameRecommendFooterView.swift */,
+				E57C5BAB2082402800655E0F /* GameRecommendFooterView.xib */,
 			);
-			path = HomePage;
+			path = Footer;
 			sourceTree = "<group>";
 		};
 		E56802DB20724AA600CF944E /* View */ = {
@@ -865,7 +868,7 @@
 		E5CD6987207B95E7001A1A0A /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				E550C939207CEB5800C4AF2D /* HomePage */,
+				E550C939207CEB5800C4AF2D /* Footer */,
 				E550C930207CDBAD00C4AF2D /* Column */,
 				E550C927207CD0AC00C4AF2D /* Tag */,
 				99446ABF207CA4D4004048C7 /* Ranking */,
@@ -1044,6 +1047,7 @@
 				E59EAE132075F92100D6284F /* ColumnListCell.xib in Resources */,
 				9966511420736D7D0010430E /* default_theme.plist in Resources */,
 				9966511620736D8C0010430E /* night_theme.plist in Resources */,
+				E57C5BAD2082402800655E0F /* GameRecommendFooterView.xib in Resources */,
 				E5CD699D207BAADC001A1A0A /* GameHomeRecommendCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1156,6 +1160,7 @@
 				994141132074A2CD0016AC01 /* NewsSectionHeaderView.swift in Sources */,
 				E550C92E207CD21200C4AF2D /* GameTagContentCell.swift in Sources */,
 				994141272074C2740016AC01 /* Preference.swift in Sources */,
+				E57C5BAC2082402800655E0F /* GameRecommendFooterView.swift in Sources */,
 				E5CD69BC207BCF5F001A1A0A /* CosmosAccessibility.swift in Sources */,
 				E5CD69BD207BCF5F001A1A0A /* CosmosText.swift in Sources */,
 				E550C937207CDCBB00C4AF2D /* GameHomeColumnCell.swift in Sources */,
@@ -1213,7 +1218,6 @@
 				998F0C322071EBCE00C587C2 /* TabBarController.swift in Sources */,
 				E5CD6997207BAA9C001A1A0A /* GameHomeRecommendContentCell.swift in Sources */,
 				998F0C412071EEAB00C587C2 /* Reusable.swift in Sources */,
-				E57C5BA32081F51600655E0F /* GameHomeColumnFlowLayout.swift in Sources */,
 				994141232074B7C00016AC01 /* BaseView.swift in Sources */,
 				9941411020747F8C0016AC01 /* BaseButton.swift in Sources */,
 				E5CD69C1207BCF5F001A1A0A /* CosmosLocalizedRating.swift in Sources */,
