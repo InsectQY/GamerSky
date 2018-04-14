@@ -32,13 +32,6 @@ class GameHomeRecommendCell: UICollectionViewCell, NibReusable {
             activityImageView.isHidden = !(detail?.Position ?? "").contains("活动")
         }
     }
-        
-    // MARK: - awakeFromNib
-    override func awakeFromNib() {
-        
-        super.awakeFromNib()
-        backContentView.layer.borderColor = UIColor.white.withAlphaComponent(0.6).cgColor
-    }
     
     // MARK: - prepareForReuse
     override func prepareForReuse() {

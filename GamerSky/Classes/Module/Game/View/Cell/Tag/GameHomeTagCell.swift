@@ -27,14 +27,6 @@ class GameHomeTagCell: UICollectionViewCell, NibReusable {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        setUpBorder()
-    }
-    
-    // MARK: - 设置边框
-    private func setUpBorder() {
-        
-        layer.cornerRadius = width * 0.1
-        layer.borderColor = UIColor.lightGray.withAlphaComponent(0.5).cgColor
-        layer.borderWidth = 1
+        cornerRadius = width * 0.1
     }
 }
