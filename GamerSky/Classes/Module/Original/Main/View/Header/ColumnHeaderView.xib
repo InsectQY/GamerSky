@@ -42,7 +42,6 @@
                     </connections>
                 </collectionView>
             </subviews>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="URf-TJ-6xF" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="12" id="2iw-ck-dPX"/>
                 <constraint firstItem="CAE-zD-6gL" firstAttribute="top" secondItem="T90-og-MKd" secondAttribute="bottom" constant="7" id="cvz-sD-QdQ"/>

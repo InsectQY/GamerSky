@@ -97,6 +97,9 @@
 		E56802E720725CBE00CF944E /* NewsTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E56802E620725CBE00CF944E /* NewsTableHeaderView.xib */; };
 		E56802EC207268A500CF944E /* ContentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56802EB207268A500CF944E /* ContentDetailViewController.swift */; };
 		E56802F0207274E900CF944E /* NewsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56802EF207274E900CF944E /* NewsPageViewController.swift */; };
+		E57C5BA32081F51600655E0F /* GameHomeColumnFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57C5BA22081F51600655E0F /* GameHomeColumnFlowLayout.swift */; };
+		E57C5BA52081F6B500655E0F /* GameRankingFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57C5BA42081F6B500655E0F /* GameRankingFlowLayout.swift */; };
+		E57C5BA72081F7C600655E0F /* GameHomePageFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57C5BA62081F7C600655E0F /* GameHomePageFlowLayout.swift */; };
 		E586EE78207E5B4100D8F3F0 /* GameHomePageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E586EE76207E5B4000D8F3F0 /* GameHomePageCell.swift */; };
 		E586EE79207E5B4100D8F3F0 /* GameHomePageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E586EE77207E5B4000D8F3F0 /* GameHomePageCell.xib */; };
 		E586EE7C207E68FA00D8F3F0 /* GameHomePageFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E586EE7A207E68FA00D8F3F0 /* GameHomePageFooterView.swift */; };
@@ -230,6 +233,9 @@
 		E56802E620725CBE00CF944E /* NewsTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsTableHeaderView.xib; sourceTree = "<group>"; };
 		E56802EB207268A500CF944E /* ContentDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDetailViewController.swift; sourceTree = "<group>"; };
 		E56802EF207274E900CF944E /* NewsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPageViewController.swift; sourceTree = "<group>"; };
+		E57C5BA22081F51600655E0F /* GameHomeColumnFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHomeColumnFlowLayout.swift; sourceTree = "<group>"; };
+		E57C5BA42081F6B500655E0F /* GameRankingFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRankingFlowLayout.swift; sourceTree = "<group>"; };
+		E57C5BA62081F7C600655E0F /* GameHomePageFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHomePageFlowLayout.swift; sourceTree = "<group>"; };
 		E586EE76207E5B4000D8F3F0 /* GameHomePageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameHomePageCell.swift; sourceTree = "<group>"; };
 		E586EE77207E5B4000D8F3F0 /* GameHomePageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameHomePageCell.xib; sourceTree = "<group>"; };
 		E586EE7A207E68FA00D8F3F0 /* GameHomePageFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHomePageFooterView.swift; sourceTree = "<group>"; };
@@ -393,6 +399,7 @@
 				99446AC7207CAC19004048C7 /* GameHomeRankingContentCell.xib */,
 				99446AC2207CA640004048C7 /* GameHomeRankingCell.swift */,
 				99446AC3207CA640004048C7 /* GameHomeRankingCell.xib */,
+				E57C5BA42081F6B500655E0F /* GameRankingFlowLayout.swift */,
 			);
 			path = Ranking;
 			sourceTree = "<group>";
@@ -772,6 +779,7 @@
 				E550C932207CDBE200C4AF2D /* GameHomeColumnContentCell.xib */,
 				E550C935207CDCBB00C4AF2D /* GameHomeColumnCell.swift */,
 				E550C936207CDCBB00C4AF2D /* GameHomeColumnCell.xib */,
+				E57C5BA22081F51600655E0F /* GameHomeColumnFlowLayout.swift */,
 			);
 			path = Column;
 			sourceTree = "<group>";
@@ -785,6 +793,7 @@
 				E550C93B207CEB9000C4AF2D /* GameHomeContentCell.xib */,
 				E586EE7A207E68FA00D8F3F0 /* GameHomePageFooterView.swift */,
 				E586EE7B207E68FA00D8F3F0 /* GameHomePageFooterView.xib */,
+				E57C5BA62081F7C600655E0F /* GameHomePageFlowLayout.swift */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";
@@ -1233,8 +1242,10 @@
 				9941410E20747B0C0016AC01 /* BaseLabel.swift in Sources */,
 				E586EE7C207E68FA00D8F3F0 /* GameHomePageFooterView.swift in Sources */,
 				998F0C5F2071EFB100C587C2 /* GetVc.swift in Sources */,
+				E57C5BA52081F6B500655E0F /* GameRankingFlowLayout.swift in Sources */,
 				9906819520721F8700A825AC /* Channel.swift in Sources */,
 				9941411D2074B45E0016AC01 /* BaseCollectionViewCell.swift in Sources */,
+				E57C5BA72081F7C600655E0F /* GameHomePageFlowLayout.swift in Sources */,
 				E5F8116C20739B3400E9883F /* ColumnElementCell.swift in Sources */,
 				E534FAD0207A6506006CE008 /* ColumnDescHeaderView.swift in Sources */,
 				998F0C6A2071F72800C587C2 /* GameHomeViewController.swift in Sources */,
@@ -1246,6 +1257,7 @@
 				998F0C322071EBCE00C587C2 /* TabBarController.swift in Sources */,
 				E5CD6997207BAA9C001A1A0A /* GameHomeRecommendContentCell.swift in Sources */,
 				998F0C412071EEAB00C587C2 /* Reusable.swift in Sources */,
+				E57C5BA32081F51600655E0F /* GameHomeColumnFlowLayout.swift in Sources */,
 				994141232074B7C00016AC01 /* BaseView.swift in Sources */,
 				9941411020747F8C0016AC01 /* BaseButton.swift in Sources */,
 				E5CD69C1207BCF5F001A1A0A /* CosmosLocalizedRating.swift in Sources */,

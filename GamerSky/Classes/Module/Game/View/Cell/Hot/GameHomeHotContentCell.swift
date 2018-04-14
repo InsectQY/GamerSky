@@ -8,22 +8,13 @@
 
 import UIKit
 
-/// cell 之间间距
-private let kItemMargin: CGFloat = 15
-/// 左右间距
-private let kEdge: CGFloat = 10
-/// 每行最大列数
-private let kMaxCol: CGFloat = 4
-/// cell 宽度
-private let kItemW = (ScreenWidth - (2 * kEdge) - ((kMaxCol - 1) * kItemMargin)) / kMaxCol
-
 class GameHomeHotContentCell: UITableViewCell, NibReusable {
 
     static let cellHeight: CGFloat = ScreenHeight * 0.25
     
     // MARK: - IBOutlet
     @IBOutlet private weak var collectionView: UICollectionView!
-    @IBOutlet private weak var flowLayout: UICollectionViewFlowLayout!
+    @IBOutlet private weak var flowLayout: GameHomePageFlowLayout!
     
     // MARK: - public
     public var sectionHeader: GameHomeSection?
@@ -45,11 +36,7 @@ class GameHomeHotContentCell: UITableViewCell, NibReusable {
     // MARK: - setUpCollectionView
     private func setUpCollectionView() {
         
-        flowLayout.itemSize = CGSize(width: kItemW, height: GameHomeHotContentCell.cellHeight)
-        flowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, kItemMargin)
-        collectionView.contentInset = UIEdgeInsetsMake(0, kEdge, 0, kEdge)
-        flowLayout.minimumLineSpacing = kItemMargin
-        flowLayout.footerReferenceSize = CGSize(width: kItemW, height: GameHomeHotContentCell.cellHeight)
+        collectionView.contentInset = UIEdgeInsetsMake(0, GameHomePageFlowLayout.kEdge, 0, GameHomePageFlowLayout.kEdge)
         collectionView.register(cellType: GameHomePageCell.self)
         collectionView.register(supplementaryViewType: GameHomePageFooterView.self, ofKind: UICollectionElementKindSectionFooter)
     }

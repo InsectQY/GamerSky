@@ -8,18 +8,9 @@
 
 import UIKit
 
-/// cell 之间间距
-private let kItemMargin: CGFloat = 5
-/// 左右间距
-private let kEdge: CGFloat = 10
-/// 每行最大列数
-private let kMaxCol: CGFloat = 2
-/// cell 宽度
-private let kItemW = (ScreenWidth - (2 * kEdge) - ((kMaxCol - 1) * kItemMargin)) / kMaxCol
-
 class GameHomeColumnContentCell: UITableViewCell, NibReusable {
 
-    static let cellHeight: CGFloat = ScreenHeight * 0.18
+    static let cellHeight: CGFloat = ScreenHeight * 0.2
     
     // MARK: - public
     public var columnGame = [GameSpecialList]() {
@@ -30,7 +21,7 @@ class GameHomeColumnContentCell: UITableViewCell, NibReusable {
     
     // MARK: - IBOutlet
     @IBOutlet private weak var collectionView: UICollectionView!
-    @IBOutlet private weak var flowLayout: UICollectionViewFlowLayout!
+    @IBOutlet private weak var flowLayout: GameHomeColumnFlowLayout!
     
     // MARK: - inital
     override func awakeFromNib() {
@@ -41,9 +32,6 @@ class GameHomeColumnContentCell: UITableViewCell, NibReusable {
     // MARK: - setUpCollectionView
     private func setUpCollectionView() {
         
-        flowLayout.itemSize = CGSize(width: kItemW, height: GameHomeColumnContentCell.cellHeight)
-        flowLayout.sectionInset = UIEdgeInsetsMake(0, kEdge, 0, kEdge)
-        flowLayout.minimumLineSpacing = kItemMargin
         collectionView.register(cellType: GameHomeColumnCell.self)
     }
 }

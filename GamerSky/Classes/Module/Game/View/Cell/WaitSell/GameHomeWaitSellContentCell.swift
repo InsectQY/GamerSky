@@ -27,6 +27,8 @@ class GameHomeWaitSellContentCell: UITableViewCell, NibReusable {
     
     // MARK: - public
     public var sectionHeader: GameHomeSection?
+    /// 按月份分割好的数组
+    private var allWaitSellGame = [[GameInfo]]()
     
     public var waitSellGame = [GameInfo]() {
         
@@ -43,9 +45,6 @@ class GameHomeWaitSellContentCell: UITableViewCell, NibReusable {
         }
     }
     
-    /// 按月份分割好的数组
-    private var allWaitSellGame = [[GameInfo]]()
-
     // MARK: - inital
     override func awakeFromNib() {
         super.awakeFromNib()

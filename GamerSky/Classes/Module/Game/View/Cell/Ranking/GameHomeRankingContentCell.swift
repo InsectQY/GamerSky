@@ -8,15 +8,6 @@
 
 import UIKit
 
-/// cell 之间间距
-private let kItemMargin: CGFloat = 10
-/// 左右间距
-private let kEdge: CGFloat = 10
-/// cell 宽度
-private let kItemW: CGFloat = ScreenWidth * 0.8
-/// cell 高度
-private let kItemH: CGFloat = 60
-
 class GameHomeRankingContentCell: UITableViewCell, NibReusable {
 
     static let cellHeight: CGFloat = 350
@@ -30,7 +21,7 @@ class GameHomeRankingContentCell: UITableViewCell, NibReusable {
 
     // MARK: - IBOutlet
     @IBOutlet private weak var collectionView: UICollectionView!
-    @IBOutlet private weak var flowLayout: UICollectionViewFlowLayout!
+    @IBOutlet private weak var flowLayout: GameRankingFlowLayout!
     
     // MARK: - inital
     override func awakeFromNib() {
@@ -42,10 +33,6 @@ class GameHomeRankingContentCell: UITableViewCell, NibReusable {
     // MARK: - setUpCollectionView
     private func setUpCollectionView() {
         
-        flowLayout.itemSize = CGSize(width: kItemW, height: kItemH)
-        flowLayout.sectionInset = UIEdgeInsetsMake(0, kEdge, 0, kEdge)
-        flowLayout.minimumLineSpacing = kItemMargin
-        flowLayout.minimumInteritemSpacing = kItemMargin
         collectionView.register(cellType: GameHomeRankingCell.self)
     }
 }
