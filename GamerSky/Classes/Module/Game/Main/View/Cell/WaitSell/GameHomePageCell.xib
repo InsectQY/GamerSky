@@ -35,7 +35,6 @@
                     <view userInteractionEnabled="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dph-1l-HoN" customClass="CosmosView" customModule="GamerSky" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="167" width="60" height="12"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="12" id="FlF-lv-uM1"/>
                             <constraint firstAttribute="width" constant="60" id="xK6-vm-NMl"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>

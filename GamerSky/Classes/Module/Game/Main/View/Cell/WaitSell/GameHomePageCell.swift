@@ -12,13 +12,17 @@ class GameHomePageCell: UICollectionViewCell, NibReusable {
 
     // MARK: - IBOutlet
     @IBOutlet private weak var gameImageTopConstraint: NSLayoutConstraint!
-    @IBOutlet private weak var gameImageConstraintH: NSLayoutConstraint!
-    @IBOutlet public weak var sellMonthLabel: BaseLabel!
+    @IBOutlet public  weak var sellMonthLabel: BaseLabel!
     @IBOutlet private weak var gameNameLabel: BaseLabel!
     @IBOutlet private weak var percentLabel: BaseLabel!
-    @IBOutlet private weak var ratingView: CosmosView!
     @IBOutlet private weak var gameImageView: UIImageView!
     @IBOutlet private weak var activityImageView: UIImageView!
+    @IBOutlet private weak var ratingView: CosmosView! {
+        didSet {
+            // 按比例缩放星星大小
+            ratingView.starSize = Double(12 * ScreenWidth / 414)
+        }
+    }
     
     // MARK: - public
     public var sectionType: GameHomeSectionType? {

@@ -10,17 +10,17 @@ import UIKit
 
 class GameHomeWaitSellContentCell: UITableViewCell, NibReusable {
 
-    static let waitSellingHeight: CGFloat = ScreenHeight * 0.3
-    static let hotHeight: CGFloat = ScreenHeight * 0.25
+    static let waitSellingHeight: CGFloat = GameHomeWaitSellContentCell.hotHeight + 20
+    static let hotHeight: CGFloat = kItemW * 2.2
     
     /// 左右间距
-    private let kEdge: CGFloat = 10
+    private static let kEdge: CGFloat = 10
     /// cell 之间间距
-    private let kItemMargin: CGFloat = 15
+    private static let kItemMargin: CGFloat = 15
     /// 每行最大列数
-    private let kMaxCol: CGFloat = 4
+    private static let kMaxCol: CGFloat = 4
     /// cell 宽度
-    public var kItemW: CGFloat {
+    static var kItemW: CGFloat {
         return (ScreenWidth - (2 * kEdge) - ((kMaxCol - 1) * kItemMargin)) / kMaxCol
     }
 
@@ -77,12 +77,12 @@ class GameHomeWaitSellContentCell: UITableViewCell, NibReusable {
     // MARK: - setUpCollectionView
     private func setUpCollectionView() {
         
-        flowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, kItemMargin)
-        flowLayout.minimumLineSpacing = kItemMargin
-        collectionView.contentInset = UIEdgeInsetsMake(0, kEdge, 0, kEdge)
+        flowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, GameHomeWaitSellContentCell.kItemMargin)
+        flowLayout.minimumLineSpacing = GameHomeWaitSellContentCell.kItemMargin
+        collectionView.contentInset = UIEdgeInsetsMake(0, GameHomeWaitSellContentCell.kEdge, 0, GameHomeWaitSellContentCell.kEdge)
         collectionView.register(cellType: GameHomePageCell.self)
         collectionView.register(supplementaryViewType: GameHomePageFooterView.self, ofKind: UICollectionElementKindSectionFooter)
-        flowLayout.footerReferenceSize = CGSize(width: kItemW, height: 200)
+        flowLayout.footerReferenceSize = CGSize(width: GameHomeWaitSellContentCell.kItemW, height: 200)
     }
 }
 
@@ -121,15 +121,15 @@ extension GameHomeWaitSellContentCell: UIScrollViewDelegate {
 extension GameHomeWaitSellContentCell: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return sectionType == .waitSelling ? CGSize(width: kItemW, height: GameHomeWaitSellContentCell.waitSellingHeight + 20) : CGSize(width: kItemW, height: GameHomeWaitSellContentCell.hotHeight)
+        return sectionType == .waitSelling ? CGSize(width: GameHomeWaitSellContentCell.kItemW, height: GameHomeWaitSellContentCell.waitSellingHeight + 20) : CGSize(width: GameHomeWaitSellContentCell.kItemW, height: GameHomeWaitSellContentCell.hotHeight)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
 
         if sectionType == .waitSelling {
-            return section == monthGame.count - 1 ? CGSize(width: kItemW, height: GameHomeWaitSellContentCell.waitSellingHeight) : .zero
+            return section == monthGame.count - 1 ? CGSize(width: GameHomeWaitSellContentCell.kItemW, height: GameHomeWaitSellContentCell.waitSellingHeight) : .zero
         }else {
-            return CGSize(width: kItemW, height: 1)
+            return CGSize(width: GameHomeWaitSellContentCell.kItemW, height: 1)
         }
     }
 }
