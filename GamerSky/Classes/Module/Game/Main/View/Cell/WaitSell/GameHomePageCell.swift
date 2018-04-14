@@ -25,11 +25,8 @@ class GameHomePageCell: UICollectionViewCell, NibReusable {
         
         didSet {
             
-            if sectionType == .waitSelling { // 即将发售的游戏，重新计算图片高度(已在xib里计算好, 调整约束优先级即可)
-                gameImageConstraintH.priority = UILayoutPriority(rawValue: 1)
-            }else { // 不是即将发售的游戏(隐藏顶部时间, 调整图片到顶部距离(已在xib里计算好, 调整约束优先级即可)
-                gameImageTopConstraint.priority = UILayoutPriority(rawValue: 1)
-            }
+            // 不是即将发售的游戏(隐藏顶部时间, 调整图片到顶部距离(已在xib里计算好, 调整约束优先级即可)
+            gameImageTopConstraint.priority = sectionType == .waitSelling ? UILayoutPriority(rawValue: 999) : UILayoutPriority(rawValue: 1)
             
             // 不是最近大家都在玩, 不需要显示评分
             ratingView.isHidden = sectionType != .hot

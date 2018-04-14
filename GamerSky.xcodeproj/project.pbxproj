@@ -95,6 +95,11 @@
 		E57C5BAC2082402800655E0F /* GameRecommendFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57C5BAA2082402800655E0F /* GameRecommendFooterView.swift */; };
 		E57C5BAD2082402800655E0F /* GameRecommendFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E57C5BAB2082402800655E0F /* GameRecommendFooterView.xib */; };
 		E57C5BB12082460400655E0F /* GameColumnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57C5BB02082460400655E0F /* GameColumnViewController.swift */; };
+		E57C5BB520824F3100655E0F /* ColumnDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57C5BB420824F3100655E0F /* ColumnDetailViewController.swift */; };
+		E57C5BBB20824FA400655E0F /* GameColumnDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57C5BB920824FA400655E0F /* GameColumnDetailCell.swift */; };
+		E57C5BBC20824FA400655E0F /* GameColumnDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E57C5BBA20824FA400655E0F /* GameColumnDetailCell.xib */; };
+		E57C5BBF2082572000655E0F /* GameColumnDetailSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57C5BBD2082572000655E0F /* GameColumnDetailSectionHeader.swift */; };
+		E57C5BC02082572000655E0F /* GameColumnDetailSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = E57C5BBE2082572000655E0F /* GameColumnDetailSectionHeader.xib */; };
 		E586EE78207E5B4100D8F3F0 /* GameHomePageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E586EE76207E5B4000D8F3F0 /* GameHomePageCell.swift */; };
 		E586EE79207E5B4100D8F3F0 /* GameHomePageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E586EE77207E5B4000D8F3F0 /* GameHomePageCell.xib */; };
 		E586EE7C207E68FA00D8F3F0 /* GameHomePageFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E586EE7A207E68FA00D8F3F0 /* GameHomePageFooterView.swift */; };
@@ -226,6 +231,11 @@
 		E57C5BAA2082402800655E0F /* GameRecommendFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRecommendFooterView.swift; sourceTree = "<group>"; };
 		E57C5BAB2082402800655E0F /* GameRecommendFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameRecommendFooterView.xib; sourceTree = "<group>"; };
 		E57C5BB02082460400655E0F /* GameColumnViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameColumnViewController.swift; sourceTree = "<group>"; };
+		E57C5BB420824F3100655E0F /* ColumnDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnDetailViewController.swift; sourceTree = "<group>"; };
+		E57C5BB920824FA400655E0F /* GameColumnDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameColumnDetailCell.swift; sourceTree = "<group>"; };
+		E57C5BBA20824FA400655E0F /* GameColumnDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameColumnDetailCell.xib; sourceTree = "<group>"; };
+		E57C5BBD2082572000655E0F /* GameColumnDetailSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameColumnDetailSectionHeader.swift; sourceTree = "<group>"; };
+		E57C5BBE2082572000655E0F /* GameColumnDetailSectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameColumnDetailSectionHeader.xib; sourceTree = "<group>"; };
 		E586EE76207E5B4000D8F3F0 /* GameHomePageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameHomePageCell.swift; sourceTree = "<group>"; };
 		E586EE77207E5B4000D8F3F0 /* GameHomePageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameHomePageCell.xib; sourceTree = "<group>"; };
 		E586EE7A207E68FA00D8F3F0 /* GameHomePageFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHomePageFooterView.swift; sourceTree = "<group>"; };
@@ -567,7 +577,8 @@
 		998F0C672071F70B00C587C2 /* Game */ = {
 			isa = PBXGroup;
 			children = (
-				E57C5BAF208245E900655E0F /* Column */,
+				E57C5BB220824F1300655E0F /* ColumnDetail */,
+				E57C5BAF208245E900655E0F /* ColumnList */,
 				E57C5BAE208245CB00655E0F /* Main */,
 			);
 			path = Game;
@@ -847,12 +858,56 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
-		E57C5BAF208245E900655E0F /* Column */ = {
+		E57C5BAF208245E900655E0F /* ColumnList */ = {
 			isa = PBXGroup;
 			children = (
 				E57C5BB02082460400655E0F /* GameColumnViewController.swift */,
 			);
-			path = Column;
+			path = ColumnList;
+			sourceTree = "<group>";
+		};
+		E57C5BB220824F1300655E0F /* ColumnDetail */ = {
+			isa = PBXGroup;
+			children = (
+				E57C5BB620824F7100655E0F /* View */,
+				E57C5BB320824F1E00655E0F /* Controller */,
+			);
+			path = ColumnDetail;
+			sourceTree = "<group>";
+		};
+		E57C5BB320824F1E00655E0F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E57C5BB420824F3100655E0F /* ColumnDetailViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E57C5BB620824F7100655E0F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E57C5BB820824F7A00655E0F /* SectionHeader */,
+				E57C5BB720824F7500655E0F /* Cell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E57C5BB720824F7500655E0F /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E57C5BB920824FA400655E0F /* GameColumnDetailCell.swift */,
+				E57C5BBA20824FA400655E0F /* GameColumnDetailCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		E57C5BB820824F7A00655E0F /* SectionHeader */ = {
+			isa = PBXGroup;
+			children = (
+				E57C5BBD2082572000655E0F /* GameColumnDetailSectionHeader.swift */,
+				E57C5BBE2082572000655E0F /* GameColumnDetailSectionHeader.xib */,
+			);
+			path = SectionHeader;
 			sourceTree = "<group>";
 		};
 		E5CD697E207B9343001A1A0A /* View */ = {
@@ -1041,6 +1096,7 @@
 				99E799A52071E10E005C3408 /* LaunchScreen.storyboard in Resources */,
 				99446AC9207CAC19004048C7 /* GameHomeRankingContentCell.xib in Resources */,
 				E56802DF20724AEB00CF944E /* ChannelListCell.xib in Resources */,
+				E57C5BBC20824FA400655E0F /* GameColumnDetailCell.xib in Resources */,
 				E550C93F207CF06200C4AF2D /* GameHomeSectionData.plist in Resources */,
 				E534FAD2207A650E006CE008 /* ColumnDescHeaderView.xib in Resources */,
 				99E799A22071E10E005C3408 /* Assets.xcassets in Resources */,
@@ -1065,6 +1121,7 @@
 				99446AC5207CA640004048C7 /* GameHomeRankingCell.xib in Resources */,
 				E59EAE132075F92100D6284F /* ColumnListCell.xib in Resources */,
 				9966511420736D7D0010430E /* default_theme.plist in Resources */,
+				E57C5BC02082572000655E0F /* GameColumnDetailSectionHeader.xib in Resources */,
 				9966511620736D8C0010430E /* night_theme.plist in Resources */,
 				E57C5BAD2082402800655E0F /* GameRecommendFooterView.xib in Resources */,
 				E5CD699D207BAADC001A1A0A /* GameHomeRecommendCell.xib in Resources */,
@@ -1170,6 +1227,7 @@
 				9966510F20735FFB0010430E /* MineViewController.swift in Sources */,
 				99446AAF207C6A9B004048C7 /* GameHomeWaitSellContentCell.swift in Sources */,
 				994141172074B1820016AC01 /* BaseTableView.swift in Sources */,
+				E57C5BBF2082572000655E0F /* GameColumnDetailSectionHeader.swift in Sources */,
 				E5F8116720739A8C00E9883F /* ColumnHeaderView.swift in Sources */,
 				E5CD69BF207BCF5F001A1A0A /* CosmosSize.swift in Sources */,
 				E5CD69A1207BB360001A1A0A /* Game.swift in Sources */,
@@ -1198,6 +1256,7 @@
 				99446AC4207CA640004048C7 /* GameHomeRankingCell.swift in Sources */,
 				E5CD69C7207BCF5F001A1A0A /* RightToLeft.swift in Sources */,
 				E5CD69C0207BCF5F001A1A0A /* CosmosLayers.swift in Sources */,
+				E57C5BB520824F3100655E0F /* ColumnDetailViewController.swift in Sources */,
 				9941411E2074B45E0016AC01 /* BaseCollectionView.swift in Sources */,
 				E56802E520725C9100CF944E /* NewsTableHeaderView.swift in Sources */,
 				E5CD69C6207BCF5F001A1A0A /* CosmosTouchTarget.swift in Sources */,
@@ -1240,6 +1299,7 @@
 				998F0C412071EEAB00C587C2 /* Reusable.swift in Sources */,
 				994141232074B7C00016AC01 /* BaseView.swift in Sources */,
 				9941411020747F8C0016AC01 /* BaseButton.swift in Sources */,
+				E57C5BBB20824FA400655E0F /* GameColumnDetailCell.swift in Sources */,
 				E5CD69C1207BCF5F001A1A0A /* CosmosLocalizedRating.swift in Sources */,
 				998F0C722071F7AD00C587C2 /* OriginalViewController.swift in Sources */,
 				E550C92A207CD0E700C4AF2D /* GameHomeTagCell.swift in Sources */,
