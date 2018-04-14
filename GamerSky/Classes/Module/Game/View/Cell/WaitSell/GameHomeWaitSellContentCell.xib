@@ -21,17 +21,17 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IPC-Fo-BtE">
                         <rect key="frame" x="0.0" y="0.0" width="346" height="20"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" tag="777" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12月" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EmM-Rj-ihK" customClass="BaseLabel" customModule="GamerSky" customModuleProvider="target">
-                                <rect key="frame" x="10" y="-0.5" width="30" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" tag="777" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4月" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EmM-Rj-ihK" customClass="BaseLabel" customModule="GamerSky" customModuleProvider="target">
+                                <rect key="frame" x="10" y="2.5" width="30" height="17"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="9v9-xG-y1F"/>
+                                    <constraint firstAttribute="width" constant="30" id="0MQ-pp-8Iv"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="12"/>
-                                <color key="textColor" red="0.2784313725" green="0.52156862749999999" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.75294117650000003" blue="0.46274509800000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gameComingSoonSpacing_414_UIMode_Day" translatesAutoresizingMaskIntoConstraints="NO" id="F6Y-Bz-hEq">
-                                <rect key="frame" x="40" y="8" width="296" height="3"/>
+                                <rect key="frame" x="40" y="9.5" width="296" height="3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="3" id="iSH-e2-tYY"/>
                                 </constraints>
@@ -40,10 +40,9 @@
                         <constraints>
                             <constraint firstItem="F6Y-Bz-hEq" firstAttribute="leading" secondItem="EmM-Rj-ihK" secondAttribute="trailing" id="1lO-wf-dLU"/>
                             <constraint firstItem="F6Y-Bz-hEq" firstAttribute="centerY" secondItem="EmM-Rj-ihK" secondAttribute="centerY" id="JsP-iE-ui0"/>
-                            <constraint firstItem="EmM-Rj-ihK" firstAttribute="centerY" secondItem="IPC-Fo-BtE" secondAttribute="centerY" id="LTY-tE-Lpb"/>
+                            <constraint firstItem="EmM-Rj-ihK" firstAttribute="centerY" secondItem="IPC-Fo-BtE" secondAttribute="centerY" constant="1" id="LTY-tE-Lpb"/>
                             <constraint firstAttribute="trailing" secondItem="F6Y-Bz-hEq" secondAttribute="trailing" constant="10" id="VsA-BZ-6Z6"/>
                             <constraint firstAttribute="height" constant="20" id="ab7-aw-Yaa"/>
-                            <constraint firstItem="EmM-Rj-ihK" firstAttribute="height" secondItem="IPC-Fo-BtE" secondAttribute="height" id="gyL-cj-PEv"/>
                             <constraint firstItem="EmM-Rj-ihK" firstAttribute="leading" secondItem="IPC-Fo-BtE" secondAttribute="leading" constant="10" id="nzL-ta-83O"/>
                         </constraints>
                     </view>
@@ -75,6 +74,7 @@
             <connections>
                 <outlet property="collectionView" destination="IaY-pn-vSz" id="6hl-C2-8gB"/>
                 <outlet property="flowLayout" destination="Jsm-9B-kiT" id="5sh-XJ-l1n"/>
+                <outlet property="monthLabel" destination="EmM-Rj-ihK" id="FBP-GH-dbG"/>
             </connections>
             <point key="canvasLocation" x="38" y="99.5"/>
         </tableViewCell>

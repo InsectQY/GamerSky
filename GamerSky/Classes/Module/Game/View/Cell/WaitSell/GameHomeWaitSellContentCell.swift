@@ -24,6 +24,7 @@ class GameHomeWaitSellContentCell: UITableViewCell, NibReusable {
     // MARK: - IBOutlet
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var flowLayout: UICollectionViewFlowLayout!
+    @IBOutlet private weak var monthLabel: BaseLabel!
     
     // MARK: - public
     public var sectionHeader: GameHomeSection?
@@ -83,6 +84,15 @@ extension GameHomeWaitSellContentCell: UICollectionViewDataSource {
         cell.sectionType = sectionHeader?.sectionType
         cell.info = allWaitSellGame[indexPath.section][indexPath.row]
         return cell
+    }
+}
+
+// MARK: - UIScrollViewDelegate
+extension GameHomeWaitSellContentCell: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        guard let indexPath = collectionView.indexPathForItem(at: scrollView.contentOffset) else {return}
+        monthLabel.text = "\(allWaitSellGame[indexPath.section][0].month ?? "")月"
     }
 }
 

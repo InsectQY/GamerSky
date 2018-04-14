@@ -10,7 +10,7 @@ import UIKit
 
 class GameHomeColumnContentCell: UITableViewCell, NibReusable {
 
-    static let cellHeight: CGFloat = ScreenHeight * 0.2
+    static let cellHeight: CGFloat = ScreenHeight * 0.19
     
     // MARK: - public
     public var columnGame = [GameSpecialList]() {

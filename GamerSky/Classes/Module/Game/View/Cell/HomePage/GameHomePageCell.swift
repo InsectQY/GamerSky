@@ -14,9 +14,9 @@ class GameHomePageCell: UICollectionViewCell, NibReusable {
     @IBOutlet private weak var percentLabelLeftConstraint: NSLayoutConstraint!
     @IBOutlet private weak var gameImageTopConstraint: NSLayoutConstraint!
     @IBOutlet private weak var gameImageConstraintH: NSLayoutConstraint!
-    @IBOutlet private weak var sellMonthLabel: BaseLabel!
-    @IBOutlet private weak var gameNameLabel: UILabel!
-    @IBOutlet private weak var percentLabel: UILabel!
+    @IBOutlet public weak var sellMonthLabel: BaseLabel!
+    @IBOutlet private weak var gameNameLabel: BaseLabel!
+    @IBOutlet private weak var percentLabel: BaseLabel!
     @IBOutlet private weak var ratingView: CosmosView!
     @IBOutlet private weak var gameImageView: UIImageView!
     
