@@ -9,8 +9,6 @@
 import UIKit
 
 class GameHomeContentCell: UITableViewCell {
-
-    // MARK: - LazyLoad
     
     
     // MARK: - inital

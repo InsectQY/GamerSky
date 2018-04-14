@@ -12,6 +12,7 @@ class GameHomeSectionHeader: UITableViewHeaderFooterView, NibReusable {
 
     static let sectionHeight: CGFloat = 44
     
+    // MARK: - IBOutlet
     @IBOutlet private weak var leftTitleLabel: BaseLabel!
     @IBOutlet private weak var rightTitleBtn: UIButton!
     

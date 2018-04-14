@@ -22,6 +22,7 @@ class OriginalViewController: BaseViewController {
     /// 原创首页的数据
     private lazy var columnAry = [[ColumnElement]]()
     
+    // MARK: - Lazyload
     private lazy var titleView: ColumnNavTitleView = {
         
         let titleView = ColumnNavTitleView.loadFromNib()

@@ -10,6 +10,7 @@ import UIKit
 
 class GameHomeRankingCell: UICollectionViewCell, NibReusable {
 
+    // MARK: - IBOutlet
     @IBOutlet private weak var ratingView: CosmosView!
     @IBOutlet private weak var rankingBtn: UIButton!
     @IBOutlet private weak var percentLabel: BaseLabel!
@@ -18,6 +19,7 @@ class GameHomeRankingCell: UICollectionViewCell, NibReusable {
     
     private var rankingImage = [#imageLiteral(resourceName: "common_Icon_Index1_16x18"), #imageLiteral(resourceName: "common_Icon_Index2_16x18"), #imageLiteral(resourceName: "common_Icon_Index3_16x18")]
     
+    // MARK: - public
     public var info: GameInfo? {
         
         didSet {

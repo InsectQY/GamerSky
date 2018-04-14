@@ -14,15 +14,18 @@ class NewsTableHeaderView: BaseView, NibReusable {
 
     private let CycleCellID = "CycleCellID"
     
+    // MARK: - IBOutlet
     @IBOutlet private weak var pageContentView: BaseView!
     @IBOutlet private weak var titleLabel: UILabel!
     
+    // MARK: - public
     public var channelListAry: [ChannelList]? {
         didSet {
             pagerView.reloadData()
         }
     }
     
+    // MARK: - Lazylaod
     private lazy var pagerView: FSPagerView = {
         
         let pagerView = FSPagerView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: ScreenHeight * 0.3 - 40))

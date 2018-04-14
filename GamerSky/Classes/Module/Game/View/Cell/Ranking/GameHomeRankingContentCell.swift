@@ -21,12 +21,14 @@ class GameHomeRankingContentCell: UITableViewCell, NibReusable {
 
     static let cellHeight: CGFloat = 350
     
+    // MARK: - public
     public var rankingGame = [[GameInfo]]()  {
         didSet {
             collectionView.reloadData()
         }
     }
 
+    // MARK: - IBOutlet
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var flowLayout: UICollectionViewFlowLayout!
     

@@ -13,6 +13,7 @@ class NewsSectionHeaderView: UITableViewHeaderFooterView, NibReusable {
 
     static let height: CGFloat = 20
     
+    // MARK: - IBOutlet
     @IBOutlet private weak var headerImageView: UIImageView!
     @IBOutlet private weak var headerLabel: UILabel!
 }

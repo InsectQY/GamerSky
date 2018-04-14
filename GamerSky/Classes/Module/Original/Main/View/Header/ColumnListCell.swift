@@ -10,9 +10,11 @@ import UIKit
 
 class ColumnListCell: BaseCollectionViewCell, NibReusable {
 
+    // MARK: - IBOutlet
     @IBOutlet private weak var columnLabel: UILabel!
     @IBOutlet private weak var columnImageView: UIImageView!
     
+    // MARK: - public
     public var column: ColumnList? {
         
         didSet {
@@ -22,4 +24,3 @@ class ColumnListCell: BaseCollectionViewCell, NibReusable {
         }
     }
 }
-

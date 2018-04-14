@@ -17,12 +17,14 @@ class GameTagContentCell: UITableViewCell, NibReusable {
 
     static let cellHeight: CGFloat = 60
     
+    // MARK: - public
     public var gameTag = [GameTag]() {
         didSet {
             collectionView.reloadData()
         }
     }
     
+    // MARK: - IBOutlet
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var flowLayout: UICollectionViewFlowLayout!
 
@@ -68,4 +70,3 @@ extension GameTagContentCell: UICollectionViewDataSource {
         return cell
     }
 }
-

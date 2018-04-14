@@ -10,6 +10,7 @@ import UIKit
 
 class GameHomeRecommendCell: UICollectionViewCell, NibReusable {
 
+    // MARK: - IBOutlet
     @IBOutlet private weak var backContentView: UIView!
     @IBOutlet private weak var ratingView: CosmosView!
     @IBOutlet private weak var percentLabel: UILabel!
@@ -17,6 +18,7 @@ class GameHomeRecommendCell: UICollectionViewCell, NibReusable {
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var backgroundImageView: UIImageView!
     
+    // MARK: - public
     public var detail: GameInfo? {
         
         didSet {
@@ -29,15 +31,15 @@ class GameHomeRecommendCell: UICollectionViewCell, NibReusable {
         }
     }
         
-    // MARK: - inital
+    // MARK: - awakeFromNib
     override func awakeFromNib() {
         
         super.awakeFromNib()
         backContentView.layer.borderColor = UIColor.white.withAlphaComponent(0.6).cgColor
     }
     
+    // MARK: - prepareForReuse
     override func prepareForReuse() {
-        
         ratingView.prepareForReuse()
     }
 }

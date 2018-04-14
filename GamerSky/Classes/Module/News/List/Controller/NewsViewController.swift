@@ -12,8 +12,11 @@ import SwiftNotificationCenter
 class NewsViewController: BaseViewController {
 
     private var page = 1
+    
+    // MARK: - public
     public  var nodeID = 0
     
+    // MARK: - Lazyload
     private lazy var channelListAry = [ChannelList]()
     private lazy var tableView: UITableView = {
         

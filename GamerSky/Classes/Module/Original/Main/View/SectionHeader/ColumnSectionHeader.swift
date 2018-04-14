@@ -12,10 +12,7 @@ class ColumnSectionHeader: UITableViewHeaderFooterView, NibReusable {
 
     static let sectionHeight: CGFloat = 35
     
+    // MARK: - IBOutlet
     @IBOutlet private weak var headerImageView: UIImageView!
     @IBOutlet private weak var headerTitleLabel: UILabel!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
 }

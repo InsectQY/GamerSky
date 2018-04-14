@@ -21,6 +21,7 @@ class GameHomeRecommendContentCell: UITableViewCell, NibReusable {
     
     static let cellHeight: CGFloat = ScreenHeight * 0.28
     
+    // MARK: - public
     public var gameSpecialDetail = [GameInfo]() {
         
         didSet {
@@ -28,6 +29,7 @@ class GameHomeRecommendContentCell: UITableViewCell, NibReusable {
         }
     }
     
+    // MARK: - IBOutlet
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var flowLayout: UICollectionViewFlowLayout!
     

@@ -12,16 +12,14 @@ class ColumnDescHeaderView: UIView, NibLoadable {
 
     static let headerHeight: CGFloat = 35
     
+    // MARK: - IBOutlet
     @IBOutlet private weak var descView: UIView!
     @IBOutlet private weak var descLabel: UILabel!
     
+    // MARK: - public
     public var desc: String? {
         didSet {
             descLabel.text = desc
         }
-    }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
     }
 }

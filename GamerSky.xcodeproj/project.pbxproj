@@ -872,8 +872,8 @@
 		E5CD697F207B93AD001A1A0A /* Section */ = {
 			isa = PBXGroup;
 			children = (
-				E550C940207CF51B00C4AF2D /* GameHomeSectionHeader.xib */,
 				E550C942207CF52F00C4AF2D /* GameHomeSectionHeader.swift */,
+				E550C940207CF51B00C4AF2D /* GameHomeSectionHeader.xib */,
 			);
 			path = Section;
 			sourceTree = "<group>";

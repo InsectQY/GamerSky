@@ -21,9 +21,11 @@ class GameHomeHotContentCell: UITableViewCell, NibReusable {
 
     static let cellHeight: CGFloat = ScreenHeight * 0.25
     
+    // MARK: - IBOutlet
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var flowLayout: UICollectionViewFlowLayout!
     
+    // MARK: - public
     public var sectionHeader: GameHomeSection?
     
     public var hotGame = [GameInfo]() {

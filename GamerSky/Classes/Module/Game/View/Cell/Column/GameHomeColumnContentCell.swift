@@ -21,12 +21,14 @@ class GameHomeColumnContentCell: UITableViewCell, NibReusable {
 
     static let cellHeight: CGFloat = ScreenHeight * 0.18
     
+    // MARK: - public
     public var columnGame = [GameSpecialList]() {
         didSet {
             collectionView.reloadData()
         }
     }
     
+    // MARK: - IBOutlet
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var flowLayout: UICollectionViewFlowLayout!
     

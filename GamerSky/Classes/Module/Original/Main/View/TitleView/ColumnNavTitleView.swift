@@ -10,9 +10,11 @@ import UIKit
 
 class ColumnNavTitleView: UIView, NibLoadable {
 
+    // MARK: - IBOutlet
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var titleImageView: UIImageView!
     
+    // MARK: - public
     public var column: ColumnList? {
         
         didSet {

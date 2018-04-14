@@ -10,10 +10,12 @@ import UIKit
 
 class GameHomeTagCell: UICollectionViewCell, NibReusable {
 
-    @IBOutlet private weak var gameTagLabel: UILabel!
-    
     static let cellHeight: CGFloat = 30
     
+    // MARK: - IBOutlet
+    @IBOutlet private weak var gameTagLabel: UILabel!
+    
+    // MARK: - public
     public var gameTag: GameTag? {
         
         didSet {
@@ -36,4 +38,3 @@ class GameHomeTagCell: UICollectionViewCell, NibReusable {
         layer.borderWidth = 1
     }
 }
-

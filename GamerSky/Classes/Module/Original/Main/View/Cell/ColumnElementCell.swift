@@ -13,6 +13,7 @@ class ColumnElementCell: UITableViewCell, NibReusable {
 
     static let cellHeight: CGFloat = 250
     
+    // MARK: - IBOutlet
     @IBOutlet private weak var bottomContentView: BaseView!
     @IBOutlet private weak var columnNameLabel: UILabel!
     @IBOutlet private weak var titleLabel: UILabel!
@@ -26,6 +27,7 @@ class ColumnElementCell: UITableViewCell, NibReusable {
         }
     }
     
+    // MARK: - public
     public var row = 0
     
     public var columnElement: ColumnElement? {

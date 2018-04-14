@@ -13,6 +13,7 @@ class ContentDetailViewController: BaseViewController {
 
     public var contentID = 0
     
+    // MARK: - Lazyload
     private lazy var webView: WKWebView = {
         
         let webView = WKWebView(frame: UIScreen.main.bounds)

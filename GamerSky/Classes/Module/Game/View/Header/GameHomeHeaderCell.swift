@@ -10,9 +10,11 @@ import UIKit
 
 class GameHomeHeaderCell: UICollectionViewCell, NibReusable {
 
+    // MARK: - IBOutlet
     @IBOutlet private weak var titleLabel: BaseLabel!
     @IBOutlet private weak var imageView: UIImageView!
     
+    // MARK: - public
     public var header: GameHomeHeader? {
         
         didSet {

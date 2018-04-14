@@ -10,10 +10,12 @@ import UIKit
 
 class MineViewController: BaseViewController {
 
+    // MARK: - IBOutlet
     @IBOutlet private weak var tableView: UITableView!
     
     private let mineCellID = "mineCellID"
     
+    // MARK: - Lazyload
     private lazy var nightModeSwitch: UISwitch = {
         
         let nightSwitch = UISwitch(frame: CGRect(x: ScreenWidth - 66, y: 4, width: 100, height: 36))
@@ -41,7 +43,7 @@ extension MineViewController {
         fd_prefersNavigationBarHidden = true
     }
     
-    // MARK: - 设置tableView
+    // MARK: - 设置主题
     private func setUpTheme() {
         
         qy_themeBackgroundColor = "colors.whiteSmoke"

@@ -21,12 +21,12 @@ class GameHomeWaitSellContentCell: UITableViewCell, NibReusable {
 
     static let cellHeight: CGFloat = ScreenHeight * 0.3
     
+    // MARK: - IBOutlet
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var flowLayout: UICollectionViewFlowLayout!
     
+    // MARK: - public
     public var sectionHeader: GameHomeSection?
-    /// 按月份分割好的数组
-    private var allWaitSellGame = [[GameInfo]]()
     
     public var waitSellGame = [GameInfo]() {
         
@@ -43,6 +43,9 @@ class GameHomeWaitSellContentCell: UITableViewCell, NibReusable {
         }
     }
     
+    /// 按月份分割好的数组
+    private var allWaitSellGame = [[GameInfo]]()
+
     // MARK: - inital
     override func awakeFromNib() {
         super.awakeFromNib()

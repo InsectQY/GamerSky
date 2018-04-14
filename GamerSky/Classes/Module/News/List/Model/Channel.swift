@@ -34,4 +34,3 @@ struct ChannelList: Codable {
     /// 轮播图
     var childElements: [ChannelList]?
 }
-

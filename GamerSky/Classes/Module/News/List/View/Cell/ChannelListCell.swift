@@ -10,6 +10,9 @@ import UIKit
 
 class ChannelListCell: UITableViewCell, NibReusable {
 
+    static let cellHeight: CGFloat = ScreenWidth * 0.22
+    
+    // MARK: - IBOutlet
     @IBOutlet private weak var thumbImageView: UIImageView!
     @IBOutlet private weak var updateTimeLabel: UILabel!
     @IBOutlet private weak var titleLabel: UILabel!
@@ -19,8 +22,7 @@ class ChannelListCell: UITableViewCell, NibReusable {
         }
     }
     
-    static let cellHeight: CGFloat = ScreenWidth * 0.22
-    
+    // MARK: - public
     public var channel: ChannelList? {
         
         didSet {

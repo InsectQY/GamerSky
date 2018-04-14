@@ -21,6 +21,7 @@ class GameHomeHeaderView: BaseView {
 
     static let headerHeight: CGFloat = ScreenHeight * 0.16
     
+    // MARK: - Lazyload
     private lazy var headerData = [GameHomeHeader]()
     
     private lazy var collectionView: BaseCollectionView = {

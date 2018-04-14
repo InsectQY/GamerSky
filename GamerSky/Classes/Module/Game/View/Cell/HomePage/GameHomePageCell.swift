@@ -10,6 +10,7 @@ import UIKit
 
 class GameHomePageCell: UICollectionViewCell, NibReusable {
 
+    // MARK: - IBOutlet
     @IBOutlet private weak var percentLabelLeftConstraint: NSLayoutConstraint!
     @IBOutlet private weak var gameImageTopConstraint: NSLayoutConstraint!
     @IBOutlet private weak var gameImageConstraintH: NSLayoutConstraint!
@@ -18,11 +19,15 @@ class GameHomePageCell: UICollectionViewCell, NibReusable {
     @IBOutlet private weak var percentLabel: UILabel!
     @IBOutlet private weak var ratingView: CosmosView!
     @IBOutlet private weak var gameImageView: UIImageView!
+}
+
+// MARK: - public
+public extension GameHomePageCell {
     
-    public var sectionType: GameHomeSectionType? {
+    var sectionType: GameHomeSectionType? {
         
         didSet {
-    
+            
             guard let sectionType = sectionType else {return}
             
             if sectionType == .waitSelling { // 即将发售的游戏，重新计算图片高度(已在xib里计算好, 调整约束优先级即可)
@@ -40,7 +45,7 @@ class GameHomePageCell: UICollectionViewCell, NibReusable {
         }
     }
     
-    public var info: GameInfo? {
+    var info: GameInfo? {
         
         didSet {
             
