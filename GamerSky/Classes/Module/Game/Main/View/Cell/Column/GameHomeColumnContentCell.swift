@@ -74,7 +74,7 @@ extension GameHomeColumnContentCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
         let footer = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionFooter, for: indexPath, viewType: GameRecommendFooterView.self)
-        footer.cornerRadius = 2
+        footer.cornerRadius = 3
         return footer
     }
 }

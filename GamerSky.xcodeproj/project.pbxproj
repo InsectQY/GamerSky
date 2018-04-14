@@ -94,6 +94,7 @@
 		E57C5BA52081F6B500655E0F /* GameRankingFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57C5BA42081F6B500655E0F /* GameRankingFlowLayout.swift */; };
 		E57C5BAC2082402800655E0F /* GameRecommendFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57C5BAA2082402800655E0F /* GameRecommendFooterView.swift */; };
 		E57C5BAD2082402800655E0F /* GameRecommendFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E57C5BAB2082402800655E0F /* GameRecommendFooterView.xib */; };
+		E57C5BB12082460400655E0F /* GameColumnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57C5BB02082460400655E0F /* GameColumnViewController.swift */; };
 		E586EE78207E5B4100D8F3F0 /* GameHomePageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E586EE76207E5B4000D8F3F0 /* GameHomePageCell.swift */; };
 		E586EE79207E5B4100D8F3F0 /* GameHomePageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E586EE77207E5B4000D8F3F0 /* GameHomePageCell.xib */; };
 		E586EE7C207E68FA00D8F3F0 /* GameHomePageFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E586EE7A207E68FA00D8F3F0 /* GameHomePageFooterView.swift */; };
@@ -224,6 +225,7 @@
 		E57C5BA42081F6B500655E0F /* GameRankingFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRankingFlowLayout.swift; sourceTree = "<group>"; };
 		E57C5BAA2082402800655E0F /* GameRecommendFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRecommendFooterView.swift; sourceTree = "<group>"; };
 		E57C5BAB2082402800655E0F /* GameRecommendFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameRecommendFooterView.xib; sourceTree = "<group>"; };
+		E57C5BB02082460400655E0F /* GameColumnViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameColumnViewController.swift; sourceTree = "<group>"; };
 		E586EE76207E5B4000D8F3F0 /* GameHomePageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameHomePageCell.swift; sourceTree = "<group>"; };
 		E586EE77207E5B4000D8F3F0 /* GameHomePageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameHomePageCell.xib; sourceTree = "<group>"; };
 		E586EE7A207E68FA00D8F3F0 /* GameHomePageFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHomePageFooterView.swift; sourceTree = "<group>"; };
@@ -565,9 +567,8 @@
 		998F0C672071F70B00C587C2 /* Game */ = {
 			isa = PBXGroup;
 			children = (
-				E5CD6992207B9EB3001A1A0A /* Model */,
-				E5CD697E207B9343001A1A0A /* View */,
-				998F0C682071F71600C587C2 /* Controller */,
+				E57C5BAF208245E900655E0F /* Column */,
+				E57C5BAE208245CB00655E0F /* Main */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -834,6 +835,24 @@
 				E56802EF207274E900CF944E /* NewsPageViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		E57C5BAE208245CB00655E0F /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				E5CD6992207B9EB3001A1A0A /* Model */,
+				E5CD697E207B9343001A1A0A /* View */,
+				998F0C682071F71600C587C2 /* Controller */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		E57C5BAF208245E900655E0F /* Column */ = {
+			isa = PBXGroup;
+			children = (
+				E57C5BB02082460400655E0F /* GameColumnViewController.swift */,
+			);
+			path = Column;
 			sourceTree = "<group>";
 		};
 		E5CD697E207B9343001A1A0A /* View */ = {
@@ -1168,6 +1187,7 @@
 				E56802E120724EEB00CF944E /* Kingfisher + Extension.swift in Sources */,
 				E5CD699C207BAADC001A1A0A /* GameHomeRecommendCell.swift in Sources */,
 				E534FACC207A60F5006CE008 /* ColumnNavTitleView.swift in Sources */,
+				E57C5BB12082460400655E0F /* GameColumnViewController.swift in Sources */,
 				E5CD698A207B9794001A1A0A /* GameHomeHeaderCell.swift in Sources */,
 				E5CD69BE207BCF5F001A1A0A /* CosmosDefaultSettings.swift in Sources */,
 				E59EAE122075F92100D6284F /* ColumnListCell.swift in Sources */,
