@@ -20,7 +20,7 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" tag="777" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4月" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ekj-DC-uwP" customClass="BaseLabel" customModule="GamerSky" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="19.5" height="17"/>
+                        <rect key="frame" x="0.0" y="0.0" width="20" height="17"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="17" id="YcS-qB-rVg"/>
@@ -58,13 +58,13 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" tag="777" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8.5" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xtn-aq-zHp" customClass="BaseLabel" customModule="GamerSky" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="164.5" width="98" height="17"/>
+                        <rect key="frame" x="0.0" y="165" width="98" height="17"/>
                         <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="12"/>
                         <color key="textColor" red="0.0" green="0.75294117650000003" blue="0.46274509800000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="骑马与砍杀2领主" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dla-kj-vNN" customClass="BaseLabel" customModule="GamerSky" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="184.5" width="98" height="17"/>
+                        <rect key="frame" x="0.0" y="185" width="98" height="17"/>
                         <fontDescription key="fontDescription" name="PingFangSC-Medium" family="PingFang SC" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -85,6 +85,7 @@
                 <constraint firstItem="Ekj-DC-uwP" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="MiT-Qr-eLy"/>
                 <constraint firstAttribute="trailing" secondItem="wWl-2T-Dv7" secondAttribute="trailing" id="Ng3-iW-tX7"/>
                 <constraint firstItem="wWl-2T-Dv7" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="RKk-T9-o8c"/>
+                <constraint firstItem="xtn-aq-zHp" firstAttribute="top" secondItem="wWl-2T-Dv7" secondAttribute="bottom" constant="6" id="oD6-8C-FL1"/>
                 <constraint firstItem="dla-kj-vNN" firstAttribute="trailing" secondItem="wWl-2T-Dv7" secondAttribute="trailing" id="ocf-DQ-1lt"/>
                 <constraint firstItem="xtn-aq-zHp" firstAttribute="centerY" secondItem="Dph-1l-HoN" secondAttribute="centerY" id="qfT-PB-aXj"/>
                 <constraint firstItem="zQd-lz-Wlm" firstAttribute="top" secondItem="wWl-2T-Dv7" secondAttribute="top" id="tFu-TM-3gl"/>

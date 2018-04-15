@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GameColumnDetailCell: UITableViewCell {
+class GameColumnDetailCell: UITableViewCell, NibReusable {
 
     // MARK: - IBOutlet
     

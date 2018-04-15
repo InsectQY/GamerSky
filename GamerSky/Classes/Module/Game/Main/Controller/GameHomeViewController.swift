@@ -84,7 +84,7 @@ extension GameHomeViewController {
 
             // 新游推荐
             group.enter()
-            ApiProvider.request(.gameSpecialDetail(1, "13"), objectModel: BaseModel<[GameInfo]>.self, success: {
+            ApiProvider.request(.gameSpecialDetail(1, 13), objectModel: BaseModel<[GameInfo]>.self, success: {
                 
                 strongSelf.gameSpecialDetail = $0.result
                 group.leave()

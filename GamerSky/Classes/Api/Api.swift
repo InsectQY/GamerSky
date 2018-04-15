@@ -38,8 +38,10 @@ enum Api {
     case gameRankingList(Int, GameRanking, String, String)
     /// 找游戏, 游戏标签
     case gameTags
-    /// 新游推荐(参数依次是: page, ID)
-    case gameSpecialDetail(Int, String)
+    /// 特色专题详情(参数依次是: page, nodeID)
+    case gameSpecialDetail(Int, Int)
+    /// 特色专题列表
+    case gameSpecialSubList(Int)
     
     ///////////////  圈子  ///////////////
     
@@ -118,6 +120,8 @@ extension Api: TargetType {
             return "v2/ThirdPartyLogin"
         case .twoLogin:
             return "v2/TwoLogin"
+        case .gameSpecialSubList:
+            return "game/gameSpecialSubList"
         }
     }
     
@@ -170,8 +174,8 @@ extension Api: TargetType {
                                     "pageIndex" : page,
                                     "elementsCountPerPage" : 20]
         case let .gameSpecialDetail(page , nodeID):
-            parmeters["request"] = ["extraField1" : "Position",
-                                    "extraField2" : "gsScore",
+            parmeters["request"] = ["extraField1" : "Position,GameType",
+                                    "extraField2" : "gsScore,gameTag",
                                     "extraField3" : "largeImage,description",
                                     "nodeId" : nodeID,
                                     "pageIndex" : page,
@@ -212,6 +216,9 @@ extension Api: TargetType {
         case let .twoLogin(userInfo, passWord):
             parmeters["request"] = ["userInfo" : userInfo,
                                     "passWord" : passWord]
+            
+        case let .gameSpecialSubList(ID):
+            parmeters["request"] = ["nodeId" : ID]
         default:
             return .requestPlain
         }

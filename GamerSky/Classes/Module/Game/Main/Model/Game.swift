@@ -20,6 +20,40 @@ struct GameSpecialList: Codable {
     var smallImage: String
     /// 描述
     var des: String
+    /// 是否含有子标题(如果有就显示多组的 tableview 没有就显示带排行的 tableview)
+    var hasSubList: Bool
+}
+
+struct GameSpecialSubList: Codable {
+    
+    /// 标题
+    var title: String
+    /// 数量
+    var count: Int?
+}
+
+struct GameSpecialDetail: Codable {
+    
+    /// ID
+    var Id: Int
+    /// 所属分类
+    var subgroup: String?
+    /// 游戏名称
+    var Title: String
+    /// 图片
+    var DefaultPicUrl: String
+    /// 游戏类型
+    var GameType: String
+    /// 评分
+    var gsScore: String
+    /// 描述
+    var description: String?
+    /// 大图
+    var largeImage: String?
+    /// 游戏标签
+    var gameTag: [String]
+    /// 是否包含活动(包含则显示活动图片)
+    var Position: String
 }
 
 struct GameInfo: Codable {
