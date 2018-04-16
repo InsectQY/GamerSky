@@ -37,7 +37,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="w4E-Ke-8Pp">
                                 <rect key="frame" x="65" y="8" width="55.5" height="77"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="打牌 找女儿 来局昆特牌吧" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pr6-xT-BJD">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="打牌 找女儿 来局昆特牌吧" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pr6-xT-BJD" customClass="BaseLabel" customModule="GamerSky" customModuleProvider="target">
                                 <rect key="frame" x="130.5" y="59" width="233.5" height="17"/>
                                 <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="12"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -75,7 +75,7 @@
                                 <color key="textColor" red="0.0" green="0.75294117650000003" blue="0.46274509800000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="昆特牌3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EbE-tH-egh">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="昆特牌3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EbE-tH-egh" customClass="BaseLabel" customModule="GamerSky" customModuleProvider="target">
                                 <rect key="frame" x="130" y="13" width="234" height="21"/>
                                 <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="15"/>
                                 <nil key="textColor"/>
@@ -103,7 +103,7 @@
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KRC-uz-1Oh">
                         <rect key="frame" x="10" y="92.5" width="349" height="298"/>
-                        <mutableString key="text">巫师3：狂猎是巫师系列的新作，本作中的地图比巫师2要大35倍，总游戏时长高达100多小时，巫师3中白狼杰洛特可以跳跃，可以用不同的方式完成任务，有多种旅行的方法，并且战斗更加快速。巫师系列虽然是根据小说改编，但小说的剧情在1代时其实就已经结束了，小说结尾白狼杰罗特被一个农夫用粪叉搞死了&amp;hellip;&amp;hellip;游戏制作组更改了这个蛋疼的结局，并扩充了游戏剧情，于是就有了巫师2国王的刺客与巫师3狂猎。本作是《巫师》系列的第三部作品，也将是该系列的最终作品，该作将展示主角geralt最为波澜壮阔的历险，同时也将给他的故事画上句号。《巫师3：狂猎》将采用全新引擎redengine3打造，采取非线性叙事方式，打造一个开放的世界将比《巫师2》大40倍，世界规模甚至比《上古卷轴5：天际》还要大20%。玩家将在游戏中看到暴风雨的岛、被战争摧残的森林和庞大的黑暗奇幻都市，并且不需要等哪怕一秒钟的加载时间。游戏主角将是一个矛盾的英雄，他希望做好事，但却无法放下自己手中的剑。</mutableString>
+                        <string key="text">巫师3：狂猎是巫师系列的新作，本作中的地图比巫师2要大35倍，总游戏时长高达100多小时，巫师3中白狼杰洛特可以跳跃，可以用不同的方式完成任务，有多种旅行的方法，并且战斗更加快速。巫师系列虽然是根据小说改编，但小说的剧情在1代时其实就已经结束了，小说结尾白狼杰罗特被一个农夫用粪叉搞死了&amp;hellip;&amp;hellip;游戏制作组更改了这个蛋疼的结局，并扩充了游戏剧情，于是就有了巫师2国王的刺客与巫师3狂猎。本作是《巫师》系列的第三部作品，也将是该系列的最终作品，该作将展示主角geralt最为波澜壮阔的历险，同时也将给他的故事画上句号。《巫师3：狂猎》将采用全新引擎redengine3打造，采取非线性叙事方式，打造一个开放的世界将比《巫师2》大40倍，世界规模甚至比《上古卷轴5：天际》还要大20%。玩家将在游戏中看到暴风雨的岛、被战争摧残的森林和庞大的黑暗奇幻都市，并且不需要等哪怕一秒钟的加载时间。游戏主角将是一个矛盾的英雄，他希望做好事，但却无法放下自己手中的剑。</string>
                         <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="13"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -120,6 +120,15 @@
                     <constraint firstItem="KRC-uz-1Oh" firstAttribute="top" secondItem="7Ko-ZP-NZ1" secondAttribute="bottom" id="qVC-n3-aWw"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="gameDescLabel" destination="KRC-uz-1Oh" id="b8Z-b4-Xio"/>
+                <outlet property="gameImageView" destination="w4E-Ke-8Pp" id="S8U-bn-cUo"/>
+                <outlet property="gameNameLabel" destination="EbE-tH-egh" id="ag3-OO-gXp"/>
+                <outlet property="gamePercentLabel" destination="4dk-NW-lWq" id="4Dq-qx-tch"/>
+                <outlet property="gameTagLabel" destination="Pr6-xT-BJD" id="7Gf-Zh-wWZ"/>
+                <outlet property="ratingBtn" destination="2YA-tP-TD6" id="2xB-bh-PjC"/>
+                <outlet property="ratingView" destination="aZO-MB-BAS" id="C3k-E4-Tlw"/>
+            </connections>
             <point key="canvasLocation" x="49.5" y="207.5"/>
         </tableViewCell>
     </objects>

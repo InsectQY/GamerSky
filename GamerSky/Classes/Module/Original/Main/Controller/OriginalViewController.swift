@@ -169,6 +169,7 @@ extension OriginalViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return columnList == nil ? columnAry.count : 1
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return columnList == nil ? columnAry[section].count : columnListAry.count
     }
@@ -204,6 +205,6 @@ extension OriginalViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 0.001
+        return CGFloat.leastNormalMagnitude
     }
 }
