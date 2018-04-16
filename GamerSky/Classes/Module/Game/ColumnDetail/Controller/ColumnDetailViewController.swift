@@ -21,6 +21,8 @@ class ColumnDetailViewController: BaseViewController {
         tableView.contentInset = UIEdgeInsetsMake(kTopH, 0, 0, 0)
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 100
         tableView.estimatedSectionHeaderHeight = 0
         tableView.estimatedSectionFooterHeight = 0
         return tableView

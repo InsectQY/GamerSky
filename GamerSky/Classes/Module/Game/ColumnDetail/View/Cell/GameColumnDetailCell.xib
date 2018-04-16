@@ -6,44 +6,126 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="225" id="KGk-i7-Jjw" customClass="GameColumnDetailCell" customModule="GamerSky" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="369" height="225"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="411" id="KGk-i7-Jjw" customClass="GameColumnDetailCell" customModule="GamerSky" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="369" height="411"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="369" height="224.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="369" height="410.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Ko-ZP-NZ1">
-                        <rect key="frame" x="0.0" y="0.0" width="369" height="150"/>
+                        <rect key="frame" x="0.0" y="0.0" width="369" height="92.5"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2YA-tP-TD6">
-                                <rect key="frame" x="10" y="57.5" width="30" height="35"/>
+                                <rect key="frame" x="10" y="38" width="35" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="Cc8-pV-jLB"/>
+                                    <constraint firstAttribute="height" constant="18" id="gZy-Jv-CJt"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="16"/>
-                                <state key="normal" title="1">
+                                <state key="normal" image="common_Icon_Index1_16x18">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="w4E-Ke-8Pp">
+                                <rect key="frame" x="65" y="8" width="55.5" height="77"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="打牌 找女儿 来局昆特牌吧" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pr6-xT-BJD">
+                                <rect key="frame" x="130.5" y="59" width="233.5" height="17"/>
+                                <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="12"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aZO-MB-BAS" customClass="CosmosView" customModule="GamerSky" customModuleProvider="target">
+                                <rect key="frame" x="130.5" y="39" width="60" height="12"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="ZxM-TW-dxd"/>
+                                    <constraint firstAttribute="height" constant="12" id="vQS-9I-oay"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="totalStars">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                        <real key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="starMargin">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="fillMode">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="filledImage" value="common_Icon_Star_12x12_Actived"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="common_Icon_Star_12x12"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" tag="777" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8.5" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4dk-NW-lWq" customClass="BaseLabel" customModule="GamerSky" customModuleProvider="target">
+                                <rect key="frame" x="195.5" y="37" width="18" height="17"/>
+                                <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="12"/>
+                                <color key="textColor" red="0.0" green="0.75294117650000003" blue="0.46274509800000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="昆特牌3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EbE-tH-egh">
+                                <rect key="frame" x="130" y="13" width="234" height="21"/>
+                                <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="150" id="3kc-Zg-Ume"/>
                             <constraint firstItem="2YA-tP-TD6" firstAttribute="centerY" secondItem="7Ko-ZP-NZ1" secondAttribute="centerY" id="9zf-Kc-vYN"/>
+                            <constraint firstItem="EbE-tH-egh" firstAttribute="top" secondItem="w4E-Ke-8Pp" secondAttribute="top" constant="5" id="R6z-dt-Vkj"/>
+                            <constraint firstItem="Pr6-xT-BJD" firstAttribute="trailing" secondItem="EbE-tH-egh" secondAttribute="trailing" id="SFy-GW-4kd"/>
+                            <constraint firstItem="w4E-Ke-8Pp" firstAttribute="width" secondItem="7Ko-ZP-NZ1" secondAttribute="width" multiplier="0.15" id="WpX-1D-LIX"/>
+                            <constraint firstItem="Pr6-xT-BJD" firstAttribute="top" secondItem="4dk-NW-lWq" secondAttribute="bottom" constant="5" id="dIP-ho-POe"/>
+                            <constraint firstItem="w4E-Ke-8Pp" firstAttribute="centerY" secondItem="7Ko-ZP-NZ1" secondAttribute="centerY" id="dti-d6-GaT"/>
+                            <constraint firstItem="EbE-tH-egh" firstAttribute="leading" secondItem="w4E-Ke-8Pp" secondAttribute="trailing" constant="10" id="fet-VB-FBC"/>
+                            <constraint firstItem="w4E-Ke-8Pp" firstAttribute="height" secondItem="7Ko-ZP-NZ1" secondAttribute="width" multiplier="0.21" id="hWy-Q4-L00"/>
+                            <constraint firstAttribute="trailing" secondItem="EbE-tH-egh" secondAttribute="trailing" constant="5" id="hz9-b0-DRD"/>
+                            <constraint firstItem="aZO-MB-BAS" firstAttribute="leading" secondItem="EbE-tH-egh" secondAttribute="leading" id="kjf-0H-uDT"/>
+                            <constraint firstItem="4dk-NW-lWq" firstAttribute="leading" secondItem="aZO-MB-BAS" secondAttribute="trailing" constant="5" id="lC6-IS-mNu"/>
+                            <constraint firstItem="aZO-MB-BAS" firstAttribute="top" secondItem="EbE-tH-egh" secondAttribute="bottom" constant="5" id="s1X-pV-VAY"/>
+                            <constraint firstItem="w4E-Ke-8Pp" firstAttribute="leading" secondItem="2YA-tP-TD6" secondAttribute="trailing" constant="20" id="tIt-aP-jGy"/>
+                            <constraint firstItem="Pr6-xT-BJD" firstAttribute="leading" secondItem="aZO-MB-BAS" secondAttribute="leading" id="tm5-rD-Chj"/>
                             <constraint firstItem="2YA-tP-TD6" firstAttribute="leading" secondItem="7Ko-ZP-NZ1" secondAttribute="leading" constant="10" id="vKt-7N-Vrm"/>
+                            <constraint firstItem="4dk-NW-lWq" firstAttribute="centerY" secondItem="aZO-MB-BAS" secondAttribute="centerY" id="ws9-eM-8ZU"/>
                         </constraints>
                     </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KRC-uz-1Oh">
+                        <rect key="frame" x="10" y="92.5" width="349" height="298"/>
+                        <mutableString key="text">巫师3：狂猎是巫师系列的新作，本作中的地图比巫师2要大35倍，总游戏时长高达100多小时，巫师3中白狼杰洛特可以跳跃，可以用不同的方式完成任务，有多种旅行的方法，并且战斗更加快速。巫师系列虽然是根据小说改编，但小说的剧情在1代时其实就已经结束了，小说结尾白狼杰罗特被一个农夫用粪叉搞死了&amp;hellip;&amp;hellip;游戏制作组更改了这个蛋疼的结局，并扩充了游戏剧情，于是就有了巫师2国王的刺客与巫师3狂猎。本作是《巫师》系列的第三部作品，也将是该系列的最终作品，该作将展示主角geralt最为波澜壮阔的历险，同时也将给他的故事画上句号。《巫师3：狂猎》将采用全新引擎redengine3打造，采取非线性叙事方式，打造一个开放的世界将比《巫师2》大40倍，世界规模甚至比《上古卷轴5：天际》还要大20%。玩家将在游戏中看到暴风雨的岛、被战争摧残的森林和庞大的黑暗奇幻都市，并且不需要等哪怕一秒钟的加载时间。游戏主角将是一个矛盾的英雄，他希望做好事，但却无法放下自己手中的剑。</mutableString>
+                        <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="13"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="7Ko-ZP-NZ1" secondAttribute="trailing" id="4dv-6x-7y8"/>
+                    <constraint firstItem="KRC-uz-1Oh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="CdU-Cm-h7J"/>
+                    <constraint firstAttribute="bottom" secondItem="KRC-uz-1Oh" secondAttribute="bottom" constant="20" id="LDp-wx-mw5"/>
                     <constraint firstItem="7Ko-ZP-NZ1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="MdC-YZ-XNJ"/>
+                    <constraint firstItem="7Ko-ZP-NZ1" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.25" id="Uit-KW-pe8"/>
                     <constraint firstItem="7Ko-ZP-NZ1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="e7t-iK-g1E"/>
+                    <constraint firstAttribute="trailing" secondItem="KRC-uz-1Oh" secondAttribute="trailing" constant="10" id="f9u-oF-pGl"/>
+                    <constraint firstItem="KRC-uz-1Oh" firstAttribute="top" secondItem="7Ko-ZP-NZ1" secondAttribute="bottom" id="qVC-n3-aWw"/>
                 </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="49.5" y="114.5"/>
+            <point key="canvasLocation" x="49.5" y="207.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="common_Icon_Index1_16x18" width="16" height="18"/>
+        <image name="common_Icon_Star_12x12" width="12" height="12"/>
+        <image name="common_Icon_Star_12x12_Actived" width="12" height="12"/>
+    </resources>
 </document>
