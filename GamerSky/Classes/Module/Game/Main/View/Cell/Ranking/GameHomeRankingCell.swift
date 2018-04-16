@@ -30,9 +30,11 @@ class GameHomeRankingCell: UICollectionViewCell, NibReusable {
             ratingView.rating = info?.score ?? 0
             rankingBtn.setTitle("\(tag + 1)", for: .normal)
             if tag <= rankingImage.count - 1 {
-
+                
+                rankingBtn.setTitle("", for: .normal)
                 rankingBtn.setImage(rankingImage[tag], for: .normal)
             }else {
+                
                 rankingBtn.setTitle("\(tag + 1)", for: .normal)
                 rankingBtn.setImage(nil, for: .normal)
             }

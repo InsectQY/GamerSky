@@ -54,6 +54,10 @@ struct GameSpecialDetail: Codable {
     var gameTag: [String]
     /// 是否包含活动(包含则显示活动图片)
     var Position: String
+    
+    var gameTagTitle: String? {
+        return gameTag.joined(separator: " ")
+    }
 }
 
 struct GameInfo: Codable {

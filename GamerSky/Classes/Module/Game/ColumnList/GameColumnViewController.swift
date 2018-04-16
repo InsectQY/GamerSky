@@ -113,7 +113,8 @@ extension GameColumnViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let vc = ColumnDetailViewController()
-        vc.columnList = gameColumn[indexPath.item]
+        vc.isHasSubList = gameColumn[indexPath.item].hasSubList
+        vc.nodeID = gameColumn[indexPath.item].nodeId
         navigationController?.pushViewController(vc, animated: true)
     }
 }
