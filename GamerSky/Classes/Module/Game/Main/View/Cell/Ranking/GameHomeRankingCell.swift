@@ -13,7 +13,7 @@ class GameHomeRankingCell: UICollectionViewCell, NibReusable {
     // MARK: - IBOutlet
     @IBOutlet private weak var ratingView: CosmosView!
     @IBOutlet private weak var rankingBtn: UIButton!
-    @IBOutlet private weak var percentLabel: BaseLabel!
+    @IBOutlet private weak var gameScoreLabel: BaseLabel!
     @IBOutlet private weak var gameImageView: UIImageView!
     @IBOutlet private weak var gameNameLabel: BaseLabel!
     
@@ -26,7 +26,7 @@ class GameHomeRankingCell: UICollectionViewCell, NibReusable {
             
             gameNameLabel.text = info?.Title
             gameImageView.qy_setImage(info?.DefaultPicUrl, "")
-            percentLabel.text = info?.gsScore
+            gameScoreLabel.text = info?.gsScore
             ratingView.rating = info?.score ?? 0
             rankingBtn.setTitle("\(tag + 1)", for: .normal)
             if tag <= rankingImage.count - 1 {
@@ -39,5 +39,10 @@ class GameHomeRankingCell: UICollectionViewCell, NibReusable {
                 rankingBtn.setImage(nil, for: .normal)
             }
         }
+    }
+    
+    // MARK: - prepareForReuse
+    override func prepareForReuse() {
+        ratingView.prepareForReuse()
     }
 }

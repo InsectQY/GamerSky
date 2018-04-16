@@ -112,7 +112,7 @@
             <connections>
                 <outlet property="gameImageView" destination="Eza-sF-Jpd" id="3JB-oo-RwS"/>
                 <outlet property="gameNameLabel" destination="raq-XL-uFX" id="n4g-eJ-Mar"/>
-                <outlet property="percentLabel" destination="zQu-68-hDu" id="Qbe-4a-iT3"/>
+                <outlet property="gameScoreLabel" destination="zQu-68-hDu" id="Qbe-4a-iT3"/>
                 <outlet property="rankingBtn" destination="bDz-9X-rWG" id="PHf-kl-NuM"/>
                 <outlet property="ratingView" destination="ojV-di-t0B" id="SKV-DX-4Cg"/>
             </connections>

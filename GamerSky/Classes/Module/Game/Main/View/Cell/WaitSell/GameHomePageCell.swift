@@ -14,7 +14,7 @@ class GameHomePageCell: UICollectionViewCell, NibReusable {
     @IBOutlet private weak var gameImageTopConstraint: NSLayoutConstraint!
     @IBOutlet public  weak var sellMonthLabel: BaseLabel!
     @IBOutlet private weak var gameNameLabel: BaseLabel!
-    @IBOutlet private weak var percentLabel: BaseLabel!
+    @IBOutlet private weak var gameScoreLabel: BaseLabel!
     @IBOutlet private weak var gameImageView: UIImageView!
     @IBOutlet private weak var activityImageView: UIImageView!
     @IBOutlet private weak var ratingView: CosmosView! {
@@ -34,7 +34,7 @@ class GameHomePageCell: UICollectionViewCell, NibReusable {
             
             // 不是最近大家都在玩, 不需要显示评分
             ratingView.isHidden = sectionType != .hot
-            percentLabel.textAlignment = sectionType != .hot ? .left : .right
+            gameScoreLabel.textAlignment = sectionType != .hot ? .left : .right
         }
     }
     
@@ -50,10 +50,15 @@ class GameHomePageCell: UICollectionViewCell, NibReusable {
             
             if sectionType == .hot { // 最近大家都在玩,才需要显示评分
                 ratingView.rating = info?.score ?? 0
-                percentLabel.text = info?.gsScore
+                gameScoreLabel.text = info?.gsScore
             }else { // 显示想玩的人数
-                percentLabel.text = "\(info?.wantplayCount ?? 0)人期待"
+                gameScoreLabel.text = "\(info?.wantplayCount ?? 0)人期待"
             }
         }
+    }
+    
+    // MARK: - prepareForReuse
+    override func prepareForReuse() {
+        ratingView.prepareForReuse()
     }
 }

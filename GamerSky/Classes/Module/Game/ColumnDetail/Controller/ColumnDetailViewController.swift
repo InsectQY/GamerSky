@@ -115,7 +115,6 @@ extension ColumnDetailViewController {
         
         if !isHasSubList {
             
-            tableView.mj_header.endRefreshing()
             tableView.mj_footer = QYRefreshFooter(refreshingBlock: { [weak self] in
                 
                 guard let strongSelf = self else {return}

@@ -55,6 +55,15 @@ struct GameSpecialDetail: Codable {
     /// 是否包含活动(包含则显示活动图片)
     var Position: String
     
+    /// 评分
+    var score: Double {
+        
+        get {
+            let score = Double(self.gsScore) ?? 0
+            return score * 0.5
+        }
+    }
+    
     var gameTagTitle: String? {
         return gameTag.joined(separator: " ")
     }

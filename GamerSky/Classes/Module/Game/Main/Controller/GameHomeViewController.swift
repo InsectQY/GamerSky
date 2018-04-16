@@ -10,8 +10,6 @@ import UIKit
 import SwiftNotificationCenter
 
 class GameHomeViewController: BaseViewController {
-
-    // MARK: - Lazyload
     
     /// 新游推荐
     private lazy var gameSpecialDetail = [GameInfo]()

@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -100,7 +96,7 @@
                 <outlet property="gameImageTopConstraint" destination="z72-ud-793" id="9cn-tO-3l5"/>
                 <outlet property="gameImageView" destination="wWl-2T-Dv7" id="yWn-IP-pcs"/>
                 <outlet property="gameNameLabel" destination="dla-kj-vNN" id="BW8-kz-qS6"/>
-                <outlet property="percentLabel" destination="xtn-aq-zHp" id="w1B-hh-Ak5"/>
+                <outlet property="gameScoreLabel" destination="xtn-aq-zHp" id="w1B-hh-Ak5"/>
                 <outlet property="ratingView" destination="Dph-1l-HoN" id="HI4-Kh-DJ5"/>
                 <outlet property="sellMonthLabel" destination="Ekj-DC-uwP" id="haS-J6-uxO"/>
             </connections>
