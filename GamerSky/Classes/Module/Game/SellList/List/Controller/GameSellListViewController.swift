@@ -10,8 +10,14 @@ import UIKit
 
 class GameSellListViewController: UIViewController {
     
-    public var date: String = ""
+    public var date: Int = 0
     // MARK: - LazyLoad
+    private lazy var tableView: UITableView = {
+        
+        let tableView = UITableView(frame: UIScreen.main.bounds)
+        tableView.contentInset = UIEdgeInsetsMake(kTopH + 44, 0, KBottomH, 0)
+        return tableView
+    }()
     
     
     // MARK: - LifeCycle
@@ -27,6 +33,10 @@ extension GameSellListViewController {
     
     private func setUpUI() {
         
-        view.backgroundColor = .white
+        view.addSubview(tableView)
+    }
+    
+    private func setUpRefresh() {
+        
     }
 }

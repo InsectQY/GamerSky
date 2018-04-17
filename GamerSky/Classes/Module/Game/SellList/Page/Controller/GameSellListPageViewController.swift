@@ -15,7 +15,7 @@ class GameSellListPageViewController: UIViewController {
     /// 中文的日期
     private lazy var timeStrings = [String]()
     /// 毫秒(用于获取数据)
-    private lazy var times = [String]()
+    private lazy var dates = [Int]()
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -50,14 +50,16 @@ extension GameSellListPageViewController {
             date.add(.year, value: year)
             (1...12).forEach { (month) in
                 
-                timeStrings.append("\(date.year)年\(month)月")
-                if let time = "\(date.year)年\(month)月\(1)日".date(withFormat: "yyyy年MM月dd日")?.dateString() {
-                    times.append(time)
+                let timeString = "\(date.year)年\(month)月"
+                timeStrings.append(timeString)
+                // 时间戳(Unix13位时间戳)
+                if let date = timeString.date(withFormat: "yyyy年MM月")?.timeIntervalSince1970 {
+                    dates.append(Int(date) * 1000)
                 }
             }
         }
         setUpPageView()
-        print(times)
+        print(dates)
     }
     
     private func setUpPageView() {
@@ -78,7 +80,7 @@ extension GameSellListPageViewController {
         for i in 0..<timeStrings.count {
             
             let controller = GameSellListViewController()
-            controller.date = times[i]
+            controller.date = dates[i]
             childViewControllers.append(controller)
         }
         

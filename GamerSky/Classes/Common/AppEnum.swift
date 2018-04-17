@@ -76,3 +76,11 @@ enum ThirdPartyLogin: String {
     /// 微博
     case WeiBo = "weibo"
 }
+
+enum GameSellSort: String {
+    
+    /// 按人气
+    case popular = "popularity"
+    /// 按时间
+    case date = "date"
+}

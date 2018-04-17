@@ -1046,6 +1046,7 @@
 		E5DC0AF120863537001E61C6 /* List */ = {
 			isa = PBXGroup;
 			children = (
+				E5DC0AF520864AB1001E61C6 /* Cell */,
 				E5DC0AF220863544001E61C6 /* Controller */,
 			);
 			path = List;
@@ -1057,6 +1058,13 @@
 				E5DC0AF320863556001E61C6 /* GameSellListViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		E5DC0AF520864AB1001E61C6 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		E5F8116220738B8500E9883F /* View */ = {

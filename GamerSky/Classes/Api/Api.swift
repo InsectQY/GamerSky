@@ -42,6 +42,8 @@ enum Api {
     case gameSpecialDetail(Int, Int)
     /// 特色专题列表
     case gameSpecialSubList(Int)
+    /// 发售列表(参数依次是: 时间, 排序方式)
+    case twoGameList(Int, GameSellSort)
     
     ///////////////  圈子  ///////////////
     
@@ -122,6 +124,8 @@ extension Api: TargetType {
             return "v2/TwoLogin"
         case .gameSpecialSubList:
             return "game/gameSpecialSubList"
+        case .twoGameList:
+            return "v2/twoGameList"
         }
     }
     
@@ -216,9 +220,15 @@ extension Api: TargetType {
         case let .twoLogin(userInfo, passWord):
             parmeters["request"] = ["userInfo" : userInfo,
                                     "passWord" : passWord]
-            
         case let .gameSpecialSubList(ID):
             parmeters["request"] = ["nodeId" : ID]
+        case let .twoGameList(date, sort):
+            parmeters["request"] = ["nodeIds" : "1751",
+                                    "date" : date,
+                                    "type" : "current",
+                                    "pageIndex" : 1,
+                                    "elementsCountPerPage" : 100,
+                                    "order" : sort.rawValue]
         default:
             return .requestPlain
         }

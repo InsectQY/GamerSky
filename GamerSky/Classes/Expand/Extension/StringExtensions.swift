@@ -11,6 +11,7 @@ import Foundation
 extension String {
     
     public func date(withFormat format: String) -> Date? {
+        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = format
         return dateFormatter.date(from: self)
