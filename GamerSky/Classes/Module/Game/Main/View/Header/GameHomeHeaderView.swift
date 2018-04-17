@@ -84,7 +84,7 @@ extension GameHomeHeaderView: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let vcs = [GameColumnViewController(),GameColumnViewController(),GameColumnViewController(),GameColumnViewController(),GameColumnViewController()]
+        let vcs = [GameColumnViewController(),GameColumnViewController(),GameSellListPageViewController(),GameColumnViewController(),GameColumnViewController()]
         let vc = vcs[indexPath.item]
         parentVC?.navigationController?.pushViewController(vc, animated: true)
     }

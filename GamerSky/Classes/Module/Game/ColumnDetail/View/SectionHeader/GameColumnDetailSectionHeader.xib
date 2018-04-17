@@ -16,10 +16,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xrG-pm-W8X">
-                    <rect key="frame" x="10" y="46" width="300" height="31"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="300" id="9W2-ZS-DDB"/>
-                    </constraints>
+                    <rect key="frame" x="101" y="46" width="118" height="31"/>
                     <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="13"/>
                     <state key="normal" title="游戏中的动物小伙伴"/>
                 </button>
