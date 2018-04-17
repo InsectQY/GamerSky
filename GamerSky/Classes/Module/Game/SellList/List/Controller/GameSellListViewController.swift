@@ -12,19 +12,24 @@ class GameSellListViewController: UIViewController {
     
     public var date: Int = 0
     // MARK: - LazyLoad
+    private lazy var gameSellLists = [GameSellList]()
     private lazy var tableView: UITableView = {
         
         let tableView = UITableView(frame: UIScreen.main.bounds)
-        tableView.contentInset = UIEdgeInsetsMake(kTopH + 44, 0, KBottomH, 0)
+        tableView.contentInset = UIEdgeInsetsMake(kTopH, 0, KBottomH, 0)
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(cellType: GameSellListCell.self)
+        tableView.rowHeight = GameSellListCell.cellHeight
         return tableView
     }()
-    
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setUpUI()
+        setUpRefresh()
     }
 }
 
@@ -32,11 +37,48 @@ class GameSellListViewController: UIViewController {
 extension GameSellListViewController {
     
     private func setUpUI() {
-        
+        automaticallyAdjustsScrollViewInsets = false
         view.addSubview(tableView)
     }
     
     private func setUpRefresh() {
+        
+        tableView.mj_header = QYRefreshHeader(refreshingBlock: { [weak self] in
+            
+            guard let strongSelf = self else {return}
+            ApiProvider.request(.twoGameList(strongSelf.date, .popular), objectModel: BaseModel<[GameSellList]>.self, success: {
+                
+                strongSelf.gameSellLists = $0.result
+                strongSelf.tableView.reloadData()
+                strongSelf.tableView.mj_header.endRefreshing()
+            }) { _ in
+                strongSelf.tableView.mj_header.endRefreshing()
+            }
+        })
+        
+        tableView.mj_header.beginRefreshing()
+    }
+}
+
+// MARK: - UITableViewDataSource
+extension GameSellListViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return gameSellLists.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(for: indexPath, cellType: GameSellListCell.self)
+        cell.gameInfo = gameSellLists[indexPath.row]
+        return cell
+    }
+}
+
+// MARK: - UITableViewDelegate
+extension GameSellListViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
 }
