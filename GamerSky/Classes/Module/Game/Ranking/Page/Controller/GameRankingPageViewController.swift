@@ -9,14 +9,13 @@
 import UIKit
 import DNSPageView
 
-class GameRankingPageViewController: UIViewController {
+class GameRankingPageViewController: BaseViewController {
     
     private lazy var pageData = [GameTag]()
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setUpUI()
         setUpNavi()
         loadPageData()
     }
@@ -24,11 +23,6 @@ class GameRankingPageViewController: UIViewController {
 
 // MARK: - 设置 UI 界面
 extension GameRankingPageViewController {
-    
-    private func setUpUI() {
-        
-        view.backgroundColor = .white
-    }
     
     private func setUpNavi() {
         automaticallyAdjustsScrollViewInsets = false

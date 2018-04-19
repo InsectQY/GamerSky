@@ -9,7 +9,7 @@
 import UIKit
 import DNSPageView
 
-class GameSellListPageViewController: UIViewController {
+class GameSellListPageViewController: BaseViewController {
     
     // MARK: - LazyLoad
     /// 中文的日期
@@ -22,18 +22,12 @@ class GameSellListPageViewController: UIViewController {
         super.viewDidLoad()
 
         setUpNavi()
-        setUpUI()
         getTime()
     }
 }
 
 // MARK: - 设置 UI 界面
 extension GameSellListPageViewController {
-    
-    private func setUpUI() {
-        
-        view.backgroundColor = .white
-    }
     
     private func setUpNavi() {
         
@@ -59,7 +53,6 @@ extension GameSellListPageViewController {
             }
         }
         setUpPageView()
-        print(dates)
     }
     
     private func setUpPageView() {
