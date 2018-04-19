@@ -75,7 +75,7 @@ extension GameHomeViewController {
             guard let strongSelf = self else {return}
             
             // sectionHeader 数据
-            let data = try! Data(contentsOf: Bundle.main.url(forResource: "GameHomeSectionData.plist", withExtension: nil)!)
+            let data = try! Data(contentsOf: Bundle.main.url(forResource: "GameHomeSectionData", withExtension: "plist")!)
             strongSelf.sectionData = try! PropertyListDecoder().decode([GameHomeSection].self, from: data)
 
             let group = DispatchGroup()

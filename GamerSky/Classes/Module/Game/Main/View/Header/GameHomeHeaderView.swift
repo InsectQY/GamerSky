@@ -59,7 +59,7 @@ extension GameHomeHeaderView {
     
     private func loadHeaderData() {
         
-        let data = try! Data(contentsOf: Bundle.main.url(forResource: "GameHomeHeaderData.plist", withExtension: nil)!)
+        let data = try! Data(contentsOf: Bundle.main.url(forResource: "GameHomeHeaderData", withExtension: "plist")!)
         headerData = try! PropertyListDecoder().decode([GameHomeHeader].self, from: data)
     }
 }
@@ -84,7 +84,7 @@ extension GameHomeHeaderView: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let vcs = [GameColumnViewController(),GameColumnViewController(),GameSellListPageViewController(),GameColumnViewController(),GameColumnViewController()]
+        let vcs = [GameColumnViewController(),GameRankingPageViewController(),GameSellListPageViewController(),GameColumnViewController(),GameColumnViewController()]
         let vc = vcs[indexPath.item]
         parentVC?.navigationController?.pushViewController(vc, animated: true)
     }

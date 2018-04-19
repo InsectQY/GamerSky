@@ -84,3 +84,10 @@ enum GameSellSort: String {
     /// 按时间
     case date = "date"
 }
+
+enum GameRankingType: String {
+    /// 热门榜
+    case hot = "hot"
+    /// 高分榜
+    case fractions = "fractions"
+}
