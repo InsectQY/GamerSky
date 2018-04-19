@@ -74,12 +74,12 @@ extension GameHomeViewController {
             
             guard let strongSelf = self else {return}
             
-            let group = DispatchGroup()
-            
             // sectionHeader 数据
             let data = try! Data(contentsOf: Bundle.main.url(forResource: "GameHomeSectionData.plist", withExtension: nil)!)
             strongSelf.sectionData = try! PropertyListDecoder().decode([GameHomeSection].self, from: data)
 
+            let group = DispatchGroup()
+            
             // 新游推荐
             group.enter()
             ApiProvider.request(.gameSpecialDetail(1, 13), objectModel: BaseModel<[GameInfo]>.self, success: {
@@ -88,37 +88,41 @@ extension GameHomeViewController {
                 group.leave()
             }, failure: { _ in
                 strongSelf.tableView.mj_header.endRefreshing()
+                group.leave()
             })
             
             // 最近大家都在玩
             group.enter()
-            ApiProvider.request(.gameHomePage(1, GameType.hot), objectModel: BaseModel<[GameInfo]>.self, success: {
+            ApiProvider.request(.gameHomePage(1, .hot), objectModel: BaseModel<[GameInfo]>.self, success: {
                 
                 strongSelf.hotGame = $0.result
                 group.leave()
             }, failure: {_ in
                 strongSelf.tableView.mj_header.endRefreshing()
+                group.leave()
             })
             
             // 即将发售
             group.enter()
-            ApiProvider.request(.gameHomePage(1, GameType.waitSell), objectModel: BaseModel<[GameInfo]>.self, success: {
+            ApiProvider.request(.gameHomePage(1, .waitSell), objectModel: BaseModel<[GameInfo]>.self, success: {
                 
                 strongSelf.waitSellGame = $0.result
                 group.leave()
             }, failure: { _ in
                 
                 strongSelf.tableView.mj_header.endRefreshing()
+                group.leave()
             })
             
             // 最期待游戏
             group.enter()
-            ApiProvider.request(.gameHomePage(1, GameType.expected), objectModel: BaseModel<[GameInfo]>.self, success: {
+            ApiProvider.request(.gameHomePage(1, .expected), objectModel: BaseModel<[GameInfo]>.self, success: {
                 
                 strongSelf.expectedGame = $0.result
                 group.leave()
             }, failure: { _ in
                 strongSelf.tableView.mj_header.endRefreshing()
+                group.leave()
             })
             
             // 找游戏
@@ -129,6 +133,7 @@ extension GameHomeViewController {
                 group.leave()
             }) { _ in
                 strongSelf.tableView.mj_header.endRefreshing()
+                group.leave()
             }
             
             // 特色专题
@@ -139,23 +144,24 @@ extension GameHomeViewController {
                 group.leave()
             }) { _ in
                 strongSelf.tableView.mj_header.endRefreshing()
+                group.leave()
             }
             
             // 高分榜
             group.enter()
-            ApiProvider.request(.gameRankingList(1, GameRanking.score, "0", "all"), objectModel: BaseModel<[GameInfo]>.self, success: {
+            ApiProvider.request(.gameRankingList(1, .score, "0", "all"), objectModel: BaseModel<[GameInfo]>.self, success: {
                 
                 strongSelf.rankingGame = [Array($0.result.prefix(5))]
                 // 热门榜
-                ApiProvider.request(.gameRankingList(1, GameRanking.hot, "0", "all"), objectModel: BaseModel<[GameInfo]>.self, success: {
+                ApiProvider.request(.gameRankingList(1, .hot, "0", "all"), objectModel: BaseModel<[GameInfo]>.self, success: {
                     
                     strongSelf.rankingGame += [Array($0.result.prefix(5))]
                     // 高分 FPS
-                    ApiProvider.request(.gameRankingList(1, GameRanking.score, "20066", "all"), objectModel: BaseModel<[GameInfo]>.self, success: {
+                    ApiProvider.request(.gameRankingList(1, .score, "20066", "all"), objectModel: BaseModel<[GameInfo]>.self, success: {
                         
                         strongSelf.rankingGame += [Array($0.result.prefix(5))]
                         // 高分 ACT
-                        ApiProvider.request(.gameRankingList(1, GameRanking.score, "20042", "all"), objectModel: BaseModel<[GameInfo]>.self, success: {
+                        ApiProvider.request(.gameRankingList(1, .score, "20042", "all"), objectModel: BaseModel<[GameInfo]>.self, success: {
                             
                             strongSelf.rankingGame += [Array($0.result.prefix(5))]
                             group.leave()
