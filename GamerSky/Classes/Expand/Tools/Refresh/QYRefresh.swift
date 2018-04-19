@@ -38,6 +38,7 @@ class QYRefreshFooter: MJRefreshAutoNormalFooter {
         super.prepare()
         // 设置控件的高度
         mj_h = 50
+        isAutomaticallyChangeAlpha = true
         setTitle("没有更多数据啦", for: .noMoreData)
     }
 }

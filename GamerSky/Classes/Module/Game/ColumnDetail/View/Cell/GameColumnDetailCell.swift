@@ -21,6 +21,8 @@ class GameColumnDetailCell: UITableViewCell, NibReusable {
     @IBOutlet private weak var activityImageView: UIImageView!
     @IBOutlet private weak var gameImageViewLeadingConstraint: NSLayoutConstraint!
     @IBOutlet private weak var gameScoreLabelLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet public weak var descLabelBottomConstraint: NSLayoutConstraint!
+    
     
     private var rankingImage = [#imageLiteral(resourceName: "common_Icon_Index1_16x18"), #imageLiteral(resourceName: "common_Icon_Index2_16x18"), #imageLiteral(resourceName: "common_Icon_Index3_16x18")]
     

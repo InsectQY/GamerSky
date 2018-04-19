@@ -80,7 +80,6 @@ extension NewsViewController {
                 strongSelf.headerView.channelListAry = $0.result.first?.childElements
                 strongSelf.channelListAry.removeFirst()
                 strongSelf.tableView.reloadData()
-                strongSelf.tableView.qy_footer.isHidden = false
                 strongSelf.tableView.qy_header.endRefreshing()
             }) { _ in
                 strongSelf.tableView.qy_header.endRefreshing()
@@ -102,7 +101,6 @@ extension NewsViewController {
             }
         }
         
-        tableView.qy_footer.isHidden = true
         tableView.qy_header.beginRefreshing()
     }
     

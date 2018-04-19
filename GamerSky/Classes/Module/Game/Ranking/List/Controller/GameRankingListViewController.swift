@@ -18,11 +18,20 @@ class GameRankingListViewController: UIViewController {
     public var rankingType = GameRankingType.fractions
 
     // MARK: - LazyLoad
+    private lazy var rankingData = [GameSpecialDetail]()
+    /// 页码
+    private var page = 1
+    
     private lazy var tableView: UITableView = {
         
         let tableView = UITableView(frame: view.bounds)
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.register(cellType: GameColumnDetailCell.self)
+        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.contentInset = UIEdgeInsetsMake(0, 0, KBottomH + kTopH, 0)
+        tableView.separatorStyle = .none
         return tableView
     }()
     
@@ -31,6 +40,7 @@ class GameRankingListViewController: UIViewController {
         super.viewDidLoad()
 
         setUpUI()
+        setUpRefresh()
     }
 }
 
@@ -39,7 +49,43 @@ extension GameRankingListViewController {
     
     private func setUpUI() {
         
-        view.backgroundColor = .white
+        view.addSubview(tableView)
+    }
+}
+
+extension GameRankingListViewController {
+    
+    private func setUpRefresh() {
+        
+        tableView.qy_header = QYRefreshHeader(refreshingBlock: { [weak self] in
+            
+            guard let strongSelf = self else {return}
+            strongSelf.page = 1
+            ApiProvider.request(.gameRankingList(strongSelf.page, strongSelf.rankingType, strongSelf.gameClass, strongSelf.annualClass), objectModel: BaseModel<[GameSpecialDetail]>.self, success: {
+                
+                strongSelf.rankingData = $0.result
+                strongSelf.tableView.reloadData()
+                strongSelf.tableView.qy_header.endRefreshing()
+            }, failure: { _ in
+                strongSelf.tableView.qy_header.endRefreshing()
+            })
+        })
+        
+        tableView.mj_footer = QYRefreshFooter(refreshingBlock: {[weak self] in
+            
+            guard let strongSelf = self else {return}
+            strongSelf.page += 1
+            ApiProvider.request(.gameRankingList(strongSelf.page, strongSelf.rankingType, strongSelf.gameClass, strongSelf.annualClass), objectModel: BaseModel<[GameSpecialDetail]>.self, success: {
+                
+                strongSelf.rankingData += $0.result
+                strongSelf.tableView.reloadData()
+                strongSelf.tableView.qy_footer.endRefreshing()
+            }, failure: { _ in
+                strongSelf.tableView.qy_footer.endRefreshing()
+            })
+        })
+        
+        tableView.qy_header.beginRefreshing()
     }
 }
 
@@ -47,12 +93,15 @@ extension GameRankingListViewController {
 extension GameRankingListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 100
+        return rankingData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(for: indexPath, cellType: GameRankingListCell.self)
+        let cell = tableView.dequeueReusableCell(for: indexPath, cellType: GameColumnDetailCell.self)
+        cell.descLabelBottomConstraint.constant = 0
+        cell.tag = indexPath.row
+        cell.specitial = rankingData[indexPath.row]
         return cell
     }
 }

@@ -17,6 +17,7 @@ class GameRankingPageViewController: UIViewController {
         super.viewDidLoad()
 
         setUpUI()
+        setUpNavi()
         loadPageData()
     }
 }
@@ -68,6 +69,7 @@ extension GameRankingPageViewController {
             controller.rankingType = .fractions
             titles.append(element.name)
             childViewControllers.append(controller)
+            addChildViewController(controller)
         }
         
         // 创建对应的DNSPageView，并设置它的frame

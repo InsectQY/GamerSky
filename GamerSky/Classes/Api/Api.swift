@@ -35,7 +35,7 @@ enum Api {
     /// 游戏类型(参数依次是: page, 游戏类型)
     case gameHomePage(Int, GameType)
     /// 游戏排行(参数依次是: page, 排行榜类型, 游戏种类ID, 年代[热门榜总榜才有年])
-    case gameRankingList(Int, GameRanking, String, String)
+    case gameRankingList(Int, GameRankingType, Int, String)
     /// 找游戏, 游戏标签
     case gameTags
     /// 特色专题详情(参数依次是: page, nodeID)
@@ -173,8 +173,8 @@ extension Api: TargetType {
             parmeters["request"] = ["type" : rankType.rawValue,
                                     "gameClass" : gameClass,
                                     "annualClass" : annualClass,
-                                    "extraField1" : "Position",
-                                    "extraField2" : "gsScore",
+                                    "extraField1" : "Position,GameType",
+                                    "extraField2" : "gsScore,gameTag",
                                     "pageIndex" : page,
                                     "elementsCountPerPage" : 20]
         case let .gameSpecialDetail(page , nodeID):

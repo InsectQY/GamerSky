@@ -101,7 +101,6 @@ extension OriginalViewController {
                     strongSelf.columnListAry = $0.result.childElements
                 }
                 
-                strongSelf.tableView.qy_footer.isHidden = false
                 strongSelf.tableView.reloadData()
                 strongSelf.tableView.qy_header.endRefreshing()
             }) { _ in
@@ -130,7 +129,6 @@ extension OriginalViewController {
         })
         
         tableView.qy_header.beginRefreshing()
-        tableView.qy_footer.isHidden = true
     }
     
     // MARK: - 设置导航栏

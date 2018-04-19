@@ -48,13 +48,6 @@ enum GameType: String {
     case waitSell = "new-selling"
 }
 
-enum GameRanking: String {
-    /// 热门榜
-    case hot = "hot"
-    /// 高分榜
-    case score = "fractions"
-}
-
 enum SearchType: String {
     
     /// 综合

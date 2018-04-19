@@ -120,6 +120,7 @@ extension ColumnDetailViewController {
                 guard let strongSelf = self else {return}
                 
                 strongSelf.page += 1
+                strongSelf.tableView.qy_header.endRefreshing()
                 ApiProvider.request(.gameSpecialDetail(strongSelf.page, strongSelf.nodeID), objectModel: BaseModel<[GameSpecialDetail]>.self, success: {
                     
                     strongSelf.specialDetail += $0.result
