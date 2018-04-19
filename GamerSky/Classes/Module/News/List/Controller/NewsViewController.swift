@@ -69,41 +69,41 @@ extension NewsViewController {
     // MARK: - 设置刷新
     private func setUpRefresh() {
         
-        tableView.mj_header = QYRefreshHeader { [weak self] in
+        tableView.qy_header = QYRefreshHeader { [weak self] in
             
             guard let strongSelf = self else {return}
             strongSelf.page = 1
-            strongSelf.tableView.mj_footer.endRefreshing()
+            strongSelf.tableView.qy_footer.endRefreshing()
             ApiProvider.request(.allChannelList(strongSelf.page, strongSelf.nodeID), objectModel: BaseModel<[ChannelList]>.self, success: {
                 
                 strongSelf.channelListAry = $0.result
                 strongSelf.headerView.channelListAry = $0.result.first?.childElements
                 strongSelf.channelListAry.removeFirst()
                 strongSelf.tableView.reloadData()
-                strongSelf.tableView.mj_footer.isHidden = false
-                strongSelf.tableView.mj_header.endRefreshing()
+                strongSelf.tableView.qy_footer.isHidden = false
+                strongSelf.tableView.qy_header.endRefreshing()
             }) { _ in
-                strongSelf.tableView.mj_header.endRefreshing()
+                strongSelf.tableView.qy_header.endRefreshing()
             }
         }
 
-        tableView.mj_footer = QYRefreshFooter { [weak self] in
+        tableView.qy_footer = QYRefreshFooter { [weak self] in
             
             guard let strongSelf = self else {return}
             strongSelf.page += 1
-            strongSelf.tableView.mj_header.endRefreshing()
+            strongSelf.tableView.qy_header.endRefreshing()
             ApiProvider.request(.allChannelList(strongSelf.page, strongSelf.nodeID), objectModel: BaseModel<[ChannelList]>.self, success: {
                 
                 strongSelf.channelListAry += $0.result
                 strongSelf.tableView.reloadData()
-                strongSelf.tableView.mj_footer.endRefreshing()
+                strongSelf.tableView.qy_footer.endRefreshing()
             }) { _ in
-                strongSelf.tableView.mj_footer.endRefreshing()
+                strongSelf.tableView.qy_footer.endRefreshing()
             }
         }
         
-        tableView.mj_footer.isHidden = true
-        tableView.mj_header.beginRefreshing()
+        tableView.qy_footer.isHidden = true
+        tableView.qy_header.beginRefreshing()
     }
     
     // MARK: - 设置头部视图

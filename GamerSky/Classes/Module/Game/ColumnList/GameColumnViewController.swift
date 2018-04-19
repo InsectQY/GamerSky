@@ -72,7 +72,7 @@ extension GameColumnViewController {
     
     private func setUpRefresh() {
         
-        collectionView.mj_header = QYRefreshHeader(refreshingBlock: { [weak self] in
+        collectionView.qy_header = QYRefreshHeader(refreshingBlock: { [weak self] in
             
             guard let strongSelf = self else {return}
             
@@ -81,13 +81,13 @@ extension GameColumnViewController {
                 
                 strongSelf.gameColumn = $0.result
                 strongSelf.collectionView.reloadData()
-                strongSelf.collectionView.mj_header.endRefreshing()
+                strongSelf.collectionView.qy_header.endRefreshing()
             }) { _ in
-                strongSelf.collectionView.mj_header.endRefreshing()
+                strongSelf.collectionView.qy_header.endRefreshing()
             }
         })
         
-        collectionView.mj_header.beginRefreshing()
+        collectionView.qy_header.beginRefreshing()
     }
 }
 

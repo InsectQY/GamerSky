@@ -65,7 +65,7 @@ extension ColumnDetailViewController {
     
     private func setUpRefresh() {
         
-        tableView.mj_header = QYRefreshHeader(refreshingBlock: { [weak self] in
+        tableView.qy_header = QYRefreshHeader(refreshingBlock: { [weak self] in
             
             guard let strongSelf = self else {return}
             let group = DispatchGroup()
@@ -78,10 +78,10 @@ extension ColumnDetailViewController {
                     strongSelf.specialSubList = $0.result
                     group.leave()
                 }, failure: { _ in
-                    strongSelf.tableView.mj_header.endRefreshing()
+                    strongSelf.tableView.qy_header.endRefreshing()
                 })
             }else {
-                strongSelf.tableView.mj_footer.endRefreshing()
+                strongSelf.tableView.qy_footer.endRefreshing()
             }
             
             group.enter()
@@ -91,7 +91,7 @@ extension ColumnDetailViewController {
                 strongSelf.specialDetail = $0.result
                 group.leave()
             }, failure: { _ in
-                strongSelf.tableView.mj_header.endRefreshing()
+                strongSelf.tableView.qy_header.endRefreshing()
             })
             
             group.notify(queue: DispatchQueue.main, execute: {
@@ -109,13 +109,13 @@ extension ColumnDetailViewController {
                     })
                 }
                 strongSelf.tableView.reloadData()
-                strongSelf.tableView.mj_header.endRefreshing()
+                strongSelf.tableView.qy_header.endRefreshing()
             })
         })
         
         if !isHasSubList {
             
-            tableView.mj_footer = QYRefreshFooter(refreshingBlock: { [weak self] in
+            tableView.qy_footer = QYRefreshFooter(refreshingBlock: { [weak self] in
                 
                 guard let strongSelf = self else {return}
                 
@@ -123,15 +123,15 @@ extension ColumnDetailViewController {
                 ApiProvider.request(.gameSpecialDetail(strongSelf.page, strongSelf.nodeID), objectModel: BaseModel<[GameSpecialDetail]>.self, success: {
                     
                     strongSelf.specialDetail += $0.result
-                    strongSelf.tableView.mj_footer.endRefreshing()
+                    strongSelf.tableView.qy_footer.endRefreshing()
                     strongSelf.tableView.reloadData()
                 }, failure: { _ in
-                    strongSelf.tableView.mj_footer.endRefreshing()
+                    strongSelf.tableView.qy_footer.endRefreshing()
                 })
             })
         }
         
-        tableView.mj_header.beginRefreshing()
+        tableView.qy_header.beginRefreshing()
     }
 }
 

@@ -8,6 +8,19 @@
 
 import MJRefresh
 
+extension UIScrollView {
+    
+    var qy_header: MJRefreshHeader {
+        get { return mj_header }
+        set { mj_header = newValue }
+    }
+    
+    var qy_footer: MJRefreshFooter {
+        get { return mj_footer }
+        set { mj_footer = newValue }
+    }
+}
+
 class QYRefreshHeader: MJRefreshGifHeader {
     
     /// 初始化

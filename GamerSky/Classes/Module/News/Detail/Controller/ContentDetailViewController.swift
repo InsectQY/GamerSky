@@ -57,13 +57,13 @@ extension ContentDetailViewController {
     private func setUpRefresh() {
         
         let nightMode = QYUserDefaults.getUserPreference()?.currentTheme == .night ? 1 : 0
-        webView.scrollView.mj_header = QYRefreshHeader { [weak self] in
+        webView.scrollView.qy_header = QYRefreshHeader { [weak self] in
 
             guard let strongSelf = self else {return}
             guard let URL = URL(string: "\(AppHostIP)/v1/ContentDetail/\(strongSelf.contentID)/1?fontSize=0&nullImageMode=1&tag=news&deviceid=\(deviceID)&platform=ios&nightMode=\(nightMode)&v=") else {return}
             strongSelf.webView.load(URLRequest(url: URL))
         }
-        webView.scrollView.mj_header.beginRefreshing()
+        webView.scrollView.qy_header.beginRefreshing()
     }
 }
 
@@ -72,6 +72,6 @@ extension ContentDetailViewController: WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         
-        webView.scrollView.mj_header.endRefreshing()
+        webView.scrollView.qy_header.endRefreshing()
     }
 }

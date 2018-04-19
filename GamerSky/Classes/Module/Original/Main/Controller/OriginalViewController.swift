@@ -68,7 +68,7 @@ class OriginalViewController: BaseViewController {
     }
     
     override func repeatClickTabBar() {
-        tableView.mj_header.beginRefreshing()
+        tableView.qy_header.beginRefreshing()
     }
 }
 
@@ -88,11 +88,11 @@ extension OriginalViewController {
         
         let columnID = columnList == nil ? 47 : columnList!.Id
         
-        tableView.mj_header = QYRefreshHeader(refreshingBlock: { [weak self] in
+        tableView.qy_header = QYRefreshHeader(refreshingBlock: { [weak self] in
             
             guard let strongSelf = self else {return}
             strongSelf.page = 1
-            strongSelf.tableView.mj_footer.endRefreshing()
+            strongSelf.tableView.qy_footer.endRefreshing()
             ApiProvider.request(.columnContent(strongSelf.page, columnID), objectModel: BaseModel<ColumnContent>.self, success: {
                 
                 if strongSelf.columnList == nil {
@@ -101,19 +101,19 @@ extension OriginalViewController {
                     strongSelf.columnListAry = $0.result.childElements
                 }
                 
-                strongSelf.tableView.mj_footer.isHidden = false
+                strongSelf.tableView.qy_footer.isHidden = false
                 strongSelf.tableView.reloadData()
-                strongSelf.tableView.mj_header.endRefreshing()
+                strongSelf.tableView.qy_header.endRefreshing()
             }) { _ in
-                strongSelf.tableView.mj_header.endRefreshing()
+                strongSelf.tableView.qy_header.endRefreshing()
             }
         })
         
-        tableView.mj_footer = QYRefreshFooter(refreshingBlock: { [weak self] in
+        tableView.qy_footer = QYRefreshFooter(refreshingBlock: { [weak self] in
             
             guard let strongSelf = self else {return}
             strongSelf.page += 1
-            strongSelf.tableView.mj_header.endRefreshing()
+            strongSelf.tableView.qy_header.endRefreshing()
             ApiProvider.request(.columnContent(strongSelf.page, columnID), objectModel: BaseModel<ColumnContent>.self, success: {
                 
                 if strongSelf.columnList == nil {
@@ -123,14 +123,14 @@ extension OriginalViewController {
                 }
 
                 strongSelf.tableView.reloadData()
-                strongSelf.tableView.mj_footer.endRefreshing()
+                strongSelf.tableView.qy_footer.endRefreshing()
             }) { _ in
-                strongSelf.tableView.mj_footer.endRefreshing()
+                strongSelf.tableView.qy_footer.endRefreshing()
             }
         })
         
-        tableView.mj_header.beginRefreshing()
-        tableView.mj_footer.isHidden = true
+        tableView.qy_header.beginRefreshing()
+        tableView.qy_footer.isHidden = true
     }
     
     // MARK: - 设置导航栏

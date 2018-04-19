@@ -70,7 +70,7 @@ extension GameHomeViewController {
     
     private func setUpRefresh() {
         
-        tableView.mj_header = QYRefreshHeader(refreshingBlock: { [weak self] in
+        tableView.qy_header = QYRefreshHeader(refreshingBlock: { [weak self] in
             
             guard let strongSelf = self else {return}
             
@@ -87,7 +87,7 @@ extension GameHomeViewController {
                 strongSelf.gameSpecialDetail = $0.result
                 group.leave()
             }, failure: { _ in
-                strongSelf.tableView.mj_header.endRefreshing()
+                strongSelf.tableView.qy_header.endRefreshing()
                 group.leave()
             })
             
@@ -98,7 +98,7 @@ extension GameHomeViewController {
                 strongSelf.hotGame = $0.result
                 group.leave()
             }, failure: {_ in
-                strongSelf.tableView.mj_header.endRefreshing()
+                strongSelf.tableView.qy_header.endRefreshing()
                 group.leave()
             })
             
@@ -110,7 +110,7 @@ extension GameHomeViewController {
                 group.leave()
             }, failure: { _ in
                 
-                strongSelf.tableView.mj_header.endRefreshing()
+                strongSelf.tableView.qy_header.endRefreshing()
                 group.leave()
             })
             
@@ -121,7 +121,7 @@ extension GameHomeViewController {
                 strongSelf.expectedGame = $0.result
                 group.leave()
             }, failure: { _ in
-                strongSelf.tableView.mj_header.endRefreshing()
+                strongSelf.tableView.qy_header.endRefreshing()
                 group.leave()
             })
             
@@ -132,7 +132,7 @@ extension GameHomeViewController {
                 strongSelf.gameTags = $0.result
                 group.leave()
             }) { _ in
-                strongSelf.tableView.mj_header.endRefreshing()
+                strongSelf.tableView.qy_header.endRefreshing()
                 group.leave()
             }
             
@@ -143,7 +143,7 @@ extension GameHomeViewController {
                 strongSelf.gameColumn = $0.result
                 group.leave()
             }) { _ in
-                strongSelf.tableView.mj_header.endRefreshing()
+                strongSelf.tableView.qy_header.endRefreshing()
                 group.leave()
             }
             
@@ -166,27 +166,27 @@ extension GameHomeViewController {
                             strongSelf.rankingGame += [Array($0.result.prefix(5))]
                             group.leave()
                         }, failure: { _ in
-                            strongSelf.tableView.mj_header.endRefreshing()
+                            strongSelf.tableView.qy_header.endRefreshing()
                         })
                     }, failure: { _ in
-                        strongSelf.tableView.mj_header.endRefreshing()
+                        strongSelf.tableView.qy_header.endRefreshing()
                     })
                 }, failure: { _ in
-                    strongSelf.tableView.mj_header.endRefreshing()
+                    strongSelf.tableView.qy_header.endRefreshing()
                 })
             }, failure: { _ in
-                strongSelf.tableView.mj_header.endRefreshing()
+                strongSelf.tableView.qy_header.endRefreshing()
             })
             
             group.notify(queue: DispatchQueue.main, execute: {
                 
                 strongSelf.setUpTableHeader()
                 strongSelf.tableView.reloadData()
-                strongSelf.tableView.mj_header.endRefreshing()
+                strongSelf.tableView.qy_header.endRefreshing()
             })
         })
         
-        tableView.mj_header.beginRefreshing()
+        tableView.qy_header.beginRefreshing()
     }
 }
 
