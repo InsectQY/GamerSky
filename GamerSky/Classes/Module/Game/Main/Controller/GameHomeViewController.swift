@@ -156,21 +156,7 @@ extension GameHomeViewController {
                 ApiProvider.request(.gameRankingList(1, .hot, 0, "all"), objectModel: BaseModel<[GameInfo]>.self, success: {
                     
                     strongSelf.rankingGame += [Array($0.result.prefix(5))]
-                    // 高分 FPS
-                    ApiProvider.request(.gameRankingList(1, .fractions, 20066, "all"), objectModel: BaseModel<[GameInfo]>.self, success: {
-                        
-                        strongSelf.rankingGame += [Array($0.result.prefix(5))]
-                        // 高分 ACT
-                        ApiProvider.request(.gameRankingList(1, .fractions, 20042, "all"), objectModel: BaseModel<[GameInfo]>.self, success: {
-                            
-                            strongSelf.rankingGame += [Array($0.result.prefix(5))]
-                            group.leave()
-                        }, failure: { _ in
-                            strongSelf.tableView.qy_header.endRefreshing()
-                        })
-                    }, failure: { _ in
-                        strongSelf.tableView.qy_header.endRefreshing()
-                    })
+                    group.leave()
                 }, failure: { _ in
                     strongSelf.tableView.qy_header.endRefreshing()
                 })
