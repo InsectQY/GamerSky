@@ -69,6 +69,9 @@
 		99E799A22071E10E005C3408 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99E799A12071E10E005C3408 /* Assets.xcassets */; };
 		99E799A52071E10E005C3408 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99E799A32071E10E005C3408 /* LaunchScreen.storyboard */; };
 		E523B1F42081E49800CE4701 /* BaseImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E523B1F32081E49800CE4701 /* BaseImageView.swift */; };
+		E52B6DDD208C41CF004904C6 /* GameCommentPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52B6DDC208C41CF004904C6 /* GameCommentPageViewController.swift */; };
+		E52B6DDF208C41F2004904C6 /* GameCommentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52B6DDE208C41F2004904C6 /* GameCommentListViewController.swift */; };
+		E52B6DE3208C4288004904C6 /* GameComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52B6DE2208C4288004904C6 /* GameComment.swift */; };
 		E534FACC207A60F5006CE008 /* ColumnNavTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E534FACA207A60F5006CE008 /* ColumnNavTitleView.swift */; };
 		E534FACD207A60F5006CE008 /* ColumnNavTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E534FACB207A60F5006CE008 /* ColumnNavTitleView.xib */; };
 		E534FAD0207A6506006CE008 /* ColumnDescHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E534FACF207A6506006CE008 /* ColumnDescHeaderView.swift */; };
@@ -214,6 +217,9 @@
 		99E799A62071E10E005C3408 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0B9C44C57C7BCE246F09E2C /* Pods-GamerSky.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GamerSky.release.xcconfig"; path = "Pods/Target Support Files/Pods-GamerSky/Pods-GamerSky.release.xcconfig"; sourceTree = "<group>"; };
 		E523B1F32081E49800CE4701 /* BaseImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseImageView.swift; sourceTree = "<group>"; };
+		E52B6DDC208C41CF004904C6 /* GameCommentPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCommentPageViewController.swift; sourceTree = "<group>"; };
+		E52B6DDE208C41F2004904C6 /* GameCommentListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCommentListViewController.swift; sourceTree = "<group>"; };
+		E52B6DE2208C4288004904C6 /* GameComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameComment.swift; sourceTree = "<group>"; };
 		E534FACA207A60F5006CE008 /* ColumnNavTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColumnNavTitleView.swift; sourceTree = "<group>"; };
 		E534FACB207A60F5006CE008 /* ColumnNavTitleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColumnNavTitleView.xib; sourceTree = "<group>"; };
 		E534FACF207A6506006CE008 /* ColumnDescHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnDescHeaderView.swift; sourceTree = "<group>"; };
@@ -597,6 +603,7 @@
 		998F0C672071F70B00C587C2 /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				E52B6DD9208C4194004904C6 /* Comment */,
 				E5787F2A2088C91D00AB55E2 /* Ranking */,
 				E5DC0AE82086298D001E61C6 /* SellList */,
 				E57C5BB220824F1300655E0F /* ColumnDetail */,
@@ -746,6 +753,48 @@
 				71BFE174E127314FD3FBE57C /* Pods_GamerSky.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E52B6DD9208C4194004904C6 /* Comment */ = {
+			isa = PBXGroup;
+			children = (
+				E52B6DDA208C41A3004904C6 /* Page */,
+				E52B6DDB208C41AB004904C6 /* List */,
+			);
+			path = Comment;
+			sourceTree = "<group>";
+		};
+		E52B6DDA208C41A3004904C6 /* Page */ = {
+			isa = PBXGroup;
+			children = (
+				E52B6DDC208C41CF004904C6 /* GameCommentPageViewController.swift */,
+			);
+			path = Page;
+			sourceTree = "<group>";
+		};
+		E52B6DDB208C41AB004904C6 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				E52B6DE1208C4275004904C6 /* Model */,
+				E52B6DE0208C426D004904C6 /* Controller */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		E52B6DE0208C426D004904C6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E52B6DDE208C41F2004904C6 /* GameCommentListViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E52B6DE1208C4275004904C6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E52B6DE2208C4288004904C6 /* GameComment.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		E534FAC0207A5237006CE008 /* Main */ = {
@@ -1376,6 +1425,7 @@
 				E5CD69BA207BCF5F001A1A0A /* StarFillMode.swift in Sources */,
 				E550C943207CF52F00C4AF2D /* GameHomeSectionHeader.swift in Sources */,
 				E5CD6986207B95C0001A1A0A /* GameHomeHeaderView.swift in Sources */,
+				E52B6DE3208C4288004904C6 /* GameComment.swift in Sources */,
 				E5CD69C8207BCF5F001A1A0A /* CosmosView.swift in Sources */,
 				E5DC0AF820864B2C001E61C6 /* GameSellList.swift in Sources */,
 				E5CD69BB207BCF5F001A1A0A /* StarLayer.swift in Sources */,
@@ -1383,6 +1433,7 @@
 				E5787F322088CAA300AB55E2 /* GameRankingListViewController.swift in Sources */,
 				998F0C6E2071F77800C587C2 /* CircleViewController.swift in Sources */,
 				E523B1F42081E49800CE4701 /* BaseImageView.swift in Sources */,
+				E52B6DDD208C41CF004904C6 /* GameCommentPageViewController.swift in Sources */,
 				9906819220721AAA00A825AC /* BaseModel.swift in Sources */,
 				E5CD69C3207BCF5F001A1A0A /* CosmosTouch.swift in Sources */,
 				998F0C402071EEAB00C587C2 /* UICollectionView+Reusable.swift in Sources */,
@@ -1394,6 +1445,7 @@
 				E56802F0207274E900CF944E /* NewsPageViewController.swift in Sources */,
 				998F0C422071EEAB00C587C2 /* UITableView+Reusable.swift in Sources */,
 				9941410E20747B0C0016AC01 /* BaseLabel.swift in Sources */,
+				E52B6DDF208C41F2004904C6 /* GameCommentListViewController.swift in Sources */,
 				E586EE7C207E68FA00D8F3F0 /* GameHomePageFooterView.swift in Sources */,
 				998F0C5F2071EFB100C587C2 /* GetVc.swift in Sources */,
 				9906819520721F8700A825AC /* Channel.swift in Sources */,

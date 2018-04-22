@@ -39,48 +39,80 @@ enum Device {
     }
 }
 
+/// 游戏类型
+///
+/// - expected: 最期待的游戏
+/// - hot: 大家都在玩的游戏
+/// - waitSell: 即将上市的游戏
 enum GameType: String {
-    /// 最期待的游戏
+
     case expected = "most-expected"
-    /// 大家都在玩的游戏
     case hot = "recent-hot"
-    /// 即将上市的游戏
     case waitSell = "new-selling"
 }
 
+/// 搜索类型
+///
+/// - global: 综合
+/// - strategy: 攻略
+/// - game: 游戏
+/// - news: 新闻
 enum SearchType: String {
     
-    /// 综合
     case global = "global"
-    /// 攻略
     case strategy = "strategy"
-    /// 游戏
     case game = "game"
-    /// 新闻
     case news = "news"
 }
 
+/// 第三方登陆种类
+///
+/// - QQ: QQ
+/// - WeChat: 微信
+/// - WeiBo: 微博
 enum ThirdPartyLogin: String {
     
-    /// QQ
     case QQ = "qq"
-    /// 微信
     case WeChat = "weixin"
-    /// 微博
     case WeiBo = "weibo"
 }
 
+/// 游戏发售表排行方式
+///
+/// - popular: 按人气
+/// - date: 按时间
 enum GameSellSort: String {
     
-    /// 按人气
     case popular = "popularity"
-    /// 按时间
     case date = "date"
 }
 
+/// 游戏排行榜筛选方式
+///
+/// - hot: 热门榜
+/// - fractions: 高分榜
 enum GameRankingType: String {
-    /// 热门榜
+    
     case hot = "hot"
-    /// 高分榜
     case fractions = "fractions"
+}
+
+/// 游戏评论类型
+///
+/// - hot: 热门
+/// - latest: 最新
+enum GameCommentType: String {
+    
+    case hot = "hot"
+    case latest = "latest"
+}
+
+/// 对某款游戏的喜欢程度
+///
+/// - wantPlay: 想玩
+/// - played: 玩过
+enum LikeType: String, Codable {
+    
+    case wantPlay = "WantPlay"
+    case played = "Played"
 }
