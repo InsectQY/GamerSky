@@ -181,7 +181,6 @@
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uby-OV-0ee" customClass="BaseLabel" customModule="GamerSky" customModuleProvider="target">
                         <rect key="frame" x="49" y="49" width="262" height="149.5"/>
-                        <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <string key="text">当我们玩一个游戏的时候，玩得不仅仅是画面和游戏性，玩的也是制作人的追求和野望。我接触神海系列的时候，已经是ps3的末期，实际上，我是在pc上打通古墓丽影9的一个月之后才打通神海123系列的。所以在我看来，不论画面，操作还是体验，神海系列相对于古墓丽影都没有任何优势。然而古墓9我给8分，神海系列我给9.5.为什么？因为人物。</string>
                         <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="14"/>
                         <nil key="textColor"/>
