@@ -39,7 +39,6 @@ extension GameCommentPageViewController {
         style.bottomLineColor = MainColor
         style.titleColor = .black
         style.titleSelectedColor = MainColor
-//        style.isTitleScrollEnable = true
         
         // 创建每一页对应的controller
         var childViewControllers = [GameCommentListViewController]()

@@ -11,16 +11,21 @@ import UIKit
 class GameCommentListViewController: BaseViewController {
     
     /// 评价类型
-    public var commentType : GameCommentType = .hot
+    public var commentType: GameCommentType = .hot
+    /// 页码
+    private var page = 1
     // MARK: - LazyLoad
     private lazy var commets = [GameComment]()
+
     private lazy var tableView: UITableView = {
         
         let tableView = UITableView(frame: view.bounds, style: .grouped)
         tableView.contentInset = UIEdgeInsetsMake(0, 0, KBottomH + kTopH, 0)
         tableView.separatorStyle = .none
-        tableView.estimatedRowHeight = 100
         tableView.register(cellType: GameCommentCell.self)
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.estimatedRowHeight = 150
         tableView.rowHeight = UITableViewAutomaticDimension
         return tableView
     }()
@@ -30,6 +35,7 @@ class GameCommentListViewController: BaseViewController {
         super.viewDidLoad()
 
         setUpUI()
+        setUpRefresh()
     }
 }
 
@@ -39,6 +45,46 @@ extension GameCommentListViewController {
     private func setUpUI() {
         
         view.addSubview(tableView)
+    }
+}
+
+extension GameCommentListViewController {
+    
+    private func setUpRefresh() {
+        
+        tableView.qy_header = QYRefreshHeader(refreshingBlock: { [weak self] in
+            
+            guard let strongSelf = self else {return}
+            
+            strongSelf.page = 1
+            strongSelf.tableView.qy_footer.endRefreshing()
+            ApiProvider.request(.gameReviewList(strongSelf.page, strongSelf.commentType), objectModel: BaseModel<[GameComment]>.self, success: {
+                
+                strongSelf.commets = $0.result
+                strongSelf.tableView.reloadData()
+                strongSelf.tableView.qy_header.endRefreshing()
+            }, failure: { _ in
+                strongSelf.tableView.qy_header.endRefreshing()
+            })
+        })
+        
+        tableView.qy_footer = QYRefreshFooter(refreshingBlock: { [weak self] in
+            
+            guard let strongSelf = self else {return}
+            
+            strongSelf.page += 1
+            strongSelf.tableView.qy_header.endRefreshing()
+            ApiProvider.request(.gameReviewList(strongSelf.page, strongSelf.commentType), objectModel: BaseModel<[GameComment]>.self, success: {
+                
+                strongSelf.commets += $0.result
+                strongSelf.tableView.reloadData()
+                strongSelf.tableView.qy_footer.endRefreshing()
+            }, failure: { _ in
+                strongSelf.tableView.qy_footer.endRefreshing()
+            })
+        })
+        
+        tableView.qy_header.beginRefreshing()
     }
 }
 

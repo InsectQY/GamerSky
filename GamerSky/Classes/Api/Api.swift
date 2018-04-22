@@ -44,6 +44,8 @@ enum Api {
     case gameSpecialSubList(Int)
     /// 发售列表(参数依次是: 时间, 排序方式)
     case twoGameList(Int, GameSellSort)
+    /// 玩家点评(参数依次是: page, 评论方式)
+    case gameReviewList(Int,GameCommentType)
     
     ///////////////  圈子  ///////////////
     
@@ -126,6 +128,8 @@ extension Api: TargetType {
             return "game/gameSpecialSubList"
         case .twoGameList:
             return "v2/twoGameList"
+        case .gameReviewList:
+            return "game/reviewList"
         }
     }
     
@@ -229,6 +233,13 @@ extension Api: TargetType {
                                     "pageIndex" : 1,
                                     "elementsCountPerPage" : 100,
                                     "order" : sort.rawValue]
+        case let .gameReviewList(page, type):
+            parmeters["request"] = ["extraField1" : "Position,GameType",
+                                    "extraField2" : "gsScore,gameTag",
+                                    "extraField3" : "largeImage,description",
+                                    "type" : type.rawValue,
+                                    "pageIndex" : page,
+                                    "elementsCountPerPage" : 20]
         default:
             return .requestPlain
         }

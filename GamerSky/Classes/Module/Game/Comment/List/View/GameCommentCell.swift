@@ -33,16 +33,24 @@ class GameCommentCell: UITableViewCell, NibReusable {
         didSet {
             
             guard let comment = comment else {return}
+            
             userProfileImageView.qy_setImage(comment.img_URL, "")
-            contentLabel.text = comment.content
+            gameImageView.qy_setImage(comment.DefaultPicUrl, "")
+            contentLabel.text = "APP进行展示的时候，UILabel并不会主动去解析这些含有HTML元素的东西，显示的内容显然不是我们想要的结果。这个时候我就联想到了使用强大的属性字符串去解析，果然就找到了相应的方法"
             userNameLabel.text = comment.nickname
         }
     }
     
-    
-    // MARK: - inital
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    // MARK: - 重写frame
+    override var frame: CGRect {
         
+        didSet {
+            
+            var newFrame = frame
+            
+            newFrame.origin.y += 10
+            newFrame.size.height -= 10
+            super.frame = newFrame
+        }
     }
 }
