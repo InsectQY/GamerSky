@@ -36,7 +36,7 @@ class GameCommentCell: UITableViewCell, NibReusable {
             
             userProfileImageView.qy_setImage(comment.img_URL, "")
             gameImageView.qy_setImage(comment.DefaultPicUrl, "")
-            contentLabel.text = comment.content.htmlString
+            contentLabel.attributedText = comment.content.htmlString.getAttributeStringWith(lineSpace: 10)
             userNameLabel.text = comment.nickname
         }
     }

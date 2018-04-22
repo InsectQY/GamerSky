@@ -27,6 +27,8 @@ class GameCommentListViewController: BaseViewController {
         tableView.delegate = self
         tableView.estimatedRowHeight = 150
         tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.sectionHeaderHeight = 10
+        tableView.sectionFooterHeight = 10
         return tableView
     }()
     
@@ -91,14 +93,18 @@ extension GameCommentListViewController {
 // MARK: - UITableViewDataSource
 extension GameCommentListViewController: UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return commets.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(for: indexPath, cellType: GameCommentCell.self)
-        cell.comment = commets[indexPath.row]
+        cell.comment = commets[indexPath.section]
         return cell
     }
 }

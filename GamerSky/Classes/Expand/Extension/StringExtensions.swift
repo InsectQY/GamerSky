@@ -6,7 +6,7 @@
 //  Copyright © 2018年 engic. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 extension String {
     
@@ -31,5 +31,18 @@ extension String {
     
     public var htmlString: String {
         return htmlAttributedString?.string ?? ""
+    }
+    
+    public func getAttributeStringWith(lineSpace: CGFloat
+        ) -> NSAttributedString {
+        
+        let attributedString = NSMutableAttributedString(string: self)
+        let paragraphStye = NSMutableParagraphStyle()
+        
+        //调整行间距
+        paragraphStye.lineSpacing = lineSpace
+        let rang = NSMakeRange(0, CFStringGetLength(self as CFString?))
+        attributedString .addAttribute(NSAttributedStringKey.paragraphStyle, value: paragraphStye, range: rang)
+        return attributedString
     }
 }

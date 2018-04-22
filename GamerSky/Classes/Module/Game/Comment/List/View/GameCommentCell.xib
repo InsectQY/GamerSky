@@ -21,22 +21,31 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7ZK-Gy-gz7">
-                        <rect key="frame" x="10" y="10" width="29" height="29"/>
+                        <rect key="frame" x="10" y="10" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="CQ6-OG-PCa"/>
+                            <constraint firstAttribute="height" constant="40" id="s7M-2a-mdp"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="20"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="你好世界" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="05g-Ta-K9Y" customClass="BaseLabel" customModule="GamerSky" customModuleProvider="target">
-                        <rect key="frame" x="49" y="10" width="262" height="11"/>
+                        <rect key="frame" x="60" y="10" width="251" height="15.5"/>
                         <fontDescription key="fontDescription" name="PingFangSC-Medium" family="PingFang SC" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="在PS4平台上玩过" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tic-qj-e8W" customClass="BaseLabel" customModule="GamerSky" customModuleProvider="target">
-                        <rect key="frame" x="49" y="28" width="95" height="11"/>
+                        <rect key="frame" x="60" y="36" width="95" height="14"/>
                         <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="12"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view userInteractionEnabled="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uYZ-gH-zJy" customClass="CosmosView" customModule="GamerSky" customModuleProvider="target">
-                        <rect key="frame" x="154" y="27" width="60" height="12"/>
+                        <rect key="frame" x="165" y="37" width="60" height="12"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="12" id="GPt-eK-DHn"/>
                             <constraint firstAttribute="width" constant="60" id="sWz-8i-ZZM"/>
@@ -62,25 +71,28 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cY3-3B-OtO" userLabel="游戏">
-                        <rect key="frame" x="10" y="234" width="301" height="51.5"/>
+                        <rect key="frame" x="10" y="225.5" width="301" height="60"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4n6-26-z5r">
-                                <rect key="frame" x="0.0" y="0.0" width="36" height="51.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="44" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="Fj3-9c-SSv"/>
+                                </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="战神4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jq8-Ap-GXc" customClass="BaseLabel" customModule="GamerSky" customModuleProvider="target">
-                                <rect key="frame" x="41" y="3" width="34" height="19"/>
+                                <rect key="frame" x="49" y="3" width="34" height="19"/>
                                 <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="动作冒险" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1jc-rI-xgH" customClass="BaseLabel" customModule="GamerSky" customModuleProvider="target">
-                                <rect key="frame" x="41" y="29.5" width="52.5" height="19"/>
+                                <rect key="frame" x="49" y="38" width="52.5" height="19"/>
                                 <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="13"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rkF-Ei-y4Y">
-                                <rect key="frame" x="255" y="18.5" width="36" height="14.5"/>
+                                <rect key="frame" x="247" y="21.5" width="44" height="18"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="14"/>
                                 <state key="normal" title="查看">
@@ -93,7 +105,7 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XbV-WF-Azz" customClass="CosmosView" customModule="GamerSky" customModuleProvider="target">
-                                <rect key="frame" x="41" y="20" width="60" height="12"/>
+                                <rect key="frame" x="49" y="24.5" width="60" height="12"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="12" id="4AK-GY-7Jx"/>
                                     <constraint firstAttribute="width" constant="60" id="sb8-O0-4FE"/>
@@ -119,7 +131,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" tag="777" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8.5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ud2-OH-xqU" customClass="BaseLabel" customModule="GamerSky" customModuleProvider="target">
-                                <rect key="frame" x="106" y="17" width="19.5" height="18.5"/>
+                                <rect key="frame" x="114" y="21.5" width="19.5" height="18.5"/>
                                 <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="13"/>
                                 <color key="textColor" red="0.0" green="0.75294117650000003" blue="0.46274509800000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -138,31 +150,31 @@
                             <constraint firstItem="rkF-Ei-y4Y" firstAttribute="width" secondItem="4n6-26-z5r" secondAttribute="width" id="TZ8-ZA-ahZ"/>
                             <constraint firstItem="XbV-WF-Azz" firstAttribute="leading" secondItem="jq8-Ap-GXc" secondAttribute="leading" id="ivV-RY-zIo"/>
                             <constraint firstItem="1jc-rI-xgH" firstAttribute="bottom" secondItem="4n6-26-z5r" secondAttribute="bottom" constant="-3" id="j2Z-tH-zoP"/>
+                            <constraint firstAttribute="height" constant="60" id="k2b-7q-9g4"/>
                             <constraint firstItem="jq8-Ap-GXc" firstAttribute="leading" secondItem="4n6-26-z5r" secondAttribute="trailing" constant="5" id="rMU-uB-rsz"/>
                             <constraint firstItem="4n6-26-z5r" firstAttribute="top" secondItem="cY3-3B-OtO" secondAttribute="top" id="rh4-Ud-DYS"/>
-                            <constraint firstItem="4n6-26-z5r" firstAttribute="width" secondItem="cY3-3B-OtO" secondAttribute="width" multiplier="0.12" id="s8R-B0-Dd4"/>
                             <constraint firstItem="1jc-rI-xgH" firstAttribute="leading" secondItem="jq8-Ap-GXc" secondAttribute="leading" id="vWL-My-Jqr"/>
                             <constraint firstItem="4n6-26-z5r" firstAttribute="leading" secondItem="cY3-3B-OtO" secondAttribute="leading" id="yqG-R1-zcl"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J8a-87-ABS">
-                        <rect key="frame" x="10" y="208.5" width="301" height="25.5"/>
+                        <rect key="frame" x="10" y="186" width="301" height="29.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4-20 12:39" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w47-Ho-8QR" customClass="BaseLabel" customModule="GamerSky" customModuleProvider="target">
-                                <rect key="frame" x="39" y="3" width="68" height="19"/>
+                                <rect key="frame" x="50" y="5" width="68" height="19"/>
                                 <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="13"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fji-If-ziX">
-                                <rect key="frame" x="267" y="4.5" width="34" height="17"/>
+                                <rect key="frame" x="267" y="0.0" width="34" height="30"/>
                                 <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="12"/>
                                 <state key="normal" title=" 22" image="common_Icon_Comment_15x15">
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9jS-qT-eMT">
-                                <rect key="frame" x="223" y="4.5" width="34" height="17"/>
+                                <rect key="frame" x="223" y="0.0" width="34" height="29.5"/>
                                 <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="12"/>
                                 <state key="normal" title=" 22" image="common_Icon_Praise_15x15">
                                     <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -172,18 +184,26 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="fji-If-ziX" firstAttribute="centerY" secondItem="J8a-87-ABS" secondAttribute="centerY" id="19F-Vg-tKL"/>
-                            <constraint firstItem="9jS-qT-eMT" firstAttribute="centerY" secondItem="J8a-87-ABS" secondAttribute="centerY" id="JUS-Je-U8u"/>
+                            <constraint firstAttribute="bottom" secondItem="9jS-qT-eMT" secondAttribute="bottom" id="Dpw-M2-M57"/>
+                            <constraint firstItem="fji-If-ziX" firstAttribute="top" secondItem="9jS-qT-eMT" secondAttribute="top" id="GrQ-3A-CvB"/>
                             <constraint firstItem="fji-If-ziX" firstAttribute="leading" secondItem="9jS-qT-eMT" secondAttribute="trailing" constant="10" id="dWn-kj-wGR"/>
                             <constraint firstItem="w47-Ho-8QR" firstAttribute="centerY" secondItem="J8a-87-ABS" secondAttribute="centerY" id="f0S-sc-wIo"/>
+                            <constraint firstItem="9jS-qT-eMT" firstAttribute="top" secondItem="J8a-87-ABS" secondAttribute="top" id="ifq-Dx-Im2"/>
                             <constraint firstAttribute="trailing" secondItem="fji-If-ziX" secondAttribute="trailing" id="isI-cz-dsb"/>
+                            <constraint firstItem="fji-If-ziX" firstAttribute="bottom" secondItem="9jS-qT-eMT" secondAttribute="bottom" id="kkx-3L-4Ix"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uby-OV-0ee" customClass="BaseLabel" customModule="GamerSky" customModuleProvider="target">
-                        <rect key="frame" x="49" y="49" width="262" height="149.5"/>
-                        <string key="text">当我们玩一个游戏的时候，玩得不仅仅是画面和游戏性，玩的也是制作人的追求和野望。我接触神海系列的时候，已经是ps3的末期，实际上，我是在pc上打通古墓丽影9的一个月之后才打通神海123系列的。所以在我看来，不论画面，操作还是体验，神海系列相对于古墓丽影都没有任何优势。然而古墓9我给8分，神海系列我给9.5.为什么？因为人物。</string>
-                        <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="14"/>
-                        <nil key="textColor"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uby-OV-0ee" customClass="BaseLabel" customModule="GamerSky" customModuleProvider="target">
+                        <rect key="frame" x="60" y="60" width="251" height="116"/>
+                        <attributedString key="attributedText">
+                            <fragment>
+                                <string key="content">当我们玩一个游戏的时候，玩得不仅仅是画面和游戏性，玩的也是制作人的追求和野望。我接触神海系列的时候，已经是ps3的末期，实际上，我是在pc上打通古墓丽影9的一个月之后才打通神海123系列的。所以在我看来，不论画面，操作还是体验，神海系列相对于古墓丽影都没有任何优势。然而古墓9我给8分，神海系列我给9.5.为什么？因为人物。</string>
+                                <attributes>
+                                    <font key="NSFont" size="14" name="PingFangSC-Regular"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -198,9 +218,8 @@
                     <constraint firstAttribute="bottom" secondItem="cY3-3B-OtO" secondAttribute="bottom" constant="20" id="NOU-K6-s2m"/>
                     <constraint firstItem="Uby-OV-0ee" firstAttribute="top" secondItem="7ZK-Gy-gz7" secondAttribute="bottom" constant="10" id="NQw-wO-z5M"/>
                     <constraint firstItem="Uby-OV-0ee" firstAttribute="leading" secondItem="05g-Ta-K9Y" secondAttribute="leading" id="OdJ-2p-S54"/>
-                    <constraint firstItem="cY3-3B-OtO" firstAttribute="top" secondItem="J8a-87-ABS" secondAttribute="bottom" id="Rgr-AN-vrE"/>
+                    <constraint firstItem="cY3-3B-OtO" firstAttribute="top" secondItem="J8a-87-ABS" secondAttribute="bottom" constant="10" id="Rgr-AN-vrE"/>
                     <constraint firstItem="w47-Ho-8QR" firstAttribute="leading" secondItem="tic-qj-e8W" secondAttribute="leading" id="Rym-7K-qbr"/>
-                    <constraint firstItem="7ZK-Gy-gz7" firstAttribute="height" secondItem="4n6-26-z5r" secondAttribute="width" multiplier="0.8" id="XBn-s7-hlO"/>
                     <constraint firstItem="J8a-87-ABS" firstAttribute="top" secondItem="Uby-OV-0ee" secondAttribute="bottom" constant="10" id="bf1-2C-5un"/>
                     <constraint firstItem="uYZ-gH-zJy" firstAttribute="leading" secondItem="tic-qj-e8W" secondAttribute="trailing" constant="10" id="fTV-TR-pFW"/>
                     <constraint firstItem="uYZ-gH-zJy" firstAttribute="centerY" secondItem="tic-qj-e8W" secondAttribute="centerY" id="fjN-ud-K68"/>
@@ -210,14 +229,10 @@
                     <constraint firstItem="05g-Ta-K9Y" firstAttribute="top" secondItem="7ZK-Gy-gz7" secondAttribute="top" id="oKI-76-FO0"/>
                     <constraint firstAttribute="trailing" secondItem="05g-Ta-K9Y" secondAttribute="trailing" constant="10" id="ock-g2-6vU"/>
                     <constraint firstItem="J8a-87-ABS" firstAttribute="height" secondItem="cY3-3B-OtO" secondAttribute="height" multiplier="0.5" id="qBj-wH-jdJ"/>
-                    <constraint firstItem="7ZK-Gy-gz7" firstAttribute="width" secondItem="4n6-26-z5r" secondAttribute="width" multiplier="0.8" id="saG-IP-9Pg"/>
                     <constraint firstItem="J8a-87-ABS" firstAttribute="leading" secondItem="cY3-3B-OtO" secondAttribute="leading" id="sqc-3K-Ss0"/>
                     <constraint firstItem="7ZK-Gy-gz7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="wv9-8s-Huc"/>
                 </constraints>
             </tableViewCellContentView>
-            <constraints>
-                <constraint firstItem="cY3-3B-OtO" firstAttribute="height" secondItem="KGk-i7-Jjw" secondAttribute="width" multiplier="0.16" id="11o-Qp-Poj"/>
-            </constraints>
             <connections>
                 <outlet property="commentBtn" destination="fji-If-ziX" id="goo-3e-Pyj"/>
                 <outlet property="commentTimeLabel" destination="w47-Ho-8QR" id="Hd8-RT-lCl"/>
