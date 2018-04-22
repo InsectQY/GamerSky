@@ -72,6 +72,8 @@
 		E52B6DDD208C41CF004904C6 /* GameCommentPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52B6DDC208C41CF004904C6 /* GameCommentPageViewController.swift */; };
 		E52B6DDF208C41F2004904C6 /* GameCommentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52B6DDE208C41F2004904C6 /* GameCommentListViewController.swift */; };
 		E52B6DE3208C4288004904C6 /* GameComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52B6DE2208C4288004904C6 /* GameComment.swift */; };
+		E52B6DE7208C4C7E004904C6 /* GameCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52B6DE5208C4C7E004904C6 /* GameCommentCell.swift */; };
+		E52B6DE8208C4C7E004904C6 /* GameCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E52B6DE6208C4C7E004904C6 /* GameCommentCell.xib */; };
 		E534FACC207A60F5006CE008 /* ColumnNavTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E534FACA207A60F5006CE008 /* ColumnNavTitleView.swift */; };
 		E534FACD207A60F5006CE008 /* ColumnNavTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E534FACB207A60F5006CE008 /* ColumnNavTitleView.xib */; };
 		E534FAD0207A6506006CE008 /* ColumnDescHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E534FACF207A6506006CE008 /* ColumnDescHeaderView.swift */; };
@@ -220,6 +222,8 @@
 		E52B6DDC208C41CF004904C6 /* GameCommentPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCommentPageViewController.swift; sourceTree = "<group>"; };
 		E52B6DDE208C41F2004904C6 /* GameCommentListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCommentListViewController.swift; sourceTree = "<group>"; };
 		E52B6DE2208C4288004904C6 /* GameComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameComment.swift; sourceTree = "<group>"; };
+		E52B6DE5208C4C7E004904C6 /* GameCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCommentCell.swift; sourceTree = "<group>"; };
+		E52B6DE6208C4C7E004904C6 /* GameCommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameCommentCell.xib; sourceTree = "<group>"; };
 		E534FACA207A60F5006CE008 /* ColumnNavTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColumnNavTitleView.swift; sourceTree = "<group>"; };
 		E534FACB207A60F5006CE008 /* ColumnNavTitleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColumnNavTitleView.xib; sourceTree = "<group>"; };
 		E534FACF207A6506006CE008 /* ColumnDescHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnDescHeaderView.swift; sourceTree = "<group>"; };
@@ -775,8 +779,9 @@
 		E52B6DDB208C41AB004904C6 /* List */ = {
 			isa = PBXGroup;
 			children = (
-				E52B6DE1208C4275004904C6 /* Model */,
 				E52B6DE0208C426D004904C6 /* Controller */,
+				E52B6DE4208C4C5F004904C6 /* View */,
+				E52B6DE1208C4275004904C6 /* Model */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -795,6 +800,15 @@
 				E52B6DE2208C4288004904C6 /* GameComment.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		E52B6DE4208C4C5F004904C6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E52B6DE5208C4C7E004904C6 /* GameCommentCell.swift */,
+				E52B6DE6208C4C7E004904C6 /* GameCommentCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		E534FAC0207A5237006CE008 /* Main */ = {
@@ -1125,8 +1139,8 @@
 		E5DC0AE82086298D001E61C6 /* SellList */ = {
 			isa = PBXGroup;
 			children = (
-				E5DC0AF120863537001E61C6 /* List */,
 				E5DC0AF02086352A001E61C6 /* Page */,
+				E5DC0AF120863537001E61C6 /* List */,
 			);
 			path = SellList;
 			sourceTree = "<group>";
@@ -1296,6 +1310,7 @@
 				9966511420736D7D0010430E /* default_theme.plist in Resources */,
 				E57C5BC02082572000655E0F /* GameColumnDetailSectionHeader.xib in Resources */,
 				9966511620736D8C0010430E /* night_theme.plist in Resources */,
+				E52B6DE8208C4C7E004904C6 /* GameCommentCell.xib in Resources */,
 				E57C5BAD2082402800655E0F /* GameRecommendFooterView.xib in Resources */,
 				E5CD699D207BAADC001A1A0A /* GameHomeRecommendCell.xib in Resources */,
 			);
@@ -1437,6 +1452,7 @@
 				9906819220721AAA00A825AC /* BaseModel.swift in Sources */,
 				E5CD69C3207BCF5F001A1A0A /* CosmosTouch.swift in Sources */,
 				998F0C402071EEAB00C587C2 /* UICollectionView+Reusable.swift in Sources */,
+				E52B6DE7208C4C7E004904C6 /* GameCommentCell.swift in Sources */,
 				998F0C602071EFB100C587C2 /* QYRefresh.swift in Sources */,
 				E5F8116520738C2400E9883F /* Column.swift in Sources */,
 				994141082074605E0016AC01 /* AppEnum.swift in Sources */,

@@ -7,25 +7,54 @@
 //
 
 import UIKit
+import DNSPageView
 
-class GameCommentPageViewController: UIViewController {
-    
-    // MARK: - LazyLoad
-    
+class GameCommentPageViewController: BaseViewController {
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setUpUI()
+        setUpNavi()
+        setUpPageView()
     }
 }
 
 // MARK: - 设置 UI 界面
 extension GameCommentPageViewController {
     
-    private func setUpUI() {
+    private func setUpNavi() {
         
-        view.backgroundColor = .white
+        title = "玩家点评"
+        automaticallyAdjustsScrollViewInsets = false
+    }
+    
+    private func setUpPageView() {
+        
+        // 创建DNSPageStyle，设置样式
+        let style = DNSPageStyle()
+        style.bottomLineHeight = 2
+        style.isShowBottomLine = true
+        style.titleFontSize = 18
+        style.bottomLineColor = MainColor
+        style.titleColor = .black
+        style.titleSelectedColor = MainColor
+//        style.isTitleScrollEnable = true
+        
+        // 创建每一页对应的controller
+        var childViewControllers = [GameCommentListViewController]()
+        let commentStrings = ["热门", "最新"]
+        let commentType: [GameCommentType] = [.hot, .latest]
+        
+        for i in 0..<commentStrings.count {
+            
+            let controller = GameCommentListViewController()
+            controller.commentType = commentType[i]
+            childViewControllers.append(controller)
+        }
+        
+        // 创建对应的DNSPageView，并设置它的frame
+        let pageView = DNSPageView(frame: CGRect(x: 0, y: kTopH, width: ScreenWidth, height: ScreenHeight), style: style, titles: commentStrings, childViewControllers: childViewControllers)
+        view.addSubview(pageView)
     }
 }
