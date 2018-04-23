@@ -46,6 +46,8 @@ enum Api {
     case twoGameList(Int, GameSellSort)
     /// 玩家点评(参数依次是: page, 评论方式)
     case gameReviewList(Int,GameCommentType)
+    /// 找游戏
+    case gameList(Int)
     
     ///////////////  圈子  ///////////////
     
@@ -130,6 +132,8 @@ extension Api: TargetType {
             return "v2/twoGameList"
         case .gameReviewList:
             return "game/reviewList"
+        case .gameList:
+            return "game/GameList"
         }
     }
     
@@ -240,6 +244,18 @@ extension Api: TargetType {
                                     "type" : type.rawValue,
                                     "pageIndex" : page,
                                     "elementsCountPerPage" : 20]
+        case let .gameList(page):
+            parmeters["request"] = ["nodeId" : 20039,
+                                    "platform" : 0,
+                                    "sellTime" : 0,
+                                    "company" : 0,
+                                    "chinese" : 0,
+                                    "gameTag" : 0,
+                                    "orderBy" : "hot",
+                                    "orderSort" : "desc",
+                                    "selling" : 0,
+                                    "pageIndex" : page,
+                                    "elementsCountPerPage" : 21]
         default:
             return .requestPlain
         }

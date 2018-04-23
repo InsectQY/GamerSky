@@ -11,11 +11,7 @@ import UIKit
 class GameCommentCell: UITableViewCell, NibReusable {
 
     // MARK: - IBOutlet
-    @IBOutlet private weak var userProfileImageView: UIImageView! {
-        didSet {
-            userProfileImageView.cornerRadius = userProfileImageView.width * 0.5
-        }
-    }
+    @IBOutlet private weak var userProfileImageView: UIImageView!
     @IBOutlet private weak var userNameLabel: BaseLabel!
     @IBOutlet private weak var playTypeLabel: BaseLabel!
     @IBOutlet private weak var commentTimeLabel: BaseLabel!

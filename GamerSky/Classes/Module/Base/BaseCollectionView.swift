@@ -54,6 +54,7 @@ extension BaseCollectionView {
     // MARK: - 主题设置
     private func initTheme() {
         
+        backgroundColor = .white
         theme_backgroundColor = ThemeColorPicker(keyPath: defaultBackgroundColor)
     }
 }
