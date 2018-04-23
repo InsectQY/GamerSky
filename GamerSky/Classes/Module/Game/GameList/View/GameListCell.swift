@@ -26,4 +26,9 @@ class GameListCell: UICollectionViewCell, NibReusable {
             gameNameLabel.text = info.title
         }
     }
+    
+    // MARK: - prepareForReuse
+    override func prepareForReuse() {
+        ratingView.prepareForReuse()
+    }
 }

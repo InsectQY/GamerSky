@@ -36,4 +36,9 @@ class GameCommentCell: UITableViewCell, NibReusable {
             userNameLabel.text = comment.nickname
         }
     }
+    
+    // MARK: - prepareForReuse
+    override func prepareForReuse() {
+        gameRatingView.prepareForReuse()
+    }
 }

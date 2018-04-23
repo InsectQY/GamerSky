@@ -11,16 +11,16 @@ import UIKit
 class GameListViewController: BaseViewController {
     
     /// 左右间距
-    private let kEdge: CGFloat = 20
-    /// cell 左右间距
-    private let kLineSpacing: CGFloat = 30
+    private let kEdge: CGFloat = 15
     /// cell 上下间距
-    private let kInteritemSpacing: CGFloat = 15
+    private let kLineSpacing: CGFloat = 15
+    /// cell 左右间距
+    private let kInteritemSpacing: CGFloat = 30
     /// 每行最大列数
     private let kMaxCol: CGFloat = 3
     /// cell 宽度
     private var kItemW: CGFloat {
-        return (ScreenWidth - (2 * kEdge) - ((kMaxCol - 1) * kLineSpacing)) / kMaxCol
+        return (ScreenWidth - (2 * kEdge) - ((kMaxCol - 1) * kInteritemSpacing)) / kMaxCol
     }
     private var kItemH: CGFloat {
         return kItemW * 1.8
@@ -65,7 +65,7 @@ extension GameListViewController {
         collectionView.qy_header = QYRefreshHeader(refreshingBlock: { [weak self] in
             
             guard let strongSelf = self else {return}
-            
+            strongSelf.page = 1
             strongSelf.collectionView.qy_footer.endRefreshing()
             ApiProvider.request(Api.gameList(strongSelf.page), objectModel: BaseModel<GameList>.self, success: {
                 
@@ -80,7 +80,7 @@ extension GameListViewController {
         collectionView.qy_footer = QYRefreshFooter(refreshingBlock: { [weak self] in
 
             guard let strongSelf = self else {return}
-            
+            strongSelf.page += 1
             strongSelf.collectionView.qy_header.endRefreshing()
             ApiProvider.request(Api.gameList(strongSelf.page), objectModel: BaseModel<GameList>.self, success: {
                 
