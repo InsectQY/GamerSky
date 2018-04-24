@@ -29,6 +29,22 @@ extension String {
         }
     }
     
+    // MARK: - 计算大小
+    public func size(_ width: CGFloat, _ font: UIFont, _ lineSpeace: CGFloat? = 0) -> CGSize {
+        
+        let constraintRect = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
+        
+        // 行距
+        let paragraphStye = NSMutableParagraphStyle()
+        paragraphStye.lineSpacing = lineSpeace ?? 0
+        // 字体属性
+        let attributes = [NSAttributedStringKey.font: font,
+                          NSAttributedStringKey.paragraphStyle: paragraphStye]
+        // 计算宽高
+        let boundingBox = self.boundingRect(with: constraintRect, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: attributes, context: nil)
+        return boundingBox.size
+    }
+    
     public var htmlString: String {
         return htmlAttributedString?.string ?? ""
     }

@@ -38,11 +38,18 @@ class GameListViewController: BaseViewController {
         flowLayout.minimumLineSpacing = kLineSpacing
         flowLayout.minimumInteritemSpacing = kInteritemSpacing
         let collectionView = BaseCollectionView(frame: UIScreen.main.bounds, collectionViewLayout: flowLayout)
+        collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.contentInset = UIEdgeInsetsMake(kTopH, 0, 0, 0)
+        collectionView.contentInset = UIEdgeInsetsMake(kTopH + FilterView.height, 0, 0, 0)
         collectionView.register(cellType: GameListCell.self)
         return collectionView
+    }()
+    
+    private lazy var filterView: FilterView = {
+        
+        let filterView = FilterView(frame: CGRect(x: 0, y: -FilterView.height, width: ScreenWidth, height: FilterView.height))
+        return filterView
     }()
     
     private lazy var gameLists = [GameChildElement]()
@@ -54,45 +61,6 @@ class GameListViewController: BaseViewController {
         setUpNavi()
         setUpUI()
         setUpRefresh()
-    }
-}
-
-extension GameListViewController {
-    
-    // MARK: - 设置刷新
-    private func setUpRefresh() {
-        
-        collectionView.qy_header = QYRefreshHeader(refreshingBlock: { [weak self] in
-            
-            guard let strongSelf = self else {return}
-            strongSelf.page = 1
-            strongSelf.collectionView.qy_footer.endRefreshing()
-            ApiProvider.request(Api.gameList(strongSelf.page), objectModel: BaseModel<GameList>.self, success: {
-                
-                strongSelf.gameLists = $0.result.childelements
-                strongSelf.collectionView.reloadData()
-                strongSelf.collectionView.qy_header.endRefreshing()
-            }, failure: { _ in
-                strongSelf.collectionView.qy_header.endRefreshing()
-            })
-        })
-        
-        collectionView.qy_footer = QYRefreshFooter(refreshingBlock: { [weak self] in
-
-            guard let strongSelf = self else {return}
-            strongSelf.page += 1
-            strongSelf.collectionView.qy_header.endRefreshing()
-            ApiProvider.request(Api.gameList(strongSelf.page), objectModel: BaseModel<GameList>.self, success: {
-                
-                strongSelf.gameLists += $0.result.childelements
-                strongSelf.collectionView.reloadData()
-                strongSelf.collectionView.qy_footer.endRefreshing()
-            }, failure: { _ in
-                strongSelf.collectionView.qy_footer.endRefreshing()
-            })
-        })
-        
-        collectionView.qy_header.beginRefreshing()
     }
 }
 
@@ -108,6 +76,46 @@ extension GameListViewController {
     private func setUpUI() {
         
         view.addSubview(collectionView)
+        collectionView.addSubview(filterView)
+    }
+}
+
+extension GameListViewController {
+    
+    // MARK: - 设置刷新
+    private func setUpRefresh() {
+        
+        collectionView.qy_header = QYRefreshHeader(refreshingBlock: { [weak self] in
+            
+            guard let strongSelf = self else {return}
+            strongSelf.page = 1
+            strongSelf.collectionView.qy_footer.endRefreshing()
+            ApiProvider.request(.gameList(strongSelf.page), objectModel: BaseModel<GameList>.self, success: {
+                
+                strongSelf.gameLists = $0.result.childelements
+                strongSelf.collectionView.reloadData()
+                strongSelf.collectionView.qy_header.endRefreshing()
+            }, failure: { _ in
+                strongSelf.collectionView.qy_header.endRefreshing()
+            })
+        })
+        
+        collectionView.qy_footer = QYRefreshFooter(refreshingBlock: { [weak self] in
+            
+            guard let strongSelf = self else {return}
+            strongSelf.page += 1
+            strongSelf.collectionView.qy_header.endRefreshing()
+            ApiProvider.request(.gameList(strongSelf.page), objectModel: BaseModel<GameList>.self, success: {
+                
+                strongSelf.gameLists += $0.result.childelements
+                strongSelf.collectionView.reloadData()
+                strongSelf.collectionView.qy_footer.endRefreshing()
+            }, failure: { _ in
+                strongSelf.collectionView.qy_footer.endRefreshing()
+            })
+        })
+        
+        collectionView.qy_header.beginRefreshing()
     }
 }
 
