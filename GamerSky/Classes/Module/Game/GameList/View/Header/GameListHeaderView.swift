@@ -10,6 +10,7 @@ import UIKit
 
 class GameListHeaderView: UICollectionReusableView, NibReusable {
 
+    static let height: CGFloat = 44
     // MARK: - LazyLoad
     
     
