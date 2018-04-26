@@ -41,6 +41,8 @@
 		99446AC5207CA640004048C7 /* GameHomeRankingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99446AC3207CA640004048C7 /* GameHomeRankingCell.xib */; };
 		99446AC8207CAC19004048C7 /* GameHomeRankingContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99446AC6207CAC19004048C7 /* GameHomeRankingContentCell.swift */; };
 		99446AC9207CAC19004048C7 /* GameHomeRankingContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99446AC7207CAC19004048C7 /* GameHomeRankingContentCell.xib */; };
+		9958FFCF2091C3EB0055DFAF /* GameListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9958FFCD2091C3EB0055DFAF /* GameListHeaderView.swift */; };
+		9958FFD02091C3EB0055DFAF /* GameListHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9958FFCE2091C3EB0055DFAF /* GameListHeaderView.xib */; };
 		9966510F20735FFB0010430E /* MineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9966510D20735FFB0010430E /* MineViewController.swift */; };
 		9966511020735FFB0010430E /* MineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9966510E20735FFB0010430E /* MineViewController.xib */; };
 		9966511420736D7D0010430E /* default_theme.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9966511320736D7D0010430E /* default_theme.plist */; };
@@ -189,6 +191,8 @@
 		99446AC3207CA640004048C7 /* GameHomeRankingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameHomeRankingCell.xib; sourceTree = "<group>"; };
 		99446AC6207CAC19004048C7 /* GameHomeRankingContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHomeRankingContentCell.swift; sourceTree = "<group>"; };
 		99446AC7207CAC19004048C7 /* GameHomeRankingContentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameHomeRankingContentCell.xib; sourceTree = "<group>"; };
+		9958FFCD2091C3EB0055DFAF /* GameListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListHeaderView.swift; sourceTree = "<group>"; };
+		9958FFCE2091C3EB0055DFAF /* GameListHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameListHeaderView.xib; sourceTree = "<group>"; };
 		9966510D20735FFB0010430E /* MineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineViewController.swift; sourceTree = "<group>"; };
 		9966510E20735FFB0010430E /* MineViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineViewController.xib; sourceTree = "<group>"; };
 		9966511320736D7D0010430E /* default_theme.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = default_theme.plist; sourceTree = "<group>"; };
@@ -435,6 +439,15 @@
 				99446AC3207CA640004048C7 /* GameHomeRankingCell.xib */,
 			);
 			path = Ranking;
+			sourceTree = "<group>";
+		};
+		9958FFCC2091C3BA0055DFAF /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				9958FFCD2091C3EB0055DFAF /* GameListHeaderView.swift */,
+				9958FFCE2091C3EB0055DFAF /* GameListHeaderView.xib */,
+			);
+			path = Header;
 			sourceTree = "<group>";
 		};
 		9966511220736D2C0010430E /* Plist */ = {
@@ -804,6 +817,7 @@
 		E5259686208E165600B5F419 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9958FFCC2091C3BA0055DFAF /* Header */,
 				E58548E4208F6D6100C1C7CD /* Cell */,
 				E58548D2208F6C8300C1C7CD /* FilterView */,
 			);
@@ -1374,6 +1388,7 @@
 				E5CD6991207B9DAC001A1A0A /* GameHomeHeaderData.plist in Resources */,
 				E5DC0AFC20864CD0001E61C6 /* GameSellListCell.xib in Resources */,
 				E550C941207CF51B00C4AF2D /* GameHomeSectionHeader.xib in Resources */,
+				9958FFD02091C3EB0055DFAF /* GameListHeaderView.xib in Resources */,
 				99D32AE02079B47B008A6B52 /* ColumnSectionHeader.xib in Resources */,
 				E5F8116920739AAB00E9883F /* ColumnHeaderView.xib in Resources */,
 				E586EE7D207E68FA00D8F3F0 /* GameHomePageFooterView.xib in Resources */,
@@ -1577,6 +1592,7 @@
 				9941411020747F8C0016AC01 /* BaseButton.swift in Sources */,
 				E57C5BBB20824FA400655E0F /* GameColumnDetailCell.swift in Sources */,
 				E5CD69C1207BCF5F001A1A0A /* CosmosLocalizedRating.swift in Sources */,
+				9958FFCF2091C3EB0055DFAF /* GameListHeaderView.swift in Sources */,
 				998F0C722071F7AD00C587C2 /* OriginalViewController.swift in Sources */,
 				E550C92A207CD0E700C4AF2D /* GameHomeTagCell.swift in Sources */,
 			);
