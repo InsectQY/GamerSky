@@ -26,9 +26,15 @@
                     <state key="normal" title="热门" image="gamefindIcon_lower_8x12_UIMode_Day">
                         <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
+                    <state key="selected" image="gamefindIcon_lowerSelect_8x12_UIMode_Day">
+                        <color key="titleColor" red="0.37254901960784315" green="0.70588235294117641" blue="0.47450980392156861" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
                     <state key="highlighted" title="热门" image="gamefindIcon_lowerSelect_8x12_UIMode_Day">
                         <color key="titleColor" red="0.33333333329999998" green="0.6588235294" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="sortBtnDidClick:" destination="U6b-Vx-4bR" eventType="touchUpInside" id="0YJ-ru-DA4"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q1q-9P-7Ch">
                     <rect key="frame" x="90" y="0.0" width="50" height="98"/>
@@ -41,9 +47,15 @@
                     <state key="normal" title="时间" image="gamefindIcon_lower_8x12_UIMode_Day">
                         <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
+                    <state key="selected" image="gamefindIcon_lowerSelect_8x12_UIMode_Day">
+                        <color key="titleColor" red="0.37254901960784315" green="0.70588235294117641" blue="0.47450980392156861" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
                     <state key="highlighted" title="热门" image="gamefindIcon_lowerSelect_8x12_UIMode_Day">
                         <color key="titleColor" red="0.33333333329999998" green="0.6588235294" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="sortBtnDidClick:" destination="U6b-Vx-4bR" eventType="touchUpInside" id="Tld-sO-iDa"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YWn-7F-pfr">
                     <rect key="frame" x="150" y="0.0" width="162" height="98"/>
@@ -79,6 +91,10 @@
                 <constraint firstItem="YWn-7F-pfr" firstAttribute="top" secondItem="Q1q-9P-7Ch" secondAttribute="top" id="ngk-KJ-NBc"/>
                 <constraint firstItem="2yx-IR-oZw" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="t2h-Ci-oxY"/>
             </constraints>
+            <connections>
+                <outlet property="hotSortBtn" destination="2yx-IR-oZw" id="ewd-jV-DSj"/>
+                <outlet property="timeSortBtn" destination="Q1q-9P-7Ch" id="tC2-A0-6Fc"/>
+            </connections>
             <point key="canvasLocation" x="26" y="76"/>
         </collectionReusableView>
     </objects>
