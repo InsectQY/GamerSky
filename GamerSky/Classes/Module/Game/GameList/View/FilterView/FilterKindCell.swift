@@ -10,17 +10,25 @@ import UIKit
 
 class FilterKindCell: UICollectionViewCell, NibReusable {
     
-    @IBOutlet private weak var filterBtn: UIButton!
+    @IBOutlet private weak var filterBtn: FilterBtn!
     
-    var filterClick: ((UIButton) -> ())?
-    
-    var content: String? {
+    /// 点击回调
+    var filterClick: ((Filter) -> ())?
+    /// 内部按钮是否选中
+    var isSel: Bool = false {
         didSet {
-            filterBtn.setTitle(content, for: .normal)
+            filterBtn.isSel = isSel
         }
     }
     
-    @IBAction func filterBtnDidClick() {
-        filterClick?(filterBtn)
+    var filter: Filter? {
+        didSet {
+            filterBtn.setTitle(filter?.name, for: .normal)
+        }
+    }
+    
+    /// 选中了某个属性
+    @IBAction private func filterBtnDidClick() {
+        filterClick?(filter!)
     }
 }

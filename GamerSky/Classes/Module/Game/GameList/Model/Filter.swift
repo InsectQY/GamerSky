@@ -18,9 +18,7 @@ struct Filter: Codable {
         get {
             
             var size = name.size(ScreenWidth, PFR14Font)
-            
-            size.width += 40
-            size.height += 40
+            size.width += 30
             return size
         }
     }

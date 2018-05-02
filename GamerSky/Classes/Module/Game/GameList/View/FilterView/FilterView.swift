@@ -23,6 +23,7 @@ class FilterView: UIView {
         tableView.dataSource = self
         tableView.rowHeight = FilterCell.cellHeight
         tableView.separatorStyle = .none
+        tableView.backgroundColor = .white
         return tableView
     }()
     

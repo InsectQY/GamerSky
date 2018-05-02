@@ -23,6 +23,7 @@
 		9906819220721AAA00A825AC /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9906819120721AAA00A825AC /* BaseModel.swift */; };
 		9906819520721F8700A825AC /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9906819420721F8700A825AC /* Channel.swift */; };
 		992B5F42209965DC005036CE /* GameColumnFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992B5F41209965DC005036CE /* GameColumnFlowLayout.swift */; };
+		992B5F5620999388005036CE /* FilterBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992B5F5520999388005036CE /* FilterBtn.swift */; };
 		994141082074605E0016AC01 /* AppEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994141072074605E0016AC01 /* AppEnum.swift */; };
 		9941410E20747B0C0016AC01 /* BaseLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9941410D20747B0C0016AC01 /* BaseLabel.swift */; };
 		9941411020747F8C0016AC01 /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9941410F20747F8C0016AC01 /* BaseButton.swift */; };
@@ -175,6 +176,7 @@
 		9906819120721AAA00A825AC /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		9906819420721F8700A825AC /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		992B5F41209965DC005036CE /* GameColumnFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameColumnFlowLayout.swift; sourceTree = "<group>"; };
+		992B5F5520999388005036CE /* FilterBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterBtn.swift; sourceTree = "<group>"; };
 		994141072074605E0016AC01 /* AppEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnum.swift; sourceTree = "<group>"; };
 		9941410D20747B0C0016AC01 /* BaseLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseLabel.swift; sourceTree = "<group>"; };
 		9941410F20747F8C0016AC01 /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
@@ -1143,11 +1145,12 @@
 		E58548D2208F6C8300C1C7CD /* FilterView */ = {
 			isa = PBXGroup;
 			children = (
-				E58548D6208F6C8300C1C7CD /* FilterCell.swift */,
 				E58548D7208F6C8300C1C7CD /* FilterView.swift */,
-				E58548D8208F6C8300C1C7CD /* FilterKindCell.swift */,
+				E58548D6208F6C8300C1C7CD /* FilterCell.swift */,
 				E58548D9208F6C8300C1C7CD /* FilterCell.xib */,
+				E58548D8208F6C8300C1C7CD /* FilterKindCell.swift */,
 				E58548DA208F6C8300C1C7CD /* FilterKindCell.xib */,
+				992B5F5520999388005036CE /* FilterBtn.swift */,
 			);
 			path = FilterView;
 			sourceTree = "<group>";
@@ -1353,6 +1356,7 @@
 				99E799952071E10D005C3408 /* Resources */,
 				6BCCF8F026839F28A125CABD /* [CP] Embed Pods Frameworks */,
 				998F0C342071ECBB00C587C2 /* ShellScript */,
+				D87E3022E84DC04C980F1239 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1514,6 +1518,21 @@
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks";
 		};
+		D87E3022E84DC04C980F1239 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GamerSky/Pods-GamerSky-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1521,6 +1540,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				992B5F5620999388005036CE /* FilterBtn.swift in Sources */,
 				998F0C622071F18D00C587C2 /* Moya + Codable.swift in Sources */,
 				E58548DD208F6C8300C1C7CD /* Filter.swift in Sources */,
 				99E7999B2071E10E005C3408 /* AppDelegate.swift in Sources */,

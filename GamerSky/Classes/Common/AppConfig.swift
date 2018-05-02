@@ -28,7 +28,7 @@ public let deviceID = UIDevice.current.identifierForVendor!.uuidString
 
 public let MainColor = RGB(233, g: 50, b: 56)
 
-public let RatingColor = RGB(0, g: 192, b: 118)
+public let RatingColor = RGB(87, g: 172, b: 110)
 
 /// RGB
 func RGB(_ r:CGFloat,g:CGFloat,b:CGFloat) -> UIColor {
