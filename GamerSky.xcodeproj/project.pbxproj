@@ -22,6 +22,7 @@
 		9906818D2072019E00A825AC /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9906818C2072019E00A825AC /* BaseViewController.swift */; };
 		9906819220721AAA00A825AC /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9906819120721AAA00A825AC /* BaseModel.swift */; };
 		9906819520721F8700A825AC /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9906819420721F8700A825AC /* Channel.swift */; };
+		992B5F42209965DC005036CE /* GameColumnFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992B5F41209965DC005036CE /* GameColumnFlowLayout.swift */; };
 		994141082074605E0016AC01 /* AppEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994141072074605E0016AC01 /* AppEnum.swift */; };
 		9941410E20747B0C0016AC01 /* BaseLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9941410D20747B0C0016AC01 /* BaseLabel.swift */; };
 		9941411020747F8C0016AC01 /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9941410F20747F8C0016AC01 /* BaseButton.swift */; };
@@ -173,6 +174,7 @@
 		9906818C2072019E00A825AC /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		9906819120721AAA00A825AC /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		9906819420721F8700A825AC /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
+		992B5F41209965DC005036CE /* GameColumnFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameColumnFlowLayout.swift; sourceTree = "<group>"; };
 		994141072074605E0016AC01 /* AppEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnum.swift; sourceTree = "<group>"; };
 		9941410D20747B0C0016AC01 /* BaseLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseLabel.swift; sourceTree = "<group>"; };
 		9941410F20747F8C0016AC01 /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
@@ -386,6 +388,22 @@
 				9906819420721F8700A825AC /* Channel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		992B5F3F2099659C005036CE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E57C5BB02082460400655E0F /* GameColumnViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		992B5F40209965B5005036CE /* FlowLayout */ = {
+			isa = PBXGroup;
+			children = (
+				992B5F41209965DC005036CE /* GameColumnFlowLayout.swift */,
+			);
+			path = FlowLayout;
 			sourceTree = "<group>";
 		};
 		994141112074A2940016AC01 /* SectionHeader */ = {
@@ -1072,7 +1090,8 @@
 		E57C5BAF208245E900655E0F /* ColumnList */ = {
 			isa = PBXGroup;
 			children = (
-				E57C5BB02082460400655E0F /* GameColumnViewController.swift */,
+				992B5F40209965B5005036CE /* FlowLayout */,
+				992B5F3F2099659C005036CE /* Controller */,
 			);
 			path = ColumnList;
 			sourceTree = "<group>";
@@ -1597,6 +1616,7 @@
 				998F0C322071EBCE00C587C2 /* TabBarController.swift in Sources */,
 				E5DC0AEB20862A4C001E61C6 /* GameSellListPageViewController.swift in Sources */,
 				E5CD6997207BAA9C001A1A0A /* GameHomeRecommendContentCell.swift in Sources */,
+				992B5F42209965DC005036CE /* GameColumnFlowLayout.swift in Sources */,
 				E5DC0AF420863556001E61C6 /* GameSellListViewController.swift in Sources */,
 				998F0C412071EEAB00C587C2 /* Reusable.swift in Sources */,
 				994141232074B7C00016AC01 /* BaseView.swift in Sources */,

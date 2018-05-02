@@ -10,33 +10,14 @@ import UIKit
 
 class GameColumnViewController: BaseViewController {
     
-    /// cell 之间间距
-    private let kItemMargin: CGFloat = 15
-    /// 左右间距
-    private let kEdge: CGFloat = 15
-    /// 每行最大列数
-    private let kMaxCol: CGFloat = 1
-    /// cell 宽度
-    private var kItemW: CGFloat {
-        return (ScreenWidth - (2 * kEdge) - ((kMaxCol - 1) * kItemMargin)) / kMaxCol
-    }
-    /// cell 高度
-    private let kItemH: CGFloat = ScreenHeight * 0.22
-    
     // MARK: - LazyLoad
     /// 特色专题
     private lazy var gameColumn = [GameSpecialList]()
     
     private lazy var collectionView: UICollectionView = {
         
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.itemSize = CGSize(width: kItemW, height: kItemH)
-        flowLayout.scrollDirection = .vertical
-        flowLayout.minimumInteritemSpacing = kEdge
-        flowLayout.minimumLineSpacing = kItemMargin
-        flowLayout.sectionInset = UIEdgeInsetsMake(kItemMargin, 0, 0, 0)
-        let collectionView = UICollectionView(frame: UIScreen.main.bounds, collectionViewLayout: flowLayout)
-        collectionView.contentInset = UIEdgeInsetsMake(kTopH, 0, kItemMargin, 0)
+        let collectionView = UICollectionView(frame: UIScreen.main.bounds, collectionViewLayout: GameColumnFlowLayout())
+        collectionView.contentInset = UIEdgeInsetsMake(kTopH, 0, 0, 0)
         collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(kTopH, 0, 0, 0)
         collectionView.delegate = self
         collectionView.dataSource = self

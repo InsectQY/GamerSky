@@ -13,20 +13,15 @@ class GameColumnDetailSectionHeader: UITableViewHeaderFooterView, NibReusable {
     /// 高度
     static let sectionHeight: CGFloat = 44
     // MARK: - IBOutlet
-    @IBOutlet private weak var titleBtn: UIButton! {
-        didSet {
-            
-            let image = #imageLiteral(resourceName: "common_Icon_Ribbon_94x22_Highlight")
-            image.resizableImage(withCapInsets: UIEdgeInsetsMake(0, image.size.width * 0.2, 0, image.size.width * 0.2), resizingMode: .stretch)
-            titleBtn.setBackgroundImage(image, for: .normal)
-        }
-    }
+    @IBOutlet private weak var titleBtn: UIButton! 
+    @IBOutlet private weak var titleBtnWidthConstraint: NSLayoutConstraint!
     
     public var title: String? {
         
         didSet {
             
             titleBtn.setTitle(title, for: .normal)
+            titleBtnWidthConstraint.constant = (title?.size(ScreenWidth, PFR13Font).width ?? 0) + 90
         }
     }
     

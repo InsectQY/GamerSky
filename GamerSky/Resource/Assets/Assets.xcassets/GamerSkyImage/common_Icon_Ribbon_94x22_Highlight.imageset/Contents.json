@@ -5,6 +5,17 @@
       "scale" : "1x"
     },
     {
+      "resizing" : {
+        "mode" : "3-part-horizontal",
+        "center" : {
+          "mode" : "tile",
+          "width" : 1
+        },
+        "cap-insets" : {
+          "right" : 60,
+          "left" : 60
+        }
+      },
       "idiom" : "universal",
       "filename" : "common_Icon_Ribbon_94x22_Highlight@2x.png",
       "scale" : "2x"
