@@ -16,10 +16,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        setUpRootViewController()
+        initRootViewController()
         fitiOSEleven()
         loadTheme()
+        initBugly()
         return true
+    }
+}
+
+// MARK: - SDK 设置
+extension AppDelegate {
+    
+    // MARK: - 初始化崩溃统计
+    private func initBugly() {
+        
+        let config = BuglyConfig()
+        config.blockMonitorEnable = true
+        Bugly.start(withAppId: BuglyID, config: config)
     }
 }
 
@@ -27,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate {
     
     // MARK: - 设置根控制器
-    private func setUpRootViewController() {
+    private func initRootViewController() {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = AppDelegate.tabBarContoller
@@ -41,7 +54,7 @@ extension AppDelegate {
         }
     }
     
-    // MARK: - 加载主题
+    // MARK: - 加载用户本地主题
     private func loadTheme() {
         
         guard let preference = QYUserDefaults.getUserPreference() else {return}

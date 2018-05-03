@@ -9,5 +9,7 @@ pod 'MJRefresh'
 pod 'SVProgressHUD'
 pod 'FDFullscreenPopGesture'
 pod 'DNSPageView'
+# Bug统计
+pod 'Bugly'
 
 end
