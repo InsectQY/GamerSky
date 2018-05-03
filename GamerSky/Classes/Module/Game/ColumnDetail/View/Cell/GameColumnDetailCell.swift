@@ -48,7 +48,7 @@ class GameColumnDetailCell: UITableViewCell, NibReusable {
             gameImageView.qy_setImage(specitial.DefaultPicUrl, "")
             gameNameLabel.text = specitial.Title
             gameDescLabel.text = specitial.description
-            gameTagLabel.text = specitial.gameTagTitle
+            gameTagLabel.text = specitial.gameTagString
             activityImageView.isHidden = !specitial.Position.contains("活动")
             if specitial.gsScore == "0" { // 没有评分
                 

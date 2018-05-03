@@ -23,6 +23,7 @@ class GameCommentCell: UITableViewCell, NibReusable {
     @IBOutlet private weak var gameTagsLabel: BaseLabel!
     @IBOutlet private weak var gameRatingView: CosmosView!
     @IBOutlet private weak var gameScoreLabel: BaseLabel!
+    @IBOutlet private weak var commentRatingView: CosmosView!
     
     public var comment: GameComment? {
         
@@ -33,7 +34,20 @@ class GameCommentCell: UITableViewCell, NibReusable {
             userProfileImageView.qy_setImage(comment.img_URL, "")
             gameImageView.qy_setImage(comment.DefaultPicUrl, "")
             contentLabel.attributedText = comment.content.htmlString.getAttributeStringWith(lineSpace: 10)
+            gameNameLabel.text = comment.Title
             userNameLabel.text = comment.nickname
+            gameTagsLabel.text = comment.gameTagString
+            likeBtn.setTitle(" \(comment.like)", for: .normal)
+            commentBtn.setTitle(" \(comment.reviewCount)", for: .normal)
+            commentRatingView.rating = comment.commentRating
+            if comment.likeType == .played { // 玩过
+                
+                if let platform = comment.platform {
+                    playTypeLabel.text = platform.count > 0 ? "在\(platform)平台上玩过" : "玩过"
+                }
+            }else { // 没玩过
+                playTypeLabel.text = "想玩"
+            }
         }
     }
     

@@ -10,6 +10,8 @@ import Foundation
 
 struct GameComment: Codable {
 
+    /// 是否玩过 (想玩还是玩过)
+    var likeType: PlayType
     /// 评论的 ID
     var reviewid: Int
     /// 评论内容
@@ -21,8 +23,8 @@ struct GameComment: Codable {
     /// 用户名
     var nickname: String
     /// 平台
-    var platform: String
-    /// 评分
+    var platform: String?
+    /// 玩家评分
     var rating: Int
     /// 点赞数
     var like: Int
@@ -36,14 +38,34 @@ struct GameComment: Codable {
     var create_time: Int
     /// 游戏类型
     var GameType: String
+    /// 游戏名称
+    var Title: String
     /// 是否包含活动
     var Position: String
-    /// 评分
+    /// 游民评分
     var gsScore: String
     /// 游戏标签
     var gameTag: [String]
     /// 子评论
     var reviews: [GameReviews]?
+    /// 游戏类型
+    var gameTagString: String? {
+        return gameTag.joined(separator: " ")
+    }
+    /// 游民评分
+    var gsRating: Double {
+        
+        get {
+            let score = Double(self.gsScore) ?? 0
+            return score * 0.5
+        }
+    }
+    /// 玩家评分
+    var commentRating: Double {
+        get {
+            return Double(rating) * 0.5
+        }
+    }
 }
 
 struct GameReviews: Codable {

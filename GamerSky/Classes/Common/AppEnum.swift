@@ -111,7 +111,7 @@ enum GameCommentType: String {
 ///
 /// - wantPlay: 想玩
 /// - played: 玩过
-enum LikeType: String, Codable {
+enum PlayType: String, Codable {
     
     case wantPlay = "WantPlay"
     case played = "Played"

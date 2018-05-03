@@ -64,7 +64,7 @@ struct GameSpecialDetail: Codable {
         }
     }
     
-    var gameTagTitle: String? {
+    var gameTagString: String? {
         return gameTag.joined(separator: " ")
     }
 }

@@ -235,6 +235,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="commentBtn" destination="fji-If-ziX" id="goo-3e-Pyj"/>
+                <outlet property="commentRatingView" destination="uYZ-gH-zJy" id="YCW-G7-aoZ"/>
                 <outlet property="commentTimeLabel" destination="w47-Ho-8QR" id="Hd8-RT-lCl"/>
                 <outlet property="contentLabel" destination="Uby-OV-0ee" id="U5P-Tm-djH"/>
                 <outlet property="gameImageView" destination="4n6-26-z5r" id="01F-t1-civ"/>
