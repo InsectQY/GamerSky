@@ -56,33 +56,33 @@ extension GameCommentListViewController {
         
         tableView.qy_header = QYRefreshHeader(refreshingBlock: { [weak self] in
             
-            guard let strongSelf = self else {return}
+            guard let `self` = self else {return}
             
-            strongSelf.page = 1
-            strongSelf.tableView.qy_footer.endRefreshing()
-            ApiProvider.request(.gameReviewList(strongSelf.page, strongSelf.commentType), objectModel: BaseModel<[GameComment]>.self, success: {
+            self.page = 1
+            self.tableView.qy_footer.endRefreshing()
+            ApiProvider.request(.gameReviewList(self.page, self.commentType), objectModel: BaseModel<[GameComment]>.self, success: {
                 
-                strongSelf.commets = $0.result
-                strongSelf.tableView.reloadData()
-                strongSelf.tableView.qy_header.endRefreshing()
+                self.commets = $0.result
+                self.tableView.reloadData()
+                self.tableView.qy_header.endRefreshing()
             }, failure: { _ in
-                strongSelf.tableView.qy_header.endRefreshing()
+                self.tableView.qy_header.endRefreshing()
             })
         })
         
         tableView.qy_footer = QYRefreshFooter(refreshingBlock: { [weak self] in
             
-            guard let strongSelf = self else {return}
+            guard let `self` = self else {return}
             
-            strongSelf.page += 1
-            strongSelf.tableView.qy_header.endRefreshing()
-            ApiProvider.request(.gameReviewList(strongSelf.page, strongSelf.commentType), objectModel: BaseModel<[GameComment]>.self, success: {
+            self.page += 1
+            self.tableView.qy_header.endRefreshing()
+            ApiProvider.request(.gameReviewList(self.page, self.commentType), objectModel: BaseModel<[GameComment]>.self, success: {
                 
-                strongSelf.commets += $0.result
-                strongSelf.tableView.reloadData()
-                strongSelf.tableView.qy_footer.endRefreshing()
+                self.commets += $0.result
+                self.tableView.reloadData()
+                self.tableView.qy_footer.endRefreshing()
             }, failure: { _ in
-                strongSelf.tableView.qy_footer.endRefreshing()
+                self.tableView.qy_footer.endRefreshing()
             })
         })
         

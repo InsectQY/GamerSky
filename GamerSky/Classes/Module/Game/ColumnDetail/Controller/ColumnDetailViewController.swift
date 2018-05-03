@@ -67,49 +67,49 @@ extension ColumnDetailViewController {
         
         tableView.qy_header = QYRefreshHeader(refreshingBlock: { [weak self] in
             
-            guard let strongSelf = self else {return}
+            guard let `self` = self else {return}
             let group = DispatchGroup()
             
-            if strongSelf.isHasSubList {
+            if self.isHasSubList {
                 
                 group.enter()
-                ApiProvider.request(.gameSpecialSubList(strongSelf.nodeID), objectModel: BaseModel<[GameSpecialSubList]>.self, success: {
+                ApiProvider.request(.gameSpecialSubList(self.nodeID), objectModel: BaseModel<[GameSpecialSubList]>.self, success: {
 
-                    strongSelf.specialSubList = $0.result
+                    self.specialSubList = $0.result
                     group.leave()
                 }, failure: { _ in
-                    strongSelf.tableView.qy_header.endRefreshing()
+                    self.tableView.qy_header.endRefreshing()
                 })
             }else {
-                strongSelf.tableView.qy_footer.endRefreshing()
+                self.tableView.qy_footer.endRefreshing()
             }
             
             group.enter()
-            strongSelf.page = 1
-            ApiProvider.request(.gameSpecialDetail(strongSelf.page, strongSelf.nodeID), objectModel: BaseModel<[GameSpecialDetail]>.self, success: {
+            self.page = 1
+            ApiProvider.request(.gameSpecialDetail(self.page, self.nodeID), objectModel: BaseModel<[GameSpecialDetail]>.self, success: {
                 
-                strongSelf.specialDetail = $0.result
+                self.specialDetail = $0.result
                 group.leave()
             }, failure: { _ in
-                strongSelf.tableView.qy_header.endRefreshing()
+                self.tableView.qy_header.endRefreshing()
             })
             
             group.notify(queue: DispatchQueue.main, execute: {
                 
                 // 开始分组
-                if strongSelf.isHasSubList {
+                if self.isHasSubList {
                     
                     // 清空之前分好的组
-                    strongSelf.sectionSpecialDetail.removeAll()
+                    self.sectionSpecialDetail.removeAll()
                     // 遍历并按sublist的title分组
-                    strongSelf.specialSubList.forEach({ subList in
+                    self.specialSubList.forEach({ subList in
                         
-                        let result = strongSelf.specialDetail.filter {subList.title == ($0.subgroup ?? "")}
-                        strongSelf.sectionSpecialDetail.append(result)
+                        let result = self.specialDetail.filter {subList.title == ($0.subgroup ?? "")}
+                        self.sectionSpecialDetail.append(result)
                     })
                 }
-                strongSelf.tableView.reloadData()
-                strongSelf.tableView.qy_header.endRefreshing()
+                self.tableView.reloadData()
+                self.tableView.qy_header.endRefreshing()
             })
         })
         
@@ -117,17 +117,17 @@ extension ColumnDetailViewController {
             
             tableView.qy_footer = QYRefreshFooter(refreshingBlock: { [weak self] in
                 
-                guard let strongSelf = self else {return}
+                guard let `self` = self else {return}
                 
-                strongSelf.page += 1
-                strongSelf.tableView.qy_header.endRefreshing()
-                ApiProvider.request(.gameSpecialDetail(strongSelf.page, strongSelf.nodeID), objectModel: BaseModel<[GameSpecialDetail]>.self, success: {
+                self.page += 1
+                self.tableView.qy_header.endRefreshing()
+                ApiProvider.request(.gameSpecialDetail(self.page, self.nodeID), objectModel: BaseModel<[GameSpecialDetail]>.self, success: {
                     
-                    strongSelf.specialDetail += $0.result
-                    strongSelf.tableView.qy_footer.endRefreshing()
-                    strongSelf.tableView.reloadData()
+                    self.specialDetail += $0.result
+                    self.tableView.qy_footer.endRefreshing()
+                    self.tableView.reloadData()
                 }, failure: { _ in
-                    strongSelf.tableView.qy_footer.endRefreshing()
+                    self.tableView.qy_footer.endRefreshing()
                 })
             })
         }

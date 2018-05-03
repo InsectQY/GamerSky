@@ -71,33 +71,33 @@ extension NewsViewController {
         
         tableView.qy_header = QYRefreshHeader { [weak self] in
             
-            guard let strongSelf = self else {return}
-            strongSelf.page = 1
-            strongSelf.tableView.qy_footer.endRefreshing()
-            ApiProvider.request(.allChannelList(strongSelf.page, strongSelf.nodeID), objectModel: BaseModel<[ChannelList]>.self, success: {
+            guard let `self` = self else {return}
+            self.page = 1
+            self.tableView.qy_footer.endRefreshing()
+            ApiProvider.request(.allChannelList(self.page, self.nodeID), objectModel: BaseModel<[ChannelList]>.self, success: {
                 
-                strongSelf.channelListAry = $0.result
-                strongSelf.headerView.channelListAry = $0.result.first?.childElements
-                strongSelf.channelListAry.removeFirst()
-                strongSelf.tableView.reloadData()
-                strongSelf.tableView.qy_header.endRefreshing()
+                self.channelListAry = $0.result
+                self.headerView.channelListAry = $0.result.first?.childElements
+                self.channelListAry.removeFirst()
+                self.tableView.reloadData()
+                self.tableView.qy_header.endRefreshing()
             }) { _ in
-                strongSelf.tableView.qy_header.endRefreshing()
+                self.tableView.qy_header.endRefreshing()
             }
         }
 
         tableView.qy_footer = QYRefreshFooter { [weak self] in
             
-            guard let strongSelf = self else {return}
-            strongSelf.page += 1
-            strongSelf.tableView.qy_header.endRefreshing()
-            ApiProvider.request(.allChannelList(strongSelf.page, strongSelf.nodeID), objectModel: BaseModel<[ChannelList]>.self, success: {
+            guard let `self` = self else {return}
+            self.page += 1
+            self.tableView.qy_header.endRefreshing()
+            ApiProvider.request(.allChannelList(self.page, self.nodeID), objectModel: BaseModel<[ChannelList]>.self, success: {
                 
-                strongSelf.channelListAry += $0.result
-                strongSelf.tableView.reloadData()
-                strongSelf.tableView.qy_footer.endRefreshing()
+                self.channelListAry += $0.result
+                self.tableView.reloadData()
+                self.tableView.qy_footer.endRefreshing()
             }) { _ in
-                strongSelf.tableView.qy_footer.endRefreshing()
+                self.tableView.qy_footer.endRefreshing()
             }
         }
         

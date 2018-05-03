@@ -69,6 +69,7 @@
 		998F0C6E2071F77800C587C2 /* CircleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998F0C6D2071F77800C587C2 /* CircleViewController.swift */; };
 		998F0C722071F7AD00C587C2 /* OriginalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998F0C712071F7AD00C587C2 /* OriginalViewController.swift */; };
 		99A67817209ADF5500DB1AA7 /* AppKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A67816209ADF5500DB1AA7 /* AppKey.swift */; };
+		99A6781E209AF7C600DB1AA7 /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A6781D209AF7C600DB1AA7 /* IntExtension.swift */; };
 		99D32ADE2079B46A008A6B52 /* ColumnSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D32ADD2079B46A008A6B52 /* ColumnSectionHeader.swift */; };
 		99D32AE02079B47B008A6B52 /* ColumnSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99D32ADF2079B47B008A6B52 /* ColumnSectionHeader.xib */; };
 		99E7999B2071E10E005C3408 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E7999A2071E10E005C3408 /* AppDelegate.swift */; };
@@ -234,6 +235,7 @@
 		998F0C712071F7AD00C587C2 /* OriginalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalViewController.swift; sourceTree = "<group>"; };
 		99A67816209ADF5500DB1AA7 /* AppKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppKey.swift; sourceTree = "<group>"; };
 		99A67819209ADFEA00DB1AA7 /* GamerSky-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GamerSky-Bridging-Header.h"; sourceTree = "<group>"; };
+		99A6781D209AF7C600DB1AA7 /* IntExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
 		99D32ADD2079B46A008A6B52 /* ColumnSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnSectionHeader.swift; sourceTree = "<group>"; };
 		99D32ADF2079B47B008A6B52 /* ColumnSectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColumnSectionHeader.xib; sourceTree = "<group>"; };
 		99E799972071E10D005C3408 /* GamerSky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GamerSky.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -563,6 +565,7 @@
 				998F0C612071F18D00C587C2 /* Moya + Codable.swift */,
 				998F0C442071EEC500C587C2 /* UIView + Frame.swift */,
 				E5DC0AEE2086301B001E61C6 /* StringExtensions.swift */,
+				99A6781D209AF7C600DB1AA7 /* IntExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1608,6 +1611,7 @@
 				998F0C432071EEAB00C587C2 /* NibLoadable.swift in Sources */,
 				E5CD69BA207BCF5F001A1A0A /* StarFillMode.swift in Sources */,
 				E550C943207CF52F00C4AF2D /* GameHomeSectionHeader.swift in Sources */,
+				99A6781E209AF7C600DB1AA7 /* IntExtension.swift in Sources */,
 				E5259685208E15E100B5F419 /* GameListViewController.swift in Sources */,
 				E5CD6986207B95C0001A1A0A /* GameHomeHeaderView.swift in Sources */,
 				E52B6DE3208C4288004904C6 /* GameComment.swift in Sources */,

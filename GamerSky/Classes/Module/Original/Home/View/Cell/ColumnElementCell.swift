@@ -40,6 +40,7 @@ class ColumnElementCell: UITableViewCell, NibReusable {
             thumbImageView.qy_setImage(columnElement?.thumbnailURL, "")
             authorImageView.qy_setImage(columnElement?.authorPhoto, "")
             commentsBtn.setTitle("\(columnElement?.commentsCount ?? 0)", for: .normal)
+            updateTimeLabel.text = columnElement?.updateTimeString
         }
     }
     

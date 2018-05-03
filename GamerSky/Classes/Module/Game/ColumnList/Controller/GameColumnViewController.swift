@@ -55,16 +55,16 @@ extension GameColumnViewController {
         
         collectionView.qy_header = QYRefreshHeader(refreshingBlock: { [weak self] in
             
-            guard let strongSelf = self else {return}
+            guard let `self` = self else {return}
             
             // 特色专题
             ApiProvider.request(.gameSpecialList(1), objectModel: BaseModel<[GameSpecialList]>.self, success: {
                 
-                strongSelf.gameColumn = $0.result
-                strongSelf.collectionView.reloadData()
-                strongSelf.collectionView.qy_header.endRefreshing()
+                self.gameColumn = $0.result
+                self.collectionView.reloadData()
+                self.collectionView.qy_header.endRefreshing()
             }) { _ in
-                strongSelf.collectionView.qy_header.endRefreshing()
+                self.collectionView.qy_header.endRefreshing()
             }
         })
         

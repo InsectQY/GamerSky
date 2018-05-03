@@ -59,9 +59,9 @@ extension ContentDetailViewController {
         let nightMode = QYUserDefaults.getUserPreference()?.currentTheme == .night ? 1 : 0
         webView.scrollView.qy_header = QYRefreshHeader { [weak self] in
 
-            guard let strongSelf = self else {return}
-            guard let URL = URL(string: "\(AppHostIP)/v1/ContentDetail/\(strongSelf.contentID)/1?fontSize=0&nullImageMode=1&tag=news&deviceid=\(deviceID)&platform=ios&nightMode=\(nightMode)&v=") else {return}
-            strongSelf.webView.load(URLRequest(url: URL))
+            guard let `self` = self else {return}
+            guard let URL = URL(string: "\(AppHostIP)/v1/ContentDetail/\(self.contentID)/1?fontSize=0&nullImageMode=1&tag=news&deviceid=\(deviceID)&platform=ios&nightMode=\(nightMode)&v=") else {return}
+            self.webView.load(URLRequest(url: URL))
         }
         webView.scrollView.qy_header.beginRefreshing()
     }

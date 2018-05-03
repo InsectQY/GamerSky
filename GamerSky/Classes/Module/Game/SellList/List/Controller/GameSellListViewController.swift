@@ -45,14 +45,14 @@ extension GameSellListViewController {
         
         tableView.qy_header = QYRefreshHeader(refreshingBlock: { [weak self] in
             
-            guard let strongSelf = self else {return}
-            ApiProvider.request(.twoGameList(strongSelf.date, .popular), objectModel: BaseModel<[GameSellList]>.self, success: {
+            guard let `self` = self else {return}
+            ApiProvider.request(.twoGameList(self.date, .popular), objectModel: BaseModel<[GameSellList]>.self, success: {
                 
-                strongSelf.gameSellLists = $0.result
-                strongSelf.tableView.reloadData()
-                strongSelf.tableView.qy_header.endRefreshing()
+                self.gameSellLists = $0.result
+                self.tableView.reloadData()
+                self.tableView.qy_header.endRefreshing()
             }) { _ in
-                strongSelf.tableView.qy_header.endRefreshing()
+                self.tableView.qy_header.endRefreshing()
             }
         })
         

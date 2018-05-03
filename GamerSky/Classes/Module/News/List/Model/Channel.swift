@@ -33,4 +33,10 @@ struct ChannelList: Codable {
     var thumbnailURLs: [String]?
     /// 轮播图
     var childElements: [ChannelList]?
+    /// 更新时间
+    var updateTimeString: String {
+        get {
+            return updateTime.compare()
+        }
+    }
 }

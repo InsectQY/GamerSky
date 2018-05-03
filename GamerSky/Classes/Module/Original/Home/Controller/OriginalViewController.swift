@@ -90,41 +90,41 @@ extension OriginalViewController {
         
         tableView.qy_header = QYRefreshHeader(refreshingBlock: { [weak self] in
             
-            guard let strongSelf = self else {return}
-            strongSelf.page = 1
-            strongSelf.tableView.qy_footer.endRefreshing()
-            ApiProvider.request(.columnContent(strongSelf.page, columnID), objectModel: BaseModel<ColumnContent>.self, success: {
+            guard let `self` = self else {return}
+            self.page = 1
+            self.tableView.qy_footer.endRefreshing()
+            ApiProvider.request(.columnContent(self.page, columnID), objectModel: BaseModel<ColumnContent>.self, success: {
                 
-                if strongSelf.columnList == nil {
-                    strongSelf.columnAry = [$0.result.childElements]
+                if self.columnList == nil {
+                    self.columnAry = [$0.result.childElements]
                 }else {
-                    strongSelf.columnListAry = $0.result.childElements
+                    self.columnListAry = $0.result.childElements
                 }
                 
-                strongSelf.tableView.reloadData()
-                strongSelf.tableView.qy_header.endRefreshing()
+                self.tableView.reloadData()
+                self.tableView.qy_header.endRefreshing()
             }) { _ in
-                strongSelf.tableView.qy_header.endRefreshing()
+                self.tableView.qy_header.endRefreshing()
             }
         })
         
         tableView.qy_footer = QYRefreshFooter(refreshingBlock: { [weak self] in
             
-            guard let strongSelf = self else {return}
-            strongSelf.page += 1
-            strongSelf.tableView.qy_header.endRefreshing()
-            ApiProvider.request(.columnContent(strongSelf.page, columnID), objectModel: BaseModel<ColumnContent>.self, success: {
+            guard let `self` = self else {return}
+            self.page += 1
+            self.tableView.qy_header.endRefreshing()
+            ApiProvider.request(.columnContent(self.page, columnID), objectModel: BaseModel<ColumnContent>.self, success: {
                 
-                if strongSelf.columnList == nil {
-                    strongSelf.columnAry += [$0.result.childElements]
+                if self.columnList == nil {
+                    self.columnAry += [$0.result.childElements]
                 }else {
-                    strongSelf.columnListAry += $0.result.childElements
+                    self.columnListAry += $0.result.childElements
                 }
 
-                strongSelf.tableView.reloadData()
-                strongSelf.tableView.qy_footer.endRefreshing()
+                self.tableView.reloadData()
+                self.tableView.qy_footer.endRefreshing()
             }) { _ in
-                strongSelf.tableView.qy_footer.endRefreshing()
+                self.tableView.qy_footer.endRefreshing()
             }
         })
         

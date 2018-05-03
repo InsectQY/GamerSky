@@ -72,11 +72,11 @@ extension GameHomeViewController {
         
         tableView.qy_header = QYRefreshHeader(refreshingBlock: { [weak self] in
             
-            guard let strongSelf = self else {return}
+            guard let `self` = self else {return}
             
             // sectionHeader 数据
             let data = try! Data(contentsOf: Bundle.main.url(forResource: "GameHomeSectionData", withExtension: "plist")!)
-            strongSelf.sectionData = try! PropertyListDecoder().decode([GameHomeSection].self, from: data)
+            self.sectionData = try! PropertyListDecoder().decode([GameHomeSection].self, from: data)
 
             let group = DispatchGroup()
             
@@ -84,10 +84,10 @@ extension GameHomeViewController {
             group.enter()
             ApiProvider.request(.gameSpecialDetail(1, 13), objectModel: BaseModel<[GameInfo]>.self, success: {
                 
-                strongSelf.gameSpecialDetail = $0.result
+                self.gameSpecialDetail = $0.result
                 group.leave()
             }, failure: { _ in
-                strongSelf.tableView.qy_header.endRefreshing()
+                self.tableView.qy_header.endRefreshing()
                 group.leave()
             })
             
@@ -95,10 +95,10 @@ extension GameHomeViewController {
             group.enter()
             ApiProvider.request(.gameHomePage(1, .hot), objectModel: BaseModel<[GameInfo]>.self, success: {
                 
-                strongSelf.hotGame = $0.result
+                self.hotGame = $0.result
                 group.leave()
             }, failure: {_ in
-                strongSelf.tableView.qy_header.endRefreshing()
+                self.tableView.qy_header.endRefreshing()
                 group.leave()
             })
             
@@ -106,11 +106,11 @@ extension GameHomeViewController {
             group.enter()
             ApiProvider.request(.gameHomePage(1, .waitSell), objectModel: BaseModel<[GameInfo]>.self, success: {
                 
-                strongSelf.waitSellGame = $0.result
+                self.waitSellGame = $0.result
                 group.leave()
             }, failure: { _ in
                 
-                strongSelf.tableView.qy_header.endRefreshing()
+                self.tableView.qy_header.endRefreshing()
                 group.leave()
             })
             
@@ -118,10 +118,10 @@ extension GameHomeViewController {
             group.enter()
             ApiProvider.request(.gameHomePage(1, .expected), objectModel: BaseModel<[GameInfo]>.self, success: {
                 
-                strongSelf.expectedGame = $0.result
+                self.expectedGame = $0.result
                 group.leave()
             }, failure: { _ in
-                strongSelf.tableView.qy_header.endRefreshing()
+                self.tableView.qy_header.endRefreshing()
                 group.leave()
             })
             
@@ -129,10 +129,10 @@ extension GameHomeViewController {
             group.enter()
             ApiProvider.request(.gameTags, objectModel: BaseModel<[GameTag]>.self, success: {
                 
-                strongSelf.gameTags = $0.result
+                self.gameTags = $0.result
                 group.leave()
             }) { _ in
-                strongSelf.tableView.qy_header.endRefreshing()
+                self.tableView.qy_header.endRefreshing()
                 group.leave()
             }
             
@@ -140,10 +140,10 @@ extension GameHomeViewController {
             group.enter()
             ApiProvider.request(.gameSpecialList(1), objectModel: BaseModel<[GameSpecialList]>.self, success: {
                 
-                strongSelf.gameColumn = $0.result
+                self.gameColumn = $0.result
                 group.leave()
             }) { _ in
-                strongSelf.tableView.qy_header.endRefreshing()
+                self.tableView.qy_header.endRefreshing()
                 group.leave()
             }
             
@@ -151,24 +151,24 @@ extension GameHomeViewController {
             group.enter()
             ApiProvider.request(.gameRankingList(1, .fractions, 0, "all"), objectModel: BaseModel<[GameInfo]>.self, success: {
                 
-                strongSelf.rankingGame = [Array($0.result.prefix(5))]
+                self.rankingGame = [Array($0.result.prefix(5))]
                 // 热门榜
                 ApiProvider.request(.gameRankingList(1, .hot, 0, "all"), objectModel: BaseModel<[GameInfo]>.self, success: {
                     
-                    strongSelf.rankingGame += [Array($0.result.prefix(5))]
+                    self.rankingGame += [Array($0.result.prefix(5))]
                     group.leave()
                 }, failure: { _ in
-                    strongSelf.tableView.qy_header.endRefreshing()
+                    self.tableView.qy_header.endRefreshing()
                 })
             }, failure: { _ in
-                strongSelf.tableView.qy_header.endRefreshing()
+                self.tableView.qy_header.endRefreshing()
             })
             
             group.notify(queue: DispatchQueue.main, execute: {
                 
-                strongSelf.setUpTableHeader()
-                strongSelf.tableView.reloadData()
-                strongSelf.tableView.qy_header.endRefreshing()
+                self.setUpTableHeader()
+                self.tableView.reloadData()
+                self.tableView.qy_header.endRefreshing()
             })
         })
         

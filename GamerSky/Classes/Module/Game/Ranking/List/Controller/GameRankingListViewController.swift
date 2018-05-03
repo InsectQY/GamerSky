@@ -59,29 +59,29 @@ extension GameRankingListViewController {
         
         tableView.qy_header = QYRefreshHeader(refreshingBlock: { [weak self] in
             
-            guard let strongSelf = self else {return}
-            strongSelf.page = 1
-            ApiProvider.request(.gameRankingList(strongSelf.page, strongSelf.rankingType, strongSelf.gameClass, strongSelf.annualClass), objectModel: BaseModel<[GameSpecialDetail]>.self, success: {
+            guard let `self` = self else {return}
+            self.page = 1
+            ApiProvider.request(.gameRankingList(self.page, self.rankingType, self.gameClass, self.annualClass), objectModel: BaseModel<[GameSpecialDetail]>.self, success: {
                 
-                strongSelf.rankingData = $0.result
-                strongSelf.tableView.reloadData()
-                strongSelf.tableView.qy_header.endRefreshing()
+                self.rankingData = $0.result
+                self.tableView.reloadData()
+                self.tableView.qy_header.endRefreshing()
             }, failure: { _ in
-                strongSelf.tableView.qy_header.endRefreshing()
+                self.tableView.qy_header.endRefreshing()
             })
         })
         
         tableView.mj_footer = QYRefreshFooter(refreshingBlock: {[weak self] in
             
-            guard let strongSelf = self else {return}
-            strongSelf.page += 1
-            ApiProvider.request(.gameRankingList(strongSelf.page, strongSelf.rankingType, strongSelf.gameClass, strongSelf.annualClass), objectModel: BaseModel<[GameSpecialDetail]>.self, success: {
+            guard let `self` = self else {return}
+            self.page += 1
+            ApiProvider.request(.gameRankingList(self.page, self.rankingType, self.gameClass, self.annualClass), objectModel: BaseModel<[GameSpecialDetail]>.self, success: {
                 
-                strongSelf.rankingData += $0.result
-                strongSelf.tableView.reloadData()
-                strongSelf.tableView.qy_footer.endRefreshing()
+                self.rankingData += $0.result
+                self.tableView.reloadData()
+                self.tableView.qy_footer.endRefreshing()
             }, failure: { _ in
-                strongSelf.tableView.qy_footer.endRefreshing()
+                self.tableView.qy_footer.endRefreshing()
             })
         })
         

@@ -52,4 +52,10 @@ struct ColumnElement: Codable {
     var likeCount: Int
     /// 更新时间
     var updateTime: Int
+    /// 更新时间
+    var updateTimeString: String {
+        get {
+            return updateTime.compare()
+        }
+    }
 }

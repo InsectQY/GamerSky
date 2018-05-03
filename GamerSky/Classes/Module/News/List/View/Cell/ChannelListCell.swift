@@ -31,6 +31,7 @@ class ChannelListCell: UITableViewCell, NibReusable {
             
             titleLabel.text = channel.title
             commentCountBtn.setTitle("\(channel.commentsCount)", for: .normal)
+            updateTimeLabel.text = channel.updateTimeString
             if let urls = channel.thumbnailURLs {
                 thumbImageView.qy_setImage(urls.first, "")
             }
