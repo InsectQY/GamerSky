@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GameListCell: UICollectionViewCell, NibReusable {
+class GameListCell: BaseCollectionViewCell, NibReusable {
 
     // MARK: - IBOutlet
     @IBOutlet private weak var gameImageView: UIImageView!

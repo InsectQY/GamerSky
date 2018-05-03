@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GameHomePageCell: UICollectionViewCell, NibReusable {
+class GameHomePageCell: BaseCollectionViewCell, NibReusable {
 
     // MARK: - IBOutlet
     @IBOutlet private weak var gameImageTopConstraint: NSLayoutConstraint!

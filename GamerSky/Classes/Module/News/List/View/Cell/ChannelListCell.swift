@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChannelListCell: UITableViewCell, NibReusable {
+class ChannelListCell: BaseTableViewCell, NibReusable {
 
     static let cellHeight: CGFloat = ScreenWidth * 0.22
     

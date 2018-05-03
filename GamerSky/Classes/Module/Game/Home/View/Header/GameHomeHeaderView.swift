@@ -10,34 +10,17 @@ import UIKit
 
 class GameHomeHeaderView: BaseView {
 
-    static let headerHeight: CGFloat = ScreenHeight * 0.16
-    
-    /// cell 之间间距
-    private let kItemMargin: CGFloat = 25
-    /// 左右间距
-    private let kEdge: CGFloat = 10
-    /// 每行最大列数
-    private let kMaxCol: CGFloat = 5
-    /// cell 宽度
-    private var kItemW: CGFloat {
-        return (ScreenWidth - (2 * kEdge) - ((kMaxCol - 1) * kItemMargin)) / kMaxCol
-    }
+    static let height: CGFloat = ScreenHeight * 0.16
     
     // MARK: - Lazyload
     private lazy var headerData = [GameHomeHeader]()
     
     private lazy var collectionView: BaseCollectionView = {
         
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.itemSize = CGSize(width: kItemW, height: height)
-        flowLayout.sectionInset = UIEdgeInsetsMake(0, kEdge, 0, kEdge)
-        flowLayout.minimumLineSpacing = kItemMargin
-        flowLayout.minimumInteritemSpacing = kItemMargin
-        let collectionView = BaseCollectionView(frame: bounds, collectionViewLayout: flowLayout)
+        let collectionView = BaseCollectionView(frame: bounds, collectionViewLayout: GameHomeHeaderFlowLayout())
         collectionView.register(cellType: GameHomeHeaderCell.self)
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.backgroundColor = .white
         return collectionView
     }()
     

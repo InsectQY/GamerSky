@@ -19,6 +19,8 @@
 	</dict>
 	<key>images</key>
 	<dict>
+		<key>gameHomePageRankingsRightMask_10x60</key>
+		<string>gameHomePageRankingsRightMask_10x60_UIMode_Night</string>
 		<key>common_Icon_Recommend_10x10</key>
 		<string>common_Icon_Recommend_10x10_UIMode_Night</string>
 		<key>common_Button_XinWen_Selected</key>

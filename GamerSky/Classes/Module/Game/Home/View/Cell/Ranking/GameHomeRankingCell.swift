@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GameHomeRankingCell: UICollectionViewCell, NibReusable {
+class GameHomeRankingCell: BaseCollectionViewCell, NibReusable {
 
     // MARK: - IBOutlet
     @IBOutlet private weak var ratingView: CosmosView!

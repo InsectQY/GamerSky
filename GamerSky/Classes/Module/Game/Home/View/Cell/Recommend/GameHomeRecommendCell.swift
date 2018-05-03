@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GameHomeRecommendCell: UICollectionViewCell, NibReusable {
+class GameHomeRecommendCell: BaseCollectionViewCell, NibReusable {
 
     // MARK: - IBOutlet
     @IBOutlet private weak var backContentView: UIView!

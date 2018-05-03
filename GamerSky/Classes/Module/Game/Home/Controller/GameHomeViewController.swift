@@ -48,7 +48,7 @@ class GameHomeViewController: BaseViewController {
     
     private lazy var headerView: GameHomeHeaderView = {
         
-        let headerView = GameHomeHeaderView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: GameHomeHeaderView.headerHeight))
+        let headerView = GameHomeHeaderView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: GameHomeHeaderView.height))
         return headerView
     }()
 

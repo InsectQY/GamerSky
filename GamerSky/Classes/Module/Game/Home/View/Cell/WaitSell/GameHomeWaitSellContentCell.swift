@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GameHomeWaitSellContentCell: UITableViewCell, NibReusable {
+class GameHomeWaitSellContentCell: BaseTableViewCell, NibReusable {
 
     static let waitSellingHeight: CGFloat = GameHomeWaitSellContentCell.hotHeight + 20
     static let hotHeight: CGFloat = kItemW * 2.2
@@ -26,7 +26,7 @@ class GameHomeWaitSellContentCell: UITableViewCell, NibReusable {
 
     // MARK: - IBOutlet
     @IBOutlet private weak var monthContentView: UIView!
-    @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet private weak var collectionView: BaseCollectionView!
     @IBOutlet private weak var flowLayout: UICollectionViewFlowLayout!
     @IBOutlet private weak var monthLabel: BaseLabel!
     @IBOutlet private weak var collectionViewTopConstraints: NSLayoutConstraint!

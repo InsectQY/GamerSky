@@ -19,15 +19,18 @@
                 <rect key="frame" x="0.0" y="0.0" width="338" height="60"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="So2-Zx-TNh">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="So2-Zx-TNh" customClass="BaseView" customModule="GamerSky" customModuleProvider="target">
                         <rect key="frame" x="36" y="0.0" width="272" height="60"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gameHomePageRankingsRightMask_10x60_UIMode_Day" translatesAutoresizingMaskIntoConstraints="NO" id="aeK-Zs-zUw">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gameHomePageRankingsRightMask_10x60_UIMode_Day" translatesAutoresizingMaskIntoConstraints="NO" id="aeK-Zs-zUw" customClass="BaseImageView" customModule="GamerSky" customModuleProvider="target">
                                 <rect key="frame" x="262" y="0.0" width="10" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="9gf-Dx-LHb"/>
                                     <constraint firstAttribute="width" constant="10" id="ULr-H2-Xzp"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="qy_themeBackgroundImage" value="gameHomePageRankingsRightMask_10x60"/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Eza-sF-Jpd">
                                 <rect key="frame" x="0.0" y="0.0" width="42" height="60"/>

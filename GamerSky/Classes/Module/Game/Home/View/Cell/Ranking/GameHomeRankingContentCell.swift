@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GameHomeRankingContentCell: UITableViewCell, NibReusable {
+class GameHomeRankingContentCell: BaseTableViewCell, NibReusable {
 
     static let cellHeight: CGFloat = 370
     
@@ -23,7 +23,7 @@ class GameHomeRankingContentCell: UITableViewCell, NibReusable {
     }
 
     // MARK: - IBOutlet
-    @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet private weak var collectionView: BaseCollectionView!
     @IBOutlet private weak var flowLayout: UICollectionViewFlowLayout!
     
     // MARK: - inital

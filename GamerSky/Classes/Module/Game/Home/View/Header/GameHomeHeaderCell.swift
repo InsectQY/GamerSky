@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GameHomeHeaderCell: UICollectionViewCell, NibReusable {
+class GameHomeHeaderCell: BaseCollectionViewCell, NibReusable {
 
     // MARK: - IBOutlet
     @IBOutlet private weak var titleLabel: BaseLabel!

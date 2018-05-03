@@ -18,7 +18,7 @@ class MineViewController: BaseViewController {
     // MARK: - Lazyload
     private lazy var nightModeSwitch: UISwitch = {
         
-        let nightSwitch = UISwitch(frame: CGRect(x: ScreenWidth - 66, y: 4, width: 100, height: 36))
+        let nightSwitch = UISwitch()
         nightSwitch.addTarget(self, action: #selector(nightModeSwitchChanged), for: .valueChanged)
         return nightSwitch
     }()
@@ -88,7 +88,7 @@ extension MineViewController: UITableViewDataSource {
         let cell = BaseTableViewCell(style: .value1, reuseIdentifier: mineCellID)
         cell.textLabel?.text = "夜间模式"
         cell.selectionStyle = .none
-        cell.contentView.addSubview(nightModeSwitch)
+        cell.accessoryView = nightModeSwitch
         return cell
     }
 }

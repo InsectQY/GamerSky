@@ -46,7 +46,7 @@
                             <constraint firstItem="EmM-Rj-ihK" firstAttribute="leading" secondItem="IPC-Fo-BtE" secondAttribute="leading" constant="10" id="nzL-ta-83O"/>
                         </constraints>
                     </view>
-                    <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="IaY-pn-vSz">
+                    <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="IaY-pn-vSz" customClass="BaseCollectionView" customModule="GamerSky" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="25" width="346" height="169"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Jsm-9B-kiT">

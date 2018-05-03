@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GameHomeColumnCell: UICollectionViewCell, NibReusable {
+class GameHomeColumnCell: BaseCollectionViewCell, NibReusable {
 
     /// 是否加载大图
     public var isLoadBigImage: Bool = false
