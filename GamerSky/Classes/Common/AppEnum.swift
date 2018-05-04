@@ -116,3 +116,16 @@ enum PlayType: String, Codable {
     case wantPlay = "WantPlay"
     case played = "Played"
 }
+
+
+/// 新闻详情页面字体大小
+///
+/// - small: 小
+/// - medium: 中
+/// - big: 大
+enum FontSizeType: Int, Codable {
+    
+    case small = 0
+    case medium = 1
+    case big = 2
+}

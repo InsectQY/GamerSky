@@ -72,6 +72,48 @@ extension ContentDetailViewController: WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         
+        webView.evaluateJavaScript("$('#gsTemplateContent_AD1').css('display', 'none');", completionHandler: nil)
+        webView.evaluateJavaScript("$('#gsTemplateContent_AD2').css('display', 'none');", completionHandler: nil)
         webView.scrollView.qy_header.endRefreshing()
+    }
+    
+//    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+//
+//        print("\(navigationAction.request)")
+//        decisionHandler(.allow)
+//    }
+}
+
+// MARK: - 与 JS 交互方法
+extension ContentDetailViewController {
+    
+    // MARK: - 无图模式
+    private func setNullImageMode(_ isNull: Bool) {
+        
+        let jsString = isNull ? "gsSetNullImageMode(0);" : "gsSetNullImageMode(1);"
+        webView.evaluateJavaScript(jsString, completionHandler: nil)
+    }
+    
+    // MARK: - 设置字体大小
+    private func setFontSize(_ size: FontSizeType) {
+        webView.evaluateJavaScript("gsSetFontSize(\(size.rawValue));", completionHandler: nil)
+    }
+    
+    // MARK: - 获取网页中所有图片
+    private func getImages(info: ((_ images: [WebViewImage]) -> ())?) {
+        
+        webView.evaluateJavaScript("imageInfos;") { (result, error) in
+            
+            if let result = result {
+                
+                do {
+                    
+                    let images = try JSONDecoder().decode([WebViewImage].self, from: try JSONSerialization.data(withJSONObject: result, options: .prettyPrinted))
+                    info?(images)
+                } catch {
+                    print(error)
+                }
+            }
+        }
     }
 }
