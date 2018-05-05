@@ -13,7 +13,7 @@ class ColumnHeaderView: UIView, NibLoadable {
     static let headerHeight: CGFloat = 125
     
     // MARK: - IBOutlet
-    @IBOutlet private weak var flowLayout: UICollectionViewFlowLayout!
+    @IBOutlet private weak var flowLayout: ColumnHeaderFlowLayout!
     @IBOutlet private weak var colletcionView: UICollectionView! {
         didSet {
             colletcionView.register(cellType: ColumnListCell.self)

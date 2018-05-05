@@ -23,23 +23,15 @@ class GameHomeRankingContentCell: BaseTableViewCell, NibReusable {
     }
 
     // MARK: - IBOutlet
-    @IBOutlet private weak var collectionView: BaseCollectionView!
-    @IBOutlet private weak var flowLayout: UICollectionViewFlowLayout!
-    
-    // MARK: - inital
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        setUpCollectionView()
+    @IBOutlet private weak var flowLayout: UICollectionViewFlowLayout! {
+        didSet {
+            flowLayout.itemSize = CGSize(width: ScreenWidth, height: kItemH)
+        }
     }
-    
-    // MARK: - setUpCollectionView
-    private func setUpCollectionView() {
-        
-        flowLayout.itemSize = CGSize(width: ScreenWidth, height: kItemH)
-        flowLayout.minimumLineSpacing = 0
-        flowLayout.minimumInteritemSpacing = 0
-        collectionView.register(cellType: GameHomeRankingCell.self)
+    @IBOutlet private weak var collectionView: BaseCollectionView! {
+        didSet {
+            collectionView.register(cellType: GameHomeRankingCell.self)
+        }
     }
 }
 

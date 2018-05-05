@@ -166,6 +166,7 @@
 		E5D4861A209E0EFB00AD7808 /* RxMoya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5D48616209E0EFB00AD7808 /* RxMoya.framework */; };
 		E5D4861B209E0EFB00AD7808 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5D48617209E0EFB00AD7808 /* RxSwift.framework */; };
 		E5D4861D209E128500AD7808 /* ColumnHeaderFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D4861C209E128500AD7808 /* ColumnHeaderFlowLayout.swift */; };
+		E5D48622209E14E900AD7808 /* GameHomeColumnContentFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D48621209E14E900AD7808 /* GameHomeColumnContentFlowLayout.swift */; };
 		E5DC0AEB20862A4C001E61C6 /* GameSellListPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DC0AEA20862A4C001E61C6 /* GameSellListPageViewController.swift */; };
 		E5DC0AED20862BE2001E61C6 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DC0AEC20862BE2001E61C6 /* DateExtensions.swift */; };
 		E5DC0AEF2086301B001E61C6 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DC0AEE2086301B001E61C6 /* StringExtensions.swift */; };
@@ -346,6 +347,7 @@
 		E5D48616209E0EFB00AD7808 /* RxMoya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxMoya.framework; path = Carthage/Build/iOS/RxMoya.framework; sourceTree = "<group>"; };
 		E5D48617209E0EFB00AD7808 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		E5D4861C209E128500AD7808 /* ColumnHeaderFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnHeaderFlowLayout.swift; sourceTree = "<group>"; };
+		E5D48621209E14E900AD7808 /* GameHomeColumnContentFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHomeColumnContentFlowLayout.swift; sourceTree = "<group>"; };
 		E5DC0AEA20862A4C001E61C6 /* GameSellListPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSellListPageViewController.swift; sourceTree = "<group>"; };
 		E5DC0AEC20862BE2001E61C6 /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		E5DC0AEE2086301B001E61C6 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
@@ -1002,6 +1004,7 @@
 				E550C932207CDBE200C4AF2D /* GameHomeColumnContentCell.xib */,
 				E550C935207CDCBB00C4AF2D /* GameHomeColumnCell.swift */,
 				E550C936207CDCBB00C4AF2D /* GameHomeColumnCell.xib */,
+				E5D48621209E14E900AD7808 /* GameHomeColumnContentFlowLayout.swift */,
 			);
 			path = Column;
 			sourceTree = "<group>";
@@ -1677,6 +1680,7 @@
 				E534FACC207A60F5006CE008 /* ColumnNavTitleView.swift in Sources */,
 				E5DC0AFB20864CD0001E61C6 /* GameSellListCell.swift in Sources */,
 				E57C5BB12082460400655E0F /* GameColumnViewController.swift in Sources */,
+				E5D48622209E14E900AD7808 /* GameHomeColumnContentFlowLayout.swift in Sources */,
 				E5CD698A207B9794001A1A0A /* GameHomeHeaderCell.swift in Sources */,
 				E5D48610209E0E8E00AD7808 /* Response+Codable.swift in Sources */,
 				E5DC0AED20862BE2001E61C6 /* DateExtensions.swift in Sources */,

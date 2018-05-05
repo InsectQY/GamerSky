@@ -33,7 +33,7 @@ class OriginalViewController: BaseViewController {
     private lazy var descHeaderView: ColumnDescHeaderView = {
         
         let descHeaderView = ColumnDescHeaderView.loadFromNib()
-        descHeaderView.frame = CGRect(x: 0, y: 0, width: ScreenWidth, height: ColumnHeaderView.headerHeight)
+        descHeaderView.frame = CGRect(x: 0, y: 0, width: ScreenWidth, height: ColumnDescHeaderView.headerHeight)
         return descHeaderView
     }()
     

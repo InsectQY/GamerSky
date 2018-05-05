@@ -10,18 +10,7 @@ import UIKit
 
 class GameHomeColumnContentCell: BaseTableViewCell, NibReusable {
 
-    public static let cellHeight: CGFloat = kItemW * 0.75
-    
-    /// cell 之间间距
-    private static let kItemMargin: CGFloat = 10
-    /// 左右间距
-    private static let kEdge: CGFloat = 10
-    /// 每行最大列数
-    private static let kMaxCol: CGFloat = 2
-    /// cell 宽度
-    private static var kItemW: CGFloat {
-        return (ScreenWidth - (2 * kEdge) - ((kMaxCol - 1) * kItemMargin)) / kMaxCol
-    }
+    public static let cellHeight: CGFloat = GameHomeColumnContentFlowLayout.kItemW * 0.75
     
     // MARK: - public
     public var columnGame = [GameSpecialList]() {
@@ -31,25 +20,15 @@ class GameHomeColumnContentCell: BaseTableViewCell, NibReusable {
     }
     
     // MARK: - IBOutlet
-    @IBOutlet private weak var collectionView: BaseCollectionView!
-    @IBOutlet private weak var flowLayout: UICollectionViewFlowLayout!
-    
-    // MARK: - inital
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        setUpCollectionView()
-    }
-    
-    // MARK: - setUpCollectionView
-    private func setUpCollectionView() {
+    @IBOutlet private weak var flowLayout: GameHomeColumnContentFlowLayout!
+    @IBOutlet private weak var collectionView: BaseCollectionView! {
         
-        flowLayout.itemSize = CGSize(width: GameHomeColumnContentCell.kItemW, height: GameHomeColumnContentCell.cellHeight)
-        flowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, GameHomeColumnContentCell.kEdge)
-        flowLayout.minimumLineSpacing = GameHomeColumnContentCell.kItemMargin
-        flowLayout.footerReferenceSize = CGSize(width: GameHomeWaitSellContentCell.kItemW, height: GameHomeColumnContentCell.cellHeight)
-        collectionView.contentInset = UIEdgeInsetsMake(0, GameHomeColumnContentCell.kEdge, 0, GameHomeColumnContentCell.kEdge)
-        collectionView.register(cellType: GameHomeColumnCell.self)
-        collectionView.register(supplementaryViewType: GameRecommendFooterView.self, ofKind: UICollectionElementKindSectionFooter)
+        didSet {
+            
+            collectionView.contentInset = UIEdgeInsetsMake(0, GameHomeColumnContentFlowLayout.kEdge, 0, GameHomeColumnContentFlowLayout.kEdge)
+            collectionView.register(cellType: GameHomeColumnCell.self)
+            collectionView.register(supplementaryViewType: GameRecommendFooterView.self, ofKind: UICollectionElementKindSectionFooter)
+        }
     }
 }
 

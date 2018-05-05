@@ -12,11 +12,6 @@ class GameTagContentCell: BaseTableViewCell, NibReusable {
 
     static let cellHeight: CGFloat = 60
     
-    /// cell 之间间距
-    private let kItemMargin: CGFloat = 5
-    /// 左右间距
-    private let kEdge: CGFloat = 10
-    
     // MARK: - public
     public var gameTag = [GameTag]() {
         didSet {
@@ -25,22 +20,11 @@ class GameTagContentCell: BaseTableViewCell, NibReusable {
     }
     
     // MARK: - IBOutlet
-    @IBOutlet private weak var collectionView: BaseCollectionView!
     @IBOutlet private weak var flowLayout: UICollectionViewFlowLayout!
-
-    // MARK: - inital
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        setUpCollectionView()
-    }
-    
-    // MARK: - setUpCollectionView
-    private func setUpCollectionView() {
-        
-        flowLayout.sectionInset = UIEdgeInsetsMake(0, kEdge, 0, kEdge)
-        flowLayout.minimumLineSpacing = kItemMargin
-        flowLayout.minimumInteritemSpacing = kItemMargin
-        collectionView.register(cellType: GameHomeTagCell.self)
+    @IBOutlet private weak var collectionView: BaseCollectionView! {
+        didSet {
+            collectionView.register(cellType: GameHomeTagCell.self)
+        }
     }
 }
 
