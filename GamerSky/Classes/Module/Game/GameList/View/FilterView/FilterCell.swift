@@ -18,9 +18,13 @@ class FilterCell: UITableViewCell, NibReusable {
     private var selFilter: Filter!
     
     // MARK: - IBOutlet
-    @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var flowLayout: UICollectionViewFlowLayout!
     @IBOutlet private weak var filterBtn: FilterBtn!
+    @IBOutlet private weak var collectionView: UICollectionView! {
+        didSet {
+            collectionView.register(cellType: FilterKindCell.self)
+        }
+    }
     
     public var filter = [Filter]() {
         
@@ -38,20 +42,10 @@ class FilterCell: UITableViewCell, NibReusable {
         super.awakeFromNib()
         
         filterBtnDidClick(filterBtn)
-        setUpCollectionView()
     }
 }
 
 extension FilterCell {
-    
-    // MARK: - 设置 CollectionView
-    private func setUpCollectionView() {
-        
-        collectionView.register(cellType: FilterKindCell.self)
-        flowLayout.scrollDirection = .horizontal
-        flowLayout.minimumLineSpacing = 0
-        flowLayout.minimumInteritemSpacing = 0
-    }
     
     // MARK: - 默认筛选按钮点击事件
     @IBAction private func filterBtnDidClick(_ sender: UIButton) {

@@ -30,7 +30,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="125" id="6Yg-Fn-Kaw"/>
                     </constraints>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mRv-ee-u7A">
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mRv-ee-u7A" customClass="ColumnHeaderFlowLayout" customModule="GamerSky" customModuleProvider="target">
                         <size key="itemSize" width="50" height="50"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>

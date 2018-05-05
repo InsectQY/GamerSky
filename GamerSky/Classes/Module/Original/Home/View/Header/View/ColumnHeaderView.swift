@@ -8,24 +8,17 @@
 
 import UIKit
 
-/// cell 之间间距
-private let kItemMargin: CGFloat = 15
-/// 左右间距
-private let kEdge: CGFloat = 10
-/// 每行最大列数
-private let kMaxCol: CGFloat = 4
-/// cell 宽度
-private let kColumnListCellW = (ScreenWidth - (2 * kEdge) - ((kMaxCol - 1) * kItemMargin)) / kMaxCol
-/// cell 高度
-private let kItemH: CGFloat = 90
-
 class ColumnHeaderView: UIView, NibLoadable {
     
     static let headerHeight: CGFloat = 125
     
     // MARK: - IBOutlet
     @IBOutlet private weak var flowLayout: UICollectionViewFlowLayout!
-    @IBOutlet private weak var colletcionView: UICollectionView!
+    @IBOutlet private weak var colletcionView: UICollectionView! {
+        didSet {
+            colletcionView.register(cellType: ColumnListCell.self)
+        }
+    }
     
     // MARK: - Lazyload
     private lazy var columnLists = [ColumnList]()
@@ -33,21 +26,10 @@ class ColumnHeaderView: UIView, NibLoadable {
     // MARK: - awakeFromNib
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        setUpCollectionView()
+
         loadColumnList()
     }
-    
-    // MARK: - setUpCollectionView
-    private func setUpCollectionView() {
-        
-        flowLayout.itemSize = CGSize(width: kColumnListCellW, height: kItemH)
-        flowLayout.minimumLineSpacing = 0
-        flowLayout.minimumInteritemSpacing = kItemMargin
-        flowLayout.sectionInset = UIEdgeInsetsMake(0, kEdge, 0, kEdge)
-        colletcionView.register(cellType: ColumnListCell.self)
-    }
-    
+
     // MARK: - 加载栏目数据
     private func loadColumnList() {
         

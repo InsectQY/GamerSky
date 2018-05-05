@@ -165,6 +165,7 @@
 		E5D48619209E0EFB00AD7808 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5D48615209E0EFB00AD7808 /* RxBlocking.framework */; };
 		E5D4861A209E0EFB00AD7808 /* RxMoya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5D48616209E0EFB00AD7808 /* RxMoya.framework */; };
 		E5D4861B209E0EFB00AD7808 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5D48617209E0EFB00AD7808 /* RxSwift.framework */; };
+		E5D4861D209E128500AD7808 /* ColumnHeaderFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D4861C209E128500AD7808 /* ColumnHeaderFlowLayout.swift */; };
 		E5DC0AEB20862A4C001E61C6 /* GameSellListPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DC0AEA20862A4C001E61C6 /* GameSellListPageViewController.swift */; };
 		E5DC0AED20862BE2001E61C6 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DC0AEC20862BE2001E61C6 /* DateExtensions.swift */; };
 		E5DC0AEF2086301B001E61C6 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DC0AEE2086301B001E61C6 /* StringExtensions.swift */; };
@@ -344,6 +345,7 @@
 		E5D48615209E0EFB00AD7808 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
 		E5D48616209E0EFB00AD7808 /* RxMoya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxMoya.framework; path = Carthage/Build/iOS/RxMoya.framework; sourceTree = "<group>"; };
 		E5D48617209E0EFB00AD7808 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		E5D4861C209E128500AD7808 /* ColumnHeaderFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnHeaderFlowLayout.swift; sourceTree = "<group>"; };
 		E5DC0AEA20862A4C001E61C6 /* GameSellListPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSellListPageViewController.swift; sourceTree = "<group>"; };
 		E5DC0AEC20862BE2001E61C6 /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		E5DC0AEE2086301B001E61C6 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
@@ -523,12 +525,9 @@
 		996DADD72079F05B00CCAC2E /* Header */ = {
 			isa = PBXGroup;
 			children = (
-				E5F8116620739A8C00E9883F /* ColumnHeaderView.swift */,
-				E5F8116820739AAB00E9883F /* ColumnHeaderView.xib */,
-				E59EAE102075F92100D6284F /* ColumnListCell.swift */,
-				E59EAE112075F92100D6284F /* ColumnListCell.xib */,
-				E534FACF207A6506006CE008 /* ColumnDescHeaderView.swift */,
-				E534FAD1207A650E006CE008 /* ColumnDescHeaderView.xib */,
+				E5D48620209E137B00AD7808 /* FlowLayout */,
+				E5D4861F209E137000AD7808 /* Cell */,
+				E5D4861E209E135800AD7808 /* View */,
 			);
 			path = Header;
 			sourceTree = "<group>";
@@ -1351,6 +1350,34 @@
 			path = RxSwift;
 			sourceTree = "<group>";
 		};
+		E5D4861E209E135800AD7808 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E534FACF207A6506006CE008 /* ColumnDescHeaderView.swift */,
+				E534FAD1207A650E006CE008 /* ColumnDescHeaderView.xib */,
+				E5F8116620739A8C00E9883F /* ColumnHeaderView.swift */,
+				E5F8116820739AAB00E9883F /* ColumnHeaderView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E5D4861F209E137000AD7808 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E59EAE102075F92100D6284F /* ColumnListCell.swift */,
+				E59EAE112075F92100D6284F /* ColumnListCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		E5D48620209E137B00AD7808 /* FlowLayout */ = {
+			isa = PBXGroup;
+			children = (
+				E5D4861C209E128500AD7808 /* ColumnHeaderFlowLayout.swift */,
+			);
+			path = FlowLayout;
+			sourceTree = "<group>";
+		};
 		E5DC0AE82086298D001E61C6 /* SellList */ = {
 			isa = PBXGroup;
 			children = (
@@ -1616,6 +1643,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5D4861D209E128500AD7808 /* ColumnHeaderFlowLayout.swift in Sources */,
 				992B5F5620999388005036CE /* FilterBtn.swift in Sources */,
 				E58548DD208F6C8300C1C7CD /* Filter.swift in Sources */,
 				99E7999B2071E10E005C3408 /* AppDelegate.swift in Sources */,
