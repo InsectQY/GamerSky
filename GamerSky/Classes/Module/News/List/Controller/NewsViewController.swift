@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftNotificationCenter
+import RxSwift
 
 class NewsViewController: BaseViewController {
 
@@ -100,7 +101,6 @@ extension NewsViewController {
                 self.tableView.qy_footer.endRefreshing()
             }
         }
-        
         tableView.qy_header.beginRefreshing()
     }
     
