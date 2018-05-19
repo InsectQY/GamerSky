@@ -108,6 +108,9 @@
 		E56802E720725CBE00CF944E /* NewsTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E56802E620725CBE00CF944E /* NewsTableHeaderView.xib */; };
 		E56802EC207268A500CF944E /* ContentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56802EB207268A500CF944E /* ContentDetailViewController.swift */; };
 		E56802F0207274E900CF944E /* NewsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56802EF207274E900CF944E /* NewsPageViewController.swift */; };
+		E575DD1120B0637700C66BA8 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E575DD0F20B0637600C66BA8 /* CacheManager.swift */; };
+		E575DD1220B0637700C66BA8 /* TargetType+Moya.swift in Sources */ = {isa = PBXBuildFile; fileRef = E575DD1020B0637600C66BA8 /* TargetType+Moya.swift */; };
+		E575DD1420B0673200C66BA8 /* Cache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E575DD1320B0673200C66BA8 /* Cache.framework */; };
 		E5787F2E2088C98E00AB55E2 /* GameRankingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5787F2D2088C98E00AB55E2 /* GameRankingPageViewController.swift */; };
 		E5787F322088CAA300AB55E2 /* GameRankingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5787F312088CAA300AB55E2 /* GameRankingListViewController.swift */; };
 		E5787F342088CC7400AB55E2 /* GameCategoryData.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5787F332088CC7400AB55E2 /* GameCategoryData.plist */; };
@@ -288,6 +291,9 @@
 		E56802E620725CBE00CF944E /* NewsTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsTableHeaderView.xib; sourceTree = "<group>"; };
 		E56802EB207268A500CF944E /* ContentDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDetailViewController.swift; sourceTree = "<group>"; };
 		E56802EF207274E900CF944E /* NewsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPageViewController.swift; sourceTree = "<group>"; };
+		E575DD0F20B0637600C66BA8 /* CacheManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
+		E575DD1020B0637600C66BA8 /* TargetType+Moya.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TargetType+Moya.swift"; sourceTree = "<group>"; };
+		E575DD1320B0673200C66BA8 /* Cache.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cache.framework; path = Carthage/Build/iOS/Cache.framework; sourceTree = "<group>"; };
 		E5787F2D2088C98E00AB55E2 /* GameRankingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRankingPageViewController.swift; sourceTree = "<group>"; };
 		E5787F312088CAA300AB55E2 /* GameRankingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRankingListViewController.swift; sourceTree = "<group>"; };
 		E5787F332088CC7400AB55E2 /* GameCategoryData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = GameCategoryData.plist; sourceTree = "<group>"; };
@@ -367,6 +373,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E575DD1420B0673200C66BA8 /* Cache.framework in Frameworks */,
 				E5D48618209E0EFB00AD7808 /* RxCocoa.framework in Frameworks */,
 				E5D48619209E0EFB00AD7808 /* RxBlocking.framework in Frameworks */,
 				E5D4861A209E0EFB00AD7808 /* RxMoya.framework in Frameworks */,
@@ -857,6 +864,7 @@
 		BD54EF30B74AD17A3CC3BA2D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E575DD1320B0673200C66BA8 /* Cache.framework */,
 				E5D48615209E0EFB00AD7808 /* RxBlocking.framework */,
 				E5D48614209E0EFB00AD7808 /* RxCocoa.framework */,
 				E5D48616209E0EFB00AD7808 /* RxMoya.framework */,
@@ -1347,6 +1355,8 @@
 		E5D4860D209E0E8E00AD7808 /* RxSwift */ = {
 			isa = PBXGroup;
 			children = (
+				E575DD0F20B0637600C66BA8 /* CacheManager.swift */,
+				E575DD1020B0637600C66BA8 /* TargetType+Moya.swift */,
 				E5D4860E209E0E8E00AD7808 /* ObservableType+Codable.swift */,
 				E5D4860F209E0E8E00AD7808 /* Single+Codable.swift */,
 			);
@@ -1632,6 +1642,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxMoya.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Cache.framework",
 			);
 			outputPaths = (
 			);
@@ -1656,6 +1667,7 @@
 				E5CD69C4207BCF5F001A1A0A /* CosmosRating.swift in Sources */,
 				E5D48612209E0E8E00AD7808 /* ObservableType+Codable.swift in Sources */,
 				9966510F20735FFB0010430E /* MineViewController.swift in Sources */,
+				E575DD1220B0637700C66BA8 /* TargetType+Moya.swift in Sources */,
 				99446AAF207C6A9B004048C7 /* GameHomeWaitSellContentCell.swift in Sources */,
 				994141172074B1820016AC01 /* BaseTableView.swift in Sources */,
 				E58548DF208F6C8300C1C7CD /* FilterView.swift in Sources */,
@@ -1737,6 +1749,7 @@
 				9906819520721F8700A825AC /* Channel.swift in Sources */,
 				E5787F2E2088C98E00AB55E2 /* GameRankingPageViewController.swift in Sources */,
 				9941411D2074B45E0016AC01 /* BaseCollectionViewCell.swift in Sources */,
+				E575DD1120B0637700C66BA8 /* CacheManager.swift in Sources */,
 				E58548E0208F6C8300C1C7CD /* FilterKindCell.swift in Sources */,
 				E5F8116C20739B3400E9883F /* ColumnElementCell.swift in Sources */,
 				E534FAD0207A6506006CE008 /* ColumnDescHeaderView.swift in Sources */,

@@ -21,6 +21,8 @@ let timeoutClosure = {(endpoint: Endpoint, closure: MoyaProvider<Api>.RequestRes
 
 let ApiProvider = MoyaProvider<Api>(requestClosure: timeoutClosure)
 
+let MultiApiProvider = MoyaProvider<MultiTarget>(requestClosure: timeoutClosure)
+
 enum Api {
     
     ///////////////  新闻  ///////////////
