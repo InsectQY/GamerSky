@@ -21,7 +21,7 @@ public extension ObservableType where E: TargetType {
                 
                 return target.request(objectModel: objectModel, path: path).setObject(for: target).asObservable().startWith(entry)
             }
-            return target.request(objectModel: objectModel, path: path).asObservable()
+            return target.request(objectModel: objectModel, path: path).setObject(for: target).asObservable()
         }
     }
     

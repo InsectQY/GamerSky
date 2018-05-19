@@ -8,6 +8,8 @@
 
 import UIKit
 import DNSPageView
+import NSObject_Rx
+import Cache
 
 class NewsPageViewController: BaseViewController {
 
@@ -54,16 +56,21 @@ extension NewsPageViewController {
     
     private func loadAllChannel() {
         
-        ApiProvider.request(.allChannel, objectModel: BaseModel<[Channel]>.self, success: {
-            
+        NewsApi.allChannel
+        .cache
+        .request(objectModel: BaseModel<[Channel]>.self)
+        .subscribe(onNext: { [weak self] in
+
+            guard let `self` = self else {return}
             self.allChannel = $0.result
             self.navigationItem.titleView = self.pageViewManager.titleView
             self.pageViewManager.titleView.frame = CGRect(x: 0, y: 0, width: ScreenWidth - kNaviBarH, height: kNaviBarH)
             self.view.addSubview(self.pageViewManager.contentView)
             self.pageViewManager.contentView.frame = UIScreen.main.bounds
-        }) {
-            print("失败----\($0)")
-        }
+        }, onError: {
+             print("失败----\($0)")
+        })
+        .disposed(by: rx.disposeBag)
     }
 }
 

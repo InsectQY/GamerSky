@@ -6,30 +6,9 @@
 //  Copyright © 2018年 engic. All rights reserved.
 //
 
-import UIKit
 import Moya
 
-let timeoutClosure = {(endpoint: Endpoint, closure: MoyaProvider<Api>.RequestResultClosure) -> Void in
-    
-    if var urlRequest = try? endpoint.urlRequest() {
-        urlRequest.timeoutInterval = 15
-        closure(.success(urlRequest))
-    } else {
-        closure(.failure(MoyaError.requestMapping(endpoint.url)))
-    }
-}
-
-let ApiProvider = MoyaProvider<Api>(requestClosure: timeoutClosure)
-
-let MultiApiProvider = MoyaProvider<MultiTarget>(requestClosure: timeoutClosure)
-
 enum Api {
-    
-    ///////////////  新闻  ///////////////
-    /// 新闻频道
-    case allChannel
-    /// 频道列表(参数依次是: page, 频道 ID)
-    case allChannelList(Int, Int)
     
     ///////////////  游戏  ///////////////
     /// 特色专题(参数是 page)
@@ -94,10 +73,6 @@ extension Api: TargetType {
     var path: String {
         
         switch self {
-        case .allChannel:
-            return "v2/allchannel"
-        case .allChannelList:
-            return "v2/AllChannelList"
         case .gameSpecialList:
             return "game/gameSpecialList"
         case .gameHomePage:
@@ -159,16 +134,6 @@ extension Api: TargetType {
                          "appVersion": "3.7.4"]
         switch self {
             
-        case .allChannel:
-            
-            parmeters["request"] = ["type" : "0"]
-        case let .allChannelList(page, nodeID):
-            
-            parmeters["request"] = ["parentNodeId" : "news",
-                                    "nodeIds" : "\(nodeID)",
-                                    "pageIndex": page,
-                                    "elementsCountPerPage" : 20]
-            
         case let .gameSpecialList(page):
             parmeters["request"] = ["nodeId" : "1",
                                     "pageIndex" : page,
@@ -195,7 +160,7 @@ extension Api: TargetType {
                                     "pageIndex" : page,
                                     "elementsCountPerPage" : 20]
         case .columnNodeList:
-            parmeters["request"] = ["date" : 1523099947744]
+            parmeters["request"] = ["date" : 1]
         case let .columnContent(page, id):
             parmeters["request"] = ["id" : id,
                                     "pageIndex" : page,

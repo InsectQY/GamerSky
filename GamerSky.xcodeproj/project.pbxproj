@@ -111,6 +111,8 @@
 		E575DD1120B0637700C66BA8 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E575DD0F20B0637600C66BA8 /* CacheManager.swift */; };
 		E575DD1220B0637700C66BA8 /* TargetType+Moya.swift in Sources */ = {isa = PBXBuildFile; fileRef = E575DD1020B0637600C66BA8 /* TargetType+Moya.swift */; };
 		E575DD1420B0673200C66BA8 /* Cache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E575DD1320B0673200C66BA8 /* Cache.framework */; };
+		E575DD1620B0763600C66BA8 /* NewsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E575DD1520B0763600C66BA8 /* NewsApi.swift */; };
+		E575DD1820B07B5C00C66BA8 /* NSObject_Rx.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E575DD1720B07B5C00C66BA8 /* NSObject_Rx.framework */; };
 		E5787F2E2088C98E00AB55E2 /* GameRankingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5787F2D2088C98E00AB55E2 /* GameRankingPageViewController.swift */; };
 		E5787F322088CAA300AB55E2 /* GameRankingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5787F312088CAA300AB55E2 /* GameRankingListViewController.swift */; };
 		E5787F342088CC7400AB55E2 /* GameCategoryData.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5787F332088CC7400AB55E2 /* GameCategoryData.plist */; };
@@ -294,6 +296,8 @@
 		E575DD0F20B0637600C66BA8 /* CacheManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
 		E575DD1020B0637600C66BA8 /* TargetType+Moya.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TargetType+Moya.swift"; sourceTree = "<group>"; };
 		E575DD1320B0673200C66BA8 /* Cache.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cache.framework; path = Carthage/Build/iOS/Cache.framework; sourceTree = "<group>"; };
+		E575DD1520B0763600C66BA8 /* NewsApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsApi.swift; sourceTree = "<group>"; };
+		E575DD1720B07B5C00C66BA8 /* NSObject_Rx.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NSObject_Rx.framework; path = Carthage/Build/iOS/NSObject_Rx.framework; sourceTree = "<group>"; };
 		E5787F2D2088C98E00AB55E2 /* GameRankingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRankingPageViewController.swift; sourceTree = "<group>"; };
 		E5787F312088CAA300AB55E2 /* GameRankingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRankingListViewController.swift; sourceTree = "<group>"; };
 		E5787F332088CC7400AB55E2 /* GameCategoryData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = GameCategoryData.plist; sourceTree = "<group>"; };
@@ -373,6 +377,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E575DD1820B07B5C00C66BA8 /* NSObject_Rx.framework in Frameworks */,
 				E575DD1420B0673200C66BA8 /* Cache.framework in Frameworks */,
 				E5D48618209E0EFB00AD7808 /* RxCocoa.framework in Frameworks */,
 				E5D48619209E0EFB00AD7808 /* RxBlocking.framework in Frameworks */,
@@ -648,6 +653,7 @@
 			isa = PBXGroup;
 			children = (
 				998F0C392071EE8800C587C2 /* Api.swift */,
+				E575DD1520B0763600C66BA8 /* NewsApi.swift */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -864,6 +870,7 @@
 		BD54EF30B74AD17A3CC3BA2D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E575DD1720B07B5C00C66BA8 /* NSObject_Rx.framework */,
 				E575DD1320B0673200C66BA8 /* Cache.framework */,
 				E5D48615209E0EFB00AD7808 /* RxBlocking.framework */,
 				E5D48614209E0EFB00AD7808 /* RxCocoa.framework */,
@@ -1643,6 +1650,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RxMoya.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Cache.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/NSObject_Rx.framework",
 			);
 			outputPaths = (
 			);
@@ -1719,6 +1727,7 @@
 				E5259685208E15E100B5F419 /* GameListViewController.swift in Sources */,
 				E5CD6986207B95C0001A1A0A /* GameHomeHeaderView.swift in Sources */,
 				E52B6DE3208C4288004904C6 /* GameComment.swift in Sources */,
+				E575DD1620B0763600C66BA8 /* NewsApi.swift in Sources */,
 				E5D48611209E0E8E00AD7808 /* MoyaProvider+Request.swift in Sources */,
 				E525968D208E1A7100B5F419 /* GameList.swift in Sources */,
 				E5CD69C8207BCF5F001A1A0A /* CosmosView.swift in Sources */,

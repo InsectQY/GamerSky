@@ -9,15 +9,14 @@
 import Moya
 import RxSwift
 import RxMoya
+import Cache
+
+private var cachedTimeKey: Void?
 
 extension TargetType {
     
     public var cachedKey: String {
         return "\(URL(target: self).absoluteString)?\(task.parameters)"
-    }
-    
-    public var cacheTime: Double {
-        return 0
     }
     
     public func request() -> Single<Response> {

@@ -9,6 +9,7 @@
 import UIKit
 import SwiftNotificationCenter
 import RxSwift
+import NSObject_Rx
 
 class NewsViewController: BaseViewController {
 
@@ -75,16 +76,21 @@ extension NewsViewController {
             guard let `self` = self else {return}
             self.page = 1
             self.tableView.qy_footer.endRefreshing()
-            ApiProvider.request(.allChannelList(self.page, self.nodeID), objectModel: BaseModel<[ChannelList]>.self, success: {
+            
+            NewsApi.allChannelList(self.page, self.nodeID)
+            .cache
+            .request(objectModel: BaseModel<[ChannelList]>.self)
+            .subscribe(onNext: {
                 
                 self.channelListAry = $0.result
                 self.headerView.channelListAry = $0.result.first?.childElements
                 self.channelListAry.removeFirst()
                 self.tableView.reloadData()
                 self.tableView.qy_header.endRefreshing()
-            }) { _ in
-                self.tableView.qy_header.endRefreshing()
-            }
+            }, onError: { _ in
+                 self.tableView.qy_header.endRefreshing()
+            })
+            .disposed(by: self.rx.disposeBag)
         }
 
         tableView.qy_footer = QYRefreshFooter { [weak self] in
@@ -92,15 +98,21 @@ extension NewsViewController {
             guard let `self` = self else {return}
             self.page += 1
             self.tableView.qy_header.endRefreshing()
-            ApiProvider.request(.allChannelList(self.page, self.nodeID), objectModel: BaseModel<[ChannelList]>.self, success: {
+            
+            NewsApi.allChannelList(self.page, self.nodeID)
+            .cache
+            .request(objectModel: BaseModel<[ChannelList]>.self)
+            .subscribe(onNext: {
                 
                 self.channelListAry += $0.result
                 self.tableView.reloadData()
                 self.tableView.qy_footer.endRefreshing()
-            }) { _ in
+            }, onError: { _ in
                 self.tableView.qy_footer.endRefreshing()
-            }
+            })
+            .disposed(by: self.rx.disposeBag)
         }
+        
         tableView.qy_header.beginRefreshing()
     }
     

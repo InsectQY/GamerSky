@@ -15,3 +15,5 @@ github "stephencelis/SQLite.swift"
 github "nmdias/DefaultsKit"
 # 缓存
 github "hyperoslo/Cache"
+# RxSwift
+github "RxSwiftCommunity/NSObject-Rx"

@@ -8,6 +8,7 @@
 
 import RxSwift
 import Moya
+import Cache
 
 public extension PrimitiveSequence where TraitType == SingleTrait, ElementType: TargetType {
     
@@ -39,7 +40,7 @@ extension PrimitiveSequence where TraitType == SingleTrait, ElementType: Codable
         
         return flatMap { object -> Single<ElementType> in
             
-            CacheManager.default.setObject(object, forKey: target.cachedKey, expiry: target.cacheTime)
+            CacheManager.default.setObject(object, forKey: target.cachedKey)
             return Single.just(object)
         }
     }

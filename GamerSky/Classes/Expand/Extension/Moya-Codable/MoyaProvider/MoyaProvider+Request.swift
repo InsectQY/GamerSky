@@ -9,6 +9,20 @@
 import Foundation
 import Moya
 
+let timeoutClosure = {(endpoint: Endpoint, closure: MoyaProvider<Api>.RequestResultClosure) -> Void in
+    
+    if var urlRequest = try? endpoint.urlRequest() {
+        urlRequest.timeoutInterval = 15
+        closure(.success(urlRequest))
+    } else {
+        closure(.failure(MoyaError.requestMapping(endpoint.url)))
+    }
+}
+
+let ApiProvider = MoyaProvider<Api>(requestClosure: timeoutClosure)
+
+let MultiApiProvider = MoyaProvider<MultiTarget>(requestClosure: timeoutClosure)
+
 public extension MoyaProvider {
     
     // MARK: - 请求数据（返回一个对象模型）
