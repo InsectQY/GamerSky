@@ -33,13 +33,18 @@ class ColumnHeaderView: UIView, NibLoadable {
     // MARK: - 加载栏目数据
     private func loadColumnList() {
         
-        ApiProvider.request(.columnNodeList, objectModel: BaseModel<[ColumnList]>.self, success: {
+        ColumnApi.columnNodeList
+        .cache
+        .request(objectModel: BaseModel<[ColumnList]>.self)
+        .subscribe(onNext: { [weak self] in
             
+            guard let `self` = self else {return}
             self.columnLists = $0.result
             self.colletcionView.reloadData()
-        }, failure: {
+        }, onError: {
             print($0)
         })
+        .disposed(by: rx.disposeBag)
     }
 }
 

@@ -76,6 +76,7 @@
 		99E7999B2071E10E005C3408 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E7999A2071E10E005C3408 /* AppDelegate.swift */; };
 		99E799A22071E10E005C3408 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99E799A12071E10E005C3408 /* Assets.xcassets */; };
 		99E799A52071E10E005C3408 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99E799A32071E10E005C3408 /* LaunchScreen.storyboard */; };
+		E518D89E20B194770011BB6B /* ColumnApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E518D89D20B194770011BB6B /* ColumnApi.swift */; };
 		E523B1F42081E49800CE4701 /* BaseImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E523B1F32081E49800CE4701 /* BaseImageView.swift */; };
 		E5259685208E15E100B5F419 /* GameListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5259684208E15E100B5F419 /* GameListViewController.swift */; };
 		E5259689208E167F00B5F419 /* GameListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5259687208E167F00B5F419 /* GameListCell.swift */; };
@@ -261,6 +262,7 @@
 		99E799A42071E10E005C3408 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		99E799A62071E10E005C3408 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0B9C44C57C7BCE246F09E2C /* Pods-GamerSky.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GamerSky.release.xcconfig"; path = "Pods/Target Support Files/Pods-GamerSky/Pods-GamerSky.release.xcconfig"; sourceTree = "<group>"; };
+		E518D89D20B194770011BB6B /* ColumnApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnApi.swift; sourceTree = "<group>"; };
 		E523B1F32081E49800CE4701 /* BaseImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseImageView.swift; sourceTree = "<group>"; };
 		E5259684208E15E100B5F419 /* GameListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListViewController.swift; sourceTree = "<group>"; };
 		E5259687208E167F00B5F419 /* GameListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListCell.swift; sourceTree = "<group>"; };
@@ -654,6 +656,7 @@
 			children = (
 				998F0C392071EE8800C587C2 /* Api.swift */,
 				E575DD1520B0763600C66BA8 /* NewsApi.swift */,
+				E518D89D20B194770011BB6B /* ColumnApi.swift */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -1715,6 +1718,7 @@
 				E5CD69C7207BCF5F001A1A0A /* RightToLeft.swift in Sources */,
 				E5CD69C0207BCF5F001A1A0A /* CosmosLayers.swift in Sources */,
 				E57C5BB520824F3100655E0F /* ColumnDetailViewController.swift in Sources */,
+				E518D89E20B194770011BB6B /* ColumnApi.swift in Sources */,
 				9941411E2074B45E0016AC01 /* BaseCollectionView.swift in Sources */,
 				E56802E520725C9100CF944E /* NewsTableHeaderView.swift in Sources */,
 				E5CD69C6207BCF5F001A1A0A /* CosmosTouchTarget.swift in Sources */,

@@ -32,14 +32,6 @@ enum Api {
     
     ///////////////  圈子  ///////////////
     
-    ///////////////  原创  ///////////////
-    
-    
-    /// 全部栏目
-    case columnNodeList
-    /// 最新动态(参数依次是: page, 频道 ID)
-    case columnContent(Int, Int)
-    
     ///////////////  搜索 ///////////////
     
     /// 热搜
@@ -83,10 +75,6 @@ extension Api: TargetType {
             return "game/GameTags"
         case .gameSpecialDetail:
             return "game/gameSpecialDetail"
-        case .columnNodeList:
-            return "v2/ColumnNodeList"
-        case .columnContent:
-            return "v2/ColumnContent"
         case .hotSearch:
             return "v2/SearchHotDict"
         case .twoSearch:
@@ -157,12 +145,6 @@ extension Api: TargetType {
                                     "extraField2" : "gsScore,gameTag",
                                     "extraField3" : "largeImage,description",
                                     "nodeId" : nodeID,
-                                    "pageIndex" : page,
-                                    "elementsCountPerPage" : 20]
-        case .columnNodeList:
-            parmeters["request"] = ["date" : 1]
-        case let .columnContent(page, id):
-            parmeters["request"] = ["id" : id,
                                     "pageIndex" : page,
                                     "elementsCountPerPage" : 20]
         case .hotSearch:

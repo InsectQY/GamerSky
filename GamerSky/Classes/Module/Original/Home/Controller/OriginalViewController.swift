@@ -93,7 +93,11 @@ extension OriginalViewController {
             guard let `self` = self else {return}
             self.page = 1
             self.tableView.qy_footer.endRefreshing()
-            ApiProvider.request(.columnContent(self.page, columnID), objectModel: BaseModel<ColumnContent>.self, success: {
+            
+            ColumnApi.columnContent(self.page, columnID)
+            .cache
+            .request(objectModel: BaseModel<ColumnContent>.self)
+            .subscribe(onNext: {
                 
                 if self.columnList == nil {
                     self.columnAry = [$0.result.childElements]
@@ -103,9 +107,10 @@ extension OriginalViewController {
                 
                 self.tableView.reloadData()
                 self.tableView.qy_header.endRefreshing()
-            }) { _ in
+            }, onError: { _ in
                 self.tableView.qy_header.endRefreshing()
-            }
+            })
+            .disposed(by: self.rx.disposeBag)
         })
         
         tableView.qy_footer = QYRefreshFooter(refreshingBlock: { [weak self] in
@@ -113,19 +118,24 @@ extension OriginalViewController {
             guard let `self` = self else {return}
             self.page += 1
             self.tableView.qy_header.endRefreshing()
-            ApiProvider.request(.columnContent(self.page, columnID), objectModel: BaseModel<ColumnContent>.self, success: {
+            
+            ColumnApi.columnContent(self.page, columnID)
+            .cache
+            .request(objectModel: BaseModel<ColumnContent>.self)
+            .subscribe(onNext: {
                 
                 if self.columnList == nil {
                     self.columnAry += [$0.result.childElements]
                 }else {
                     self.columnListAry += $0.result.childElements
                 }
-
+                
                 self.tableView.reloadData()
                 self.tableView.qy_footer.endRefreshing()
-            }) { _ in
+            }, onError: { _ in
                 self.tableView.qy_footer.endRefreshing()
-            }
+            })
+            .disposed(by: self.rx.disposeBag)
         })
         
         tableView.qy_header.beginRefreshing()
