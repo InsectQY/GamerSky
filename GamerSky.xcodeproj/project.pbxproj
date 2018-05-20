@@ -77,6 +77,9 @@
 		99E799A22071E10E005C3408 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99E799A12071E10E005C3408 /* Assets.xcassets */; };
 		99E799A52071E10E005C3408 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99E799A32071E10E005C3408 /* LaunchScreen.storyboard */; };
 		E518D89E20B194770011BB6B /* ColumnApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E518D89D20B194770011BB6B /* ColumnApi.swift */; };
+		E518D8A020B199890011BB6B /* SearchApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E518D89F20B199890011BB6B /* SearchApi.swift */; };
+		E518D8A220B19A900011BB6B /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E518D8A120B19A900011BB6B /* UserApi.swift */; };
+		E518D8A420B19B5A0011BB6B /* GameApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E518D8A320B19B5A0011BB6B /* GameApi.swift */; };
 		E523B1F42081E49800CE4701 /* BaseImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E523B1F32081E49800CE4701 /* BaseImageView.swift */; };
 		E5259685208E15E100B5F419 /* GameListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5259684208E15E100B5F419 /* GameListViewController.swift */; };
 		E5259689208E167F00B5F419 /* GameListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5259687208E167F00B5F419 /* GameListCell.swift */; };
@@ -263,6 +266,9 @@
 		99E799A62071E10E005C3408 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0B9C44C57C7BCE246F09E2C /* Pods-GamerSky.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GamerSky.release.xcconfig"; path = "Pods/Target Support Files/Pods-GamerSky/Pods-GamerSky.release.xcconfig"; sourceTree = "<group>"; };
 		E518D89D20B194770011BB6B /* ColumnApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnApi.swift; sourceTree = "<group>"; };
+		E518D89F20B199890011BB6B /* SearchApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchApi.swift; sourceTree = "<group>"; };
+		E518D8A120B19A900011BB6B /* UserApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserApi.swift; sourceTree = "<group>"; };
+		E518D8A320B19B5A0011BB6B /* GameApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameApi.swift; sourceTree = "<group>"; };
 		E523B1F32081E49800CE4701 /* BaseImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseImageView.swift; sourceTree = "<group>"; };
 		E5259684208E15E100B5F419 /* GameListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListViewController.swift; sourceTree = "<group>"; };
 		E5259687208E167F00B5F419 /* GameListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListCell.swift; sourceTree = "<group>"; };
@@ -657,6 +663,9 @@
 				998F0C392071EE8800C587C2 /* Api.swift */,
 				E575DD1520B0763600C66BA8 /* NewsApi.swift */,
 				E518D89D20B194770011BB6B /* ColumnApi.swift */,
+				E518D89F20B199890011BB6B /* SearchApi.swift */,
+				E518D8A120B19A900011BB6B /* UserApi.swift */,
+				E518D8A320B19B5A0011BB6B /* GameApi.swift */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -1691,6 +1700,7 @@
 				998F0C372071EE2E00C587C2 /* AppConfig.swift in Sources */,
 				998F0C452071EEC500C587C2 /* UIViewExtension.swift in Sources */,
 				994141132074A2CD0016AC01 /* NewsSectionHeaderView.swift in Sources */,
+				E518D8A420B19B5A0011BB6B /* GameApi.swift in Sources */,
 				E550C92E207CD21200C4AF2D /* GameTagContentCell.swift in Sources */,
 				994141272074C2740016AC01 /* Preference.swift in Sources */,
 				E57C5BAC2082402800655E0F /* GameRecommendFooterView.swift in Sources */,
@@ -1719,6 +1729,7 @@
 				E5CD69C0207BCF5F001A1A0A /* CosmosLayers.swift in Sources */,
 				E57C5BB520824F3100655E0F /* ColumnDetailViewController.swift in Sources */,
 				E518D89E20B194770011BB6B /* ColumnApi.swift in Sources */,
+				E518D8A220B19A900011BB6B /* UserApi.swift in Sources */,
 				9941411E2074B45E0016AC01 /* BaseCollectionView.swift in Sources */,
 				E56802E520725C9100CF944E /* NewsTableHeaderView.swift in Sources */,
 				E5CD69C6207BCF5F001A1A0A /* CosmosTouchTarget.swift in Sources */,
@@ -1786,6 +1797,7 @@
 				E5CD69C1207BCF5F001A1A0A /* CosmosLocalizedRating.swift in Sources */,
 				9958FFD62091CC070055DFAF /* GameListFlowLayout.swift in Sources */,
 				9958FFCF2091C3EB0055DFAF /* GameListHeaderView.swift in Sources */,
+				E518D8A020B199890011BB6B /* SearchApi.swift in Sources */,
 				998F0C722071F7AD00C587C2 /* OriginalViewController.swift in Sources */,
 				E550C92A207CD0E700C4AF2D /* GameHomeTagCell.swift in Sources */,
 			);

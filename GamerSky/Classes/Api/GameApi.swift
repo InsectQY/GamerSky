@@ -1,16 +1,15 @@
 //
-//  Api.swift
+//  GameApi.swift
 //  GamerSky
 //
-//  Created by QY on 2018/4/2.
+//  Created by QY on 2018/5/20.
 //  Copyright © 2018年 QY. All rights reserved.
 //
 
 import Moya
 
-enum Api {
-    
-    ///////////////  游戏  ///////////////
+enum GameApi {
+   
     /// 特色专题(参数是 page)
     case gameSpecialList(Int)
     /// 游戏类型(参数依次是: page, 游戏类型)
@@ -31,7 +30,7 @@ enum Api {
     case gameList(Int)
 }
 
-extension Api: TargetType {
+extension GameApi: TargetType {
     
     var baseURL: URL {
         return URL(string: AppHostIP)!
@@ -75,10 +74,10 @@ extension Api: TargetType {
     var task: Task {
         
         var parmeters: [String: Any] = ["device_id": deviceID,
-                         "os": "iOS",
-                         "osVersion": osVersion,
-                         "app": "GSApp",
-                         "appVersion": "3.7.4"]
+                                        "os": "iOS",
+                                        "osVersion": osVersion,
+                                        "app": "GSApp",
+                                        "appVersion": "3.7.4"]
         switch self {
             
         case let .gameSpecialList(page):

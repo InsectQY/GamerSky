@@ -1,23 +1,22 @@
 //
-//  NewsApi.swift
+//  SearchApi.swift
 //  GamerSky
 //
-//  Created by QY on 2018/5/19.
+//  Created by QY on 2018/5/20.
 //  Copyright © 2018年 QY. All rights reserved.
 //
 
 import Moya
-import Cache
 
-enum NewsApi {
+enum SearchApi {
     
-    /// 新闻频道
-    case allChannel
-    /// 频道列表(参数依次是: page, 频道 ID)
-    case allChannelList(Int, Int)
+    /// 热搜
+    case hotSearch
+    /// 搜索(参数依次是: page, 搜索类型, 搜索内容)
+    case twoSearch(Int, SearchType, String)
 }
 
-extension NewsApi: TargetType {
+extension SearchApi: TargetType {
     
     var baseURL: URL {
         return URL(string: AppHostIP)!
@@ -26,10 +25,11 @@ extension NewsApi: TargetType {
     var path: String {
         
         switch self {
-        case .allChannel:
-            return "v2/allchannel"
-        case .allChannelList:
-            return "v2/AllChannelList"
+
+        case .hotSearch:
+            return "v2/SearchHotDict"
+        case .twoSearch:
+            return "v2/TwoSearch"
         }
     }
     
@@ -38,6 +38,10 @@ extension NewsApi: TargetType {
         default:
             return .post
         }
+    }
+    
+    var sampleData: Data {
+        return "".data(using: String.Encoding.utf8)!
     }
     
     var task: Task {
@@ -49,15 +53,13 @@ extension NewsApi: TargetType {
                                         "appVersion": "3.7.4"]
         switch self {
             
-        case .allChannel:
-            
-            parmeters["request"] = ["type" : "0"]
-        case let .allChannelList(page, nodeID):
-            
-            parmeters["request"] = ["parentNodeId" : "news",
-                                    "nodeIds" : "\(nodeID)",
-                "pageIndex": page,
-                "elementsCountPerPage" : 20]
+        case .hotSearch:
+            parmeters["request"] = ["searchType" : "strategy"]
+        case let .twoSearch(page, searchType, searchKey):
+            parmeters["request"] = ["searchType" : searchType.rawValue,
+                                    "searchKey" : searchKey,
+                                    "pageIndex" : page,
+                                    "elementsCountPerPage" : 20]
         }
         
         return .requestParameters(parameters: parmeters, encoding: JSONEncoding.default)
@@ -65,13 +67,5 @@ extension NewsApi: TargetType {
     
     var headers: [String : String]? {
         return nil
-    }
-    
-    var cachedTime: Expiry? {
-        return nil
-    }
-    
-    var sampleData: Data {
-        return "".data(using: String.Encoding.utf8)!
     }
 }

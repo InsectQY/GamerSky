@@ -3,7 +3,7 @@
 //  GamerSky
 //
 //  Created by Insect on 2018/4/10.
-//  Copyright © 2018年 engic. All rights reserved.
+//  Copyright © 2018年 QY. All rights reserved.
 //
 
 import UIKit

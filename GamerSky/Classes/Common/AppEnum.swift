@@ -2,8 +2,8 @@
 //  AppEnum.swift
 //  GamerSky
 //
-//  Created by engic on 2018/4/4.
-//  Copyright © 2018年 engic. All rights reserved.
+//  Created by QY on 2018/4/4.
+//  Copyright © 2018年 QY. All rights reserved.
 //
 
 import UIKit
