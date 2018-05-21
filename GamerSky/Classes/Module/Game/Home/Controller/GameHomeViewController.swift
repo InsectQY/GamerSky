@@ -8,6 +8,15 @@
 
 import UIKit
 import SwiftNotificationCenter
+import RxSwift
+import NSObject_Rx
+
+enum Container {
+    
+    case tag(BaseModel<[GameTag]>)
+    case specialList(BaseModel<[GameSpecialList]>)
+    case info(BaseModel<[GameInfo]>)
+}
 
 class GameHomeViewController: BaseViewController {
     
@@ -81,71 +90,128 @@ extension GameHomeViewController {
             let group = DispatchGroup()
             
             // 新游推荐
-            group.enter()
-            ApiProvider.request(.gameSpecialDetail(1, 13), objectModel: BaseModel<[GameInfo]>.self, success: {
-                
-                self.gameSpecialDetail = $0.result
-                group.leave()
-            }, failure: { _ in
-                self.tableView.qy_header.endRefreshing()
-                group.leave()
-            })
+//            group.enter()
+//            ApiProvider.request(.gameSpecialDetail(1, 13), objectModel: BaseModel<[GameInfo]>.self, success: {
+//                
+//                self.gameSpecialDetail = $0.result
+//                group.leave()
+//            }, failure: { _ in
+//                self.tableView.qy_header.endRefreshing()
+//                group.leave()
+//            })
+            
+            let symbol1 = GameApi.gameSpecialDetail(1, 13)
+            .cache
+            .request(objectModel: BaseModel<[GameInfo]>.self)
+            .map({Container.info($0)})
             
             // 最近大家都在玩
-            group.enter()
-            ApiProvider.request(.gameHomePage(1, .hot), objectModel: BaseModel<[GameInfo]>.self, success: {
-                
-                self.hotGame = $0.result
-                group.leave()
-            }, failure: {_ in
-                self.tableView.qy_header.endRefreshing()
-                group.leave()
-            })
+//            group.enter()
+//            ApiProvider.request(.gameHomePage(1, .hot), objectModel: BaseModel<[GameInfo]>.self, success: {
+//
+//                self.hotGame = $0.result
+//                group.leave()
+//            }, failure: {_ in
+//                self.tableView.qy_header.endRefreshing()
+//                group.leave()
+//            })
+            
+            let symbol2 = GameApi.gameHomePage(1, .hot)
+            .cache
+            .request(objectModel: BaseModel<[GameInfo]>.self)
+            .map({Container.info($0)})
             
             // 即将发售
-            group.enter()
-            ApiProvider.request(.gameHomePage(1, .waitSell), objectModel: BaseModel<[GameInfo]>.self, success: {
-                
-                self.waitSellGame = $0.result
-                group.leave()
-            }, failure: { _ in
-                
-                self.tableView.qy_header.endRefreshing()
-                group.leave()
-            })
+//            group.enter()
+//            ApiProvider.request(.gameHomePage(1, .waitSell), objectModel: BaseModel<[GameInfo]>.self, success: {
+//
+//                self.waitSellGame = $0.result
+//                group.leave()
+//            }, failure: { _ in
+//
+//                self.tableView.qy_header.endRefreshing()
+//                group.leave()
+//            })
+            
+            let symbol3 = GameApi.gameHomePage(1, .waitSell)
+            .cache
+            .request(objectModel: BaseModel<[GameInfo]>.self)
+            .map({Container.info($0)})
             
             // 最期待游戏
-            group.enter()
-            ApiProvider.request(.gameHomePage(1, .expected), objectModel: BaseModel<[GameInfo]>.self, success: {
-                
-                self.expectedGame = $0.result
-                group.leave()
-            }, failure: { _ in
-                self.tableView.qy_header.endRefreshing()
-                group.leave()
-            })
+//            group.enter()
+//            ApiProvider.request(.gameHomePage(1, .expected), objectModel: BaseModel<[GameInfo]>.self, success: {
+//
+//                self.expectedGame = $0.result
+//                group.leave()
+//            }, failure: { _ in
+//                self.tableView.qy_header.endRefreshing()
+//                group.leave()
+//            })
+            
+            let symbol4 = GameApi.gameHomePage(1, .expected)
+            .cache
+            .request(objectModel: BaseModel<[GameInfo]>.self)
+            .map({Container.info($0)})
             
             // 找游戏
-            group.enter()
-            ApiProvider.request(.gameTags, objectModel: BaseModel<[GameTag]>.self, success: {
-                
-                self.gameTags = $0.result
-                group.leave()
-            }) { _ in
-                self.tableView.qy_header.endRefreshing()
-                group.leave()
-            }
+//            group.enter()
+//            ApiProvider.request(.gameTags, objectModel: BaseModel<[GameTag]>.self, success: {
+//
+//                self.gameTags = $0.result
+//                group.leave()
+//            }) { _ in
+//                self.tableView.qy_header.endRefreshing()
+//                group.leave()
+//            }
+            
+            let symbol5 = GameApi.gameTags
+            .cache
+            .request(objectModel: BaseModel<[GameTag]>.self)
+            .map({Container.tag($0)})
             
             // 特色专题
-            group.enter()
-            ApiProvider.request(.gameSpecialList(1), objectModel: BaseModel<[GameSpecialList]>.self, success: {
+//            group.enter()
+//            ApiProvider.request(.gameSpecialList(1), objectModel: BaseModel<[GameSpecialList]>.self, success: {
+//
+//                self.gameColumn = $0.result
+//                group.leave()
+//            }) { _ in
+//                self.tableView.qy_header.endRefreshing()
+//                group.leave()
+//            }
+            
+            let symbol6 = GameApi.gameSpecialList(1)
+            .cache
+            .request(objectModel: BaseModel<[GameSpecialList]>.self)
+            .map({Container.specialList($0)})
+            
+           Observable.of(symbol1, symbol2, symbol3, symbol4, symbol5, symbol6)
+            .concat()
+            .subscribe(onNext: {
                 
-                self.gameColumn = $0.result
-                group.leave()
-            }) { _ in
+                switch $0 {
+                case let .info(gameInfo):
+                    
+                break
+                case let .tag(tag):
+                    self.gameTags = tag.result
+                break
+                case let .specialList(specialList):
+                    self.gameColumn = specialList.result
+                break
+                }
+            }, onError: { _ in
                 self.tableView.qy_header.endRefreshing()
-                group.leave()
-            }
+            }, onCompleted: {
+                
+                self.setUpTableHeader()
+                self.tableView.reloadData()
+                self.tableView.qy_header.endRefreshing()
+            })
+            .disposed(by: self.rx.disposeBag)
+
+            
             
             // 高分榜
             group.enter()

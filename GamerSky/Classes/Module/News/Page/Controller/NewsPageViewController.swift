@@ -8,7 +8,6 @@
 
 import UIKit
 import DNSPageView
-import NSObject_Rx
 import Cache
 
 class NewsPageViewController: BaseViewController {

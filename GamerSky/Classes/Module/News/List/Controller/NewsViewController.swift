@@ -9,7 +9,6 @@
 import UIKit
 import SwiftNotificationCenter
 import RxSwift
-import NSObject_Rx
 
 class NewsViewController: BaseViewController {
 
