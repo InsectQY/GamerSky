@@ -25,18 +25,18 @@ public extension ObservableType where E: TargetType {
         }
     }
     
-//    public func request<T: Codable>(arrayModel: T.Type,
-//                                    path: String? = nil) -> Observable<[T]> {
-//        
-//        return flatMap { target -> Observable<[T]> in
-//            
-//            if let entry = CacheManager.default.object(ofType: arrayModel, forKey: target.cachedKey) {
-//                
-//                return target.request(arrayModel: arrayModel, path: path).setObject(for: target).asObservable().startWith(entry)
-//            }
-//            return target.request(arrayModel: arrayModel, path: path).asObservable()
-//        }
-//    }
+    public func request<T: Codable>(arrayModel: T.Type,
+                                    path: String? = nil) -> Observable<[T]> {
+        
+        return flatMap { target -> Observable<[T]> in
+            
+            if let entry = CacheManager.default.object(ofType: [T].self, forKey: target.cachedKey) {
+                
+                return target.request(arrayModel: arrayModel, path: path).setObject(for: target).asObservable().startWith(entry)
+            }
+            return target.request(arrayModel: arrayModel, path: path).setObject(for: target).asObservable()
+        }
+    }
 }
 
 public extension ObservableType where E == Response {

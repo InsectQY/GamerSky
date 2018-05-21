@@ -531,6 +531,14 @@
 			path = FlowLayout;
 			sourceTree = "<group>";
 		};
+		9961E51520B299D600A24A81 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				E575DD0F20B0637600C66BA8 /* CacheManager.swift */,
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
 		9966511220736D2C0010430E /* Plist */ = {
 			isa = PBXGroup;
 			children = (
@@ -1348,6 +1356,7 @@
 		E5D48608209E0E8E00AD7808 /* Moya-Codable */ = {
 			isa = PBXGroup;
 			children = (
+				9961E51520B299D600A24A81 /* Cache */,
 				E5D48609209E0E8E00AD7808 /* Core */,
 				E5D4860B209E0E8E00AD7808 /* MoyaProvider */,
 				E5D4860D209E0E8E00AD7808 /* RxSwift */,
@@ -1374,7 +1383,6 @@
 		E5D4860D209E0E8E00AD7808 /* RxSwift */ = {
 			isa = PBXGroup;
 			children = (
-				E575DD0F20B0637600C66BA8 /* CacheManager.swift */,
 				E575DD1020B0637600C66BA8 /* TargetType+Moya.swift */,
 				E5D4860E209E0E8E00AD7808 /* ObservableType+Codable.swift */,
 				E5D4860F209E0E8E00AD7808 /* Single+Codable.swift */,
@@ -1502,6 +1510,7 @@
 				99E799952071E10D005C3408 /* Resources */,
 				6BCCF8F026839F28A125CABD /* [CP] Embed Pods Frameworks */,
 				998F0C342071ECBB00C587C2 /* ShellScript */,
+				4D4483365A382B0284BD5557 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1599,6 +1608,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4D4483365A382B0284BD5557 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GamerSky/Pods-GamerSky-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		6BCCF8F026839F28A125CABD /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

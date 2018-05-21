@@ -18,6 +18,13 @@ public extension PrimitiveSequence where TraitType == SingleTrait, ElementType: 
             return target.request(objectModel: objectModel, path: path).setObject(for: target)
         }
     }
+    
+    public func request<T: Codable>(arrayModel: T.Type,
+                                    path: String? = nil) -> Single<[T]> {
+        return flatMap { target -> Single<[T]> in
+            return target.request(arrayModel: arrayModel, path: path).setObject(for: target)
+        }
+    }
 }
 
 public extension PrimitiveSequence where TraitType == SingleTrait, ElementType == Response {
