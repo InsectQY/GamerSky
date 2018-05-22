@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import NSObject_Rx
 
 class GameColumnViewController: BaseViewController {
     
@@ -58,14 +59,17 @@ extension GameColumnViewController {
             guard let `self` = self else {return}
             
             // 特色专题
-            ApiProvider.request(.gameSpecialList(1), objectModel: BaseModel<[GameSpecialList]>.self, success: {
-                
+            GameApi.gameSpecialList(1)
+            .cache
+            .request(objectModel: BaseModel<[GameSpecialList]>.self)
+            .subscribe(onNext: {
                 self.gameColumn = $0.result
                 self.collectionView.reloadData()
                 self.collectionView.qy_header.endRefreshing()
-            }) { _ in
+            }, onError: { _ in
                 self.collectionView.qy_header.endRefreshing()
-            }
+            })
+            .disposed(by: self.rx.disposeBag)
         })
         
         collectionView.qy_header.beginRefreshing()

@@ -60,14 +60,18 @@ extension GameCommentListViewController {
             
             self.page = 1
             self.tableView.qy_footer.endRefreshing()
-            ApiProvider.request(.gameReviewList(self.page, self.commentType), objectModel: BaseModel<[GameComment]>.self, success: {
+            GameApi.gameReviewList(self.page, self.commentType)
+            .cache
+            .request(objectModel: BaseModel<[GameComment]>.self)
+            .subscribe(onNext: {
                 
                 self.commets = $0.result
                 self.tableView.reloadData()
                 self.tableView.qy_header.endRefreshing()
-            }, failure: { _ in
+            }, onError: { _ in
                 self.tableView.qy_header.endRefreshing()
             })
+            .disposed(by: self.rx.disposeBag)
         })
         
         tableView.qy_footer = QYRefreshFooter(refreshingBlock: { [weak self] in
@@ -76,14 +80,19 @@ extension GameCommentListViewController {
             
             self.page += 1
             self.tableView.qy_header.endRefreshing()
-            ApiProvider.request(.gameReviewList(self.page, self.commentType), objectModel: BaseModel<[GameComment]>.self, success: {
+            
+            GameApi.gameReviewList(self.page, self.commentType)
+            .cache
+            .request(objectModel: BaseModel<[GameComment]>.self)
+            .subscribe(onNext: {
                 
                 self.commets += $0.result
                 self.tableView.reloadData()
                 self.tableView.qy_footer.endRefreshing()
-            }, failure: { _ in
-                self.tableView.qy_footer.endRefreshing()
+            }, onError: { _ in
+                self.tableView.qy_header.endRefreshing()
             })
+            .disposed(by: self.rx.disposeBag)
         })
         
         tableView.qy_header.beginRefreshing()

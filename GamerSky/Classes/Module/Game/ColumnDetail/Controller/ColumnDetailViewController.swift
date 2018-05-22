@@ -7,6 +7,13 @@
 //
 
 import UIKit
+import RxSwift
+import NSObject_Rx
+
+enum ColumnDetailContainer {
+    case gameSpecialSubList(BaseModel<[GameSpecialSubList]>)
+    case gameSpecialDetail(BaseModel<[GameSpecialDetail]>)
+}
 
 class ColumnDetailViewController: BaseViewController {
     
@@ -68,71 +75,96 @@ extension ColumnDetailViewController {
         tableView.qy_header = QYRefreshHeader(refreshingBlock: { [weak self] in
             
             guard let `self` = self else {return}
-            let group = DispatchGroup()
+            
+            self.page = 1
+            let symbol1 = GameApi.gameSpecialDetail(self.page, self.nodeID)
+            .cache
+            .request(objectModel: BaseModel<[GameSpecialDetail]>.self)
+            .map({ColumnDetailContainer.gameSpecialDetail($0)})
             
             if self.isHasSubList {
                 
-                group.enter()
-                ApiProvider.request(.gameSpecialSubList(self.nodeID), objectModel: BaseModel<[GameSpecialSubList]>.self, success: {
+                let symbol2 = GameApi.gameSpecialSubList(self.nodeID)
+                .cache
+                .request(objectModel: BaseModel<[GameSpecialSubList]>.self)
+                .map({ColumnDetailContainer.gameSpecialSubList($0)})
+                
+                Observable.of(symbol1, symbol2)
+                .concat()
+                .subscribe(onNext: { response in
 
-                    self.specialSubList = $0.result
-                    group.leave()
-                }, failure: { _ in
+                    switch response {
+                    case let .gameSpecialDetail(data):
+                        
+                        self.specialDetail = data.result
+                        break
+                    case let .gameSpecialSubList(data):
+                        
+                        self.specialSubList = data.result
+                        // 清空之前分好的组
+                        self.sectionSpecialDetail.removeAll()
+                        // 遍历并按sublist的title分组
+                        self.specialSubList.forEach({ subList in
+                            
+                            let result = self.specialDetail
+                                .filter {subList.title == ($0.subgroup ?? "")}
+                            self.sectionSpecialDetail.append(result)
+                        })
+                        self.tableView.reloadData()
+                        self.tableView.qy_header.endRefreshing()
+                        break
+                    }
+                }, onError: { _ in
                     self.tableView.qy_header.endRefreshing()
                 })
+                .disposed(by: self.rx.disposeBag)
             }else {
-                self.tableView.qy_footer.endRefreshing()
-            }
-            
-            group.enter()
-            self.page = 1
-            ApiProvider.request(.gameSpecialDetail(self.page, self.nodeID), objectModel: BaseModel<[GameSpecialDetail]>.self, success: {
                 
-                self.specialDetail = $0.result
-                group.leave()
-            }, failure: { _ in
-                self.tableView.qy_header.endRefreshing()
-            })
-            
-            group.notify(queue: DispatchQueue.main, execute: {
-                
-                // 开始分组
-                if self.isHasSubList {
+                symbol1.subscribe(onNext: { response in
                     
-                    // 清空之前分好的组
-                    self.sectionSpecialDetail.removeAll()
-                    // 遍历并按sublist的title分组
-                    self.specialSubList.forEach({ subList in
+                    switch response {
+                    case let .gameSpecialDetail(data):
                         
-                        let result = self.specialDetail.filter {subList.title == ($0.subgroup ?? "")}
-                        self.sectionSpecialDetail.append(result)
-                    })
-                }
-                self.tableView.reloadData()
-                self.tableView.qy_header.endRefreshing()
-            })
+                        self.specialDetail = data.result
+                        self.tableView.reloadData()
+                        self.tableView.qy_header.endRefreshing()
+                        break
+                    case .gameSpecialSubList:
+                        break
+                    }
+                }, onError: { _ in
+                    self.tableView.qy_header.endRefreshing()
+                })
+                .disposed(by: self.rx.disposeBag)
+                
+                self.tableView.qy_footer.endRefreshingWithNoMoreData()
+            }
         })
         
-        if !isHasSubList {
-            
-            tableView.qy_footer = QYRefreshFooter(refreshingBlock: { [weak self] in
-                
-                guard let `self` = self else {return}
-                
-                self.page += 1
-                self.tableView.qy_header.endRefreshing()
-                ApiProvider.request(.gameSpecialDetail(self.page, self.nodeID), objectModel: BaseModel<[GameSpecialDetail]>.self, success: {
-                    
-                    self.specialDetail += $0.result
-                    self.tableView.qy_footer.endRefreshing()
-                    self.tableView.reloadData()
-                }, failure: { _ in
-                    self.tableView.qy_footer.endRefreshing()
-                })
-            })
-        }
-        
         tableView.qy_header.beginRefreshing()
+        
+        guard !isHasSubList else {return}
+
+        tableView.qy_footer = QYRefreshFooter(refreshingBlock: { [weak self] in
+            
+            guard let `self` = self else {return}
+            
+            self.page += 1
+            self.tableView.qy_header.endRefreshing()
+            
+            GameApi.gameSpecialDetail(self.page, self.nodeID)
+            .cache
+            .request(objectModel: BaseModel<[GameSpecialDetail]>.self)
+            .subscribe(onNext: {
+                
+                self.specialDetail += $0.result
+                self.tableView.qy_footer.endRefreshing()
+                self.tableView.reloadData()
+            }, onError: { _ in
+                self.tableView.qy_footer.endRefreshing()
+            })
+            .disposed(by: self.rx.disposeBag)
+        })
     }
 }
 

@@ -70,14 +70,19 @@ extension GameListViewController {
             guard let `self` = self else {return}
             self.page = 1
             self.collectionView.qy_footer.endRefreshing()
-            ApiProvider.request(.gameList(self.page), objectModel: BaseModel<GameList>.self, success: {
-                
+            
+            GameApi.gameList(self.page)
+            .cache
+            .request(objectModel: BaseModel<GameList>.self)
+            .subscribe(onNext: {
+            
                 self.gameLists = $0.result.childelements
                 self.collectionView.reloadData()
                 self.collectionView.qy_header.endRefreshing()
-            }, failure: { _ in
+            }, onError: { _ in
                 self.collectionView.qy_header.endRefreshing()
             })
+            .disposed(by: self.rx.disposeBag)
         })
         
         collectionView.qy_footer = QYRefreshFooter(refreshingBlock: { [weak self] in
@@ -85,14 +90,19 @@ extension GameListViewController {
             guard let `self` = self else {return}
             self.page += 1
             self.collectionView.qy_header.endRefreshing()
-            ApiProvider.request(.gameList(self.page), objectModel: BaseModel<GameList>.self, success: {
+            
+            GameApi.gameList(self.page)
+            .cache
+            .request(objectModel: BaseModel<GameList>.self)
+            .subscribe(onNext: {
                 
                 self.gameLists += $0.result.childelements
                 self.collectionView.reloadData()
                 self.collectionView.qy_footer.endRefreshing()
-            }, failure: { _ in
+            }, onError: { _ in
                 self.collectionView.qy_footer.endRefreshing()
             })
+            .disposed(by: self.rx.disposeBag)
         })
         
         collectionView.qy_header.beginRefreshing()

@@ -73,6 +73,7 @@ class GameHomeViewController: BaseViewController {
         setUpUI()
         setUpNavi()
         setUpRefresh()
+        setUpTableHeader()
     }
     
     override func repeatClickTabBar() {
@@ -183,7 +184,6 @@ extension GameHomeViewController {
                 self.tableView.qy_header.endRefreshing()
             }, onCompleted: {
                 
-                self.setUpTableHeader()
                 self.tableView.reloadData()
                 self.tableView.qy_header.endRefreshing()
             })

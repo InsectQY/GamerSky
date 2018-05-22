@@ -9,7 +9,7 @@
 import Foundation
 import Moya
 
-let timeoutClosure = {(endpoint: Endpoint, closure: MoyaProvider<Api>.RequestResultClosure) -> Void in
+let timeoutClosure = {(endpoint: Endpoint, closure: MoyaProvider<MultiTarget>.RequestResultClosure) -> Void in
     
     if var urlRequest = try? endpoint.urlRequest() {
         urlRequest.timeoutInterval = 15
@@ -18,8 +18,6 @@ let timeoutClosure = {(endpoint: Endpoint, closure: MoyaProvider<Api>.RequestRes
         closure(.failure(MoyaError.requestMapping(endpoint.url)))
     }
 }
-
-let ApiProvider = MoyaProvider<Api>(requestClosure: timeoutClosure)
 
 let MultiApiProvider = MoyaProvider<MultiTarget>(requestClosure: timeoutClosure)
 

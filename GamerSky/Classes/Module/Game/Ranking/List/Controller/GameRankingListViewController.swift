@@ -61,28 +61,38 @@ extension GameRankingListViewController {
             
             guard let `self` = self else {return}
             self.page = 1
-            ApiProvider.request(.gameRankingList(self.page, self.rankingType, self.gameClass, self.annualClass), objectModel: BaseModel<[GameSpecialDetail]>.self, success: {
+            
+            GameApi.gameRankingList(self.page, self.rankingType, self.gameClass, self.annualClass)
+            .cache
+            .request(objectModel: BaseModel<[GameSpecialDetail]>.self)
+            .subscribe(onNext: {
                 
                 self.rankingData = $0.result
                 self.tableView.reloadData()
                 self.tableView.qy_header.endRefreshing()
-            }, failure: { _ in
+            }, onError: { _ in
                 self.tableView.qy_header.endRefreshing()
             })
+            .disposed(by: self.rx.disposeBag)
         })
         
         tableView.mj_footer = QYRefreshFooter(refreshingBlock: {[weak self] in
             
             guard let `self` = self else {return}
             self.page += 1
-            ApiProvider.request(.gameRankingList(self.page, self.rankingType, self.gameClass, self.annualClass), objectModel: BaseModel<[GameSpecialDetail]>.self, success: {
+            
+            GameApi.gameRankingList(self.page, self.rankingType, self.gameClass, self.annualClass)
+            .cache
+            .request(objectModel: BaseModel<[GameSpecialDetail]>.self)
+            .subscribe(onNext: {
                 
                 self.rankingData += $0.result
                 self.tableView.reloadData()
                 self.tableView.qy_footer.endRefreshing()
-            }, failure: { _ in
+            }, onError: { _ in
                 self.tableView.qy_footer.endRefreshing()
             })
+            .disposed(by: self.rx.disposeBag)
         })
         
         tableView.qy_header.beginRefreshing()

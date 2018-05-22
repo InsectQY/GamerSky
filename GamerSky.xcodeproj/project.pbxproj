@@ -55,7 +55,6 @@
 		998F0C322071EBCE00C587C2 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998F0C302071EBCE00C587C2 /* TabBarController.swift */; };
 		998F0C332071EBCE00C587C2 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998F0C312071EBCE00C587C2 /* NavigationController.swift */; };
 		998F0C372071EE2E00C587C2 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998F0C362071EE2E00C587C2 /* AppConfig.swift */; };
-		998F0C3A2071EE8800C587C2 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998F0C392071EE8800C587C2 /* Api.swift */; };
 		998F0C402071EEAB00C587C2 /* UICollectionView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998F0C3C2071EEAB00C587C2 /* UICollectionView+Reusable.swift */; };
 		998F0C412071EEAB00C587C2 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998F0C3D2071EEAB00C587C2 /* Reusable.swift */; };
 		998F0C422071EEAB00C587C2 /* UITableView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998F0C3E2071EEAB00C587C2 /* UITableView+Reusable.swift */; };
@@ -230,7 +229,6 @@
 		998F0C302071EBCE00C587C2 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		998F0C312071EBCE00C587C2 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		998F0C362071EE2E00C587C2 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
-		998F0C392071EE8800C587C2 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		998F0C3C2071EEAB00C587C2 /* UICollectionView+Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Reusable.swift"; sourceTree = "<group>"; };
 		998F0C3D2071EEAB00C587C2 /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		998F0C3E2071EEAB00C587C2 /* UITableView+Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Reusable.swift"; sourceTree = "<group>"; };
@@ -668,7 +666,6 @@
 		998F0C382071EE7E00C587C2 /* Api */ = {
 			isa = PBXGroup;
 			children = (
-				998F0C392071EE8800C587C2 /* Api.swift */,
 				E575DD1520B0763600C66BA8 /* NewsApi.swift */,
 				E518D89D20B194770011BB6B /* ColumnApi.swift */,
 				E518D89F20B199890011BB6B /* SearchApi.swift */,
@@ -1806,7 +1803,6 @@
 				E5DC0AEF2086301B001E61C6 /* StringExtensions.swift in Sources */,
 				E550C933207CDBE200C4AF2D /* GameHomeColumnContentCell.swift in Sources */,
 				99446AC8207CAC19004048C7 /* GameHomeRankingContentCell.swift in Sources */,
-				998F0C3A2071EE8800C587C2 /* Api.swift in Sources */,
 				998F0C662071F6F700C587C2 /* NewsViewController.swift in Sources */,
 				998F0C322071EBCE00C587C2 /* TabBarController.swift in Sources */,
 				E5DC0AEB20862A4C001E61C6 /* GameSellListPageViewController.swift in Sources */,
