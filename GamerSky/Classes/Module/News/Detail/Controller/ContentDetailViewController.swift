@@ -12,7 +12,7 @@ import URLNavigator
 
 class ContentDetailViewController: BaseViewController {
 
-    public var contentID = 0
+    private var contentID = 0
     
     // MARK: - Lazyload
     private lazy var webView: WKWebView = {

@@ -13,9 +13,8 @@ import URLNavigator
 
 class OriginalViewController: BaseViewController {
 
-//    private let navigator: NavigatorType
     /// 其他栏目
-    public var columnList: ColumnList?
+    private var columnList: ColumnList?
     
     private var page = 1
     
@@ -61,16 +60,12 @@ class OriginalViewController: BaseViewController {
         return tableView
     }()
     
-    // MARK: - init
-//    init(navigator: NavigatorType) {
-//        self.navigator = navigator
-//        super.init(nibName: nil, bundle: nil)
-//    }
-//
-//    required init?(coder aDecoder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
-//
+    // MARK: - convenience
+    convenience init(columnList: ColumnList) {
+        self.init()
+        self.columnList = columnList
+    }
+    
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()

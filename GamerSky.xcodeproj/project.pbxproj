@@ -27,6 +27,7 @@
 		992C5B1E20B66D2200887A71 /* URLNavigator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 992C5B1C20B66D2100887A71 /* URLNavigator.framework */; };
 		992C5B1F20B66D2200887A71 /* URLMatcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 992C5B1D20B66D2100887A71 /* URLMatcher.framework */; };
 		992C5B2220B66DCC00887A71 /* NavigationMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992C5B2120B66DCC00887A71 /* NavigationMap.swift */; };
+		992C5B2420B69AF600887A71 /* ConvertToStringable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992C5B2320B69AF600887A71 /* ConvertToStringable.swift */; };
 		994141082074605E0016AC01 /* AppEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994141072074605E0016AC01 /* AppEnum.swift */; };
 		9941410E20747B0C0016AC01 /* BaseLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9941410D20747B0C0016AC01 /* BaseLabel.swift */; };
 		9941411020747F8C0016AC01 /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9941410F20747F8C0016AC01 /* BaseButton.swift */; };
@@ -204,6 +205,7 @@
 		992C5B1C20B66D2100887A71 /* URLNavigator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = URLNavigator.framework; path = Carthage/Build/iOS/URLNavigator.framework; sourceTree = "<group>"; };
 		992C5B1D20B66D2100887A71 /* URLMatcher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = URLMatcher.framework; path = Carthage/Build/iOS/URLMatcher.framework; sourceTree = "<group>"; };
 		992C5B2120B66DCC00887A71 /* NavigationMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationMap.swift; sourceTree = "<group>"; };
+		992C5B2320B69AF600887A71 /* ConvertToStringable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertToStringable.swift; sourceTree = "<group>"; };
 		994141072074605E0016AC01 /* AppEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnum.swift; sourceTree = "<group>"; };
 		9941410D20747B0C0016AC01 /* BaseLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseLabel.swift; sourceTree = "<group>"; };
 		9941410F20747F8C0016AC01 /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
@@ -639,6 +641,7 @@
 			isa = PBXGroup;
 			children = (
 				998F0C3B2071EEAB00C587C2 /* Reusable */,
+				992C5B2320B69AF600887A71 /* ConvertToStringable.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -1778,6 +1781,7 @@
 				99A67817209ADF5500DB1AA7 /* AppKey.swift in Sources */,
 				9941411F2074B45E0016AC01 /* BaseCollectionReusableView.swift in Sources */,
 				998F0C432071EEAB00C587C2 /* NibLoadable.swift in Sources */,
+				992C5B2420B69AF600887A71 /* ConvertToStringable.swift in Sources */,
 				E5CD69BA207BCF5F001A1A0A /* StarFillMode.swift in Sources */,
 				E550C943207CF52F00C4AF2D /* GameHomeSectionHeader.swift in Sources */,
 				99A6781E209AF7C600DB1AA7 /* IntExtension.swift in Sources */,

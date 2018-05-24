@@ -68,9 +68,7 @@ extension ColumnHeaderView: UICollectionViewDataSource {
 extension ColumnHeaderView: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-//        vc.columnList = columnLists[indexPath.item]
-//        parentVC?.navigationController?.pushViewController(vc, animated: true)
-//        Navigator().push("\(NavigationURL.contentDetail)/\()")
+        navigator
+        .push(NavigationURL.get(.origin(columnLists[indexPath.item])))
     }
 }

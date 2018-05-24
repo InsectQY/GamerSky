@@ -10,6 +10,12 @@ import UIKit
 
 extension String {
     
+    func toObject<T>(_ : T.Type) -> T? where T: Codable {
+        
+        guard let data = self.data(using: .utf8) else { return nil }
+        return try? JSONDecoder().decode(T.self, from: data)
+    }
+    
     public func date(withFormat format: String) -> Date? {
         
         let dateFormatter = DateFormatter()

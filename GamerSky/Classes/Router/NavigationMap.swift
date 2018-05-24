@@ -16,10 +16,23 @@ enum NavigationURL {
     case contentDetail(Int?)
     /// 栏目详情
     case columnDetail(Bool?, Int?)
+    /// 特色专题
+    case gameColumn
+    /// 排行榜
+    case gameRankingPage
+    /// 发售表
+    case gameSellListPage
+    /// 玩家点评
+    case gameCommentPage
+    /// 找游戏
+    case gameList
+    /// 原创
+    case origin(ColumnList?)
     
     static func get(_ type: NavigationURL) -> String {
         
         switch type {
+            
         case let .contentDetail(url):
             
             if let url = url {
@@ -32,6 +45,22 @@ enum NavigationURL {
                 return "navigator://columnDetail/\(isHasSubList)/\(nodeID)"
             }
             return "navigator://columnDetail/<isHasSubList>/<int:nodeID>"
+        case .gameColumn:
+            return "navigator://gameColumn"
+        case .gameRankingPage:
+            return "navigator://gameRankingPage"
+        case .gameSellListPage:
+            return "navigator://gameSellListPage"
+        case .gameCommentPage:
+            return "navigator://gameCommentPage"
+        case .gameList:
+            return "navigator://gameList"
+        case let .origin(columnList):
+            
+            if let columnList = columnList {
+                return "navigator://origin/<\(columnList.valueString)>"
+            }
+            return "navigator://origin/<columnList>"
         }
     }
 }
@@ -53,6 +82,32 @@ enum NavigationMap {
             guard let isHasSubList = values["isHasSubList"] as? String, let nodeID = values["nodeID"] as? Int else {return nil}
             let hasSubList = isHasSubList == "true" ? true : false
             return ColumnDetailViewController(isHasSubList: hasSubList, nodeID: nodeID)
+        }
+
+        navigator.register(NavigationURL.get(.gameColumn)) { (_, _, _) in
+            return GameColumnViewController()
+        }
+        
+        navigator.register(NavigationURL.get(.gameRankingPage)) { (_, _, _) in
+            return GameRankingPageViewController()
+        }
+        
+        navigator.register(NavigationURL.get(.gameSellListPage)) { (_, _, _) in
+            return GameSellListPageViewController()
+        }
+        
+        navigator.register(NavigationURL.get(.gameCommentPage)) { (_, _, _) in
+            return GameCommentPageViewController()
+        }
+        
+        navigator.register(NavigationURL.get(.gameList)) { (_, _, _) in
+            return GameListViewController()
+        }
+        
+        navigator.register(NavigationURL.get(.origin(nil))) { (url, values, context) in
+            
+            guard let columnList = values["columnList"] as? String, let columnListModel = columnList.toObject(ColumnList.self) else {return nil}
+            return OriginalViewController(columnList: columnListModel)
         }
     }
 }

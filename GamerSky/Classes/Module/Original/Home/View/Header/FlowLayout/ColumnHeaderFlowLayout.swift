@@ -17,18 +17,16 @@ class ColumnHeaderFlowLayout: UICollectionViewFlowLayout {
     /// 每行最大列数
     private let kMaxCol: CGFloat = 4
     /// cell 宽度
-    private var kColumnListCellW: CGFloat {
+    public var kColumnListCellW: CGFloat {
         return (ScreenWidth - (2 * kEdge) - ((kMaxCol - 1) * kItemMargin)) / kMaxCol
     }
-    /// cell 高度
-    private let kItemH: CGFloat = 90
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        itemSize = CGSize(width: kColumnListCellW, height: kItemH)
-        minimumLineSpacing = 0
-        minimumInteritemSpacing = kItemMargin
+        itemSize = CGSize(width: kColumnListCellW, height: kColumnListCellW)
+        minimumLineSpacing = kItemMargin
+        minimumInteritemSpacing = 0
         sectionInset = UIEdgeInsetsMake(0, kEdge, 0, kEdge)
     }
 }

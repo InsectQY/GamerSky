@@ -20,6 +20,12 @@ struct ColumnList: Codable {
     var description: String
 }
 
+extension ColumnList: ConvertToStringable {
+    
+    typealias Result = ColumnList
+    var valueString: String { return toString(result: self) }
+}
+
 struct ColumnContent: Codable {
     
     /// 专栏名称
