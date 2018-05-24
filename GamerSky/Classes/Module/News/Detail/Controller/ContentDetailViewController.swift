@@ -8,6 +8,7 @@
 
 import UIKit
 import WebKit
+import URLNavigator
 
 class ContentDetailViewController: BaseViewController {
 
@@ -32,12 +33,16 @@ class ContentDetailViewController: BaseViewController {
         setUpRefresh()
     }
     
-    // MARK: - convenience
-    convenience init(ID: Int) {
+    // MARK: - init
+    init(ID: Int) {
         
-        self.init()
-        webView.backgroundColor = .clear
         contentID = ID
+        super.init(nibName: nil, bundle: nil)
+        webView.backgroundColor = .clear
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
 

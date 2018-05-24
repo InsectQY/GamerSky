@@ -9,6 +9,7 @@
 import UIKit
 import SwiftNotificationCenter
 import RxSwift
+import URLNavigator
 
 class NewsViewController: BaseViewController {
 
@@ -150,8 +151,7 @@ extension NewsViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        let vc = ContentDetailViewController(ID: channelListAry[indexPath.row].contentId)
-        navigationController?.pushViewController(vc, animated: true)
+        navigator
+        .push(NavigationURL.get(.contentDetail(channelListAry[indexPath.row].contentId)))
     }
 }

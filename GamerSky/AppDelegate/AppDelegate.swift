@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import URLNavigator
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         fitiOSEleven()
         loadTheme()
         initBugly()
+        initRouter()
         return true
     }
 }
@@ -59,5 +61,10 @@ extension AppDelegate {
         
         guard let preference = QYUserDefaults.getUserPreference() else {return}
         AppTheme.switchTo(preference.currentTheme)
+    }
+    
+    // MARK: - 初始化路由
+    private func initRouter() {
+        NavigationMap.initialize()
     }
 }

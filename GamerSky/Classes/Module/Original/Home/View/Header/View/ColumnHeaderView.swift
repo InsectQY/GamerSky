@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import URLNavigator
 
 class ColumnHeaderView: UIView, NibLoadable {
     
@@ -68,8 +69,8 @@ extension ColumnHeaderView: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let vc = OriginalViewController()
-        vc.columnList = columnLists[indexPath.item]
-        parentVC?.navigationController?.pushViewController(vc, animated: true)
+//        vc.columnList = columnLists[indexPath.item]
+//        parentVC?.navigationController?.pushViewController(vc, animated: true)
+//        Navigator().push("\(NavigationURL.contentDetail)/\()")
     }
 }

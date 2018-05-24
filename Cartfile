@@ -17,3 +17,5 @@ github "nmdias/DefaultsKit"
 github "hyperoslo/Cache"
 # RxSwift
 github "RxSwiftCommunity/NSObject-Rx"
+# Router
+github "devxoul/URLNavigator"

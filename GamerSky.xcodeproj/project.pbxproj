@@ -24,6 +24,9 @@
 		9906819520721F8700A825AC /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9906819420721F8700A825AC /* Channel.swift */; };
 		992B5F42209965DC005036CE /* GameColumnFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992B5F41209965DC005036CE /* GameColumnFlowLayout.swift */; };
 		992B5F5620999388005036CE /* FilterBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992B5F5520999388005036CE /* FilterBtn.swift */; };
+		992C5B1E20B66D2200887A71 /* URLNavigator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 992C5B1C20B66D2100887A71 /* URLNavigator.framework */; };
+		992C5B1F20B66D2200887A71 /* URLMatcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 992C5B1D20B66D2100887A71 /* URLMatcher.framework */; };
+		992C5B2220B66DCC00887A71 /* NavigationMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992C5B2120B66DCC00887A71 /* NavigationMap.swift */; };
 		994141082074605E0016AC01 /* AppEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994141072074605E0016AC01 /* AppEnum.swift */; };
 		9941410E20747B0C0016AC01 /* BaseLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9941410D20747B0C0016AC01 /* BaseLabel.swift */; };
 		9941411020747F8C0016AC01 /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9941410F20747F8C0016AC01 /* BaseButton.swift */; };
@@ -198,6 +201,9 @@
 		9906819420721F8700A825AC /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		992B5F41209965DC005036CE /* GameColumnFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameColumnFlowLayout.swift; sourceTree = "<group>"; };
 		992B5F5520999388005036CE /* FilterBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterBtn.swift; sourceTree = "<group>"; };
+		992C5B1C20B66D2100887A71 /* URLNavigator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = URLNavigator.framework; path = Carthage/Build/iOS/URLNavigator.framework; sourceTree = "<group>"; };
+		992C5B1D20B66D2100887A71 /* URLMatcher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = URLMatcher.framework; path = Carthage/Build/iOS/URLMatcher.framework; sourceTree = "<group>"; };
+		992C5B2120B66DCC00887A71 /* NavigationMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationMap.swift; sourceTree = "<group>"; };
 		994141072074605E0016AC01 /* AppEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnum.swift; sourceTree = "<group>"; };
 		9941410D20747B0C0016AC01 /* BaseLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseLabel.swift; sourceTree = "<group>"; };
 		9941410F20747F8C0016AC01 /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
@@ -383,6 +389,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				992C5B1E20B66D2200887A71 /* URLNavigator.framework in Frameworks */,
+				992C5B1F20B66D2200887A71 /* URLMatcher.framework in Frameworks */,
 				E575DD1820B07B5C00C66BA8 /* NSObject_Rx.framework in Frameworks */,
 				E575DD1420B0673200C66BA8 /* Cache.framework in Frameworks */,
 				E5D48618209E0EFB00AD7808 /* RxCocoa.framework in Frameworks */,
@@ -455,6 +463,14 @@
 				992B5F41209965DC005036CE /* GameColumnFlowLayout.swift */,
 			);
 			path = FlowLayout;
+			sourceTree = "<group>";
+		};
+		992C5B2020B66D8500887A71 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				992C5B2120B66DCC00887A71 /* NavigationMap.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 		994141112074A2940016AC01 /* SectionHeader */ = {
@@ -733,13 +749,13 @@
 		998F0C672071F70B00C587C2 /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				E57C5BAE208245CB00655E0F /* Home */,
 				E5259682208E152E00B5F419 /* GameList */,
 				E52B6DD9208C4194004904C6 /* Comment */,
 				E5787F2A2088C91D00AB55E2 /* Ranking */,
 				E5DC0AE82086298D001E61C6 /* SellList */,
 				E57C5BB220824F1300655E0F /* ColumnDetail */,
 				E57C5BAF208245E900655E0F /* ColumnList */,
-				E57C5BAE208245CB00655E0F /* Home */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -876,6 +892,7 @@
 		99EECD7B2072229700C8E914 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				992C5B2020B66D8500887A71 /* Router */,
 				998F0C292071EB4300C587C2 /* Expand */,
 				998F0C2C2071EB6E00C587C2 /* Module */,
 				998F0C352071EDB700C587C2 /* Common */,
@@ -887,6 +904,8 @@
 		BD54EF30B74AD17A3CC3BA2D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				992C5B1D20B66D2100887A71 /* URLMatcher.framework */,
+				992C5B1C20B66D2100887A71 /* URLNavigator.framework */,
 				E575DD1720B07B5C00C66BA8 /* NSObject_Rx.framework */,
 				E575DD1320B0673200C66BA8 /* Cache.framework */,
 				E5D48615209E0EFB00AD7808 /* RxBlocking.framework */,
@@ -1684,6 +1703,8 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Cache.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/NSObject_Rx.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/URLMatcher.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/URLNavigator.framework",
 			);
 			outputPaths = (
 			);
@@ -1772,6 +1793,7 @@
 				E5CD69BB207BCF5F001A1A0A /* StarLayer.swift in Sources */,
 				E5CD69C5207BCF5F001A1A0A /* CosmosSettings.swift in Sources */,
 				E5787F322088CAA300AB55E2 /* GameRankingListViewController.swift in Sources */,
+				992C5B2220B66DCC00887A71 /* NavigationMap.swift in Sources */,
 				998F0C6E2071F77800C587C2 /* CircleViewController.swift in Sources */,
 				E523B1F42081E49800CE4701 /* BaseImageView.swift in Sources */,
 				E52B6DDD208C41CF004904C6 /* GameCommentPageViewController.swift in Sources */,

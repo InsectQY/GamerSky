@@ -17,8 +17,8 @@ enum ColumnDetailContainer {
 
 class ColumnDetailViewController: BaseViewController {
     
-    public var isHasSubList: Bool = false
-    public var nodeID: Int = 0
+    private var isHasSubList: Bool = false
+    private var nodeID: Int = 0
     /// 分页的页码
     private var page: Int = 0
     /// 列表(根据列表分出每一组)
@@ -45,6 +45,14 @@ class ColumnDetailViewController: BaseViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         return tableView
     }()
+    
+    // MARK: - convenience
+    convenience init(isHasSubList: Bool, nodeID: Int) {
+        
+        self.init()
+        self.isHasSubList = isHasSubList
+        self.nodeID = nodeID
+    }
     
     // MARK: - LifeCycle
     override func viewDidLoad() {

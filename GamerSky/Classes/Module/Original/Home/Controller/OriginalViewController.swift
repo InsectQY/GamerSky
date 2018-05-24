@@ -9,9 +9,11 @@
 import UIKit
 import SwiftNotificationCenter
 import SwiftTheme
+import URLNavigator
 
 class OriginalViewController: BaseViewController {
 
+//    private let navigator: NavigatorType
     /// 其他栏目
     public var columnList: ColumnList?
     
@@ -59,6 +61,16 @@ class OriginalViewController: BaseViewController {
         return tableView
     }()
     
+    // MARK: - init
+//    init(navigator: NavigatorType) {
+//        self.navigator = navigator
+//        super.init(nibName: nil, bundle: nil)
+//    }
+//
+//    required init?(coder aDecoder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
+//
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -198,8 +210,7 @@ extension OriginalViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let id = columnList == nil ? columnAry[indexPath.section][indexPath.row].Id : columnListAry[indexPath.row].Id
-        let vc = ContentDetailViewController(ID: id)
-        navigationController?.pushViewController(vc, animated: true)
+        navigator.push(NavigationURL.get(.contentDetail(id)))
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

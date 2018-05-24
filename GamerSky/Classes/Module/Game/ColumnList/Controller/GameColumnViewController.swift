@@ -96,10 +96,9 @@ extension GameColumnViewController: UICollectionViewDataSource {
 extension GameColumnViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        let vc = ColumnDetailViewController()
-        vc.isHasSubList = gameColumn[indexPath.item].hasSubList
-        vc.nodeID = gameColumn[indexPath.item].nodeId
-        navigationController?.pushViewController(vc, animated: true)
+
+        let hasSubList = gameColumn[indexPath.item].hasSubList
+        let nodeID = gameColumn[indexPath.item].nodeId
+        navigator.push(NavigationURL.get(.columnDetail(hasSubList, nodeID)))
     }
 }
