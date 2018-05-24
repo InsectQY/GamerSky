@@ -7,6 +7,7 @@
 //
 
 import URLNavigator
+import URLMatcher
 
 let navigator = NavigationMap.default
 
@@ -57,8 +58,10 @@ enum NavigationURL {
             return "navigator://gameList"
         case let .origin(columnList):
             
-            if let columnList = columnList {
-                return "navigator://origin/<\(columnList.valueString)>"
+            if var columnList = columnList {
+                
+                columnList.icon = ""
+                return "navigator://origin/\(columnList.valueString)"
             }
             return "navigator://origin/<columnList>"
         }

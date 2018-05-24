@@ -11,7 +11,7 @@ import URLNavigator
 
 class ColumnHeaderView: UIView, NibLoadable {
     
-    static let headerHeight: CGFloat = 125
+    static let headerHeight: CGFloat = 150
     
     // MARK: - IBOutlet
     @IBOutlet private weak var flowLayout: ColumnHeaderFlowLayout!

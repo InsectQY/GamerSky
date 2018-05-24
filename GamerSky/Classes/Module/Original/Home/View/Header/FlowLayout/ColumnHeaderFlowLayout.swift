@@ -17,7 +17,7 @@ class ColumnHeaderFlowLayout: UICollectionViewFlowLayout {
     /// 每行最大列数
     private let kMaxCol: CGFloat = 4
     /// cell 宽度
-    public var kColumnListCellW: CGFloat {
+    private var kColumnListCellW: CGFloat {
         return (ScreenWidth - (2 * kEdge) - ((kMaxCol - 1) * kItemMargin)) / kMaxCol
     }
     
@@ -26,7 +26,6 @@ class ColumnHeaderFlowLayout: UICollectionViewFlowLayout {
         
         itemSize = CGSize(width: kColumnListCellW, height: kColumnListCellW)
         minimumLineSpacing = kItemMargin
-        minimumInteritemSpacing = 0
         sectionInset = UIEdgeInsetsMake(0, kEdge, 0, kEdge)
     }
 }
