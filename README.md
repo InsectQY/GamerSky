@@ -1,10 +1,12 @@
 # GamerSky
 # Swift 4 - 模仿游民星空
 
+![Swift](https://img.shields.io/badge/Swift-4.1-orange.svg)
+
 ## Requirements
-* Xcode 9.0
+* Xcode 9.3
 * iOS9+
-* Swift 4.0
+* Swift 4.1
 
 ## How to build
 1)  Clone the repository
