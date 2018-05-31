@@ -20,6 +20,8 @@ class MineViewController: BaseViewController {
         
         let nightSwitch = UISwitch()
         nightSwitch.addTarget(self, action: #selector(nightModeSwitchChanged), for: .valueChanged)
+        nightSwitch.backgroundColor = .clear
+        nightSwitch.frame = CGRect(x: ScreenWidth - 66, y: 8, width: 44, height: 44)
         return nightSwitch
     }()
     
@@ -27,7 +29,6 @@ class MineViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
         setUpNavi()
         setUpTheme()
         loadLocalPreference()
@@ -88,7 +89,7 @@ extension MineViewController: UITableViewDataSource {
         let cell = BaseTableViewCell(style: .value1, reuseIdentifier: mineCellID)
         cell.textLabel?.text = "夜间模式"
         cell.selectionStyle = .none
-        cell.accessoryView = nightModeSwitch
+        cell.contentView.addSubview(nightModeSwitch)
         return cell
     }
 }

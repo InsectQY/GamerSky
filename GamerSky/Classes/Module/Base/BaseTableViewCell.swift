@@ -72,7 +72,7 @@ extension BaseTableViewCell {
     private func initTheme() {
         
         contentView.theme_backgroundColor = ThemeColorPicker(keyPath: defaultBackgroundColor)
-        
+        contentView.theme_tintColor = ThemeColorPicker(keyPath: defaultBackgroundColor)
         textLabel?.theme_textColor = ThemeColorPicker(keyPath: defaultTextColor)
     }
 }

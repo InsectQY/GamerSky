@@ -10,7 +10,7 @@ import UIKit
 
 class GameTagContentCell: BaseTableViewCell, NibReusable {
 
-    static let cellHeight: CGFloat = 60
+    static let cellHeight: CGFloat = 44
     
     // MARK: - public
     public var gameTag = [GameTag]() {
