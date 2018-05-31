@@ -29,3 +29,4 @@ If you have questions about any aspect of this project, please feel free to cont
 <br/>
 ## Screenshots
 ![News](https://github.com/InsectQY/GamerSky/raw/master/Screenshots/News.gif)
+![News](https://github.com/InsectQY/GamerSky/raw/master/Screenshots/Game.gif)
