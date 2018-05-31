@@ -31,4 +31,6 @@ If you have questions about any aspect of this project, please feel free to cont
 <br/>
 ## Screenshots
 ![News](https://github.com/InsectQY/GamerSky/raw/master/Screenshots/News.gif)
-![News](https://github.com/InsectQY/GamerSky/raw/master/Screenshots/Game.gif)
+![Game](https://github.com/InsectQY/GamerSky/raw/master/Screenshots/Game1.gif)
+![Game](https://github.com/InsectQY/GamerSky/raw/master/Screenshots/Game2.gif)
+![Game](https://github.com/InsectQY/GamerSky/raw/master/Screenshots/Game3.gif)
