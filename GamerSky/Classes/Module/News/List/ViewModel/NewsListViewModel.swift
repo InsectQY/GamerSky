@@ -15,7 +15,7 @@ class NewsListViewModel: NSObject {
     
     private let vmDatas = Variable<[ChannelList]>([])
     
-    private var page = 0
+    private var page = 1
     
     struct NewsListInput {
         
@@ -24,14 +24,14 @@ class NewsListViewModel: NSObject {
     
     struct NewsListOutput: OutputRefreshProtocol {
         
-        let refreshStatus: Variable<RefreshStatus>
-        let sections : Driver<[NewsListSection]>
+        let refreshStatus = Variable<RefreshStatus>(.none)
+        let sections: Driver<[NewsListSection]>
         let requestCommand = PublishSubject<Bool>()
+        let banners = Variable<[ChannelList]?>([])
         
         init(sections : Driver<[NewsListSection]>) {
             
             self.sections = sections
-            self.refreshStatus = Variable<RefreshStatus>(.none)
         }
     }
 }
@@ -54,7 +54,7 @@ extension NewsListViewModel: ViewModelable {
             guard let `self` = self else { return }
             if isPull {
 
-                self.page = 0
+                self.page = 1
                 ourtPut.refreshStatus.value = .endFooterRefresh
                 NewsApi.allChannelList(self.page, input.nodeID)
                 .cache
@@ -62,6 +62,8 @@ extension NewsListViewModel: ViewModelable {
                 .subscribe(onNext: { response in
                     
                     self.vmDatas.value = response.result
+                    self.vmDatas.value.removeFirst()
+                    ourtPut.banners.value = response.result.first?.childElements
                     ourtPut.refreshStatus.value = .endHeaderRefresh
                 }, onError: { _ in
                     ourtPut.refreshStatus.value = .endHeaderRefresh
@@ -96,7 +98,6 @@ extension NewsListViewModel: ViewModelable {
 struct NewsListSection {
     
     var items: [Item]
-    
 }
 
 extension NewsListSection: SectionModelType {

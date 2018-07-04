@@ -10,6 +10,8 @@ import UIKit
 import FSPagerView
 import SwiftTheme
 import URLNavigator
+import RxSwift
+import RxCocoa
 
 class NewsTableHeaderView: BaseView, NibReusable {
 
@@ -75,5 +77,15 @@ extension NewsTableHeaderView: FSPagerViewDelegate {
     
     func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
         pagerView.deselectItem(at: index, animated: true)
+    }
+}
+
+extension Reactive where Base: NewsTableHeaderView {
+    
+    var bannerData: Binder<[ChannelList]?> {
+        
+        return Binder(self.base) { headerView, result in
+            headerView.channelListAry = result
+        }
     }
 }
