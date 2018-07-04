@@ -85,11 +85,7 @@ extension NewsListViewModel: ViewModelable {
                 })
                 .disposed(by: self.rx.disposeBag)
             }
-        }, onError: { (error) in
-            
-        }) {
-            
-        }.disposed(by: self.rx.disposeBag)
+        }).disposed(by: self.rx.disposeBag)
         
         return ourtPut
     }

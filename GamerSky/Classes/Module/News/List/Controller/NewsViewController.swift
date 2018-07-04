@@ -79,15 +79,6 @@ extension NewsViewController {
     
     private func bindUI() {
         
-        tableView.rx.modelSelected(ChannelList.self)
-        .subscribe(onNext: {
-            
-            navigator
-            .push(NavigationURL.get(.contentDetail($0.contentId)))
-        }) {
-            
-        }.disposed(by: rx.disposeBag)
-        
         dataSource = RxTableViewSectionedReloadDataSource<NewsListSection>(configureCell: { (ds, tb, ip, item) -> UITableViewCell in
             
             let cell = tb.dequeueReusableCell(for: ip, cellType: ChannelListCell.self)
@@ -102,6 +93,12 @@ extension NewsViewController {
         vmOutput.banners.asDriver()
         .drive(headerView.rx.bannerData)
         .disposed(by: rx.disposeBag)
+        
+        tableView.rx.modelSelected(ChannelList.self).subscribe(onNext: {
+            
+            navigator
+                .push(NavigationURL.get(.contentDetail($0.contentId)))
+        }).disposed(by: rx.disposeBag)
     }
 }
 

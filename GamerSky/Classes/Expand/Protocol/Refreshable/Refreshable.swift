@@ -58,13 +58,13 @@ extension Refreshable where Self: UIViewController {
     
     func initRefreshHeader(_ scrollView: UIScrollView, _ action: (() -> ())?) -> MJRefreshHeader {
         
-        scrollView.mj_header = MJRefreshNormalHeader(refreshingBlock: { action?() })
+        scrollView.mj_header = QYRefreshHeader(refreshingBlock: { action?() })
         return scrollView.mj_header
     }
     
     func initRefreshFooter(_ scrollView: UIScrollView, _ action: (() -> ())?) -> MJRefreshFooter {
         
-        scrollView.mj_footer = MJRefreshAutoNormalFooter(refreshingBlock: { action?() })
+        scrollView.mj_footer = QYRefreshFooter(refreshingBlock: { action?() })
         return scrollView.mj_footer
     }
 }
@@ -73,13 +73,13 @@ extension Refreshable where Self: UIScrollView {
     
     func initRefreshHeader(_ action: (() -> ())?) -> MJRefreshHeader {
         
-        mj_header = MJRefreshNormalHeader(refreshingBlock: { action?() })
+        mj_header = QYRefreshHeader(refreshingBlock: { action?() })
         return mj_header
     }
     
     func initRefreshFooter(_ action: (() -> ())?) -> MJRefreshFooter {
         
-        mj_footer = MJRefreshAutoNormalFooter(refreshingBlock: { action?()})
+        mj_footer = QYRefreshFooter(refreshingBlock: { action?()})
         return mj_footer
     }
 }

@@ -11,18 +11,6 @@ import SwiftNotificationCenter
 import RxSwift
 import NSObject_Rx
 
-enum GameHomeContainer {
-    
-    case tag(BaseModel<[GameTag]>)
-    case specialList(BaseModel<[GameSpecialList]>)
-    case specialDetail(BaseModel<[GameInfo]>)
-    case hot(BaseModel<[GameInfo]>)
-    case waitSell(BaseModel<[GameInfo]>)
-    case expected(BaseModel<[GameInfo]>)
-    case fractionsRanking(BaseModel<[GameInfo]>)
-    case hotRanking(BaseModel<[GameInfo]>)
-}
-
 class GameHomeViewController: BaseViewController {
     
     /// 新游推荐
@@ -97,97 +85,59 @@ extension GameHomeViewController {
             let symbol1 = GameApi.gameSpecialDetail(1, 13)
             .cache
             .request(objectModel: BaseModel<[GameInfo]>.self)
-            .map({GameHomeContainer.specialDetail($0)})
             
             // 最近大家都在玩
             let symbol2 = GameApi.gameHomePage(1, .hot)
             .cache
             .request(objectModel: BaseModel<[GameInfo]>.self)
-            .map({GameHomeContainer.hot($0)})
             
             // 即将发售
             let symbol3 = GameApi.gameHomePage(1, .waitSell)
             .cache
             .request(objectModel: BaseModel<[GameInfo]>.self)
-            .map({GameHomeContainer.waitSell($0)})
             
             // 最期待游戏
             let symbol4 = GameApi.gameHomePage(1, .expected)
             .cache
             .request(objectModel: BaseModel<[GameInfo]>.self)
-            .map({GameHomeContainer.expected($0)})
             
             // 找游戏
             let symbol5 = GameApi.gameTags
             .cache
             .request(objectModel: BaseModel<[GameTag]>.self)
-            .map({GameHomeContainer.tag($0)})
             
             // 特色专题
             let symbol6 = GameApi.gameSpecialList(1)
             .cache
             .request(objectModel: BaseModel<[GameSpecialList]>.self)
-            .map({GameHomeContainer.specialList($0)})
             
             // 高分榜
             let symbol7 = GameApi.gameRankingList(1, .fractions, 0, "all")
-            .cachedObject(BaseModel<[GameInfo]>.self, onCache: { (cache) in
-                self.rankingGame = [Array(cache.result.prefix(5))]
-            })
+            .cache
             .request(objectModel: BaseModel<[GameInfo]>.self)
-            .map({GameHomeContainer.fractionsRanking($0)})
+            .map({[Array($0.result.prefix(5))]})
             
             // 热门榜
             let symbol8 = GameApi.gameRankingList(1, .hot, 0, "all")
-            .cachedObject(BaseModel<[GameInfo]>.self, onCache: { (cache) in
-                self.rankingGame += [Array(cache.result.prefix(5))]
-            })
+            .cache
             .request(objectModel: BaseModel<[GameInfo]>.self)
-            .map({GameHomeContainer.hotRanking($0)})
+            .map({[Array($0.result.prefix(5))]})
             
-            let chain = Observable.of(symbol7, symbol8)
-            .concat()
-            
-            Observable.of(symbol1, symbol2, symbol3, symbol4, symbol5, symbol6, chain)
-            .merge()
-            .subscribe(onNext: {
+            Observable
+            .zip(symbol1, symbol2, symbol3, symbol4, symbol5, symbol6,symbol7, symbol8)
+            .subscribe(onNext: { (symbol1Data, symbol2Data, symbol3Data, symbol4Data, symbol5Data, symbol6Data,symbol7Data,symbol8Data) in
                 
-                switch $0 {
-                case let .specialDetail(data):
-                    self.gameSpecialDetail = data.result
-                    break
-                case let .tag(data):
-                    self.gameTags = data.result
-                    break
-                case let .specialList(data):
-                    self.gameColumn = data.result
-                    break
-                case let .hot(data):
-                    self.hotGame = data.result
-                    break
-                case let .waitSell(data):
-                    self.waitSellGame = data.result
-                    break
-                case let .expected(data):
-                    self.expectedGame = data.result
-                    break
-                case let .fractionsRanking(data):
-                    self.rankingGame = [Array(data.result.prefix(5))]
-                    break
-                case let .hotRanking(data):
-                    self.rankingGame += [Array(data.result.prefix(5))]
-                    break
-                }
+                self.gameSpecialDetail = symbol1Data.result
+                self.hotGame = symbol2Data.result
+                self.waitSellGame = symbol3Data.result
+                self.expectedGame = symbol4Data.result
+                self.gameTags = symbol5Data.result
+                self.gameColumn = symbol6Data.result
+                self.rankingGame = symbol7Data
+                self.rankingGame += symbol8Data
                 self.tableView.reloadData()
                 self.tableView.qy_header.endRefreshing()
-            }, onError: { _ in
-                self.tableView.qy_header.endRefreshing()
-            }, onCompleted: {
-                
-                self.tableView.reloadData()
-                self.tableView.qy_header.endRefreshing()
-            })
-            .disposed(by: self.rx.disposeBag)
+            }).disposed(by: self.rx.disposeBag)
         })
         
         tableView.qy_header.beginRefreshing()

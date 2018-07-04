@@ -22,7 +22,7 @@ class NewsTableHeaderView: BaseView, NibReusable {
     @IBOutlet private weak var titleLabel: UILabel!
     
     // MARK: - public
-    public var channelListAry: [ChannelList]? {
+    fileprivate var channelListAry: [ChannelList]? {
         didSet {
             pagerView.reloadData()
         }
