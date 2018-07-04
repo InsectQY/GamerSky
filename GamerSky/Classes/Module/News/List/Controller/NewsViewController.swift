@@ -10,22 +10,28 @@ import UIKit
 import SwiftNotificationCenter
 import RxSwift
 import URLNavigator
+import RxDataSources
 
 class NewsViewController: BaseViewController {
-
-    private var page = 1
     
     // MARK: - public
     public  var nodeID = 0
     
     // MARK: - Lazyload
-    private lazy var channelListAry = [ChannelList]()
+    private var dataSource: RxTableViewSectionedReloadDataSource<NewsListSection>!
+    
+    private lazy var viewModel = NewsListViewModel()
+    
+    private lazy var vmOutput: NewsListViewModel.NewsListOutput = {
+        
+        let vmOutput = viewModel.transform(input: NewsListViewModel.Input(nodeID: nodeID))
+        return vmOutput
+    }()
+
     private lazy var tableView: UITableView = {
         
         let tableView = BaseTableView(frame: UIScreen.main.bounds, style: .grouped)
         tableView.separatorStyle = .none
-        tableView.dataSource = self
-        tableView.delegate = self
         tableView.register(cellType: ChannelListCell.self)
         tableView.register(headerFooterViewType: NewsSectionHeaderView.self)
         tableView.contentInset = UIEdgeInsetsMake(kTopH, 0, KBottomH, 0)
@@ -47,6 +53,8 @@ class NewsViewController: BaseViewController {
 
         setUpNavi()
         setUpUI()
+        bindUI()
+        setUpRefresh()
     }
     
     override func repeatClickTabBar() {
@@ -56,11 +64,44 @@ class NewsViewController: BaseViewController {
 
 extension NewsViewController {
     
+    private func bindUI() {
+        
+        dataSource = RxTableViewSectionedReloadDataSource<NewsListSection>(configureCell: { (ds, tb, ip, item) -> UITableViewCell in
+            
+            let cell = tb.dequeueReusableCell(for: ip, cellType: ChannelListCell.self)
+            cell.channel = item
+            return cell
+        })
+        
+        vmOutput
+        .sections.asDriver().drive(tableView.rx.items(dataSource: dataSource)).disposed(by: rx.disposeBag)
+    }
+}
+
+extension NewsViewController: Refreshable {
+    
+    private func setUpRefresh() {
+        
+        let refreshHeader = initRefreshHeader(tableView) { [weak self] in
+            self?.vmOutput.requestCommand.onNext(true)
+        }
+        
+        let refreshFooter = initRefreshFooter(tableView) { [weak self] in
+            self?.vmOutput.requestCommand.onNext(false)
+        }
+        
+        vmOutput.autoSetRefreshHeaderStatus(header: refreshHeader, footer: refreshFooter).disposed(by: rx.disposeBag)
+        
+        refreshHeader.beginRefreshing()
+    }
+}
+
+extension NewsViewController {
+    
     private func setUpUI() {
         
         view.addSubview(tableView)
-        setUpHeaderView()
-        setUpRefresh()
+//        setUpHeaderView()
     }
     
     private func setUpNavi() {
@@ -69,52 +110,52 @@ extension NewsViewController {
     }
     
     // MARK: - 设置刷新
-    private func setUpRefresh() {
-        
-        tableView.qy_header = QYRefreshHeader { [weak self] in
-            
-            guard let `self` = self else {return}
-            self.page = 1
-            self.tableView.qy_footer.endRefreshing()
-            
-            NewsApi.allChannelList(self.page, self.nodeID)
-            .cache
-            .request(objectModel: BaseModel<[ChannelList]>.self)
-            .subscribe(onNext: {
-                
-                self.channelListAry = $0.result
-                self.headerView.channelListAry = $0.result.first?.childElements
-                self.channelListAry.removeFirst()
-                self.tableView.reloadData()
-                self.tableView.qy_header.endRefreshing()
-            }, onError: { _ in
-                 self.tableView.qy_header.endRefreshing()
-            })
-            .disposed(by: self.rx.disposeBag)
-        }
-
-        tableView.qy_footer = QYRefreshFooter { [weak self] in
-            
-            guard let `self` = self else {return}
-            self.page += 1
-            self.tableView.qy_header.endRefreshing()
-            
-            NewsApi.allChannelList(self.page, self.nodeID)
-            .cache
-            .request(objectModel: BaseModel<[ChannelList]>.self)
-            .subscribe(onNext: {
-                
-                self.channelListAry += $0.result
-                self.tableView.reloadData()
-                self.tableView.qy_footer.endRefreshing()
-            }, onError: { _ in
-                self.tableView.qy_footer.endRefreshing()
-            })
-            .disposed(by: self.rx.disposeBag)
-        }
-        
-        tableView.qy_header.beginRefreshing()
-    }
+//    private func setUpRefresh() {
+//
+//        tableView.qy_header = QYRefreshHeader { [weak self] in
+//
+//            guard let `self` = self else {return}
+//            self.page = 1
+//            self.tableView.qy_footer.endRefreshing()
+//
+//            NewsApi.allChannelList(self.page, self.nodeID)
+//            .cache
+//            .request(objectModel: BaseModel<[ChannelList]>.self)
+//            .subscribe(onNext: {
+//
+//                self.channelListAry = $0.result
+//                self.headerView.channelListAry = $0.result.first?.childElements
+//                self.channelListAry.removeFirst()
+//                self.tableView.reloadData()
+//                self.tableView.qy_header.endRefreshing()
+//            }, onError: { _ in
+//                 self.tableView.qy_header.endRefreshing()
+//            })
+//            .disposed(by: self.rx.disposeBag)
+//        }
+//
+//        tableView.qy_footer = QYRefreshFooter { [weak self] in
+//
+//            guard let `self` = self else {return}
+//            self.page += 1
+//            self.tableView.qy_header.endRefreshing()
+//
+//            NewsApi.allChannelList(self.page, self.nodeID)
+//            .cache
+//            .request(objectModel: BaseModel<[ChannelList]>.self)
+//            .subscribe(onNext: {
+//
+//                self.channelListAry += $0.result
+//                self.tableView.reloadData()
+//                self.tableView.qy_footer.endRefreshing()
+//            }, onError: { _ in
+//                self.tableView.qy_footer.endRefreshing()
+//            })
+//            .disposed(by: self.rx.disposeBag)
+//        }
+//
+//        tableView.qy_header.beginRefreshing()
+//    }
     
     // MARK: - 设置头部视图
     private func setUpHeaderView() {
@@ -123,35 +164,35 @@ extension NewsViewController {
 }
 
 // MARK: - UITableViewDataSource
-extension NewsViewController: UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return channelListAry.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(for: indexPath, cellType: ChannelListCell.self)
-        cell.channel = channelListAry[indexPath.row]
-        return cell
-    }
-}
+//extension NewsViewController: UITableViewDataSource {
+//
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return channelListAry.count
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//
+//        let cell = tableView.dequeueReusableCell(for: indexPath, cellType: ChannelListCell.self)
+//        cell.channel = channelListAry[indexPath.row]
+//        return cell
+//    }
+//}
 
 // MARK: - UITableViewDelegate
-extension NewsViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        let headerView = tableView.dequeueReusableHeaderFooterView(NewsSectionHeaderView.self)
-        return headerView
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return NewsSectionHeaderView.height
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        navigator
-        .push(NavigationURL.get(.contentDetail(channelListAry[indexPath.row].contentId)))
-    }
-}
+//extension NewsViewController: UITableViewDelegate {
+//
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//
+//        let headerView = tableView.dequeueReusableHeaderFooterView(NewsSectionHeaderView.self)
+//        return headerView
+//    }
+//
+//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        return NewsSectionHeaderView.height
+//    }
+//
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        navigator
+//        .push(NavigationURL.get(.contentDetail(channelListAry[indexPath.row].contentId)))
+//    }
+//}

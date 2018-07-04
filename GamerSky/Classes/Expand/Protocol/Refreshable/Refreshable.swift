@@ -9,7 +9,6 @@
 import Foundation
 import RxSwift
 import RxCocoa
-import NSObject_Rx
 import MJRefresh
 
 enum RefreshStatus {
