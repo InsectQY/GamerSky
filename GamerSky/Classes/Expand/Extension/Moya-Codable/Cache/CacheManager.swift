@@ -2,42 +2,28 @@
 import Cache
 
 class CacheManager {
-    
-    static let `default` = CacheManager()
-    /// Manage storage
-    private var storage: Storage?
-    // MARK: - init
-    init() {
-
-        do {
-            storage = try Storage(diskConfig: DiskConfig(name: "NetCache"), memoryConfig: MemoryConfig())
-        } catch {
-            print(error)
-        }
-    }
 
     // MARK: - 读取缓存
-    func object<T: Codable>(ofType type: T.Type, forKey key: String) -> T? {
+    static func object<T: Codable>(ofType type: T.Type, forKey key: String) -> T? {
         do {
             
-            try storage?.removeExpiredObjects()
-            return (try storage?.object(ofType: type, forKey: key)) ?? nil
+            let storage = try Storage(diskConfig: DiskConfig(name: "NetCache"), memoryConfig: MemoryConfig(), transformer: TransformerFactory.forCodable(ofType: type))
+            try storage.removeExpiredObjects()
+            return (try storage.object(forKey: key))
         } catch {
             return nil
         }
     }
+    
     // MARK: - 异步存储
-    func setObject<T: Codable>(_ object: T, forKey: String) {
+    static func setObject<T: Codable>(_ object: T, forKey: String) {
         
         do {
             
-            try storage?.setObject(
-                object,
-                forKey: forKey,
-                expiry: nil
-            )
+            let storage = try Storage(diskConfig: DiskConfig(name: "NetCache"), memoryConfig: MemoryConfig(), transformer: TransformerFactory.forCodable(ofType: T.self))
+            try storage.setObject(object, forKey: forKey)
         } catch  {
-            print(error)
+            print("error\(error)")
         }
     }
 }

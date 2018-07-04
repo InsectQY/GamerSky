@@ -43,11 +43,12 @@ public extension PrimitiveSequence where TraitType == SingleTrait, ElementType =
 }
 
 extension PrimitiveSequence where TraitType == SingleTrait, ElementType: Codable {
+    
     public func setObject(for target: TargetType) -> Single<ElementType> {
         
         return flatMap { object -> Single<ElementType> in
-            
-            CacheManager.default.setObject(object, forKey: target.cachedKey)
+
+            CacheManager.setObject(object, forKey: target.cachedKey)
             return Single.just(object)
         }
     }

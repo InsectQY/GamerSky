@@ -35,7 +35,7 @@ extension TargetType {
     
     public func cachedObject<T: Codable>(_ type: T.Type,
                                          onCache: ((T) -> ())?) -> TargetType {
-        if let entry = CacheManager.default.object(ofType: type, forKey: cachedKey) {
+        if let entry = CacheManager.object(ofType: type, forKey: cachedKey) {
             onCache?(entry)
         }
         return self

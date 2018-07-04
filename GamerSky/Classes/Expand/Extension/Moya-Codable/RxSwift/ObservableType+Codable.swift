@@ -17,7 +17,7 @@ public extension ObservableType where E: TargetType {
         
         return flatMap { target -> Observable<T> in
             
-            if let entry = CacheManager.default.object(ofType: objectModel, forKey: target.cachedKey) {
+            if let entry = CacheManager.object(ofType: objectModel, forKey: target.cachedKey) {
                 
                 return target.request(objectModel: objectModel, path: path).setObject(for: target).asObservable().startWith(entry)
             }
@@ -30,7 +30,7 @@ public extension ObservableType where E: TargetType {
         
         return flatMap { target -> Observable<[T]> in
             
-            if let entry = CacheManager.default.object(ofType: [T].self, forKey: target.cachedKey) {
+            if let entry = CacheManager.object(ofType: [T].self, forKey: target.cachedKey) {
                 
                 return target.request(arrayModel: arrayModel, path: path).setObject(for: target).asObservable().startWith(entry)
             }
