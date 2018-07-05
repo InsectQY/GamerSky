@@ -97,7 +97,7 @@ extension NewsViewController {
         tableView.rx.modelSelected(ChannelList.self).subscribe(onNext: {
             
             navigator
-                .push(NavigationURL.get(.contentDetail($0.contentId)))
+            .push(NavigationURL.get(.contentDetail($0.contentId)))
         }).disposed(by: rx.disposeBag)
     }
 }

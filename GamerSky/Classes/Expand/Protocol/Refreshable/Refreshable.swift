@@ -28,7 +28,7 @@ protocol OutputRefreshProtocol {
 
 extension OutputRefreshProtocol {
     
-    func autoSetRefreshHeaderStatus(header: MJRefreshHeader?, footer: MJRefreshFooter?) -> Disposable {
+    func autoSetRefreshHeaderStatus(header: MJRefreshHeader? = nil, footer: MJRefreshFooter? = nil) -> Disposable {
         
         return refreshStatus.asObservable().subscribe(onNext: { (status) in
             switch status {

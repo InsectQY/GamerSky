@@ -26,7 +26,7 @@ enum GameHomeSectionType: Int, Codable {
     case gameTag = 6
 }
 
-struct GameHomeSection: Codable {
+struct GameHomeSectionModel: Codable {
     
     /// 左边标题
     var leftTitle: String

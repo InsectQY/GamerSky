@@ -30,7 +30,6 @@ class NewsListViewModel: NSObject {
         let banners = Variable<[ChannelList]?>([])
         
         init(sections : Driver<[NewsListSection]>) {
-            
             self.sections = sections
         }
     }
@@ -51,7 +50,7 @@ extension NewsListViewModel: ViewModelable {
         
         ourtPut.requestCommand.subscribe(onNext: {[weak self] (isPull) in
             
-            guard let `self` = self else { return }
+            guard let `self` = self else {return}
             if isPull {
 
                 self.page = 1
@@ -100,7 +99,7 @@ extension NewsListSection: SectionModelType {
     
     typealias Item = ChannelList
     
-    init(original: NewsListSection, items: [ChannelList]) {
+    init(original: NewsListSection, items: [Item]) {
         
         self = original
         self.items = items
