@@ -36,7 +36,8 @@ class ColumnHeaderView: UIView, NibLoadable {
         
         ColumnApi.columnNodeList
         .cache
-        .request(objectModel: BaseModel<[ColumnList]>.self)
+        .request()
+        .mapObject(BaseModel<[ColumnList]>.self)
         .subscribe(onNext: { [weak self] in
             
             guard let `self` = self else {return}

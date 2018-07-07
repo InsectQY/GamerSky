@@ -57,7 +57,8 @@ extension NewsPageViewController {
         
         NewsApi.allChannel
         .cache
-        .request(objectModel: BaseModel<[Channel]>.self)
+        .request()
+        .mapObject(BaseModel<[Channel]>.self)
         .subscribe(onNext: { [weak self] in
 
             guard let `self` = self else {return}

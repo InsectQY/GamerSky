@@ -103,7 +103,8 @@ extension OriginalViewController {
             
             ColumnApi.columnContent(self.page, columnID)
             .cache
-            .request(objectModel: BaseModel<ColumnContent>.self)
+            .request()
+            .mapObject(BaseModel<ColumnContent>.self)
             .subscribe(onNext: {
                 
                 if self.columnList == nil {
@@ -128,7 +129,8 @@ extension OriginalViewController {
             
             ColumnApi.columnContent(self.page, columnID)
             .cache
-            .request(objectModel: BaseModel<ColumnContent>.self)
+            .request()
+            .mapObject(BaseModel<ColumnContent>.self)
             .subscribe(onNext: {
                 
                 if self.columnList == nil {

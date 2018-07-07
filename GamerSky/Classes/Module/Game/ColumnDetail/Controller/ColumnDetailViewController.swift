@@ -87,14 +87,14 @@ extension ColumnDetailViewController {
             self.page = 1
             let symbol1 = GameApi.gameSpecialDetail(self.page, self.nodeID)
             .cache
-            .request(objectModel: BaseModel<[GameSpecialDetail]>.self)
+            .request().mapObject(BaseModel<[GameSpecialDetail]>.self)
             .map({ColumnDetailContainer.gameSpecialDetail($0)})
             
             if self.isHasSubList {
                 
                 let symbol2 = GameApi.gameSpecialSubList(self.nodeID)
                 .cache
-                .request(objectModel: BaseModel<[GameSpecialSubList]>.self)
+                .request().mapObject(BaseModel<[GameSpecialSubList]>.self)
                 .map({ColumnDetailContainer.gameSpecialSubList($0)})
                 
                 Observable.of(symbol1, symbol2)
@@ -162,7 +162,7 @@ extension ColumnDetailViewController {
             
             GameApi.gameSpecialDetail(self.page, self.nodeID)
             .cache
-            .request(objectModel: BaseModel<[GameSpecialDetail]>.self)
+            .request().mapObject(BaseModel<[GameSpecialDetail]>.self)
             .subscribe(onNext: {
                 
                 self.specialDetail += $0.result

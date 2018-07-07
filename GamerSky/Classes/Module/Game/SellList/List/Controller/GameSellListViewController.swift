@@ -49,7 +49,8 @@ extension GameSellListViewController {
             
             GameApi.twoGameList(self.date, .popular)
             .cache
-            .request(objectModel: BaseModel<[GameSellList]>.self)
+            .request()
+            .mapObject(BaseModel<[GameSellList]>.self)
             .subscribe(onNext: {
                 
                 self.gameSellLists = $0.result

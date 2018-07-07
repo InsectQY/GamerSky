@@ -57,7 +57,8 @@ extension NewsListViewModel: ViewModelable {
                 ourtPut.refreshStatus.value = .endFooterRefresh
                 NewsApi.allChannelList(self.page, input.nodeID)
                 .cache
-                .request(objectModel: BaseModel<[ChannelList]>.self)
+                .request()
+                .mapObject(BaseModel<[ChannelList]>.self)
                 .subscribe(onNext: { response in
                     
                     self.vmDatas.value = response.result
@@ -74,7 +75,8 @@ extension NewsListViewModel: ViewModelable {
                 ourtPut.refreshStatus.value = .endHeaderRefresh
                 NewsApi.allChannelList(self.page, input.nodeID)
                 .cache
-                .request(objectModel: BaseModel<[ChannelList]>.self)
+                .request()
+                .mapObject(BaseModel<[ChannelList]>.self)
                 .subscribe(onNext: { response in
                     
                     self.vmDatas.value += response.result

@@ -62,7 +62,8 @@ extension GameCommentListViewController {
             self.tableView.qy_footer.endRefreshing()
             GameApi.gameReviewList(self.page, self.commentType)
             .cache
-            .request(objectModel: BaseModel<[GameComment]>.self)
+            .request()
+            .mapObject(BaseModel<[GameComment]>.self)
             .subscribe(onNext: {
                 
                 self.commets = $0.result
@@ -83,7 +84,8 @@ extension GameCommentListViewController {
             
             GameApi.gameReviewList(self.page, self.commentType)
             .cache
-            .request(objectModel: BaseModel<[GameComment]>.self)
+            .request()
+            .mapObject(BaseModel<[GameComment]>.self)
             .subscribe(onNext: {
                 
                 self.commets += $0.result

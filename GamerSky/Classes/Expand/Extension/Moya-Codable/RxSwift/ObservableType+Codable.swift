@@ -10,46 +10,30 @@ import RxSwift
 import Moya
 import RxMoya
 
-public extension ObservableType where E: TargetType {
+extension ObservableType where E: TargetType {
     
-    public func request<T: Codable>(objectModel: T.Type,
-                                    path: String? = nil) -> Observable<T> {
+    public func request() -> Observable<Response> {
         
-        return flatMap { target -> Observable<T> in
+        return flatMap { target -> Observable<Response> in
             
-            if let entry = CacheManager.object(ofType: objectModel, forKey: target.cachedKey) {
-                
-                return target.request(objectModel: objectModel, path: path).setObject(for: target).asObservable().startWith(entry)
+            let source = target.request().storeCachedResponse(for: target).asObservable()
+            if let response = target.cachedResponse {
+                return source.startWith(response)
             }
-            return target.request(objectModel: objectModel, path: path).setObject(for: target).asObservable()
-        }
-    }
-    
-    public func request<T: Codable>(arrayModel: T.Type,
-                                    path: String? = nil) -> Observable<[T]> {
-        
-        return flatMap { target -> Observable<[T]> in
-            
-            if let entry = CacheManager.object(ofType: [T].self, forKey: target.cachedKey) {
-                
-                return target.request(arrayModel: arrayModel, path: path).setObject(for: target).asObservable().startWith(entry)
-            }
-            return target.request(arrayModel: arrayModel, path: path).setObject(for: target).asObservable()
+            return source
         }
     }
 }
 
 public extension ObservableType where E == Response {
     
-    public func mapObject<T: Codable>(_ type: T.Type, _ path: String? = nil) -> Observable<T> {
-        return flatMap { response -> Observable<T> in
-            return Observable.just(try response.mapObject(type, path: path))
-        }
-    }
-    
-    public func mapArray<T: Codable>(_ type: T.Type, _ path: String? = nil) -> Observable<[T]> {
-        return flatMap { response -> Observable<[T]> in
-            return Observable.just(try response.mapArray(type, path: path))
+    public func mapObject<T: Codable>(_ type: T.Type, atKeyPath path: String? = nil) -> Observable<T> {
+        return map {
+            
+            guard let response = try? $0.map(type, atKeyPath: path, failsOnEmptyData: true) else {
+                throw MoyaError.jsonMapping($0)
+            }
+            return response
         }
     }
 }

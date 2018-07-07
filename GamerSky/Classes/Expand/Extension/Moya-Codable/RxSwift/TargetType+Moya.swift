@@ -13,35 +13,40 @@ import Cache
 
 private var cachedTimeKey: Void?
 
-extension TargetType {
+public extension TargetType {
     
-    public var cachedKey: String {
+    var cachedKey: String {
         return "\(URL(target: self).absoluteString)?\(task.parameters)"
     }
     
-    public func request() -> Single<Response> {
-        return MultiApiProvider.rx.request(.target(self))
+    func request() -> Single<Response> {
+        return ApiProvider.rx.request(.target(self))
     }
     
-    public func request<T: Codable>(objectModel: T.Type,
-                                    path: String? = nil) -> Single<T> {
-        return request().mapObject(objectModel, path: path)
-    }
-    
-    public func request<T: Codable>(arrayModel: T.Type,
-                                    path: String? = nil) -> Single<[T]> {
-        return request().mapArray(arrayModel, path: path)
-    }
-    
-    public func cachedObject<T: Codable>(_ type: T.Type,
-                                         onCache: ((T) -> ())?) -> TargetType {
+    func cachedObject<T: Codable>(_ type: T.Type) -> T? {
+        
         if let entry = CacheManager.object(ofType: type, forKey: cachedKey) {
-            onCache?(entry)
+            return entry
         }
-        return self
+        return nil
     }
     
-    public var cache: Observable<Self> {
+    var cachedResponse: Response? {
+        
+        if let response = CacheManager.response(forKey: cachedKey) {
+            return response
+        }
+        return nil
+    }
+    
+    func onCache<T: Codable>(_ type: T.Type,
+                                         _ onCache: ((T) -> ())?) -> OnCache<Self, T> {
+        
+        if let object = cachedObject(type) {onCache?(object)}
+        return OnCache(self)
+    }
+    
+    var cache: Observable<Self> {
         return Observable.just(self)
     }
 }

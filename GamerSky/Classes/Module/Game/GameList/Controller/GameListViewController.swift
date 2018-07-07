@@ -73,7 +73,8 @@ extension GameListViewController {
             
             GameApi.gameList(self.page)
             .cache
-            .request(objectModel: BaseModel<GameList>.self)
+            .request()
+            .mapObject(BaseModel<GameList>.self)
             .subscribe(onNext: {
             
                 self.gameLists = $0.result.childelements
@@ -93,7 +94,8 @@ extension GameListViewController {
             
             GameApi.gameList(self.page)
             .cache
-            .request(objectModel: BaseModel<GameList>.self)
+            .request()
+            .mapObject(BaseModel<GameList>.self)
             .subscribe(onNext: {
                 
                 self.gameLists += $0.result.childelements

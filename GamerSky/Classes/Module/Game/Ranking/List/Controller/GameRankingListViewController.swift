@@ -64,7 +64,8 @@ extension GameRankingListViewController {
             
             GameApi.gameRankingList(self.page, self.rankingType, self.gameClass, self.annualClass)
             .cache
-            .request(objectModel: BaseModel<[GameSpecialDetail]>.self)
+            .request()
+            .mapObject(BaseModel<[GameSpecialDetail]>.self)
             .subscribe(onNext: {
                 
                 self.rankingData = $0.result
@@ -83,7 +84,8 @@ extension GameRankingListViewController {
             
             GameApi.gameRankingList(self.page, self.rankingType, self.gameClass, self.annualClass)
             .cache
-            .request(objectModel: BaseModel<[GameSpecialDetail]>.self)
+            .request()
+            .mapObject(BaseModel<[GameSpecialDetail]>.self)
             .subscribe(onNext: {
                 
                 self.rankingData += $0.result

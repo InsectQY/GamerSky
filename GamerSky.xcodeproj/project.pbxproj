@@ -175,7 +175,7 @@
 		E5CD69C6207BCF5F001A1A0A /* CosmosTouchTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CD69B7207BCF5F001A1A0A /* CosmosTouchTarget.swift */; };
 		E5CD69C7207BCF5F001A1A0A /* RightToLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CD69B8207BCF5F001A1A0A /* RightToLeft.swift */; };
 		E5CD69C8207BCF5F001A1A0A /* CosmosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CD69B9207BCF5F001A1A0A /* CosmosView.swift */; };
-		E5D48610209E0E8E00AD7808 /* Response+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D4860A209E0E8E00AD7808 /* Response+Codable.swift */; };
+		E5D0D78420F09C070031743C /* OnCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D0D78320F09C070031743C /* OnCache.swift */; };
 		E5D48611209E0E8E00AD7808 /* MoyaProvider+Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D4860C209E0E8E00AD7808 /* MoyaProvider+Request.swift */; };
 		E5D48612209E0E8E00AD7808 /* ObservableType+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D4860E209E0E8E00AD7808 /* ObservableType+Codable.swift */; };
 		E5D48613209E0E8E00AD7808 /* Single+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D4860F209E0E8E00AD7808 /* Single+Codable.swift */; };
@@ -374,7 +374,7 @@
 		E5CD69B7207BCF5F001A1A0A /* CosmosTouchTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosTouchTarget.swift; sourceTree = "<group>"; };
 		E5CD69B8207BCF5F001A1A0A /* RightToLeft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightToLeft.swift; sourceTree = "<group>"; };
 		E5CD69B9207BCF5F001A1A0A /* CosmosView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosView.swift; sourceTree = "<group>"; };
-		E5D4860A209E0E8E00AD7808 /* Response+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Response+Codable.swift"; sourceTree = "<group>"; };
+		E5D0D78320F09C070031743C /* OnCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnCache.swift; sourceTree = "<group>"; };
 		E5D4860C209E0E8E00AD7808 /* MoyaProvider+Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MoyaProvider+Request.swift"; sourceTree = "<group>"; };
 		E5D4860E209E0E8E00AD7808 /* ObservableType+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ObservableType+Codable.swift"; sourceTree = "<group>"; };
 		E5D4860F209E0E8E00AD7808 /* Single+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Single+Codable.swift"; sourceTree = "<group>"; };
@@ -565,6 +565,7 @@
 			isa = PBXGroup;
 			children = (
 				E575DD0F20B0637600C66BA8 /* CacheManager.swift */,
+				E5D0D78320F09C070031743C /* OnCache.swift */,
 			);
 			path = Cache;
 			sourceTree = "<group>";
@@ -1436,19 +1437,10 @@
 			isa = PBXGroup;
 			children = (
 				9961E51520B299D600A24A81 /* Cache */,
-				E5D48609209E0E8E00AD7808 /* Core */,
 				E5D4860B209E0E8E00AD7808 /* MoyaProvider */,
 				E5D4860D209E0E8E00AD7808 /* RxSwift */,
 			);
 			path = "Moya-Codable";
-			sourceTree = "<group>";
-		};
-		E5D48609209E0E8E00AD7808 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				E5D4860A209E0E8E00AD7808 /* Response+Codable.swift */,
-			);
-			path = Core;
 			sourceTree = "<group>";
 		};
 		E5D4860B209E0E8E00AD7808 /* MoyaProvider */ = {
@@ -1823,7 +1815,6 @@
 				E57C5BB12082460400655E0F /* GameColumnViewController.swift in Sources */,
 				E5D48622209E14E900AD7808 /* GameHomeColumnContentFlowLayout.swift in Sources */,
 				E5CD698A207B9794001A1A0A /* GameHomeHeaderCell.swift in Sources */,
-				E5D48610209E0E8E00AD7808 /* Response+Codable.swift in Sources */,
 				E5DC0AED20862BE2001E61C6 /* DateExtensions.swift in Sources */,
 				E5CD69BE207BCF5F001A1A0A /* CosmosDefaultSettings.swift in Sources */,
 				E59EAE122075F92100D6284F /* ColumnListCell.swift in Sources */,
@@ -1883,6 +1874,7 @@
 				998F0C5F2071EFB100C587C2 /* GetVc.swift in Sources */,
 				9906819520721F8700A825AC /* Channel.swift in Sources */,
 				E5787F2E2088C98E00AB55E2 /* GameRankingPageViewController.swift in Sources */,
+				E5D0D78420F09C070031743C /* OnCache.swift in Sources */,
 				9941411D2074B45E0016AC01 /* BaseCollectionViewCell.swift in Sources */,
 				E575DD1120B0637700C66BA8 /* CacheManager.swift in Sources */,
 				E58548E0208F6C8300C1C7CD /* FilterKindCell.swift in Sources */,

@@ -19,4 +19,4 @@ let timeoutClosure = {(endpoint: Endpoint, closure: MoyaProvider<MultiTarget>.Re
     }
 }
 
-let MultiApiProvider = MoyaProvider<MultiTarget>(requestClosure: timeoutClosure)
+let ApiProvider = MoyaProvider<MultiTarget>(requestClosure: timeoutClosure)

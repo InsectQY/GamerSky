@@ -61,7 +61,8 @@ extension GameColumnViewController {
             // 特色专题
             GameApi.gameSpecialList(1)
             .cache
-            .request(objectModel: BaseModel<[GameSpecialList]>.self)
+            .request()
+            .mapObject(BaseModel<[GameSpecialList]>.self)
             .subscribe(onNext: {
                 self.gameColumn = $0.result
                 self.collectionView.reloadData()

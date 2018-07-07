@@ -10,34 +10,37 @@ import RxSwift
 import Moya
 import Cache
 
-public extension PrimitiveSequence where TraitType == SingleTrait, ElementType: TargetType {
+extension PrimitiveSequence where TraitType == SingleTrait, ElementType: Codable {
     
-    public func request<T: Codable>(objectModel: T.Type,
-                                    path: String? = nil) -> Single<T> {
-        return flatMap { target -> Single<T> in
-            return target.request(objectModel: objectModel, path: path).setObject(for: target)
+    public func storeCachedObject(for target: TargetType) -> Single<ElementType> {
+        return map { object -> ElementType in
+
+            CacheManager.setObject(object, forKey: target.cachedKey)
+            return object
         }
     }
+}
+
+extension PrimitiveSequence where TraitType == SingleTrait, ElementType == Response {
     
-    public func request<T: Codable>(arrayModel: T.Type,
-                                    path: String? = nil) -> Single<[T]> {
-        return flatMap { target -> Single<[T]> in
-            return target.request(arrayModel: arrayModel, path: path).setObject(for: target)
+    public func storeCachedResponse(for target: TargetType) -> Single<Response> {
+        return map { response -> Response in
+            
+            CacheManager.setResponse(response, forKey: target.cachedKey)
+            return response
         }
     }
 }
 
 public extension PrimitiveSequence where TraitType == SingleTrait, ElementType == Response {
     
-    public func mapObject<T: Codable>(_ type: T.Type, path: String? = nil) -> Single<T> {
-        return flatMap { response -> Single<T> in
-            return Single.just(try response.mapObject(type, path: path))
-        }
-    }
-    
-    public func mapArray<T: Codable>(_ type: T.Type, path: String? = nil) -> Single<[T]> {
-        return flatMap { response -> Single<[T]> in
-            return Single.just(try response.mapArray(type, path: path))
+    public func mapObject<T: Codable>(_ type: T.Type, atKeyPath path: String? = nil) -> Single<T> {
+        return map {
+            
+            guard let response = try? $0.map(type, atKeyPath: path, failsOnEmptyData: true) else {
+                throw MoyaError.jsonMapping($0)
+            }
+            return response
         }
     }
 }

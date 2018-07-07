@@ -109,13 +109,10 @@ extension NewsViewController: Refreshable {
         let refreshHeader = initRefreshHeader(tableView) { [weak self] in
             self?.vmOutput.requestCommand.onNext(true)
         }
-        
         let refreshFooter = initRefreshFooter(tableView) { [weak self] in
             self?.vmOutput.requestCommand.onNext(false)
         }
-        
         vmOutput.autoSetRefreshHeaderStatus(header: refreshHeader, footer: refreshFooter).disposed(by: rx.disposeBag)
-        
         refreshHeader.beginRefreshing()
     }
 }
