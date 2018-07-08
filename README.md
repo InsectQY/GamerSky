@@ -4,7 +4,7 @@
 ![Swift](https://img.shields.io/badge/Swift-4.1-orange.svg)
 
 ## Requirements
-* Xcode 9.3
+* Xcode 9.4.1
 * iOS9+
 * Swift 4.1
 
