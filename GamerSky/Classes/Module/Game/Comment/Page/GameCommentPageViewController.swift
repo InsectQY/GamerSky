@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import DNSPageView
 
 class GameCommentPageViewController: BaseViewController {
     

@@ -1,7 +1,7 @@
 # 网络请求
 github "Moya/Moya"
-# 字典转模型
-github "SwiftyJSON/SwiftyJSON"
+# HUD
+github "SVProgressHUD/SVProgressHUD"
 # 图片缓存
 github "onevcat/Kingfisher"
 # 轮播图

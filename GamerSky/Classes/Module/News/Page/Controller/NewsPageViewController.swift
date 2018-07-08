@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import DNSPageView
 import Cache
 
 class NewsPageViewController: BaseViewController {
