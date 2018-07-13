@@ -142,4 +142,10 @@ extension GameHomeWaitSellContentCell: UICollectionViewDelegate {
         let footer = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionFooter, for: indexPath, viewType: GameHomePageFooterView.self)
         return footer
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let info = sectionType == .waitSelling ? monthGame[indexPath.section][indexPath.row] : game[indexPath.row]
+        navigator.push(NavigationURL.get(.gameDetail(info.Id)))
+    }
 }

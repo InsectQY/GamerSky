@@ -29,6 +29,8 @@ enum NavigationURL {
     case gameList
     /// 原创
     case origin(ColumnList?)
+    /// 游戏详情
+    case gameDetail(Int?)
     
     static func get(_ type: NavigationURL) -> String {
         
@@ -64,6 +66,12 @@ enum NavigationURL {
                 return "navigator://origin/\(columnList.valueString)"
             }
             return "navigator://origin/<columnList>"
+        case let .gameDetail(contentID):
+            
+            if let contentID = contentID {
+                return "navigator://gameDetail/\(contentID)"
+            }
+            return "navigator://gameDetail/<int:contentID>"
         }
     }
 }
@@ -111,6 +119,12 @@ enum NavigationMap {
             
             guard let columnList = values["columnList"] as? String, let columnListModel = columnList.toObject(ColumnList.self) else {return nil}
             return OriginalViewController(columnList: columnListModel)
+        }
+        
+        navigator.register(NavigationURL.get(.gameDetail(nil))) { (url, values, context) in
+            
+            guard let contentID = values["contentID"] as? Int else {return nil}
+            return GameDetailViewController(contentID: contentID)
         }
     }
 }

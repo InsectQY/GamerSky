@@ -28,6 +28,8 @@ enum GameApi {
     case gameReviewList(Int,GameCommentType)
     /// 找游戏
     case gameList(Int)
+    /// 游戏详情(参数依次是: 游戏ID)
+    case gameDetail(Int)
 }
 
 extension GameApi: TargetType {
@@ -57,6 +59,8 @@ extension GameApi: TargetType {
             return "game/reviewList"
         case .gameList:
             return "game/GameList"
+        case .gameDetail:
+            return "v2/TwoGameDetails"
         }
     }
     
@@ -133,6 +137,9 @@ extension GameApi: TargetType {
                                     "selling" : 0,
                                     "pageIndex" : page,
                                     "elementsCountPerPage" : 21]
+        case let .gameDetail(contentId):
+            parmeters["request"] = ["contentId" : contentId,
+                                    "userId" : 2303496]
         default:
             return .requestPlain
         }

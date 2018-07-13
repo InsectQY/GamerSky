@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		4763D9DBC59A3C133C1D5734 /* Pods_GamerSky.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71BFE174E127314FD3FBE57C /* Pods_GamerSky.framework */; };
 		601AC7D820F58A69002FE3A6 /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 601AC7D720F58A69002FE3A6 /* SVProgressHUD.framework */; };
+		603CACAC20F8552A0001614F /* GameDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603CACAB20F8552A0001614F /* GameDetailViewController.swift */; };
+		603CACB220F859A90001614F /* GameDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603CACB120F859A90001614F /* GameDetailHeaderView.swift */; };
+		603CACB420F859B10001614F /* GameDetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 603CACB320F859B10001614F /* GameDetailHeaderView.xib */; };
+		603CACB620F87D3B0001614F /* GameDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603CACB520F87D3B0001614F /* GameDetail.swift */; };
 		60EAFABF20F49A3A0034D8AA /* DNSPageCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EAFAB720F49A3A0034D8AA /* DNSPageCollectionViewFlowLayout.swift */; };
 		60EAFAC020F49A3A0034D8AA /* DNSPageContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EAFAB820F49A3A0034D8AA /* DNSPageContentView.swift */; };
 		60EAFAC120F49A3A0034D8AA /* DNSPageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EAFAB920F49A3A0034D8AA /* DNSPageHelper.swift */; };
@@ -210,6 +214,10 @@
 		139F370220F1A14C00779106 /* SVProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVProgressHUD.framework; path = ../../../QY/Desktop/GamerSky/Carthage/Build/iOS/SVProgressHUD.framework; sourceTree = "<group>"; };
 		5A76D4C644FCDE4465C7CD87 /* Pods-GamerSky.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GamerSky.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GamerSky/Pods-GamerSky.debug.xcconfig"; sourceTree = "<group>"; };
 		601AC7D720F58A69002FE3A6 /* SVProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVProgressHUD.framework; path = Carthage/Build/iOS/SVProgressHUD.framework; sourceTree = "<group>"; };
+		603CACAB20F8552A0001614F /* GameDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailViewController.swift; sourceTree = "<group>"; };
+		603CACB120F859A90001614F /* GameDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailHeaderView.swift; sourceTree = "<group>"; };
+		603CACB320F859B10001614F /* GameDetailHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameDetailHeaderView.xib; sourceTree = "<group>"; };
+		603CACB520F87D3B0001614F /* GameDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetail.swift; sourceTree = "<group>"; };
 		60EAFAB720F49A3A0034D8AA /* DNSPageCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DNSPageCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		60EAFAB820F49A3A0034D8AA /* DNSPageContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DNSPageContentView.swift; sourceTree = "<group>"; };
 		60EAFAB920F49A3A0034D8AA /* DNSPageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DNSPageHelper.swift; sourceTree = "<group>"; };
@@ -447,6 +455,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		603CACA720F854EC0001614F /* GameDetail */ = {
+			isa = PBXGroup;
+			children = (
+				603CACAA20F8550E0001614F /* View */,
+				603CACA920F8550A0001614F /* Model */,
+				603CACA820F854FE0001614F /* ViewController */,
+			);
+			path = GameDetail;
+			sourceTree = "<group>";
+		};
+		603CACA820F854FE0001614F /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				603CACAB20F8552A0001614F /* GameDetailViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		603CACA920F8550A0001614F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				603CACB520F87D3B0001614F /* GameDetail.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		603CACAA20F8550E0001614F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				603CACB120F859A90001614F /* GameDetailHeaderView.swift */,
+				603CACB320F859B10001614F /* GameDetailHeaderView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		60EAFAB620F49A3A0034D8AA /* DNSPageView */ = {
 			isa = PBXGroup;
 			children = (
@@ -801,6 +844,7 @@
 		998F0C672071F70B00C587C2 /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				603CACA720F854EC0001614F /* GameDetail */,
 				E57C5BAE208245CB00655E0F /* Home */,
 				E5259682208E152E00B5F419 /* GameList */,
 				E52B6DD9208C4194004904C6 /* Comment */,
@@ -1666,6 +1710,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				603CACB420F859B10001614F /* GameDetailHeaderView.xib in Resources */,
 				E58548E2208F6C8300C1C7CD /* FilterKindCell.xib in Resources */,
 				E550C92F207CD21200C4AF2D /* GameTagContentCell.xib in Resources */,
 				E58548E3208F6C8300C1C7CD /* FilterData.plist in Resources */,
@@ -1795,6 +1840,7 @@
 				E5919D1E20ECC1E6005E7E2C /* GameHomeViewModel.swift in Sources */,
 				992B5F5620999388005036CE /* FilterBtn.swift in Sources */,
 				E58548DD208F6C8300C1C7CD /* Filter.swift in Sources */,
+				603CACB620F87D3B0001614F /* GameDetail.swift in Sources */,
 				99E7999B2071E10E005C3408 /* AppDelegate.swift in Sources */,
 				990681812071FD5B00A825AC /* TabBar.swift in Sources */,
 				E5CD69C2207BCF5F001A1A0A /* CosmosLayerHelper.swift in Sources */,
@@ -1820,6 +1866,7 @@
 				E550C92E207CD21200C4AF2D /* GameTagContentCell.swift in Sources */,
 				994141272074C2740016AC01 /* Preference.swift in Sources */,
 				E57C5BAC2082402800655E0F /* GameRecommendFooterView.swift in Sources */,
+				603CACAC20F8552A0001614F /* GameDetailViewController.swift in Sources */,
 				E5CD69BC207BCF5F001A1A0A /* CosmosAccessibility.swift in Sources */,
 				E5CD69BD207BCF5F001A1A0A /* CosmosText.swift in Sources */,
 				E550C937207CDCBB00C4AF2D /* GameHomeColumnCell.swift in Sources */,
@@ -1844,6 +1891,7 @@
 				E5CD69C0207BCF5F001A1A0A /* CosmosLayers.swift in Sources */,
 				E57C5BB520824F3100655E0F /* ColumnDetailViewController.swift in Sources */,
 				E518D89E20B194770011BB6B /* ColumnApi.swift in Sources */,
+				603CACB220F859A90001614F /* GameDetailHeaderView.swift in Sources */,
 				E518D8A220B19A900011BB6B /* UserApi.swift in Sources */,
 				9941411E2074B45E0016AC01 /* BaseCollectionView.swift in Sources */,
 				E56802E520725C9100CF944E /* NewsTableHeaderView.swift in Sources */,

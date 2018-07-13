@@ -42,7 +42,7 @@ struct GameComment: Codable {
     var Title: String
     /// 是否包含活动
     var Position: String
-    /// 游民评分
+    /// GS评分
     var gsScore: String
     /// 游戏标签
     var gameTag: [String]
@@ -52,7 +52,7 @@ struct GameComment: Codable {
     var gameTagString: String? {
         return gameTag.joined(separator: " ")
     }
-    /// 游民评分
+    /// GS评分
     var gsRating: Double {
         
         get {
