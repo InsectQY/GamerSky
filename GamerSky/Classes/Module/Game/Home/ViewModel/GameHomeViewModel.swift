@@ -6,7 +6,7 @@
 //  Copyright © 2018年 engic. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import RxCocoa
 import RxSwift
 import RxDataSources
@@ -48,7 +48,7 @@ extension GameHomeViewModel: ViewModelable {
             // sectionHeader 数据
             let data = try! Data(contentsOf: Bundle.main.url(forResource: "GameHomeSectionData", withExtension: "plist")!)
             let sectionData = try! PropertyListDecoder().decode([GameHomeSectionModel].self, from: data)
-
+            
             // 新游推荐
             let symbol1 = GameApi.gameSpecialDetail(1, 13)
             .cache
@@ -62,7 +62,7 @@ extension GameHomeViewModel: ViewModelable {
             .request()
             .mapObject(BaseModel<[GameInfo]>.self)
             .map({GameHomeSection.hotSection([GameHomeItem.hotItem($0.result, sectionData)])})
-
+            
             // 特色专题
             let symbol3 = GameApi.gameSpecialList(1)
             .cache

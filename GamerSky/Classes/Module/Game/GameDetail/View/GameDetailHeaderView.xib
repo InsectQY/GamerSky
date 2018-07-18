@@ -67,7 +67,7 @@
                                                 <integer key="value" value="1"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="image" keyPath="filledImage" value="view:m4G-sY-qCh:value"/>
-                                            <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="491E7CA4-554A-478F-A99E-913F2B49F7A2"/>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="49D3B160-7409-4AB5-B53C-0112048668C8"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
@@ -119,7 +119,7 @@
         </view>
     </objects>
     <resources>
-        <image name="491E7CA4-554A-478F-A99E-913F2B49F7A2" width="12" height="12">
+        <image name="49D3B160-7409-4AB5-B53C-0112048668C8" width="12" height="12">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGVVZYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK8QEgcI
 ExQZHh8jJCsuMTtDR0tPUlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdz
