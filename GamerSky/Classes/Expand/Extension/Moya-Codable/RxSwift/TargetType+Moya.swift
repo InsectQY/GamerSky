@@ -42,7 +42,7 @@ public extension TargetType {
     func onCache<T: Codable>(_ type: T.Type, atKeyPath keyPath: String? = "", _ onCache: ((T) -> ())?) -> OnCache<Self, T> {
         
         if let object = cachedObject(type) {onCache?(object)}
-        return OnCache(self)
+        return OnCache(self, keyPath)
     }
     
     var cache: Observable<Self> {

@@ -12,9 +12,9 @@ import RxSwift
 public struct OnCache<Target: TargetType, T: Codable> {
     
     public let target: Target
-    public let keyPath: String
+    public let keyPath: String?
     
-    init(_ target: Target, _ keyPath: String) {
+    init(_ target: Target, _ keyPath: String?) {
         
         self.target = target
         self.keyPath = keyPath
