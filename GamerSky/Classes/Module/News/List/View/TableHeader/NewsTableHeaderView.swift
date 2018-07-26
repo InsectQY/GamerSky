@@ -84,7 +84,7 @@ extension Reactive where Base: NewsTableHeaderView {
     
     var bannerData: Binder<[ChannelList]?> {
         
-        return Binder(self.base) { headerView, result in
+        return Binder(base) { headerView, result in
             headerView.channelListAry = result
         }
     }

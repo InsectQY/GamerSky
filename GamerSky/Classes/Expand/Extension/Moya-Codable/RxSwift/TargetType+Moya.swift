@@ -11,8 +11,6 @@ import RxSwift
 import RxMoya
 import Cache
 
-private var cachedTimeKey: Void?
-
 public extension TargetType {
     
     var cachedKey: String {

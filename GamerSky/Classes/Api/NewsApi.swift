@@ -67,10 +67,6 @@ extension NewsApi: TargetType {
         return nil
     }
     
-    var cachedTime: Expiry? {
-        return nil
-    }
-    
     var sampleData: Data {
         return "".data(using: String.Encoding.utf8)!
     }
