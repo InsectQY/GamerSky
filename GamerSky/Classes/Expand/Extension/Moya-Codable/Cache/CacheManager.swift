@@ -15,6 +15,7 @@ class CacheManager {
                         transformer: Transformer<Response>(
                             toData: { $0.data },
                             fromData: { Response(statusCode: 200, data: $0) }))
+            try storage.removeExpiredObjects()
             return try storage.object(forKey: key)
         } catch {
             return nil

@@ -31,15 +31,17 @@ enum NavigationURL {
     case origin(ColumnList?)
     /// 游戏详情
     case gameDetail(Int?)
+}
+
+extension NavigationURL {
     
-    static func get(_ type: NavigationURL) -> String {
+    var path: String {
         
-        switch type {
-            
+        switch self {
         case let .contentDetail(url):
             
             if let url = url {
-               return "navigator://contentDetail/\(url)"
+                return "navigator://contentDetail/\(url)"
             }
             return "navigator://contentDetail/<int:ID>"
         case let .columnDetail(isHasSubList, nodeID):
@@ -82,46 +84,46 @@ enum NavigationMap {
     
     static func initialize() {
         
-        navigator.register(NavigationURL.get(.contentDetail(nil))) { url, values, context in
+        navigator.register(NavigationURL.contentDetail(nil).path) { url, values, context in
             
             guard let ID = values["ID"] as? Int else {return nil}
             return ContentDetailViewController(ID: ID)
         }
         
-        navigator.register(NavigationURL.get(.columnDetail(nil, nil))) { (url, values, context) in
+        navigator.register(NavigationURL.columnDetail(nil, nil).path) { (url, values, context) in
             
             guard let isHasSubList = values["isHasSubList"] as? String, let nodeID = values["nodeID"] as? Int else {return nil}
             let hasSubList = isHasSubList == "true" ? true : false
             return ColumnDetailViewController(isHasSubList: hasSubList, nodeID: nodeID)
         }
 
-        navigator.register(NavigationURL.get(.gameColumn)) { (_, _, _) in
+        navigator.register(NavigationURL.gameColumn.path) { (_, _, _) in
             return GameColumnViewController()
         }
         
-        navigator.register(NavigationURL.get(.gameRankingPage)) { (_, _, _) in
+        navigator.register(NavigationURL.gameRankingPage.path) { (_, _, _) in
             return GameRankingPageViewController()
         }
         
-        navigator.register(NavigationURL.get(.gameSellListPage)) { (_, _, _) in
+        navigator.register(NavigationURL.gameSellListPage.path) { (_, _, _) in
             return GameSellListPageViewController()
         }
         
-        navigator.register(NavigationURL.get(.gameCommentPage)) { (_, _, _) in
+        navigator.register(NavigationURL.gameCommentPage.path) { (_, _, _) in
             return GameCommentPageViewController()
         }
         
-        navigator.register(NavigationURL.get(.gameList)) { (_, _, _) in
+        navigator.register(NavigationURL.gameList.path) { (_, _, _) in
             return GameListViewController()
         }
         
-        navigator.register(NavigationURL.get(.origin(nil))) { (url, values, context) in
+        navigator.register(NavigationURL.origin(nil).path) { (url, values, context) in
             
             guard let columnList = values["columnList"] as? String, let columnListModel = columnList.toObject(ColumnList.self) else {return nil}
             return OriginalViewController(columnList: columnListModel)
         }
         
-        navigator.register(NavigationURL.get(.gameDetail(nil))) { (url, values, context) in
+        navigator.register(NavigationURL.gameDetail(nil).path) { (url, values, context) in
             
             guard let contentID = values["contentID"] as? Int else {return nil}
             return GameDetailViewController(contentID: contentID)

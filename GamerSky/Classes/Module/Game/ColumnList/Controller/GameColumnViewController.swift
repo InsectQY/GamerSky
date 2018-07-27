@@ -100,6 +100,6 @@ extension GameColumnViewController: UICollectionViewDelegate {
 
         let hasSubList = gameColumn[indexPath.item].hasSubList
         let nodeID = gameColumn[indexPath.item].nodeId
-        navigator.push(NavigationURL.get(.columnDetail(hasSubList, nodeID)))
+        navigator.push(NavigationURL.columnDetail(hasSubList, nodeID).path)
     }
 }

@@ -70,6 +70,6 @@ extension ColumnHeaderView: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         navigator
-        .push(NavigationURL.get(.origin(columnLists[indexPath.item])))
+        .push(NavigationURL.origin(columnLists[indexPath.item]).path)
     }
 }

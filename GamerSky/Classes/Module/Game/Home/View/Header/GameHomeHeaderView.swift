@@ -67,7 +67,7 @@ extension GameHomeHeaderView: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let urls = [NavigationURL.get(.gameColumn),NavigationURL.get(.gameRankingPage),NavigationURL.get(.gameSellListPage),NavigationURL.get(.gameCommentPage),NavigationURL.get(.gameList)]
+        let urls  = [NavigationURL.gameColumn.path,NavigationURL.gameRankingPage.path,NavigationURL.gameSellListPage.path,NavigationURL.gameCommentPage.path,NavigationURL.gameList.path]
         navigator.push(urls[indexPath.item])
     }
 }

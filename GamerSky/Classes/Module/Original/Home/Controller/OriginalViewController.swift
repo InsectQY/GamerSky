@@ -207,7 +207,7 @@ extension OriginalViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let id = columnList == nil ? columnAry[indexPath.section][indexPath.row].Id : columnListAry[indexPath.row].Id
-        navigator.push(NavigationURL.get(.contentDetail(id)))
+        navigator.push(NavigationURL.contentDetail(id).path)
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

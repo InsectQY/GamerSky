@@ -146,6 +146,6 @@ extension GameHomeWaitSellContentCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let info = sectionType == .waitSelling ? monthGame[indexPath.section][indexPath.row] : game[indexPath.row]
-        navigator.push(NavigationURL.get(.gameDetail(info.Id)))
+        navigator.push(NavigationURL.gameDetail(info.Id).path)
     }
 }
