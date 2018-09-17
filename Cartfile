@@ -1,7 +1,5 @@
 # 网络请求
 github "Moya/Moya"
-# HUD
-github "SVProgressHUD/SVProgressHUD"
 # 图片缓存
 github "onevcat/Kingfisher"
 # 轮播图
