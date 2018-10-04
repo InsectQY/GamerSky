@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4763D9DBC59A3C133C1D5734 /* Pods_GamerSky.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71BFE174E127314FD3FBE57C /* Pods_GamerSky.framework */; };
-		601AC7D820F58A69002FE3A6 /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 601AC7D720F58A69002FE3A6 /* SVProgressHUD.framework */; };
 		603CACAC20F8552A0001614F /* GameDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603CACAB20F8552A0001614F /* GameDetailViewController.swift */; };
 		603CACB220F859A90001614F /* GameDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603CACB120F859A90001614F /* GameDetailHeaderView.swift */; };
 		603CACB420F859B10001614F /* GameDetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 603CACB320F859B10001614F /* GameDetailHeaderView.xib */; };
@@ -35,8 +34,6 @@
 		9906819520721F8700A825AC /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9906819420721F8700A825AC /* Channel.swift */; };
 		992B5F42209965DC005036CE /* GameColumnFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992B5F41209965DC005036CE /* GameColumnFlowLayout.swift */; };
 		992B5F5620999388005036CE /* FilterBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992B5F5520999388005036CE /* FilterBtn.swift */; };
-		992C5B1E20B66D2200887A71 /* URLNavigator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 992C5B1C20B66D2100887A71 /* URLNavigator.framework */; };
-		992C5B1F20B66D2200887A71 /* URLMatcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 992C5B1D20B66D2100887A71 /* URLMatcher.framework */; };
 		992C5B2220B66DCC00887A71 /* NavigationMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992C5B2120B66DCC00887A71 /* NavigationMap.swift */; };
 		992C5B2420B69AF600887A71 /* ConvertToStringable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992C5B2320B69AF600887A71 /* ConvertToStringable.swift */; };
 		994141082074605E0016AC01 /* AppEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994141072074605E0016AC01 /* AppEnum.swift */; };
@@ -428,11 +425,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				601AC7D820F58A69002FE3A6 /* SVProgressHUD.framework in Frameworks */,
 				E5919D1B20EC5E54005E7E2C /* Differentiator.framework in Frameworks */,
 				E5919D1920EC5DE1005E7E2C /* RxDataSources.framework in Frameworks */,
-				992C5B1E20B66D2200887A71 /* URLNavigator.framework in Frameworks */,
-				992C5B1F20B66D2200887A71 /* URLMatcher.framework in Frameworks */,
 				E575DD1820B07B5C00C66BA8 /* NSObject_Rx.framework in Frameworks */,
 				E575DD1420B0673200C66BA8 /* Cache.framework in Frameworks */,
 				E5D48618209E0EFB00AD7808 /* RxCocoa.framework in Frameworks */,
@@ -2109,7 +2103,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZR6C3A8U56;
+				DEVELOPMENT_TEAM = GXAY9W4FZ4;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -2133,7 +2127,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZR6C3A8U56;
+				DEVELOPMENT_TEAM = GXAY9W4FZ4;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
