@@ -44,8 +44,8 @@ extension String {
         let paragraphStye = NSMutableParagraphStyle()
         paragraphStye.lineSpacing = lineSpeace ?? 0
         // 字体属性
-        let attributes = [NSAttributedStringKey.font: font,
-                          NSAttributedStringKey.paragraphStyle: paragraphStye]
+        let attributes = [NSAttributedString.Key.font: font,
+                          NSAttributedString.Key.paragraphStyle: paragraphStye]
         // 计算宽高
         let boundingBox = self.boundingRect(with: constraintRect, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: attributes, context: nil)
         return boundingBox.size
@@ -64,7 +64,7 @@ extension String {
         //调整行间距
         paragraphStye.lineSpacing = lineSpace
         let rang = NSMakeRange(0, CFStringGetLength(self as CFString?))
-        attributedString .addAttribute(NSAttributedStringKey.paragraphStyle, value: paragraphStye, range: rang)
+        attributedString .addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStye, range: rang)
         return attributedString
     }
 }

@@ -10,8 +10,8 @@ import UIKit
 
 struct Filter: Codable {
     
-    var name: String
-    var id: Int
+    let name: String
+    let id: Int
     
     var size: CGSize {
         

@@ -27,7 +27,7 @@ class NavigationController: UINavigationController {
     
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         
-        if childViewControllers.count >= 1 {
+        if children.count >= 1 {
             
             viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "common_Icon_Back_20x20_Black"), style: .plain, target: self, action: #selector(backBtnDidClick))
             // 隐藏要push的控制器的tabbar

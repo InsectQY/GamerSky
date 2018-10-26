@@ -23,8 +23,8 @@ class GameDetailViewController: BaseViewController {
         
         let tableView = UITableView(frame: UIScreen.main.bounds, style: .grouped)
         tableView.delegate = self
-        tableView.contentInset = UIEdgeInsetsMake(kTopH, 0, 0, 0)
-        tableView.scrollIndicatorInsets = UIEdgeInsetsMake(kTopH, 0, 0, 0)
+        tableView.contentInset = UIEdgeInsets.init(top: kTopH, left: 0, bottom: 0, right: 0)
+        tableView.scrollIndicatorInsets = UIEdgeInsets.init(top: kTopH, left: 0, bottom: 0, right: 0)
         tableView.separatorStyle = .none
         tableView.backgroundColor = .clear
         tableView.tableHeaderView = headerView

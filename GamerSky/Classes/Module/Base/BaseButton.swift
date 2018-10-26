@@ -22,7 +22,7 @@ class BaseButton: UIButton {
 //        fitFontSize()
     }
     
-    open override var buttonType: UIButtonType {
+    open override var buttonType: UIButton.ButtonType {
         
 //        fitFontSize()
         return super.buttonType

@@ -11,28 +11,28 @@ import Foundation
 struct Channel: Codable {
     
     /// 频道 ID
-    var nodeId: Int
+    let nodeId: Int
     /// 频道名称
-    var nodeName: String
-    var isTop: Bool
+    let nodeName: String
+    let isTop: Bool
 }
 
 struct ChannelList: Codable {
     
     /// 标题
-    var title: String
+    let title: String
     /// 阅读量
-    var readingCount: Int
+    let readingCount: Int
     /// 详情需要用它拼接
-    var contentId: Int
+    let contentId: Int
     /// 更新时间
-    var updateTime: Int
+    let updateTime: Int
     /// 评论数
-    var commentsCount: Int
+    let commentsCount: Int
     /// 图片
-    var thumbnailURLs: [String]?
+    let thumbnailURLs: [String]?
     /// 轮播图
-    var childElements: [ChannelList]?
+    let childElements: [ChannelList]?
     /// 更新时间
     var updateTimeString: String {
         get {

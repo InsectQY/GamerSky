@@ -16,7 +16,7 @@ class GameSellListViewController: BaseViewController {
     private lazy var tableView: UITableView = {
         
         let tableView = UITableView(frame: view.bounds)
-        tableView.contentInset = UIEdgeInsetsMake(0, 0, KBottomH + kTopH, 0)
+        tableView.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: KBottomH + kTopH, right: 0)
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(cellType: GameSellListCell.self)

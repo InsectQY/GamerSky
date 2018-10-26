@@ -26,6 +26,6 @@ class ColumnNavTitleView: UIView, NibLoadable {
     
     // MARK: - 适配 iOS 11
     override var intrinsicContentSize: CGSize {
-        return UILayoutFittingExpandedSize
+        return UIView.layoutFittingExpandedSize
     }
 }

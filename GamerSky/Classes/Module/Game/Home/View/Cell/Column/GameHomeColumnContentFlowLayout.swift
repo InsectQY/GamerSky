@@ -25,7 +25,7 @@ class GameHomeColumnContentFlowLayout: UICollectionViewFlowLayout {
         super.awakeFromNib()
         
         itemSize = CGSize(width: GameHomeColumnContentFlowLayout.kItemW, height: GameHomeColumnContentCell.cellHeight)
-        sectionInset = UIEdgeInsetsMake(0, 0, 0, GameHomeColumnContentFlowLayout.kEdge)
+        sectionInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: GameHomeColumnContentFlowLayout.kEdge)
         minimumLineSpacing = GameHomeColumnContentFlowLayout.kItemMargin
         footerReferenceSize = CGSize(width: GameHomeWaitSellContentCell.kItemW, height: GameHomeColumnContentCell.cellHeight)
     }

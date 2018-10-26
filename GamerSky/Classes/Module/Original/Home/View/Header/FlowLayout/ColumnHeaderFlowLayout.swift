@@ -26,6 +26,6 @@ class ColumnHeaderFlowLayout: UICollectionViewFlowLayout {
         
         itemSize = CGSize(width: kColumnListCellW, height: kColumnListCellW)
         minimumLineSpacing = kItemMargin
-        sectionInset = UIEdgeInsetsMake(0, kEdge, 0, kEdge)
+        sectionInset = UIEdgeInsets.init(top: 0, left: kEdge, bottom: 0, right: kEdge)
     }
 }

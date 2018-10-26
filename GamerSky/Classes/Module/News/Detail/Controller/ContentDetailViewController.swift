@@ -18,8 +18,8 @@ class ContentDetailViewController: BaseViewController {
     private lazy var webView: WKWebView = {
         
         let webView = WKWebView(frame: UIScreen.main.bounds)
-        webView.scrollView.contentInset = UIEdgeInsetsMake(kTopH, 0, 0, 0)
-        webView.scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(kTopH, 0, 0, 0)
+        webView.scrollView.contentInset = UIEdgeInsets.init(top: kTopH, left: 0, bottom: 0, right: 0)
+        webView.scrollView.scrollIndicatorInsets = UIEdgeInsets.init(top: kTopH, left: 0, bottom: 0, right: 0)
         webView.navigationDelegate = self
         return webView
     }()

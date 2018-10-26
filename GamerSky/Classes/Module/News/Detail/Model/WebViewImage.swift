@@ -11,9 +11,9 @@ import Foundation
 struct WebViewImage: Codable {
     
     /// 图片标题
-    var caption: String
+    let caption: String
     /// 高清图片
-    var hdImageURL: String
+    let hdImageURL: String
     /// 普通图片
-    var imageURL: String
+    let imageURL: String
 }

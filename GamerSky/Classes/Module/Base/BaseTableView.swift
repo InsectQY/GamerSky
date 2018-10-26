@@ -15,7 +15,7 @@ class BaseTableView: UITableView {
     private var defaultBackgroundColor = "colors.backgroundColor"
     
     // MARK: - Inital
-    public override init(frame: CGRect, style: UITableViewStyle) {
+    public override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
         initTheme()
     }

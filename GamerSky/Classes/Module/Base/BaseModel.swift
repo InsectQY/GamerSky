@@ -10,7 +10,7 @@ import Foundation
 
 struct BaseModel<T: Codable>: Codable {
     
-    var errorCode: Int
-    var errorMessage: String?
-    var result: T
+    let errorCode: Int
+    let errorMessage: String?
+    let result: T
 }

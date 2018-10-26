@@ -9,12 +9,9 @@ github "100mango/SwiftNotificationCenter"
 # 主题
 github "jiecao-fm/SwiftTheme"
 # 数据库
-github "stephencelis/SQLite.swift"
 github "nmdias/DefaultsKit"
 # 缓存
 github "hyperoslo/Cache"
 # RxSwift
 github "RxSwiftCommunity/NSObject-Rx"
 github "RxSwiftCommunity/RxDataSources"
-# Router
-github "devxoul/URLNavigator"

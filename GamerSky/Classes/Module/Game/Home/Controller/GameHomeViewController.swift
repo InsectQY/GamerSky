@@ -24,8 +24,8 @@ class GameHomeViewController: BaseViewController {
         tableView.register(cellType: GameTagContentCell.self)
         tableView.register(cellType: GameHomeColumnContentCell.self)
         tableView.register(headerFooterViewType: GameHomeSectionHeader.self)
-        tableView.contentInset = UIEdgeInsetsMake(kTopH, 0, 25, 0)
-        tableView.scrollIndicatorInsets = UIEdgeInsetsMake(kTopH, 0, 25, 0)
+        tableView.contentInset = UIEdgeInsets.init(top: kTopH, left: 0, bottom: 25, right: 0)
+        tableView.scrollIndicatorInsets = UIEdgeInsets.init(top: kTopH, left: 0, bottom: 25, right: 0)
         tableView.separatorStyle = .none
         tableView.backgroundColor = .clear
         tableView.tableHeaderView = headerView

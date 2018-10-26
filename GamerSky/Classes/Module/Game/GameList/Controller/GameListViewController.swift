@@ -20,9 +20,9 @@ class GameListViewController: BaseViewController {
         collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.contentInset = UIEdgeInsetsMake(kTopH + FilterView.height, 0, 0, 0)
+        collectionView.contentInset = UIEdgeInsets.init(top: kTopH + FilterView.height, left: 0, bottom: 0, right: 0)
         collectionView.register(cellType: GameListCell.self)
-        collectionView.register(supplementaryViewType: GameListHeaderView.self, ofKind: UICollectionElementKindSectionHeader)
+        collectionView.register(supplementaryViewType: GameListHeaderView.self, ofKind: UICollectionView.elementKindSectionHeader)
         return collectionView
     }()
     
@@ -135,7 +135,7 @@ extension GameListViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
-        let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, for: indexPath, viewType: GameListHeaderView.self)
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, for: indexPath, viewType: GameListHeaderView.self)
         return header
     }
 }

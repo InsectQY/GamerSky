@@ -38,7 +38,7 @@ extension UIImageView {
 
 extension UIButton {
     
-    func qy_setBackgroundImage(_ URLString: String?, _ placeHolderName: String? = nil, _ state:UIControlState = .normal ,progress: ((_ receivedSize: Int64, _ totalSize: Int64) -> ())? = nil, completionHandler: ((_ image: Image?, _ error: NSError?, _ cacheType: CacheType, _ imageURL: URL?) -> ())? = nil) {
+    func qy_setBackgroundImage(_ URLString: String?, _ placeHolderName: String? = nil, _ state:UIControl.State = .normal ,progress: ((_ receivedSize: Int64, _ totalSize: Int64) -> ())? = nil, completionHandler: ((_ image: Image?, _ error: NSError?, _ cacheType: CacheType, _ imageURL: URL?) -> ())? = nil) {
         
         guard let URLString = URLString else {return}
         
@@ -61,11 +61,11 @@ extension UIButton {
         })
     }
     
-    func qy_setBackgroundImage(_ URLString: String?, _ placeHolderName: String? = nil,_ state: UIControlState? = .normal) {
+    func qy_setBackgroundImage(_ URLString: String?, _ placeHolderName: String? = nil,_ state: UIControl.State? = .normal) {
         qy_setBackgroundImage(URLString, placeHolderName, state)
     }
     
-    func qy_setImage(_ URLString: String?, _ placeHolderName: String? = nil, _ state:UIControlState = .normal ,progress: ((_ receivedSize: Int64, _ totalSize: Int64) -> ())? = nil, completionHandler: ((_ image: Image?, _ error: NSError?, _ cacheType: CacheType, _ imageURL: URL?) -> ())? = nil) {
+    func qy_setImage(_ URLString: String?, _ placeHolderName: String? = nil, _ state:UIControl.State = .normal ,progress: ((_ receivedSize: Int64, _ totalSize: Int64) -> ())? = nil, completionHandler: ((_ image: Image?, _ error: NSError?, _ cacheType: CacheType, _ imageURL: URL?) -> ())? = nil) {
         
         guard let URLString = URLString else {return}
         
@@ -88,7 +88,7 @@ extension UIButton {
         })
     }
     
-    func qy_setImage(_ URLString: String?, _ placeHolderName: String? = nil,_ state: UIControlState? = .normal) {
+    func qy_setImage(_ URLString: String?, _ placeHolderName: String? = nil,_ state: UIControl.State? = .normal) {
         qy_setImage(URLString, placeHolderName, state)
     }
 }

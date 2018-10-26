@@ -29,8 +29,8 @@ class GameRankingListViewController: BaseViewController {
         tableView.dataSource = self
         tableView.register(cellType: GameColumnDetailCell.self)
         tableView.estimatedRowHeight = 100
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.contentInset = UIEdgeInsetsMake(0, 0, KBottomH + kTopH, 0)
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: KBottomH + kTopH, right: 0)
         tableView.separatorStyle = .none
         return tableView
     }()

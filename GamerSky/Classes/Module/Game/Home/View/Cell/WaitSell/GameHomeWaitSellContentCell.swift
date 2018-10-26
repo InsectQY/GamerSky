@@ -77,11 +77,11 @@ class GameHomeWaitSellContentCell: BaseTableViewCell, NibReusable {
     // MARK: - setUpCollectionView
     private func setUpCollectionView() {
         
-        flowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, GameHomeWaitSellContentCell.kItemMargin)
+        flowLayout.sectionInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: GameHomeWaitSellContentCell.kItemMargin)
         flowLayout.minimumLineSpacing = GameHomeWaitSellContentCell.kItemMargin
-        collectionView.contentInset = UIEdgeInsetsMake(0, GameHomeWaitSellContentCell.kEdge, 0, GameHomeWaitSellContentCell.kEdge)
+        collectionView.contentInset = UIEdgeInsets.init(top: 0, left: GameHomeWaitSellContentCell.kEdge, bottom: 0, right: GameHomeWaitSellContentCell.kEdge)
         collectionView.register(cellType: GameHomePageCell.self)
-        collectionView.register(supplementaryViewType: GameHomePageFooterView.self, ofKind: UICollectionElementKindSectionFooter)
+        collectionView.register(supplementaryViewType: GameHomePageFooterView.self, ofKind: UICollectionView.elementKindSectionFooter)
         flowLayout.footerReferenceSize = CGSize(width: GameHomeWaitSellContentCell.kItemW, height: 200)
     }
 }
@@ -139,7 +139,7 @@ extension GameHomeWaitSellContentCell: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
-        let footer = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionFooter, for: indexPath, viewType: GameHomePageFooterView.self)
+        let footer = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, for: indexPath, viewType: GameHomePageFooterView.self)
         return footer
     }
     

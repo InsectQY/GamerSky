@@ -11,21 +11,21 @@ import Foundation
 struct GameList: Codable {
     
     /// 游戏总数
-    var gamesCount: Int
+    let gamesCount: Int
     /// 游戏信息
-    var childelements: [GameChildElement]
+    let childelements: [GameChildElement]
 }
 
 struct GameChildElement: Codable {
     
     /// 游戏ID
-    var Id: Int
+    let Id: Int
     /// 游戏名称
-    var title: String
+    let title: String
     /// 游戏评分
-    var userScore: Float?
+    let userScore: Float?
     /// 游戏图片
-    var image: String
+    let image: String
     /// 是否显示活动图片
-    var position: String?
+    let position: String?
 }

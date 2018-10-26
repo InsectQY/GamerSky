@@ -11,13 +11,13 @@ import Foundation
 struct ColumnList: Codable {
     
     /// ID
-    var Id: Int
+    let Id: Int
     /// 标题
-    var title: String
+    let title: String
     /// 图片
     var icon: String?
     /// 描述
-    var description: String
+    let description: String
 }
 
 extension ColumnList: ConvertToStringable {
@@ -29,35 +29,35 @@ extension ColumnList: ConvertToStringable {
 struct ColumnContent: Codable {
     
     /// 专栏名称
-    var title: String?
+    let title: String?
     /// 专栏 icon
-    var icon: String?
+    let icon: String?
     /// 专栏描述
-    var description: String?
+    let description: String?
     /// 专栏内容
-    var childElements: [ColumnElement]
+    let childElements: [ColumnElement]
 }
 
 struct ColumnElement: Codable {
     
     /// ID
-    var Id: Int
+    let Id: Int
     /// 标题
-    var title: String?
+    let title: String?
     /// 图片
-    var thumbnailURL: String?
+    let thumbnailURL: String?
     /// 专栏名称
-    var zhuanlanTitle: String?
+    let zhuanlanTitle: String?
     /// 作者名
-    var authorName: String?
+    let authorName: String?
     /// 作者头像
-    var authorPhoto: String?
+    let authorPhoto: String?
     /// 评论数
-    var commentsCount: Int
+    let commentsCount: Int
     /// 收藏数
-    var likeCount: Int
+    let likeCount: Int
     /// 更新时间
-    var updateTime: Int
+    let updateTime: Int
     /// 更新时间
     var updateTimeString: String {
         get {

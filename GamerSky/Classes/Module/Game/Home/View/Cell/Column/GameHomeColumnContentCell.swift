@@ -25,9 +25,9 @@ class GameHomeColumnContentCell: BaseTableViewCell, NibReusable {
         
         didSet {
             
-            collectionView.contentInset = UIEdgeInsetsMake(0, GameHomeColumnContentFlowLayout.kEdge, 0, GameHomeColumnContentFlowLayout.kEdge)
+            collectionView.contentInset = UIEdgeInsets.init(top: 0, left: GameHomeColumnContentFlowLayout.kEdge, bottom: 0, right: GameHomeColumnContentFlowLayout.kEdge)
             collectionView.register(cellType: GameHomeColumnCell.self)
-            collectionView.register(supplementaryViewType: GameRecommendFooterView.self, ofKind: UICollectionElementKindSectionFooter)
+            collectionView.register(supplementaryViewType: GameRecommendFooterView.self, ofKind: UICollectionView.elementKindSectionFooter)
         }
     }
 }
@@ -52,7 +52,7 @@ extension GameHomeColumnContentCell: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
-        let footer = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionFooter, for: indexPath, viewType: GameRecommendFooterView.self)
+        let footer = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, for: indexPath, viewType: GameRecommendFooterView.self)
         footer.cornerRadius = 3
         return footer
     }

@@ -33,7 +33,7 @@ class GameColumnFlowLayout: UICollectionViewFlowLayout {
         scrollDirection = .vertical
         minimumInteritemSpacing = kEdge
         minimumLineSpacing = kItemMargin
-        sectionInset = UIEdgeInsetsMake(kItemMargin, 0, kItemMargin, 0)
+        sectionInset = UIEdgeInsets.init(top: kItemMargin, left: 0, bottom: kItemMargin, right: 0)
     }
     
     required init?(coder aDecoder: NSCoder) {

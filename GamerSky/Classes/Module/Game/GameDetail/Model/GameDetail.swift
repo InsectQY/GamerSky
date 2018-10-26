@@ -11,43 +11,43 @@ import Foundation
 struct GameDetail: Codable {
     
     /// 背景图片
-    var backgroundURL: String
+    let backgroundURL: String
     /// 是否有中文
-    var chinese: Int
+    let chinese: Int
     /// 游戏介绍
-    var description: String
+    let description: String
     /// 开发者
-    var developer: String
+    let developer: String
     /// 游戏时长
-    var gameLength: String
+    let gameLength: String
     /// 游戏标签
-    var gameTag: [GameTag]
+    let gameTag: [GameTag]
     /// 游戏类型
-    var gameType: String
+    let gameType: String
     /// GS评分
-    var gsScore: Float
+    let gsScore: Float
     /// 是否发售
-    var market: Bool
+    let market: Bool
     /// 我的评分
-    var myScore : Float
+    let myScore : Float
     /// 游戏登陆的平台
-    var platform: String
+    let platform: String
     /// 玩过的人数
-    var playedCount: Int
+    let playedCount: Int
     /// 制作厂商
-    var producer: String
+    let producer: String
     /// 打分的人数
-    var scoreUserCount: Int
+    let scoreUserCount: Int
     /// 发售时间
-    var sellTime: String
+    let sellTime: String
     /// 小图
-    var thumbnailURL: String
+    let thumbnailURL: String
     /// 中文游戏名
-    var title : String
+    let title : String
     /// 英文游戏名
-    var englishTitle: String
+    let englishTitle: String
     /// 用户打分
-    var userScore: Float
+    let userScore: Float
     /// 想玩的人数
-    var wantplayCount: Int
+    let wantplayCount: Int
 }

@@ -59,8 +59,8 @@ extension TabBarController {
     }
     
     private func seUpTabBarAttr() {
-    UITabBarItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.gray], for: .normal)
-    UITabBarItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.darkGray], for: .selected)
+    UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.gray], for: .normal)
+    UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.darkGray], for: .selected)
     }
 }
 
@@ -73,10 +73,10 @@ extension TabBarController {
         
         childVc.tabBarItem.image = UIImage(named: normalImg)
         childVc.tabBarItem.selectedImage = UIImage(named: selImg)
-        childVc.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0)
+        childVc.tabBarItem.imageInsets = UIEdgeInsets.init(top: 6, left: 0, bottom: -6, right: 0)
         
         let childNav = NavigationController(rootViewController: childVc)
         
-        addChildViewController(childNav)
+        addChild(childNav)
     }
 }

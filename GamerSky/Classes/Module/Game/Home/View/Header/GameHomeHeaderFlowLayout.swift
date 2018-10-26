@@ -25,7 +25,7 @@ class GameHomeHeaderFlowLayout: UICollectionViewFlowLayout {
         super.init()
         
         itemSize = CGSize(width: kItemW, height: GameHomeHeaderView.height)
-        sectionInset = UIEdgeInsetsMake(0, kEdge, 0, kEdge)
+        sectionInset = UIEdgeInsets.init(top: 0, left: kEdge, bottom: 0, right: kEdge)
         minimumLineSpacing = kItemMargin
         minimumInteritemSpacing = kItemMargin
     }

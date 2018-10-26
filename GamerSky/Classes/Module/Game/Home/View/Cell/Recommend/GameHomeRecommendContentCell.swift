@@ -50,12 +50,12 @@ class GameHomeRecommendContentCell: BaseTableViewCell, NibReusable {
     private func setUpCollectionView() {
         
         flowLayout.itemSize = CGSize(width: kItemW, height: GameHomeRecommendContentCell.cellHeight)
-        flowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, kItemMargin)
+        flowLayout.sectionInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: kItemMargin)
         flowLayout.minimumLineSpacing = kItemMargin
         flowLayout.footerReferenceSize = CGSize(width: kFooterWidth, height: GameHomeRecommendContentCell.cellHeight)
-        collectionView.contentInset = UIEdgeInsetsMake(0, kEdge, 0, kEdge)
+        collectionView.contentInset = UIEdgeInsets.init(top: 0, left: kEdge, bottom: 0, right: kEdge)
         collectionView.register(cellType: GameHomeRecommendCell.self)
-        collectionView.register(supplementaryViewType: GameRecommendFooterView.self, ofKind: UICollectionElementKindSectionFooter)
+        collectionView.register(supplementaryViewType: GameRecommendFooterView.self, ofKind: UICollectionView.elementKindSectionFooter)
     }
 }
 
@@ -79,7 +79,7 @@ extension GameHomeRecommendContentCell: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
-        let footer = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionFooter, for: indexPath, viewType: GameRecommendFooterView.self)
+        let footer = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, for: indexPath, viewType: GameRecommendFooterView.self)
         return footer
     }
 }

@@ -11,43 +11,43 @@ import Foundation
 struct GameComment: Codable {
 
     /// 是否玩过 (想玩还是玩过)
-    var likeType: PlayType
+    let likeType: PlayType
     /// 评论的 ID
-    var reviewid: Int
+    let reviewid: Int
     /// 评论内容
-    var content: String
+    let content: String
     /// 用户头像
-    var img_URL: String
+    let img_URL: String
     /// userid
-    var user_id: String
+    let user_id: String
     /// 用户名
-    var nickname: String
+    let nickname: String
     /// 平台
-    var platform: String?
+    let platform: String?
     /// 玩家评分
-    var rating: Int
+    let rating: Int
     /// 点赞数
-    var like: Int
+    let like: Int
     /// 评论数
-    var reviewCount: Int
+    let reviewCount: Int
     /// ID
-    var Id: Int
+    let Id: Int
     /// 游戏图片
-    var DefaultPicUrl: String
+    let DefaultPicUrl: String
     /// 时间
-    var create_time: Int
+    let create_time: Int
     /// 游戏类型
-    var GameType: String
+    let GameType: String
     /// 游戏名称
-    var Title: String
+    let Title: String
     /// 是否包含活动
-    var Position: String
+    let Position: String
     /// GS评分
-    var gsScore: String
+    let gsScore: String
     /// 游戏标签
-    var gameTag: [String]
+    let gameTag: [String]
     /// 子评论
-    var reviews: [GameReviews]?
+    let reviews: [GameReviews]?
     /// 游戏类型
     var gameTagString: String? {
         return gameTag.joined(separator: " ")
@@ -71,17 +71,17 @@ struct GameComment: Codable {
 struct GameReviews: Codable {
     
     /// 评论的 ID
-    var reviewid: Int
+    let reviewid: Int
     /// 时间
-    var create_time: Int
+    let create_time: Int
     /// 评论内容
-    var content: String
+    let content: String
     /// userid
-    var user_id: String
+    let user_id: String
     /// 用户头像
-    var img_URL: String
+    let img_URL: String
     /// 用户名
-    var nickname: String
+    let nickname: String
     /// 回复的人用户名
-    var replynickname: String
+    let replynickname: String
 }

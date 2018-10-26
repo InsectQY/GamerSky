@@ -34,15 +34,15 @@ class ColumnDetailViewController: BaseViewController {
         let tableView = UITableView(frame: UIScreen.main.bounds, style: .grouped)
         tableView.register(cellType: GameColumnDetailCell.self)
         tableView.register(headerFooterViewType: GameColumnDetailSectionHeader.self)
-        tableView.contentInset = UIEdgeInsetsMake(kTopH, 0, 0, 0)
-        tableView.scrollIndicatorInsets = UIEdgeInsetsMake(kTopH, 0, 0, 0)
+        tableView.contentInset = UIEdgeInsets.init(top: kTopH, left: 0, bottom: 0, right: 0)
+        tableView.scrollIndicatorInsets = UIEdgeInsets.init(top: kTopH, left: 0, bottom: 0, right: 0)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
         tableView.estimatedRowHeight = 100
         tableView.estimatedSectionHeaderHeight = 0
         tableView.estimatedSectionFooterHeight = 0
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         return tableView
     }()
     

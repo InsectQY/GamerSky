@@ -11,27 +11,27 @@ import Foundation
 struct GameSellList: Codable {
     
     /// 详情ID
-    var contentId : Int
+    let contentId : Int
     /// 图片
-    var thumbnailURL: String
+    let thumbnailURL: String
     /// 游戏名称
-    var title: String
+    let title: String
     /// 发售时间
-    var sellTime: String
+    let sellTime: String
     /// 发售平台
-    var platform: String
+    let platform: String
     /// 游戏类型
-    var gameType: String
+    let gameType: String
     /// 开发者
-    var developer: String
+    let developer: String
     /// 制作者
-    var producer: String
+    let producer: String
     /// 英文游戏名
-    var englishTitle: String
+    let englishTitle: String
     /// 是否包含活动
-    var position: String?
+    let position: String?
     /// 评分
-    var gsScore: Float
+    let gsScore: Float
     /// 期待人数
-    var wantPlayCount: Int
+    let wantPlayCount: Int
 }

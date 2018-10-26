@@ -26,7 +26,6 @@
 		990681852072000200A825AC /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 998F0C492071EF1800C587C2 /* Kingfisher.framework */; };
 		990681862072000200A825AC /* Moya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 998F0C4E2071EF1800C587C2 /* Moya.framework */; };
 		990681872072000200A825AC /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 998F0C472071EF1800C587C2 /* Result.framework */; };
-		990681882072000200A825AC /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 998F0C4C2071EF1800C587C2 /* SQLite.framework */; };
 		990681892072000200A825AC /* SwiftNotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 998F0C4B2071EF1800C587C2 /* SwiftNotificationCenter.framework */; };
 		9906818A2072000200A825AC /* SwiftTheme.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 998F0C4A2071EF1800C587C2 /* SwiftTheme.framework */; };
 		9906818D2072019E00A825AC /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9906818C2072019E00A825AC /* BaseViewController.swift */; };
@@ -439,7 +438,6 @@
 				990681852072000200A825AC /* Kingfisher.framework in Frameworks */,
 				990681862072000200A825AC /* Moya.framework in Frameworks */,
 				990681872072000200A825AC /* Result.framework in Frameworks */,
-				990681882072000200A825AC /* SQLite.framework in Frameworks */,
 				990681892072000200A825AC /* SwiftNotificationCenter.framework in Frameworks */,
 				9906818A2072000200A825AC /* SwiftTheme.framework in Frameworks */,
 				4763D9DBC59A3C133C1D5734 /* Pods_GamerSky.framework in Frameworks */,
@@ -1676,7 +1674,7 @@
 				TargetAttributes = {
 					99E799962071E10D005C3408 = {
 						CreatedOnToolsVersion = 9.2;
-						LastSwiftMigration = 0930;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -1761,11 +1759,13 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-GamerSky/Pods-GamerSky-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/FDFullscreenPopGesture/FDFullscreenPopGesture.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/URLNavigator/URLNavigator.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FDFullscreenPopGesture.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/URLNavigator.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1802,7 +1802,6 @@
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftTheme.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Moya.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SQLite.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/DefaultsKit.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftNotificationCenter.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxBlocking.framework",
@@ -1811,17 +1810,14 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Cache.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/NSObject_Rx.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/URLMatcher.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/URLNavigator.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxDataSources.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SVProgressHUD.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Differentiator.framework",
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -2103,7 +2099,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GXAY9W4FZ4;
+				DEVELOPMENT_TEAM = SLZQQC8NFR;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -2115,7 +2111,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "GamerSky/Bridging-Header/GamerSky-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -2127,7 +2123,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GXAY9W4FZ4;
+				DEVELOPMENT_TEAM = SLZQQC8NFR;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -2138,7 +2134,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = QY.GamerSky;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "GamerSky/Bridging-Header/GamerSky-Bridging-Header.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

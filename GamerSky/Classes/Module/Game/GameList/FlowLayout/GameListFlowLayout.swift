@@ -30,7 +30,7 @@ class GameListFlowLayout: UICollectionViewFlowLayout {
         super.init()
         
         itemSize = CGSize(width: kItemW, height: kItemH)
-        sectionInset = UIEdgeInsetsMake(0, kEdge, 0, kEdge)
+        sectionInset = UIEdgeInsets.init(top: 0, left: kEdge, bottom: 0, right: kEdge)
         minimumLineSpacing = kLineSpacing
         minimumInteritemSpacing = kInteritemSpacing
         headerReferenceSize = CGSize(width: ScreenWidth, height: GameListHeaderView.height)

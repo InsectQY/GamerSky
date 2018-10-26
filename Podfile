@@ -7,7 +7,9 @@ use_frameworks!
 
 pod 'MJRefresh'
 pod 'FDFullscreenPopGesture'
-# Bug统计
+# Bug 统计
 pod 'Bugly'
+# Router
+pod 'URLNavigator'
 
 end

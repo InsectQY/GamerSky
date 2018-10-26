@@ -34,8 +34,8 @@ class NewsViewController: BaseViewController {
         tableView.separatorStyle = .none
         tableView.register(cellType: ChannelListCell.self)
         tableView.register(headerFooterViewType: NewsSectionHeaderView.self)
-        tableView.contentInset = UIEdgeInsetsMake(kTopH, 0, KBottomH, 0)
-        tableView.scrollIndicatorInsets = UIEdgeInsetsMake(kTopH, 0, KBottomH, 0)
+        tableView.contentInset = UIEdgeInsets.init(top: kTopH, left: 0, bottom: KBottomH, right: 0)
+        tableView.scrollIndicatorInsets = UIEdgeInsets.init(top: kTopH, left: 0, bottom: KBottomH, right: 0)
         tableView.tableHeaderView = headerView
         tableView.rowHeight = ChannelListCell.cellHeight
         tableView.delegate = self
