@@ -1,12 +1,12 @@
 # GamerSky
 # Swift 4 - 模仿游民星空
 
-![Swift](https://img.shields.io/badge/Swift-4.1-orange.svg)
+![Swift](https://img.shields.io/badge/Swift-4.2-orange.svg)
 
 ## Requirements
-* Xcode 9.4.1
+* Xcode 10
 * iOS9+
-* Swift 4.1
+* Swift 4.2
 
 ## How to build
 1)  Clone the repository
@@ -16,7 +16,6 @@ $ git clone https://github.com/InsectQY/GamerSky.git
 2)  Install dependencies
 ```
 $ pod install
-$ carthage update --platform ios
 ```
 3) Open the workspace in Xcode
 ```

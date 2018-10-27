@@ -60,11 +60,7 @@ extension UIButton {
             completionHandler?(image, error, cacheType, imageURL)
         })
     }
-    
-    func qy_setBackgroundImage(_ URLString: String?, _ placeHolderName: String? = nil,_ state: UIControl.State? = .normal) {
-        qy_setBackgroundImage(URLString, placeHolderName, state)
-    }
-    
+
     func qy_setImage(_ URLString: String?, _ placeHolderName: String? = nil, _ state:UIControl.State = .normal ,progress: ((_ receivedSize: Int64, _ totalSize: Int64) -> ())? = nil, completionHandler: ((_ image: Image?, _ error: NSError?, _ cacheType: CacheType, _ imageURL: URL?) -> ())? = nil) {
         
         guard let URLString = URLString else {return}
@@ -86,9 +82,5 @@ extension UIButton {
         }, completionHandler: { (image, error, cacheType, imageURL) in
             completionHandler?(image, error, cacheType, imageURL)
         })
-    }
-    
-    func qy_setImage(_ URLString: String?, _ placeHolderName: String? = nil,_ state: UIControl.State? = .normal) {
-        qy_setImage(URLString, placeHolderName, state)
     }
 }

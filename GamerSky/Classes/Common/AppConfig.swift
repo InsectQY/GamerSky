@@ -12,7 +12,7 @@ import UIKit
 public let kStatusBarH: CGFloat = UIApplication.shared.statusBarFrame.size.height
 public let kNaviBarH: CGFloat = 44
 public let kTopH: CGFloat = kStatusBarH + kNaviBarH
-public let KTabbarH: CGFloat = AppDelegate.tabBarContoller.tabBar.frame.height
+public let KTabbarH: CGFloat = 49
 public let KBottomH: CGFloat = Device.Size() == .iPhoneX ? KTabbarH + 34: KTabbarH
 
 /// 主机地址

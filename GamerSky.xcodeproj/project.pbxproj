@@ -20,14 +20,6 @@
 		60EAFAC420F49A3A0034D8AA /* DNSPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EAFABD20F49A3A0034D8AA /* DNSPageView.swift */; };
 		60EAFAC520F49A3A0034D8AA /* DNSPageViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EAFABE20F49A3A0034D8AA /* DNSPageViewManager.swift */; };
 		990681812071FD5B00A825AC /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990681802071FD5B00A825AC /* TabBar.swift */; };
-		990681822072000200A825AC /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 998F0C4D2071EF1800C587C2 /* Alamofire.framework */; };
-		990681832072000200A825AC /* DefaultsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 998F0C462071EF1800C587C2 /* DefaultsKit.framework */; };
-		990681842072000200A825AC /* FSPagerView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 998F0C482071EF1800C587C2 /* FSPagerView.framework */; };
-		990681852072000200A825AC /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 998F0C492071EF1800C587C2 /* Kingfisher.framework */; };
-		990681862072000200A825AC /* Moya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 998F0C4E2071EF1800C587C2 /* Moya.framework */; };
-		990681872072000200A825AC /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 998F0C472071EF1800C587C2 /* Result.framework */; };
-		990681892072000200A825AC /* SwiftNotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 998F0C4B2071EF1800C587C2 /* SwiftNotificationCenter.framework */; };
-		9906818A2072000200A825AC /* SwiftTheme.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 998F0C4A2071EF1800C587C2 /* SwiftTheme.framework */; };
 		9906818D2072019E00A825AC /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9906818C2072019E00A825AC /* BaseViewController.swift */; };
 		9906819220721AAA00A825AC /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9906819120721AAA00A825AC /* BaseModel.swift */; };
 		9906819520721F8700A825AC /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9906819420721F8700A825AC /* Channel.swift */; };
@@ -122,11 +114,7 @@
 		E56802E720725CBE00CF944E /* NewsTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E56802E620725CBE00CF944E /* NewsTableHeaderView.xib */; };
 		E56802EC207268A500CF944E /* ContentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56802EB207268A500CF944E /* ContentDetailViewController.swift */; };
 		E56802F0207274E900CF944E /* NewsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56802EF207274E900CF944E /* NewsPageViewController.swift */; };
-		E575DD1120B0637700C66BA8 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E575DD0F20B0637600C66BA8 /* CacheManager.swift */; };
-		E575DD1220B0637700C66BA8 /* TargetType+Moya.swift in Sources */ = {isa = PBXBuildFile; fileRef = E575DD1020B0637600C66BA8 /* TargetType+Moya.swift */; };
-		E575DD1420B0673200C66BA8 /* Cache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E575DD1320B0673200C66BA8 /* Cache.framework */; };
 		E575DD1620B0763600C66BA8 /* NewsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E575DD1520B0763600C66BA8 /* NewsApi.swift */; };
-		E575DD1820B07B5C00C66BA8 /* NSObject_Rx.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E575DD1720B07B5C00C66BA8 /* NSObject_Rx.framework */; };
 		E5787F2E2088C98E00AB55E2 /* GameRankingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5787F2D2088C98E00AB55E2 /* GameRankingPageViewController.swift */; };
 		E5787F322088CAA300AB55E2 /* GameRankingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5787F312088CAA300AB55E2 /* GameRankingListViewController.swift */; };
 		E5787F342088CC7400AB55E2 /* GameCategoryData.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5787F332088CC7400AB55E2 /* GameCategoryData.plist */; };
@@ -152,11 +140,16 @@
 		E5919D1020EC51E9005E7E2C /* Refreshable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5919D0F20EC51E9005E7E2C /* Refreshable.swift */; };
 		E5919D1320EC56D3005E7E2C /* ViewModelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5919D1220EC56D3005E7E2C /* ViewModelable.swift */; };
 		E5919D1720EC5AA4005E7E2C /* NewsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5919D1620EC5AA4005E7E2C /* NewsListViewModel.swift */; };
-		E5919D1920EC5DE1005E7E2C /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5919D1820EC5DE1005E7E2C /* RxDataSources.framework */; };
-		E5919D1B20EC5E54005E7E2C /* Differentiator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5919D1A20EC5E53005E7E2C /* Differentiator.framework */; };
 		E5919D1E20ECC1E6005E7E2C /* GameHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5919D1D20ECC1E6005E7E2C /* GameHomeViewModel.swift */; };
 		E59EAE122075F92100D6284F /* ColumnListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59EAE102075F92100D6284F /* ColumnListCell.swift */; };
 		E59EAE132075F92100D6284F /* ColumnListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E59EAE112075F92100D6284F /* ColumnListCell.xib */; };
+		E5C1FE8621843E0C009CCE4B /* ObservableType+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C1FE8021843E0C009CCE4B /* ObservableType+Codable.swift */; };
+		E5C1FE8721843E0C009CCE4B /* Single+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C1FE8121843E0C009CCE4B /* Single+Codable.swift */; };
+		E5C1FE8821843E0C009CCE4B /* Response+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C1FE8221843E0C009CCE4B /* Response+Codable.swift */; };
+		E5C1FE8A21843E0C009CCE4B /* LightError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C1FE8521843E0C009CCE4B /* LightError.swift */; };
+		E5C1FE8C21843E5F009CCE4B /* ImportFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C1FE8B21843E5F009CCE4B /* ImportFile.swift */; };
+		E5C1FE8E21843E99009CCE4B /* AppDelegate+Root.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C1FE8D21843E99009CCE4B /* AppDelegate+Root.swift */; };
+		E5C1FE9021843F3F009CCE4B /* AppDelegate+Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C1FE8F21843F3F009CCE4B /* AppDelegate+Services.swift */; };
 		E5CD6986207B95C0001A1A0A /* GameHomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CD6985207B95C0001A1A0A /* GameHomeHeaderView.swift */; };
 		E5CD698A207B9794001A1A0A /* GameHomeHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CD6988207B9794001A1A0A /* GameHomeHeaderCell.swift */; };
 		E5CD698B207B9794001A1A0A /* GameHomeHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5CD6989207B9794001A1A0A /* GameHomeHeaderCell.xib */; };
@@ -182,14 +175,6 @@
 		E5CD69C6207BCF5F001A1A0A /* CosmosTouchTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CD69B7207BCF5F001A1A0A /* CosmosTouchTarget.swift */; };
 		E5CD69C7207BCF5F001A1A0A /* RightToLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CD69B8207BCF5F001A1A0A /* RightToLeft.swift */; };
 		E5CD69C8207BCF5F001A1A0A /* CosmosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CD69B9207BCF5F001A1A0A /* CosmosView.swift */; };
-		E5D0D78420F09C070031743C /* OnCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D0D78320F09C070031743C /* OnCache.swift */; };
-		E5D48611209E0E8E00AD7808 /* MoyaProvider+Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D4860C209E0E8E00AD7808 /* MoyaProvider+Request.swift */; };
-		E5D48612209E0E8E00AD7808 /* ObservableType+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D4860E209E0E8E00AD7808 /* ObservableType+Codable.swift */; };
-		E5D48613209E0E8E00AD7808 /* Single+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D4860F209E0E8E00AD7808 /* Single+Codable.swift */; };
-		E5D48618209E0EFB00AD7808 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5D48614209E0EFB00AD7808 /* RxCocoa.framework */; };
-		E5D48619209E0EFB00AD7808 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5D48615209E0EFB00AD7808 /* RxBlocking.framework */; };
-		E5D4861A209E0EFB00AD7808 /* RxMoya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5D48616209E0EFB00AD7808 /* RxMoya.framework */; };
-		E5D4861B209E0EFB00AD7808 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5D48617209E0EFB00AD7808 /* RxSwift.framework */; };
 		E5D4861D209E128500AD7808 /* ColumnHeaderFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D4861C209E128500AD7808 /* ColumnHeaderFlowLayout.swift */; };
 		E5D48622209E14E900AD7808 /* GameHomeColumnContentFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D48621209E14E900AD7808 /* GameHomeColumnContentFlowLayout.swift */; };
 		E5DC0AEB20862A4C001E61C6 /* GameSellListPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DC0AEA20862A4C001E61C6 /* GameSellListPageViewController.swift */; };
@@ -334,8 +319,6 @@
 		E56802E620725CBE00CF944E /* NewsTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsTableHeaderView.xib; sourceTree = "<group>"; };
 		E56802EB207268A500CF944E /* ContentDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDetailViewController.swift; sourceTree = "<group>"; };
 		E56802EF207274E900CF944E /* NewsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPageViewController.swift; sourceTree = "<group>"; };
-		E575DD0F20B0637600C66BA8 /* CacheManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
-		E575DD1020B0637600C66BA8 /* TargetType+Moya.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TargetType+Moya.swift"; sourceTree = "<group>"; };
 		E575DD1320B0673200C66BA8 /* Cache.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cache.framework; path = Carthage/Build/iOS/Cache.framework; sourceTree = "<group>"; };
 		E575DD1520B0763600C66BA8 /* NewsApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsApi.swift; sourceTree = "<group>"; };
 		E575DD1720B07B5C00C66BA8 /* NSObject_Rx.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NSObject_Rx.framework; path = Carthage/Build/iOS/NSObject_Rx.framework; sourceTree = "<group>"; };
@@ -369,6 +352,15 @@
 		E5919D1D20ECC1E6005E7E2C /* GameHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHomeViewModel.swift; sourceTree = "<group>"; };
 		E59EAE102075F92100D6284F /* ColumnListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnListCell.swift; sourceTree = "<group>"; };
 		E59EAE112075F92100D6284F /* ColumnListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColumnListCell.xib; sourceTree = "<group>"; };
+		E5C1FE8021843E0C009CCE4B /* ObservableType+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ObservableType+Codable.swift"; sourceTree = "<group>"; };
+		E5C1FE8121843E0C009CCE4B /* Single+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Single+Codable.swift"; sourceTree = "<group>"; };
+		E5C1FE8221843E0C009CCE4B /* Response+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Response+Codable.swift"; sourceTree = "<group>"; };
+		E5C1FE8521843E0C009CCE4B /* LightError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightError.swift; sourceTree = "<group>"; };
+		E5C1FE8B21843E5F009CCE4B /* ImportFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportFile.swift; sourceTree = "<group>"; };
+		E5C1FE8D21843E99009CCE4B /* AppDelegate+Root.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Root.swift"; sourceTree = "<group>"; };
+		E5C1FE8F21843F3F009CCE4B /* AppDelegate+Services.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Services.swift"; sourceTree = "<group>"; };
+		E5C1FE91218441A4009CCE4B /* RxNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxNetwork.framework; path = Carthage/Build/iOS/RxNetwork.framework; sourceTree = "<group>"; };
+		E5C1FE93218441B6009CCE4B /* CleanJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CleanJSON.framework; path = Carthage/Build/iOS/CleanJSON.framework; sourceTree = "<group>"; };
 		E5CD6985207B95C0001A1A0A /* GameHomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHomeHeaderView.swift; sourceTree = "<group>"; };
 		E5CD6988207B9794001A1A0A /* GameHomeHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHomeHeaderCell.swift; sourceTree = "<group>"; };
 		E5CD6989207B9794001A1A0A /* GameHomeHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameHomeHeaderCell.xib; sourceTree = "<group>"; };
@@ -395,10 +387,6 @@
 		E5CD69B7207BCF5F001A1A0A /* CosmosTouchTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosTouchTarget.swift; sourceTree = "<group>"; };
 		E5CD69B8207BCF5F001A1A0A /* RightToLeft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightToLeft.swift; sourceTree = "<group>"; };
 		E5CD69B9207BCF5F001A1A0A /* CosmosView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosView.swift; sourceTree = "<group>"; };
-		E5D0D78320F09C070031743C /* OnCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnCache.swift; sourceTree = "<group>"; };
-		E5D4860C209E0E8E00AD7808 /* MoyaProvider+Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MoyaProvider+Request.swift"; sourceTree = "<group>"; };
-		E5D4860E209E0E8E00AD7808 /* ObservableType+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ObservableType+Codable.swift"; sourceTree = "<group>"; };
-		E5D4860F209E0E8E00AD7808 /* Single+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Single+Codable.swift"; sourceTree = "<group>"; };
 		E5D48614209E0EFB00AD7808 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		E5D48615209E0EFB00AD7808 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
 		E5D48616209E0EFB00AD7808 /* RxMoya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxMoya.framework; path = Carthage/Build/iOS/RxMoya.framework; sourceTree = "<group>"; };
@@ -424,22 +412,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5919D1B20EC5E54005E7E2C /* Differentiator.framework in Frameworks */,
-				E5919D1920EC5DE1005E7E2C /* RxDataSources.framework in Frameworks */,
-				E575DD1820B07B5C00C66BA8 /* NSObject_Rx.framework in Frameworks */,
-				E575DD1420B0673200C66BA8 /* Cache.framework in Frameworks */,
-				E5D48618209E0EFB00AD7808 /* RxCocoa.framework in Frameworks */,
-				E5D48619209E0EFB00AD7808 /* RxBlocking.framework in Frameworks */,
-				E5D4861A209E0EFB00AD7808 /* RxMoya.framework in Frameworks */,
-				E5D4861B209E0EFB00AD7808 /* RxSwift.framework in Frameworks */,
-				990681822072000200A825AC /* Alamofire.framework in Frameworks */,
-				990681832072000200A825AC /* DefaultsKit.framework in Frameworks */,
-				990681842072000200A825AC /* FSPagerView.framework in Frameworks */,
-				990681852072000200A825AC /* Kingfisher.framework in Frameworks */,
-				990681862072000200A825AC /* Moya.framework in Frameworks */,
-				990681872072000200A825AC /* Result.framework in Frameworks */,
-				990681892072000200A825AC /* SwiftNotificationCenter.framework in Frameworks */,
-				9906818A2072000200A825AC /* SwiftTheme.framework in Frameworks */,
 				4763D9DBC59A3C133C1D5734 /* Pods_GamerSky.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -628,15 +600,6 @@
 			path = FlowLayout;
 			sourceTree = "<group>";
 		};
-		9961E51520B299D600A24A81 /* Cache */ = {
-			isa = PBXGroup;
-			children = (
-				E575DD0F20B0637600C66BA8 /* CacheManager.swift */,
-				E5D0D78320F09C070031743C /* OnCache.swift */,
-			);
-			path = Cache;
-			sourceTree = "<group>";
-		};
 		9966511220736D2C0010430E /* Plist */ = {
 			isa = PBXGroup;
 			children = (
@@ -690,7 +653,10 @@
 		998F0C282071EAFC00C587C2 /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
+				E5C1FE8B21843E5F009CCE4B /* ImportFile.swift */,
 				99E7999A2071E10E005C3408 /* AppDelegate.swift */,
+				E5C1FE8D21843E99009CCE4B /* AppDelegate+Root.swift */,
+				E5C1FE8F21843F3F009CCE4B /* AppDelegate+Services.swift */,
 			);
 			path = AppDelegate;
 			sourceTree = "<group>";
@@ -709,7 +675,7 @@
 		998F0C2A2071EB4900C587C2 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				E5D48608209E0E8E00AD7808 /* Moya-Codable */,
+				E5C1FE7E21843E0C009CCE4B /* NetWork */,
 				E5DC0AEC20862BE2001E61C6 /* DateExtensions.swift */,
 				E56802E020724EEB00CF944E /* KingfisherExtension.swift */,
 				998F0C442071EEC500C587C2 /* UIViewExtension.swift */,
@@ -992,6 +958,8 @@
 		BD54EF30B74AD17A3CC3BA2D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E5C1FE93218441B6009CCE4B /* CleanJSON.framework */,
+				E5C1FE91218441A4009CCE4B /* RxNetwork.framework */,
 				139F370220F1A14C00779106 /* SVProgressHUD.framework */,
 				601AC7D720F58A69002FE3A6 /* SVProgressHUD.framework */,
 				E5919D1A20EC5E53005E7E2C /* Differentiator.framework */,
@@ -1402,6 +1370,33 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		E5C1FE7E21843E0C009CCE4B /* NetWork */ = {
+			isa = PBXGroup;
+			children = (
+				E5C1FE7F21843E0C009CCE4B /* Codable */,
+				E5C1FE8321843E0C009CCE4B /* MoyaPlugin */,
+			);
+			path = NetWork;
+			sourceTree = "<group>";
+		};
+		E5C1FE7F21843E0C009CCE4B /* Codable */ = {
+			isa = PBXGroup;
+			children = (
+				E5C1FE8021843E0C009CCE4B /* ObservableType+Codable.swift */,
+				E5C1FE8121843E0C009CCE4B /* Single+Codable.swift */,
+				E5C1FE8221843E0C009CCE4B /* Response+Codable.swift */,
+			);
+			path = Codable;
+			sourceTree = "<group>";
+		};
+		E5C1FE8321843E0C009CCE4B /* MoyaPlugin */ = {
+			isa = PBXGroup;
+			children = (
+				E5C1FE8521843E0C009CCE4B /* LightError.swift */,
+			);
+			path = MoyaPlugin;
+			sourceTree = "<group>";
+		};
 		E5CD697E207B9343001A1A0A /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1502,34 +1497,6 @@
 				E5CD69B8207BCF5F001A1A0A /* RightToLeft.swift */,
 			);
 			path = Helpers;
-			sourceTree = "<group>";
-		};
-		E5D48608209E0E8E00AD7808 /* Moya-Codable */ = {
-			isa = PBXGroup;
-			children = (
-				9961E51520B299D600A24A81 /* Cache */,
-				E5D4860B209E0E8E00AD7808 /* MoyaProvider */,
-				E5D4860D209E0E8E00AD7808 /* RxSwift */,
-			);
-			path = "Moya-Codable";
-			sourceTree = "<group>";
-		};
-		E5D4860B209E0E8E00AD7808 /* MoyaProvider */ = {
-			isa = PBXGroup;
-			children = (
-				E5D4860C209E0E8E00AD7808 /* MoyaProvider+Request.swift */,
-			);
-			path = MoyaProvider;
-			sourceTree = "<group>";
-		};
-		E5D4860D209E0E8E00AD7808 /* RxSwift */ = {
-			isa = PBXGroup;
-			children = (
-				E575DD1020B0637600C66BA8 /* TargetType+Moya.swift */,
-				E5D4860E209E0E8E00AD7808 /* ObservableType+Codable.swift */,
-				E5D4860F209E0E8E00AD7808 /* Single+Codable.swift */,
-			);
-			path = RxSwift;
 			sourceTree = "<group>";
 		};
 		E5D4861E209E135800AD7808 /* View */ = {
@@ -1651,7 +1618,6 @@
 				99E799942071E10D005C3408 /* Frameworks */,
 				99E799952071E10D005C3408 /* Resources */,
 				6BCCF8F026839F28A125CABD /* [CP] Embed Pods Frameworks */,
-				998F0C342071ECBB00C587C2 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1757,14 +1723,46 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-GamerSky/Pods-GamerSky-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Cache/Cache.framework",
+				"${BUILT_PRODUCTS_DIR}/CleanJSON/CleanJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/DefaultsKit/DefaultsKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/FDFullscreenPopGesture/FDFullscreenPopGesture.framework",
+				"${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/NSObject+Rx/NSObject_Rx.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
+				"${BUILT_PRODUCTS_DIR}/RxNetwork/RxNetwork.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftNotificationCenter/SwiftNotificationCenter.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftTheme/SwiftTheme.framework",
 				"${BUILT_PRODUCTS_DIR}/URLNavigator/URLNavigator.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cache.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CleanJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DefaultsKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FDFullscreenPopGesture.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSPagerView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NSObject_Rx.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxNetwork.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftNotificationCenter.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftTheme.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/URLNavigator.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1790,35 +1788,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		998F0C342071ECBB00C587C2 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/FSPagerView.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SwiftTheme.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Moya.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/DefaultsKit.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SwiftNotificationCenter.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxBlocking.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxMoya.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Cache.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/NSObject_Rx.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxDataSources.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Differentiator.framework",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1827,6 +1796,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5D4861D209E128500AD7808 /* ColumnHeaderFlowLayout.swift in Sources */,
+				E5C1FE8621843E0C009CCE4B /* ObservableType+Codable.swift in Sources */,
 				E5919D1E20ECC1E6005E7E2C /* GameHomeViewModel.swift in Sources */,
 				992B5F5620999388005036CE /* FilterBtn.swift in Sources */,
 				E58548DD208F6C8300C1C7CD /* Filter.swift in Sources */,
@@ -1836,9 +1806,7 @@
 				E5CD69C2207BCF5F001A1A0A /* CosmosLayerHelper.swift in Sources */,
 				E586EE78207E5B4100D8F3F0 /* GameHomePageCell.swift in Sources */,
 				E5CD69C4207BCF5F001A1A0A /* CosmosRating.swift in Sources */,
-				E5D48612209E0E8E00AD7808 /* ObservableType+Codable.swift in Sources */,
 				9966510F20735FFB0010430E /* MineViewController.swift in Sources */,
-				E575DD1220B0637700C66BA8 /* TargetType+Moya.swift in Sources */,
 				99446AAF207C6A9B004048C7 /* GameHomeWaitSellContentCell.swift in Sources */,
 				994141172074B1820016AC01 /* BaseTableView.swift in Sources */,
 				E58548DF208F6C8300C1C7CD /* FilterView.swift in Sources */,
@@ -1879,8 +1847,10 @@
 				99446AC4207CA640004048C7 /* GameHomeRankingCell.swift in Sources */,
 				E5CD69C7207BCF5F001A1A0A /* RightToLeft.swift in Sources */,
 				E5CD69C0207BCF5F001A1A0A /* CosmosLayers.swift in Sources */,
+				E5C1FE8721843E0C009CCE4B /* Single+Codable.swift in Sources */,
 				E57C5BB520824F3100655E0F /* ColumnDetailViewController.swift in Sources */,
 				E518D89E20B194770011BB6B /* ColumnApi.swift in Sources */,
+				E5C1FE8A21843E0C009CCE4B /* LightError.swift in Sources */,
 				603CACB220F859A90001614F /* GameDetailHeaderView.swift in Sources */,
 				E518D8A220B19A900011BB6B /* UserApi.swift in Sources */,
 				9941411E2074B45E0016AC01 /* BaseCollectionView.swift in Sources */,
@@ -1894,21 +1864,21 @@
 				E5CD69BA207BCF5F001A1A0A /* StarFillMode.swift in Sources */,
 				E550C943207CF52F00C4AF2D /* GameHomeSectionHeader.swift in Sources */,
 				99A6781E209AF7C600DB1AA7 /* IntExtension.swift in Sources */,
+				E5C1FE9021843F3F009CCE4B /* AppDelegate+Services.swift in Sources */,
 				60EAFAC520F49A3A0034D8AA /* DNSPageViewManager.swift in Sources */,
 				E5259685208E15E100B5F419 /* GameListViewController.swift in Sources */,
 				E5CD6986207B95C0001A1A0A /* GameHomeHeaderView.swift in Sources */,
 				E52B6DE3208C4288004904C6 /* GameComment.swift in Sources */,
 				E575DD1620B0763600C66BA8 /* NewsApi.swift in Sources */,
-				E5D48611209E0E8E00AD7808 /* MoyaProvider+Request.swift in Sources */,
 				E525968D208E1A7100B5F419 /* GameList.swift in Sources */,
 				E5CD69C8207BCF5F001A1A0A /* CosmosView.swift in Sources */,
-				E5D48613209E0E8E00AD7808 /* Single+Codable.swift in Sources */,
 				E5DC0AF820864B2C001E61C6 /* GameSellList.swift in Sources */,
 				E5CD69BB207BCF5F001A1A0A /* StarLayer.swift in Sources */,
 				E5CD69C5207BCF5F001A1A0A /* CosmosSettings.swift in Sources */,
 				E5787F322088CAA300AB55E2 /* GameRankingListViewController.swift in Sources */,
 				992C5B2220B66DCC00887A71 /* NavigationMap.swift in Sources */,
 				998F0C6E2071F77800C587C2 /* CircleViewController.swift in Sources */,
+				E5C1FE8821843E0C009CCE4B /* Response+Codable.swift in Sources */,
 				E523B1F42081E49800CE4701 /* BaseImageView.swift in Sources */,
 				E52B6DDD208C41CF004904C6 /* GameCommentPageViewController.swift in Sources */,
 				9906819220721AAA00A825AC /* BaseModel.swift in Sources */,
@@ -1923,6 +1893,7 @@
 				E56802EC207268A500CF944E /* ContentDetailViewController.swift in Sources */,
 				E56802F0207274E900CF944E /* NewsPageViewController.swift in Sources */,
 				998F0C422071EEAB00C587C2 /* UITableView+Reusable.swift in Sources */,
+				E5C1FE8C21843E5F009CCE4B /* ImportFile.swift in Sources */,
 				9941410E20747B0C0016AC01 /* BaseLabel.swift in Sources */,
 				E52B6DDF208C41F2004904C6 /* GameCommentListViewController.swift in Sources */,
 				E586EE7C207E68FA00D8F3F0 /* GameHomePageFooterView.swift in Sources */,
@@ -1930,9 +1901,8 @@
 				998F0C5F2071EFB100C587C2 /* GetVc.swift in Sources */,
 				9906819520721F8700A825AC /* Channel.swift in Sources */,
 				E5787F2E2088C98E00AB55E2 /* GameRankingPageViewController.swift in Sources */,
-				E5D0D78420F09C070031743C /* OnCache.swift in Sources */,
 				9941411D2074B45E0016AC01 /* BaseCollectionViewCell.swift in Sources */,
-				E575DD1120B0637700C66BA8 /* CacheManager.swift in Sources */,
+				E5C1FE8E21843E99009CCE4B /* AppDelegate+Root.swift in Sources */,
 				E58548E0208F6C8300C1C7CD /* FilterKindCell.swift in Sources */,
 				E5F8116C20739B3400E9883F /* ColumnElementCell.swift in Sources */,
 				60EAFAC320F49A3A0034D8AA /* DNSPageTitleView.swift in Sources */,
@@ -2099,13 +2069,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SLZQQC8NFR;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				DEVELOPMENT_TEAM = W2W4C384BP;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = GamerSky/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = QY.GamerSky;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2123,13 +2090,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SLZQQC8NFR;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				DEVELOPMENT_TEAM = W2W4C384BP;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = GamerSky/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = QY.GamerSky;
 				PRODUCT_NAME = "$(TARGET_NAME)";
