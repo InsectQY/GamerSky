@@ -34,7 +34,6 @@ class ColumnDetailViewController: BaseViewController {
         let tableView = UITableView(frame: UIScreen.main.bounds, style: .grouped)
         tableView.register(cellType: GameColumnDetailCell.self)
         tableView.register(headerFooterViewType: GameColumnDetailSectionHeader.self)
-        tableView.contentInset = UIEdgeInsets.init(top: kTopH, left: 0, bottom: 0, right: 0)
         tableView.scrollIndicatorInsets = UIEdgeInsets.init(top: kTopH, left: 0, bottom: 0, right: 0)
         tableView.delegate = self
         tableView.dataSource = self
@@ -75,7 +74,6 @@ extension ColumnDetailViewController {
     private func setUpNavi() {
         
         title = "特色专题"
-        automaticallyAdjustsScrollViewInsets = false
     }
     
     private func setUpRefresh() {

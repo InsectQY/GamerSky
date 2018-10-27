@@ -34,7 +34,6 @@ class NewsViewController: BaseViewController {
         tableView.separatorStyle = .none
         tableView.register(cellType: ChannelListCell.self)
         tableView.register(headerFooterViewType: NewsSectionHeaderView.self)
-        tableView.contentInset = UIEdgeInsets.init(top: kTopH, left: 0, bottom: KBottomH, right: 0)
         tableView.scrollIndicatorInsets = UIEdgeInsets.init(top: kTopH, left: 0, bottom: KBottomH, right: 0)
         tableView.tableHeaderView = headerView
         tableView.rowHeight = ChannelListCell.cellHeight
@@ -52,8 +51,7 @@ class NewsViewController: BaseViewController {
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        setUpNavi()
+        
         setUpUI()
         bindUI()
         setUpRefresh()
@@ -68,10 +66,6 @@ extension NewsViewController {
     
     private func setUpUI() {
         view.addSubview(tableView)
-    }
-    
-    private func setUpNavi() {
-        automaticallyAdjustsScrollViewInsets = false
     }
 }
 

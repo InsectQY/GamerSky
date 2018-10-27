@@ -20,7 +20,7 @@ class GameListViewController: BaseViewController {
         collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.contentInset = UIEdgeInsets.init(top: kTopH + FilterView.height, left: 0, bottom: 0, right: 0)
+        collectionView.contentInset = UIEdgeInsets.init(top: FilterView.height, left: 0, bottom: 0, right: 0)
         collectionView.register(cellType: GameListCell.self)
         collectionView.register(supplementaryViewType: GameListHeaderView.self, ofKind: UICollectionView.elementKindSectionHeader)
         return collectionView
@@ -50,7 +50,6 @@ extension GameListViewController {
     private func setUpNavi() {
         
         title = "找游戏"
-        automaticallyAdjustsScrollViewInsets = false
     }
 
     private func setUpUI() {

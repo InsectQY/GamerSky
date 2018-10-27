@@ -18,7 +18,6 @@ class GameColumnViewController: BaseViewController {
     private lazy var collectionView: UICollectionView = {
         
         let collectionView = UICollectionView(frame: UIScreen.main.bounds, collectionViewLayout: GameColumnFlowLayout())
-        collectionView.contentInset = UIEdgeInsets.init(top: kTopH, left: 0, bottom: 0, right: 0)
         collectionView.scrollIndicatorInsets = UIEdgeInsets.init(top: kTopH, left: 0, bottom: 0, right: 0)
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -49,7 +48,6 @@ extension GameColumnViewController {
     private func setUpNavi() {
         
         title = "特色专题"
-        automaticallyAdjustsScrollViewInsets = false
     }
     
     private func setUpRefresh() {

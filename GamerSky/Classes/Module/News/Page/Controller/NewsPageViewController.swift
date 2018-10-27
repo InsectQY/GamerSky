@@ -78,8 +78,6 @@ extension NewsPageViewController {
     // MARK: - 设置导航栏
     private func setUpNavi() {
         
-        automaticallyAdjustsScrollViewInsets = false
-        
         navigationItem.rightBarButtonItem = UIBarButtonItem(image:#imageLiteral(resourceName: "common_Icon_Search_16x16"), style: .plain, target: self, action: #selector(didClickSearch))
     }
     

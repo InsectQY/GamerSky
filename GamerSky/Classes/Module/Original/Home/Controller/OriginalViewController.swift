@@ -53,8 +53,6 @@ class OriginalViewController: BaseViewController {
         tableView.register(cellType: ColumnElementCell.self)
         tableView.register(headerFooterViewType: ColumnSectionHeader.self)
         tableView.rowHeight = ColumnElementCell.cellHeight
-        tableView.contentInset = UIEdgeInsets.init(top: kTopH, left: 0, bottom: 0, right: 0)
-        tableView.scrollIndicatorInsets = UIEdgeInsets.init(top: kTopH, left: 0, bottom: 0, right: 0)
         tableView.separatorStyle = .none
         tableView.backgroundColor = .clear
         return tableView
@@ -153,7 +151,6 @@ extension OriginalViewController {
     // MARK: - 设置导航栏
     private func setUpNavi() {
         
-        automaticallyAdjustsScrollViewInsets = false
         if let columnList = columnList {
             
             navigationItem.titleView = titleView

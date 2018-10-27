@@ -40,7 +40,6 @@ extension MineViewController {
     // MARK: - 设置导航栏
     private func setUpNavi() {
         
-        automaticallyAdjustsScrollViewInsets = false
         fd_prefersNavigationBarHidden = true
     }
     

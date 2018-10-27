@@ -16,7 +16,6 @@ class GameSellListViewController: BaseViewController {
     private lazy var tableView: UITableView = {
         
         let tableView = UITableView(frame: view.bounds)
-        tableView.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: KBottomH + kTopH, right: 0)
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(cellType: GameSellListCell.self)
@@ -37,7 +36,6 @@ class GameSellListViewController: BaseViewController {
 extension GameSellListViewController {
     
     private func setUpUI() {
-        automaticallyAdjustsScrollViewInsets = false
         view.addSubview(tableView)
     }
     

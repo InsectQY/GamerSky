@@ -18,8 +18,6 @@ class ContentDetailViewController: BaseViewController {
     private lazy var webView: WKWebView = {
         
         let webView = WKWebView(frame: UIScreen.main.bounds)
-        webView.scrollView.contentInset = UIEdgeInsets.init(top: kTopH, left: 0, bottom: 0, right: 0)
-        webView.scrollView.scrollIndicatorInsets = UIEdgeInsets.init(top: kTopH, left: 0, bottom: 0, right: 0)
         webView.navigationDelegate = self
         return webView
     }()
@@ -29,7 +27,6 @@ class ContentDetailViewController: BaseViewController {
         super.viewDidLoad()
 
         view.addSubview(webView)
-        setUpNavi()
         setUpRefresh()
     }
     
@@ -48,16 +45,6 @@ class ContentDetailViewController: BaseViewController {
 
 extension ContentDetailViewController {
     
-    // MARK: - 设置导航栏
-    private func setUpNavi() {
-        
-        if #available(iOS 11.0, *) {
-            webView.scrollView.contentInsetAdjustmentBehavior = .never
-        }
-        automaticallyAdjustsScrollViewInsets = false
-        //        navigationItem.rightBarButtonItem = UIBarButtonItem()
-    }
-
     // MARK: - 设置刷新
     private func setUpRefresh() {
         

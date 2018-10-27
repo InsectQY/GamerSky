@@ -25,7 +25,6 @@ extension GameCommentPageViewController {
     private func setUpNavi() {
         
         title = "玩家点评"
-        automaticallyAdjustsScrollViewInsets = false
     }
     
     private func setUpPageView() {

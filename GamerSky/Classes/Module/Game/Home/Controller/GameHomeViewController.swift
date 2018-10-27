@@ -24,8 +24,6 @@ class GameHomeViewController: BaseViewController {
         tableView.register(cellType: GameTagContentCell.self)
         tableView.register(cellType: GameHomeColumnContentCell.self)
         tableView.register(headerFooterViewType: GameHomeSectionHeader.self)
-        tableView.contentInset = UIEdgeInsets.init(top: kTopH, left: 0, bottom: 25, right: 0)
-        tableView.scrollIndicatorInsets = UIEdgeInsets.init(top: kTopH, left: 0, bottom: 25, right: 0)
         tableView.separatorStyle = .none
         tableView.backgroundColor = .clear
         tableView.tableHeaderView = headerView
@@ -139,7 +137,6 @@ extension GameHomeViewController {
     // MARK: - 设置导航栏
     private func setUpNavi() {
         
-        automaticallyAdjustsScrollViewInsets = false
         let leftItem = BaseLabel(frame: CGRect(x: 10, y: 0, width: 200, height: kNaviBarH))
         leftItem.font = PFM18Font
         leftItem.text = "游戏"

@@ -31,7 +31,6 @@ extension GameSellListPageViewController {
     private func setUpNavi() {
         
         title = "发售表"
-        automaticallyAdjustsScrollViewInsets = false
     }
     
     private func getTime() {

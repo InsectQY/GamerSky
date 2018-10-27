@@ -14,17 +14,8 @@ class GameRankingPageViewController: BaseViewController {
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        setUpNavi()
+        
         loadPageData()
-    }
-}
-
-// MARK: - 设置 UI 界面
-extension GameRankingPageViewController {
-    
-    private func setUpNavi() {
-        automaticallyAdjustsScrollViewInsets = false
     }
 }
 
