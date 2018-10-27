@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 import MJRefresh
 
-enum RefreshStatus {
+enum RefreshState {
     
     case none
     case beingHeaderRefresh
@@ -22,16 +22,16 @@ enum RefreshStatus {
 }
 
 protocol OutputRefreshProtocol {
-    // 告诉外界的tableView当前的刷新状态
-    var refreshStatus : Variable<RefreshStatus> {get}
+    /// 告诉外界的tableView当前的刷新状态
+    var refreshState: Variable<RefreshState> {get}
 }
 
 extension OutputRefreshProtocol {
     
-    func autoSetRefreshHeaderStatus(header: MJRefreshHeader? = nil, footer: MJRefreshFooter? = nil) -> Disposable {
+    func autoSetRefreshHeaderState(header: MJRefreshHeader? = nil, footer: MJRefreshFooter? = nil) -> Disposable {
         
-        return refreshStatus.asObservable().subscribe(onNext: { (status) in
-            switch status {
+        return refreshState.asObservable().subscribe(onNext: { (state) in
+            switch state {
                 
             case .beingHeaderRefresh:
                 header?.beginRefreshing()

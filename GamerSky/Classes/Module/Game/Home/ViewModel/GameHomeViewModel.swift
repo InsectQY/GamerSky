@@ -14,14 +14,13 @@ class GameHomeViewModel: NSObject {
     private let vmDatas = Variable<[GameHomeSection]>([])
     
     struct GameHomeInput {
-        
+        let requestCommand = PublishSubject<Void>()
     }
     
     struct GameHomeOutput: OutputRefreshProtocol {
         
-        let refreshStatus = Variable<RefreshStatus>(.none)
+        let refreshState = Variable<RefreshState>(.none)
         let sections: Driver<[GameHomeSection]>
-        let requestCommand = PublishSubject<Void>()
     }
 }
 
@@ -39,10 +38,10 @@ extension GameHomeViewModel: ViewModelable {
         }.asDriver(onErrorJustReturn: [])
 
         let output = GameHomeOutput(sections: temp_sections)
-
-        output.requestCommand.subscribe(onNext: { [weak self] in
-
-            guard let `self` = self else {return}
+        
+        input.requestCommand.asDriverOnErrorJustComplete()
+        .flatMapLatest { _ -> SharedSequence<DriverSharingStrategy, (GameHomeSection, GameHomeSection, GameHomeSection, GameHomeSection, [Array<GameInfo>], [Array<GameInfo>], GameHomeSection, GameHomeSection)> in
+            
             // sectionHeader 数据
             let data = try! Data(contentsOf: Bundle.main.url(forResource: "GameHomeSectionData", withExtension: "plist")!)
             let sectionData = try! PropertyListDecoder().decode([GameHomeSectionModel].self, from: data)
@@ -52,13 +51,15 @@ extension GameHomeViewModel: ViewModelable {
             .cache
             .request()
             .mapObject([GameInfo].self)
+            .asDriver(onErrorJustReturn: [])
             .map({GameHomeSection.specialDetailSection([GameHomeItem.specialDetailItem($0)])})
-
+            
             // 最近大家都在玩
             let symbol2 = GameApi.gameHomePage(1, .hot)
             .cache
             .request()
             .mapObject([GameInfo].self)
+            .asDriver(onErrorJustReturn: [])
             .map({GameHomeSection.hotSection([GameHomeItem.hotItem($0, sectionData)])})
             
             // 特色专题
@@ -66,66 +67,69 @@ extension GameHomeViewModel: ViewModelable {
             .cache
             .request()
             .mapObject([GameSpecialList].self)
+            .asDriver(onErrorJustReturn: [])
             .map({GameHomeSection.specialListSection([GameHomeItem.specialListItem($0)])})
-
+            
             // 即将发售
             let symbol4 = GameApi.gameHomePage(1, .waitSell)
             .cache
             .request()
             .mapObject([GameInfo].self)
+            .asDriver(onErrorJustReturn: [])
             .map({GameHomeSection.waitSellSection([GameHomeItem.waitSellItem($0, sectionData)])})
-
+            
             // 高分榜
             let symbol5 = GameApi.gameRankingList(1, .fractions, 0, "all")
             .cache
             .request()
             .mapObject([GameInfo].self)
+            .asDriver(onErrorJustReturn: [])
             .map({[Array($0.prefix(5))]})
-
+            
             // 热门榜
             let symbol6 = GameApi.gameRankingList(1, .hot, 0, "all")
             .cache
             .request()
             .mapObject([GameInfo].self)
+            .asDriver(onErrorJustReturn: [])
             .map({[Array($0.prefix(5))]})
-
+            
             // 最期待游戏
             let symbol7 = GameApi.gameHomePage(1, .expected)
             .cache
             .request()
             .mapObject([GameInfo].self)
+            .asDriver(onErrorJustReturn: [])
             .map({GameHomeSection.expectedSection([GameHomeItem.expectedItem($0, sectionData)])})
-
+            
             // 找游戏
             let symbol8 = GameApi.gameTags
             .cache
             .request()
             .mapObject([GameTag].self)
+            .asDriver(onErrorJustReturn: [])
             .map({GameHomeSection.tagSection([GameHomeItem.tagItem($0)])})
 
-            Observable
-            .zip(symbol1, symbol2, symbol3, symbol4, symbol5, symbol6,symbol7, symbol8)
-            .subscribe(onNext: { (symbol1Data, symbol2Data, symbol3Data, symbol4Data, symbol5Data, symbol6Data,symbol7Data,symbol8Data) in
-
-                var rankingGame = symbol5Data
-                rankingGame += symbol6Data
-                let rankingSection = GameHomeSection
-                .rankingSection([GameHomeItem.rankingItem(rankingGame)])
+            return Driver.zip(symbol1, symbol2, symbol3, symbol4, symbol5, symbol6, symbol7, symbol8)
+        }.drive(onNext: { (symbol1Data, symbol2Data, symbol3Data, symbol4Data, symbol5Data, symbol6Data,symbol7Data,symbol8Data) in
                 
-                var sectionModels: ([GameHomeSection]) = []
-                sectionModels.append(symbol1Data)
-                sectionModels.append(symbol2Data)
-                sectionModels.append(symbol3Data)
-                sectionModels.append(symbol4Data)
-                sectionModels.append(rankingSection)
-                sectionModels.append(symbol7Data)
-                self.vmDatas.value = sectionModels
-
-                output.refreshStatus.value = .endHeaderRefresh
-            }).disposed(by: self.rx.disposeBag)
-        }, onError: { (error) in
-
+            var rankingGame = symbol5Data
+            rankingGame += symbol6Data
+            let rankingSection = GameHomeSection
+                .rankingSection([GameHomeItem.rankingItem(rankingGame)])
+            
+            var sectionModels: ([GameHomeSection]) = []
+            sectionModels.append(symbol1Data)
+            sectionModels.append(symbol2Data)
+            sectionModels.append(symbol3Data)
+            sectionModels.append(symbol4Data)
+            sectionModels.append(rankingSection)
+            sectionModels.append(symbol7Data)
+            self.vmDatas.value = sectionModels
+            
+            output.refreshState.value = .endHeaderRefresh
         }).disposed(by: self.rx.disposeBag)
+
         return output
     }
 }

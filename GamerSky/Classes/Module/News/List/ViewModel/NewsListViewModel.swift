@@ -11,20 +11,16 @@ import RxDataSources
 
 class NewsListViewModel: NSObject {
     
-    private let vmDatas = Variable<[ChannelList]>([])
-    
-    private var page = 1
-    
     struct NewsListInput {
         
-        var nodeID = 0
+        let nodeID: Int
+        let requestCommand = PublishSubject<Bool>()
     }
     
     struct NewsListOutput: OutputRefreshProtocol {
         
-        let refreshStatus = Variable<RefreshStatus>(.none)
+        let refreshState = Variable<RefreshState>(.none)
         let sections: Driver<[NewsListSection]>
-        let requestCommand = PublishSubject<Bool>()
         let banners = Variable<[ChannelList]?>([])
         
         init(sections : Driver<[NewsListSection]>) {
@@ -40,53 +36,42 @@ extension NewsListViewModel: ViewModelable {
 
     func transform(input: NewsListViewModel.NewsListInput) -> NewsListViewModel.NewsListOutput {
 
+        var page = 1
+        
+        let vmDatas = Variable<[ChannelList]>([])
+
         let temp_sections = vmDatas.asObservable().map {
             [NewsListSection(items: $0)]
         }.asDriver(onErrorJustReturn: [])
         
-        let ourtPut = NewsListOutput(sections: temp_sections)
+        let output = NewsListOutput(sections: temp_sections)
         
-        ourtPut.requestCommand.subscribe(onNext: {[weak self] (isPull) in
+        input.requestCommand.asDriver(onErrorJustReturn: true)
+        .flatMapLatest { (isPull) -> SharedSequence<DriverSharingStrategy, [ChannelList]> in
             
-            guard let `self` = self else {return}
-            if isPull {
-
-                self.page = 1
-                ourtPut.refreshStatus.value = .endFooterRefresh
-                NewsApi.allChannelList(self.page, input.nodeID)
+            page = isPull ? 1 : page + 1
+            return NewsApi.allChannelList(page, input.nodeID)
                 .cache
                 .request()
                 .mapObject([ChannelList].self)
-                .subscribe(onNext: { response in
-                    
-                    self.vmDatas.value = response
-                    self.vmDatas.value.removeFirst()
-                    ourtPut.banners.value = response.first?.childElements
-                    ourtPut.refreshStatus.value = .endHeaderRefresh
-                }, onError: { _ in
-                    ourtPut.refreshStatus.value = .endHeaderRefresh
-                })
-                .disposed(by: self.rx.disposeBag)
+                .asDriver(onErrorJustReturn: [])
+        }.drive(onNext: {
+            
+            if page == 1 {
+                
+                vmDatas.value = $0
+                vmDatas.value.removeFirst()
+                output.banners.value = $0.first?.childElements
+                output.refreshState.value = .endHeaderRefresh
+                output.refreshState.value = .endFooterRefresh
             }else {
                 
-                self.page += 1
-                ourtPut.refreshStatus.value = .endHeaderRefresh
-                NewsApi.allChannelList(self.page, input.nodeID)
-                .cache
-                .request()
-                .mapObject([ChannelList].self)
-                .subscribe(onNext: { response in
-                    
-                    self.vmDatas.value += response
-                    ourtPut.refreshStatus.value = .endFooterRefresh
-                }, onError: { _ in
-                    ourtPut.refreshStatus.value = .endFooterRefresh
-                })
-                .disposed(by: self.rx.disposeBag)
+                vmDatas.value += $0
+                output.refreshState.value = $0.count > 0 ? .endFooterRefresh : .noMoreData
             }
-        }).disposed(by: self.rx.disposeBag)
+        }).disposed(by: rx.disposeBag)
         
-        return ourtPut
+        return output
     }
 }
 

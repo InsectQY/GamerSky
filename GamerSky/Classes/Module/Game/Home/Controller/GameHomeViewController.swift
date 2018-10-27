@@ -34,12 +34,8 @@ class GameHomeViewController: BaseViewController {
     }()
     
     private lazy var viewModel = GameHomeViewModel()
-    
-    private lazy var vmOutput: GameHomeViewModel.GameHomeOutput = {
-        
-        let vmOutput = viewModel.transform(input: GameHomeViewModel.GameHomeInput())
-        return vmOutput
-    }()
+    private lazy var vmInput = GameHomeViewModel.GameHomeInput()
+    private lazy var vmOutput = viewModel.transform(input: vmInput)
     
     var dataSource : RxTableViewSectionedReloadDataSource<GameHomeSection>!
 
@@ -117,9 +113,9 @@ extension GameHomeViewController: Refreshable {
     private func setUpRefresh() {
         
         let refreshHeader = initRefreshHeader(tableView) { [weak self] in
-            self?.vmOutput.requestCommand.onNext(())
+            self?.vmInput.requestCommand.onNext(())
         }
-        vmOutput.autoSetRefreshHeaderStatus(header: refreshHeader).disposed(by: rx.disposeBag)
+        vmOutput.autoSetRefreshHeaderState(header: refreshHeader).disposed(by: rx.disposeBag)
         refreshHeader.beginRefreshing()
     }
 }
@@ -127,7 +123,6 @@ extension GameHomeViewController: Refreshable {
 extension GameHomeViewController {
     
     private func setUpUI() {
-        
         view.addSubview(tableView)
     }
     

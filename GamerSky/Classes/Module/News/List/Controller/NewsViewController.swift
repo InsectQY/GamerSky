@@ -19,8 +19,8 @@ class NewsViewController: BaseViewController {
     private var dataSource: RxTableViewSectionedReloadDataSource<NewsListSection>!
     
     private lazy var viewModel = NewsListViewModel()
-    
-    private lazy var vmOutput = viewModel.transform(input: NewsListViewModel.Input(nodeID: nodeID))
+    private lazy var vmInput = NewsListViewModel.Input(nodeID: nodeID)
+    private lazy var vmOutput = viewModel.transform(input: vmInput)
 
     private lazy var tableView: UITableView = {
         
@@ -101,12 +101,12 @@ extension NewsViewController: Refreshable {
     private func setUpRefresh() {
         
         let refreshHeader = initRefreshHeader(tableView) { [weak self] in
-            self?.vmOutput.requestCommand.onNext(true)
+            self?.vmInput.requestCommand.onNext(true)
         }
         let refreshFooter = initRefreshFooter(tableView) { [weak self] in
-            self?.vmOutput.requestCommand.onNext(false)
+            self?.vmInput.requestCommand.onNext(false)
         }
-        vmOutput.autoSetRefreshHeaderStatus(header: refreshHeader, footer: refreshFooter).disposed(by: rx.disposeBag)
+        vmOutput.autoSetRefreshHeaderState(header: refreshHeader, footer: refreshFooter).disposed(by: rx.disposeBag)
         refreshHeader.beginRefreshing()
     }
 }
