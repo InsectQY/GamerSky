@@ -11,12 +11,14 @@ pod 'MJRefresh'
 pod 'FDFullscreenPopGesture'
 # Bug 统计
 pod 'Bugly'
+# Page
+pod 'JXCategoryView'
 
 
 # Swift
 
 # 图片缓存
-pod "Kingfisher"
+pod 'Kingfisher'
 # Router
 pod 'URLNavigator'
 # Bana
@@ -33,6 +35,8 @@ pod 'RxDataSources'
 pod 'CleanJSON'
 # 通知
 pod 'SwiftNotificationCenter'
+# 设备型号
+pod 'DeviceKit'
 
 
 end

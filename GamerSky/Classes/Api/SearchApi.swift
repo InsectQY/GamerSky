@@ -46,23 +46,16 @@ extension SearchApi: TargetType {
     
     var task: Task {
         
-        var parmeters: [String: Any] = ["device_id": deviceID,
-                                        "os": "iOS",
-                                        "osVersion": osVersion,
-                                        "app": "GSApp",
-                                        "appVersion": "3.7.4"]
         switch self {
             
         case .hotSearch:
-            parmeters["request"] = ["searchType" : "strategy"]
+            return .requestParameters(parameters: ["searchType" : "strategy"], encoding: JSONEncoding.default)
         case let .twoSearch(page, searchType, searchKey):
-            parmeters["request"] = ["searchType" : searchType.rawValue,
-                                    "searchKey" : searchKey,
-                                    "pageIndex" : page,
-                                    "elementsCountPerPage" : 20]
+            return .requestParameters(parameters: ["searchType" : searchType.rawValue,
+                                                   "searchKey" : searchKey,
+                                                   "pageIndex" : page,
+                                                   "elementsCountPerPage" : 20], encoding: JSONEncoding.default)
         }
-        
-        return .requestParameters(parameters: parmeters, encoding: JSONEncoding.default)
     }
     
     var headers: [String : String]? {

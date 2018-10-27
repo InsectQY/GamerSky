@@ -85,66 +85,64 @@ extension GameApi: TargetType {
         switch self {
             
         case let .gameSpecialList(page):
-            parmeters["request"] = ["nodeId" : "1",
-                                    "pageIndex" : page,
-                                    "elementsCountPerPage": 20]
+            return .requestParameters(parameters: ["nodeId" : "1",
+                                                  "pageIndex" : page,
+                                                  "elementsCountPerPage": 20], encoding: JSONEncoding.default)
         case let .gameHomePage(page, type):
-            parmeters["request"] = ["extraField1" : "Position,AllTimeT",
-                                    "extraField2" : "wantplayCount,gsScore",
-                                    "group" : type.rawValue,
-                                    "pageIndex" :  page,
-                                    "elementsCountPerPage" : 20]
+            return .requestParameters(parameters: ["extraField1" : "Position,AllTimeT",
+                                                   "extraField2" : "wantplayCount,gsScore",
+                                                   "group" : type.rawValue,
+                                                   "pageIndex" :  page,
+                                                   "elementsCountPerPage" : 20], encoding: JSONEncoding.default)
         case let .gameRankingList(page, rankType, gameClass, annualClass):
-            parmeters["request"] = ["type" : rankType.rawValue,
-                                    "gameClass" : gameClass,
-                                    "annualClass" : annualClass,
-                                    "extraField1" : "Position,GameType",
-                                    "extraField2" : "gsScore,gameTag",
-                                    "pageIndex" : page,
-                                    "elementsCountPerPage" : 20]
+            return .requestParameters(parameters: ["type" : rankType.rawValue,
+                                                   "gameClass" : gameClass,
+                                                   "annualClass" : annualClass,
+                                                   "extraField1" : "Position,GameType",
+                                                   "extraField2" : "gsScore,gameTag",
+                                                   "pageIndex" : page,
+                                                   "elementsCountPerPage" : 20], encoding: JSONEncoding.default)
         case let .gameSpecialDetail(page , nodeID):
-            parmeters["request"] = ["extraField1" : "Position,GameType",
-                                    "extraField2" : "gsScore,gameTag",
-                                    "extraField3" : "largeImage,description",
-                                    "nodeId" : nodeID,
-                                    "pageIndex" : page,
-                                    "elementsCountPerPage" : 20]
+            return .requestParameters(parameters: ["extraField1" : "Position,GameType",
+                                                   "extraField2" : "gsScore,gameTag",
+                                                   "extraField3" : "largeImage,description",
+                                                   "nodeId" : nodeID,
+                                                   "pageIndex" : page,
+                                                   "elementsCountPerPage" : 20], encoding: JSONEncoding.default)
         case let .gameSpecialSubList(ID):
-            parmeters["request"] = ["nodeId" : ID]
+            return .requestParameters(parameters: ["nodeId" : ID], encoding: JSONEncoding.default)
         case let .twoGameList(date, sort):
-            parmeters["request"] = ["nodeIds" : "1751",
-                                    "date" : date,
-                                    "type" : "current",
-                                    "pageIndex" : 1,
-                                    "elementsCountPerPage" : 100,
-                                    "order" : sort.rawValue]
+            return .requestParameters(parameters: ["nodeIds" : "1751",
+                                                   "date" : date,
+                                                   "type" : "current",
+                                                   "pageIndex" : 1,
+                                                   "elementsCountPerPage" : 100,
+                                                   "order" : sort.rawValue], encoding: JSONEncoding.default)
         case let .gameReviewList(page, type):
-            parmeters["request"] = ["extraField1" : "Position,GameType",
-                                    "extraField2" : "gsScore,gameTag",
-                                    "extraField3" : "largeImage,description",
-                                    "type" : type.rawValue,
-                                    "pageIndex" : page,
-                                    "elementsCountPerPage" : 20]
+            return .requestParameters(parameters: ["extraField1" : "Position,GameType",
+                                                   "extraField2" : "gsScore,gameTag",
+                                                   "extraField3" : "largeImage,description",
+                                                   "type" : type.rawValue,
+                                                   "pageIndex" : page,
+                                                   "elementsCountPerPage" : 20], encoding: JSONEncoding.default)
         case let .gameList(page):
-            parmeters["request"] = ["nodeId" : 20039,
-                                    "platform" : 0,
-                                    "sellTime" : 0,
-                                    "company" : 0,
-                                    "chinese" : 0,
-                                    "gameTag" : 0,
-                                    "orderBy" : "hot",
-                                    "orderSort" : "desc",
-                                    "selling" : 0,
-                                    "pageIndex" : page,
-                                    "elementsCountPerPage" : 21]
+            return .requestParameters(parameters: ["nodeId" : 20039,
+                                                   "platform" : 0,
+                                                   "sellTime" : 0,
+                                                   "company" : 0,
+                                                   "chinese" : 0,
+                                                   "gameTag" : 0,
+                                                   "orderBy" : "hot",
+                                                   "orderSort" : "desc",
+                                                   "selling" : 0,
+                                                   "pageIndex" : page,
+                                                   "elementsCountPerPage" : 21], encoding: JSONEncoding.default)
         case let .gameDetail(contentId):
-            parmeters["request"] = ["contentId" : contentId,
-                                    "userId" : 2303496]
+            return .requestParameters(parameters: ["contentId" : contentId,
+                                                   "userId" : 2303496], encoding: JSONEncoding.default)
         default:
             return .requestPlain
         }
-        
-        return .requestParameters(parameters: parmeters, encoding: JSONEncoding.default)
     }
     
     var headers: [String : String]? {

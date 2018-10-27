@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import Moya
+//import Moya
 
 extension AppDelegate {
     
@@ -23,6 +23,22 @@ extension AppDelegate {
     func setUpNetwork() {
         
         Network.Configuration.default.timeoutInterval = 20
-        Network.Configuration.default.plugins = [NetworkLoggerPlugin(verbose: true)]
+//        Network.Configuration.default.plugins = [NetworkLoggerPlugin(verbose: true)]
+        Network.Configuration.default.taskClosure = { target in
+            
+            switch target.task {
+            case let .requestParameters(parameters, encoding):
+                
+                let params: [String: Any] = ["device_id": deviceID,
+                 "os": "iOS",
+                 "osVersion": osVersion,
+                 "app": "GSApp",
+                 "appVersion": "3.7.4",
+                  "request": parameters]
+                return .requestParameters(parameters: params, encoding: encoding)
+            default:
+                return target.task
+            }
+        }
     }
 }

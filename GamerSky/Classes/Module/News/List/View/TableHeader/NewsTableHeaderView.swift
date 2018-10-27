@@ -10,12 +10,12 @@ import UIKit
 import FSPagerView
 import SwiftTheme
 import URLNavigator
-import RxSwift
-import RxCocoa
 
 class NewsTableHeaderView: BaseView, NibReusable {
 
     private let CycleCellID = "CycleCellID"
+    
+    static let height: CGFloat = ScreenHeight * 0.31
     
     // MARK: - IBOutlet
     @IBOutlet private weak var pageContentView: BaseView!

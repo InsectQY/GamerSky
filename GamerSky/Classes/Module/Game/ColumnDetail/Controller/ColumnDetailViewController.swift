@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import RxSwift
-import NSObject_Rx
 
 enum ColumnDetailContainer {
     case gameSpecialSubList(BaseModel<[GameSpecialSubList]>)

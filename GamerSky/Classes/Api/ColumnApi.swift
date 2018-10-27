@@ -45,22 +45,15 @@ extension ColumnApi: TargetType {
     
     var task: Task {
         
-        var parmeters: [String: Any] = ["device_id": deviceID,
-                                        "os": "iOS",
-                                        "osVersion": osVersion,
-                                        "app": "GSApp",
-                                        "appVersion": "3.7.4"]
         switch self {
             
         case .columnNodeList:
-            parmeters["request"] = ["date" : 1]
+            return .requestParameters(parameters: ["date" : 1], encoding: JSONEncoding.default)
         case let .columnContent(page, id):
-            parmeters["request"] = ["id" : id,
-                                    "pageIndex" : page,
-                                    "elementsCountPerPage" : 20]
+            return .requestParameters(parameters: ["id" : id,
+                                                   "pageIndex" : page,
+                                                   "elementsCountPerPage" : 20], encoding: JSONEncoding.default)
         }
-        
-        return .requestParameters(parameters: parmeters, encoding: JSONEncoding.default)
     }
     
     var headers: [String : String]? {

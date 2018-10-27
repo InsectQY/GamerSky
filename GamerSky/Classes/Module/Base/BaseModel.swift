@@ -11,6 +11,6 @@ import Foundation
 struct BaseModel<T: Codable>: Codable {
     
     let errorCode: Int
-    let errorMessage: String?
+    let errorMessage: String
     let result: T
 }

@@ -7,36 +7,16 @@
 //
 
 import UIKit
+import DeviceKit
 
 public let ScreenWidth: CGFloat = UIScreen.main.bounds.size.width
 public let ScreenHeight: CGFloat = UIScreen.main.bounds.size.height
 
-enum Device {
+public func isiPhoneXSeries() -> Bool {
     
-    case iPhone4
-    case iPhone5
-    case iPhone6
-    case iPhone6p
-    case iPhoneX
-    
-    // MARK: - 判断屏幕尺寸
-    static func Size() -> Device {
-        
-        switch (ScreenWidth, ScreenHeight) {
-        case (320, 480), (480, 320):
-            return .iPhone4
-        case (320, 568), (568, 320):
-            return .iPhone5
-        case (375, 667), (667, 375):
-            return .iPhone6
-        case (414, 736), (736, 414):
-            return .iPhone6p
-        case (375, 812), (812, 375):
-            return .iPhoneX
-        default:
-            return .iPhone6
-        }
-    }
+    let device = Device()
+    let iPhoneXSeries: [Device] = [.iPhoneX, .iPhoneXr, .iPhoneXs, .iPhoneXsMax, .simulator(.iPhoneX), .simulator(.iPhoneXr), .simulator(.iPhoneXs), .simulator(.iPhoneXsMax)]
+    return device.isOneOf(iPhoneXSeries)
 }
 
 /// 游戏类型

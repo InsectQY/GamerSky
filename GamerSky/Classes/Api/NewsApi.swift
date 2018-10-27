@@ -7,7 +7,6 @@
 //
 
 import Moya
-import Cache
 
 enum NewsApi {
     
@@ -41,26 +40,17 @@ extension NewsApi: TargetType {
     }
     
     var task: Task {
-        
-        var parmeters: [String: Any] = ["device_id": deviceID,
-                                        "os": "iOS",
-                                        "osVersion": osVersion,
-                                        "app": "GSApp",
-                                        "appVersion": "3.7.4"]
+
         switch self {
             
         case .allChannel:
-            
-            parmeters["request"] = ["type" : "0"]
+            return .requestParameters(parameters: ["type" : "0"], encoding: JSONEncoding.default)
         case let .allChannelList(page, nodeID):
-            
-            parmeters["request"] = ["parentNodeId" : "news",
-                                    "nodeIds" : "\(nodeID)",
-                "pageIndex": page,
-                "elementsCountPerPage" : 20]
+            return .requestParameters(parameters:["parentNodeId" : "news",
+                                                  "nodeIds" : "\(nodeID)",
+                                                  "pageIndex": page,
+                                                  "elementsCountPerPage" : 20], encoding: JSONEncoding.default)
         }
-        
-        return .requestParameters(parameters: parmeters, encoding: JSONEncoding.default)
     }
     
     var headers: [String : String]? {

@@ -7,43 +7,61 @@
 //
 
 import UIKit
-import Cache
+import JXCategoryView
 
 class NewsPageViewController: BaseViewController {
 
-    private var allChannel = [Channel]()
-        
-    private lazy var pageViewManager: DNSPageViewManager = {
-        // 创建DNSPageStyle，设置样式
-        let style = DNSPageStyle()
-        style.isShowBottomLine = true
-        style.isTitleScrollEnable = true
-        style.bottomLineColor = MainColor
-        style.titleColor = .darkGray
-        style.titleSelectedColor = MainColor
-        style.titleFontSize = 16
-        style.titleViewBackgroundColor = UIColor.clear
-        
-        // 设置标题内容
-        var titles = [String]()
-        
-        // 创建每一页对应的controller
-        let childViewControllers: [NewsViewController] = allChannel.map { channel -> NewsViewController in
-            
-            titles.append(channel.nodeName)
-            let controller = NewsViewController()
-            controller.nodeID = channel.nodeId
-            self.addChild(controller)
-            return controller
+    private let kContentCellID = "kContentCellID"
+    
+    private var childVcs: [UIViewController] = [] {
+        didSet {
+            collectionView.reloadData()
         }
+    }
+    
+    private lazy var collectionView: UICollectionView = {
         
-        return DNSPageViewManager(style: style, titles: titles, childViewControllers: childViewControllers)
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: ScreenWidth, height: ScreenHeight)
+        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 0
+        layout.scrollDirection = .horizontal
+        
+        let collectionView = UICollectionView(frame:view.bounds, collectionViewLayout: layout)
+        collectionView.dataSource = self
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: kContentCellID)
+        collectionView.isPagingEnabled = true
+        collectionView.scrollsToTop = false
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.bounces = false
+        collectionView.contentInsetAdjustmentBehavior = .never
+        return collectionView
     }()
-
+    
+    private var allChannel = [Channel]() {
+        didSet {
+            
+            categoryView.titles = allChannel.map({$0.nodeName})
+            childVcs = allChannel.map({NewsViewController(nodeID: $0.nodeId)})
+            categoryView.contentScrollView = collectionView
+        }
+    }
+    
+    private lazy var categoryView: JXCategoryTitleView = {
+        
+        let lineView = JXCategoryIndicatorLineView()
+        lineView.indicatorLineWidth = 10
+        lineView.lineStyle = .JD
+        let categoryView = JXCategoryTitleView(frame: CGRect(x: 0, y: 0, width: ScreenWidth - kNaviBarH, height: kNaviBarH))
+        categoryView.indicators = [lineView]
+        return categoryView
+    }()
+    
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setUpUI()
         setUpNavi()
         loadAllChannel()
     }
@@ -62,10 +80,6 @@ extension NewsPageViewController {
 
             guard let `self` = self else {return}
             self.allChannel = $0.result
-            self.navigationItem.titleView = self.pageViewManager.titleView
-            self.pageViewManager.titleView.frame = CGRect(x: 0, y: 0, width: ScreenWidth - kNaviBarH, height: kNaviBarH)
-            self.view.addSubview(self.pageViewManager.contentView)
-            self.pageViewManager.contentView.frame = UIScreen.main.bounds
         }, onError: {
              print("失败----\($0)")
         })
@@ -75,14 +89,43 @@ extension NewsPageViewController {
 
 extension NewsPageViewController {
     
+    private func setUpUI() {
+        view.addSubview(collectionView)
+    }
+    
     // MARK: - 设置导航栏
     private func setUpNavi() {
         
+        navigationItem.titleView = categoryView
         navigationItem.rightBarButtonItem = UIBarButtonItem(image:#imageLiteral(resourceName: "common_Icon_Search_16x16"), style: .plain, target: self, action: #selector(didClickSearch))
+        navigationController?.navigationBar.isTranslucent = false
     }
     
     // MARK: - 点击了搜索
     @objc private func didClickSearch() {
         
+    }
+}
+
+// MARK:- UICollectionViewDataSource
+extension NewsPageViewController: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return childVcs.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kContentCellID, for: indexPath)
+        
+        for subview in cell.contentView.subviews {
+            subview.removeFromSuperview()
+        }
+        
+        let vc = childVcs[indexPath.item]
+        vc.view.frame = cell.contentView.bounds
+        cell.contentView.addSubview(vc.view)
+        
+        return cell
     }
 }

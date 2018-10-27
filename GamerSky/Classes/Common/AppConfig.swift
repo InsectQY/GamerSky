@@ -13,7 +13,7 @@ public let kStatusBarH: CGFloat = UIApplication.shared.statusBarFrame.size.heigh
 public let kNaviBarH: CGFloat = 44
 public let kTopH: CGFloat = kStatusBarH + kNaviBarH
 public let KTabbarH: CGFloat = 49
-public let KBottomH: CGFloat = Device.Size() == .iPhoneX ? KTabbarH + 34: KTabbarH
+public let KBottomH: CGFloat = isiPhoneXSeries() ? KTabbarH + 34: KTabbarH
 
 /// 主机地址
 public let AppHostIP = "http://appapi2.gamersky.com"

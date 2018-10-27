@@ -20,7 +20,6 @@ class GameCommentListViewController: BaseViewController {
     private lazy var tableView: UITableView = {
         
         let tableView = UITableView(frame: view.bounds, style: .grouped)
-        tableView.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: KBottomH + kTopH, right: 0)
         tableView.separatorStyle = .none
         tableView.register(cellType: GameCommentCell.self)
         tableView.dataSource = self

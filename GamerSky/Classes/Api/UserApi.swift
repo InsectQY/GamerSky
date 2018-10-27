@@ -61,39 +61,32 @@ extension UserApi: TargetType {
     
     var task: Task {
         
-        var parmeters: [String: Any] = ["device_id": deviceID,
-                                        "os": "iOS",
-                                        "osVersion": osVersion,
-                                        "app": "GSApp",
-                                        "appVersion": "3.7.4"]
         switch self {
             
         case let .getVerificationCode(phoneNumber):
-            parmeters["request"] = ["codetype" : 1,
-                                    "phoneNumber" : phoneNumber,
-                                    "email" : "",
-                                    "username" : ""]
+            return .requestParameters(parameters:["codetype" : 1,
+                                                  "phoneNumber" : phoneNumber,
+                                                  "email" : "",
+                                                  "username" : ""], encoding: JSONEncoding.default)
         case let .checkCode(phoneNumber, code):
-            parmeters["request"] = ["codeType" : 1,
-                                    "phone" : phoneNumber,
-                                    "email" : "",
-                                    "veriCode" : code]
+            return .requestParameters(parameters: ["codeType" : 1,
+                                                   "phone" : phoneNumber,
+                                                   "email" : "",
+                                                   "veriCode" : code], encoding: JSONEncoding.default)
         case .getRandomUserName:
-            parmeters["request"] = ["" : ""]
+            return .requestParameters(parameters: ["" : ""], encoding: JSONEncoding.default)
         case let .register(phoneNumber, userName, password, varifyToken):
-            parmeters["request"] = ["phoneNumber" : phoneNumber,
-                                    "userName" : userName,
-                                    "password" : password,
-                                    "varifyToken" : varifyToken]
+            return .requestParameters(parameters: ["phoneNumber" : phoneNumber,
+                                                   "userName" : userName,
+                                                   "password" : password,
+                                                   "varifyToken" : varifyToken], encoding: JSONEncoding.default)
         case let .thirdPartyLogin(thirdParty, thirdPartyID):
-            parmeters["request"] = ["thirdParty" : thirdParty.rawValue,
-                                    "thirdPartyID" : thirdPartyID]
+            return .requestParameters(parameters: ["thirdParty" : thirdParty.rawValue,
+                                                   "thirdPartyID" : thirdPartyID], encoding: JSONEncoding.default)
         case let .twoLogin(userInfo, passWord):
-            parmeters["request"] = ["userInfo" : userInfo,
-                                    "passWord" : passWord]
+            return .requestParameters(parameters: ["userInfo" : userInfo,
+                                                   "passWord" : passWord], encoding: JSONEncoding.default)
         }
-        
-        return .requestParameters(parameters: parmeters, encoding: JSONEncoding.default)
     }
     
     var headers: [String : String]? {

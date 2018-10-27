@@ -7,46 +7,46 @@
 //
 
 import UIKit
-import SwiftNotificationCenter
-import RxSwift
 import URLNavigator
 import RxDataSources
 
 class NewsViewController: BaseViewController {
     
     // MARK: - public
-    public var nodeID = 0
+    private var nodeID = 0
     
     // MARK: - Lazyload
     private var dataSource: RxTableViewSectionedReloadDataSource<NewsListSection>!
     
     private lazy var viewModel = NewsListViewModel()
     
-    private lazy var vmOutput: NewsListViewModel.NewsListOutput = {
-        
-        let vmOutput = viewModel.transform(input: NewsListViewModel.Input(nodeID: nodeID))
-        return vmOutput
-    }()
+    private lazy var vmOutput = viewModel.transform(input: NewsListViewModel.Input(nodeID: nodeID))
 
     private lazy var tableView: UITableView = {
         
-        let tableView = BaseTableView(frame: UIScreen.main.bounds, style: .grouped)
+        let tableView = BaseTableView(frame: view.bounds, style: .grouped)
         tableView.separatorStyle = .none
         tableView.register(cellType: ChannelListCell.self)
         tableView.register(headerFooterViewType: NewsSectionHeaderView.self)
-        tableView.scrollIndicatorInsets = UIEdgeInsets.init(top: kTopH, left: 0, bottom: KBottomH, right: 0)
         tableView.tableHeaderView = headerView
         tableView.rowHeight = ChannelListCell.cellHeight
         tableView.delegate = self
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: KBottomH, right: 0)
+        tableView.contentInsetAdjustmentBehavior = .never
         return tableView
     }()
     
     private lazy var headerView: NewsTableHeaderView = {
         
         let headerView = NewsTableHeaderView.loadFromNib()
-        headerView.frame = CGRect(x: 0, y: 0, width: ScreenWidth, height: ScreenHeight * 0.31)
+        headerView.frame = CGRect(x: 0, y: 0, width: ScreenWidth, height: NewsTableHeaderView.height)
         return headerView
     }()
+    
+    convenience init(nodeID: Int) {
+        self.init()
+        self.nodeID = nodeID
+    }
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -106,7 +106,7 @@ extension NewsViewController: Refreshable {
         let refreshFooter = initRefreshFooter(tableView) { [weak self] in
             self?.vmOutput.requestCommand.onNext(false)
         }
-        vmOutput.autoSetRefreshHeaderStatus(header: refreshHeader, footer: refreshFooter).disposed(by: rx.disposeBag)
+        vmOutput.autoSetRefreshHeaderStatus(header: refreshHeader, footer: nil).disposed(by: rx.disposeBag)
         refreshHeader.beginRefreshing()
     }
 }
@@ -122,5 +122,9 @@ extension NewsViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return NewsSectionHeaderView.height
+    }
+
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return .leastNonzeroMagnitude
     }
 }

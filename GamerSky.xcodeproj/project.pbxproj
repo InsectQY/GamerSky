@@ -150,6 +150,7 @@
 		E5C1FE8C21843E5F009CCE4B /* ImportFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C1FE8B21843E5F009CCE4B /* ImportFile.swift */; };
 		E5C1FE8E21843E99009CCE4B /* AppDelegate+Root.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C1FE8D21843E99009CCE4B /* AppDelegate+Root.swift */; };
 		E5C1FE9021843F3F009CCE4B /* AppDelegate+Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C1FE8F21843F3F009CCE4B /* AppDelegate+Services.swift */; };
+		E5C1FE9721846A43009CCE4B /* QYContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C1FE9621846A43009CCE4B /* QYContentView.swift */; };
 		E5CD6986207B95C0001A1A0A /* GameHomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CD6985207B95C0001A1A0A /* GameHomeHeaderView.swift */; };
 		E5CD698A207B9794001A1A0A /* GameHomeHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CD6988207B9794001A1A0A /* GameHomeHeaderCell.swift */; };
 		E5CD698B207B9794001A1A0A /* GameHomeHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5CD6989207B9794001A1A0A /* GameHomeHeaderCell.xib */; };
@@ -361,6 +362,7 @@
 		E5C1FE8F21843F3F009CCE4B /* AppDelegate+Services.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Services.swift"; sourceTree = "<group>"; };
 		E5C1FE91218441A4009CCE4B /* RxNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxNetwork.framework; path = Carthage/Build/iOS/RxNetwork.framework; sourceTree = "<group>"; };
 		E5C1FE93218441B6009CCE4B /* CleanJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CleanJSON.framework; path = Carthage/Build/iOS/CleanJSON.framework; sourceTree = "<group>"; };
+		E5C1FE9621846A43009CCE4B /* QYContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QYContentView.swift; sourceTree = "<group>"; };
 		E5CD6985207B95C0001A1A0A /* GameHomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHomeHeaderView.swift; sourceTree = "<group>"; };
 		E5CD6988207B9794001A1A0A /* GameHomeHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHomeHeaderCell.swift; sourceTree = "<group>"; };
 		E5CD6989207B9794001A1A0A /* GameHomeHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameHomeHeaderCell.xib; sourceTree = "<group>"; };
@@ -758,6 +760,7 @@
 		998F0C5A2071EF9000C587C2 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				E5C1FE95218469F3009CCE4B /* ContentView */,
 				994141282074C2A80016AC01 /* UserDefaults */,
 				998F0C5B2071EFB100C587C2 /* GetVc */,
 				998F0C5D2071EFB100C587C2 /* Refresh */,
@@ -1397,6 +1400,14 @@
 			path = MoyaPlugin;
 			sourceTree = "<group>";
 		};
+		E5C1FE95218469F3009CCE4B /* ContentView */ = {
+			isa = PBXGroup;
+			children = (
+				E5C1FE9621846A43009CCE4B /* QYContentView.swift */,
+			);
+			path = ContentView;
+			sourceTree = "<group>";
+		};
 		E5CD697E207B9343001A1A0A /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1727,9 +1738,11 @@
 				"${BUILT_PRODUCTS_DIR}/Cache/Cache.framework",
 				"${BUILT_PRODUCTS_DIR}/CleanJSON/CleanJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/DefaultsKit/DefaultsKit.framework",
+				"${BUILT_PRODUCTS_DIR}/DeviceKit/DeviceKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/FDFullscreenPopGesture/FDFullscreenPopGesture.framework",
 				"${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework",
+				"${BUILT_PRODUCTS_DIR}/JXCategoryView/JXCategoryView.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
@@ -1749,9 +1762,11 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cache.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CleanJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DefaultsKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DeviceKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FDFullscreenPopGesture.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSPagerView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JXCategoryView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
@@ -1813,6 +1828,7 @@
 				E5259689208E167F00B5F419 /* GameListCell.swift in Sources */,
 				E57C5BBF2082572000655E0F /* GameColumnDetailSectionHeader.swift in Sources */,
 				E5F8116720739A8C00E9883F /* ColumnHeaderView.swift in Sources */,
+				E5C1FE9721846A43009CCE4B /* QYContentView.swift in Sources */,
 				E5CD69BF207BCF5F001A1A0A /* CosmosSize.swift in Sources */,
 				E5CD69A1207BB360001A1A0A /* Game.swift in Sources */,
 				9966511820736F580010430E /* AppTheme.swift in Sources */,
