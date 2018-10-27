@@ -73,10 +73,11 @@ extension GameListViewController {
             GameApi.gameList(self.page)
             .cache
             .request()
-            .mapObject(BaseModel<GameList>.self)
+            .mapObject(GameList.self)
+            .catchErrorJustComplete()
             .subscribe(onNext: {
             
-                self.gameLists = $0.result.childelements
+                self.gameLists = $0.childelements
                 self.collectionView.reloadData()
                 self.collectionView.qy_header.endRefreshing()
             }, onError: { _ in
@@ -94,10 +95,10 @@ extension GameListViewController {
             GameApi.gameList(self.page)
             .cache
             .request()
-            .mapObject(BaseModel<GameList>.self)
+            .mapObject(GameList.self)
             .subscribe(onNext: {
                 
-                self.gameLists += $0.result.childelements
+                self.gameLists += $0.childelements
                 self.collectionView.reloadData()
                 self.collectionView.qy_footer.endRefreshing()
             }, onError: { _ in

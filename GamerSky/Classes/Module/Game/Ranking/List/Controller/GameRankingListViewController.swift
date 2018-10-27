@@ -64,10 +64,10 @@ extension GameRankingListViewController {
             GameApi.gameRankingList(self.page, self.rankingType, self.gameClass, self.annualClass)
             .cache
             .request()
-            .mapObject(BaseModel<[GameSpecialDetail]>.self)
+            .mapObject([GameSpecialDetail].self)
             .subscribe(onNext: {
                 
-                self.rankingData = $0.result
+                self.rankingData = $0
                 self.tableView.reloadData()
                 self.tableView.qy_header.endRefreshing()
             }, onError: { _ in
@@ -84,10 +84,10 @@ extension GameRankingListViewController {
             GameApi.gameRankingList(self.page, self.rankingType, self.gameClass, self.annualClass)
             .cache
             .request()
-            .mapObject(BaseModel<[GameSpecialDetail]>.self)
+            .mapObject([GameSpecialDetail].self)
             .subscribe(onNext: {
                 
-                self.rankingData += $0.result
+                self.rankingData += $0
                 self.tableView.reloadData()
                 self.tableView.qy_footer.endRefreshing()
             }, onError: { _ in

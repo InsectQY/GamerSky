@@ -48,10 +48,10 @@ extension GameSellListViewController {
             GameApi.twoGameList(self.date, .popular)
             .cache
             .request()
-            .mapObject(BaseModel<[GameSellList]>.self)
+            .mapObject([GameSellList].self)
             .subscribe(onNext: {
                 
-                self.gameSellLists = $0.result
+                self.gameSellLists = $0
                 self.tableView.reloadData()
                 self.tableView.qy_header.endRefreshing()
             }, onError: { _ in

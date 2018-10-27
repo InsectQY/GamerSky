@@ -60,9 +60,9 @@ extension GameColumnViewController {
             GameApi.gameSpecialList(1)
             .cache
             .request()
-            .mapObject(BaseModel<[GameSpecialList]>.self)
+            .mapObject([GameSpecialList].self)
             .subscribe(onNext: {
-                self.gameColumn = $0.result
+                self.gameColumn = $0
                 self.collectionView.reloadData()
                 self.collectionView.qy_header.endRefreshing()
             }, onError: { _ in

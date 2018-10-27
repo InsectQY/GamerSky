@@ -37,11 +37,11 @@ class ColumnHeaderView: UIView, NibLoadable {
         ColumnApi.columnNodeList
         .cache
         .request()
-        .mapObject(BaseModel<[ColumnList]>.self)
+        .mapObject([ColumnList].self)
         .subscribe(onNext: { [weak self] in
             
             guard let `self` = self else {return}
-            self.columnLists = $0.result
+            self.columnLists = $0
             self.colletcionView.reloadData()
         }, onError: {
             print($0)

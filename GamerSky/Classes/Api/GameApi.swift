@@ -77,11 +77,6 @@ extension GameApi: TargetType {
     
     var task: Task {
         
-        var parmeters: [String: Any] = ["device_id": deviceID,
-                                        "os": "iOS",
-                                        "osVersion": osVersion,
-                                        "app": "GSApp",
-                                        "appVersion": "3.7.4"]
         switch self {
             
         case let .gameSpecialList(page):

@@ -101,13 +101,13 @@ extension OriginalViewController {
             ColumnApi.columnContent(self.page, columnID)
             .cache
             .request()
-            .mapObject(BaseModel<ColumnContent>.self)
+            .mapObject(ColumnContent.self)
             .subscribe(onNext: {
                 
                 if self.columnList == nil {
-                    self.columnAry = [$0.result.childElements]
+                    self.columnAry = [$0.childElements]
                 }else {
-                    self.columnListAry = $0.result.childElements
+                    self.columnListAry = $0.childElements
                 }
                 
                 self.tableView.reloadData()
@@ -127,13 +127,13 @@ extension OriginalViewController {
             ColumnApi.columnContent(self.page, columnID)
             .cache
             .request()
-            .mapObject(BaseModel<ColumnContent>.self)
+            .mapObject(ColumnContent.self)
             .subscribe(onNext: {
                 
                 if self.columnList == nil {
-                    self.columnAry += [$0.result.childElements]
+                    self.columnAry += [$0.childElements]
                 }else {
-                    self.columnListAry += $0.result.childElements
+                    self.columnListAry += $0.childElements
                 }
                 
                 self.tableView.reloadData()

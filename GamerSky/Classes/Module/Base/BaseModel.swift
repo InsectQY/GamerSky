@@ -13,4 +13,8 @@ struct BaseModel<T: Codable>: Codable {
     let errorCode: Int
     let errorMessage: String
     let result: T
+    
+    var success: Bool {
+        return errorCode == 0
+    }
 }

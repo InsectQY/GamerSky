@@ -9,8 +9,8 @@
 import UIKit
 
 enum ColumnDetailContainer {
-    case gameSpecialSubList(BaseModel<[GameSpecialSubList]>)
-    case gameSpecialDetail(BaseModel<[GameSpecialDetail]>)
+    case gameSpecialSubList([GameSpecialSubList])
+    case gameSpecialDetail([GameSpecialDetail])
 }
 
 class ColumnDetailViewController: BaseViewController {
@@ -83,14 +83,14 @@ extension ColumnDetailViewController {
             self.page = 1
             let symbol1 = GameApi.gameSpecialDetail(self.page, self.nodeID)
             .cache
-            .request().mapObject(BaseModel<[GameSpecialDetail]>.self)
+            .request().mapObject([GameSpecialDetail].self)
             .map({ColumnDetailContainer.gameSpecialDetail($0)})
             
             if self.isHasSubList {
                 
                 let symbol2 = GameApi.gameSpecialSubList(self.nodeID)
                 .cache
-                .request().mapObject(BaseModel<[GameSpecialSubList]>.self)
+                .request().mapObject([GameSpecialSubList].self)
                 .map({ColumnDetailContainer.gameSpecialSubList($0)})
                 
                 Observable.of(symbol1, symbol2)
@@ -100,11 +100,11 @@ extension ColumnDetailViewController {
                     switch response {
                     case let .gameSpecialDetail(data):
                         
-                        self.specialDetail = data.result
+                        self.specialDetail = data
                         break
                     case let .gameSpecialSubList(data):
                         
-                        self.specialSubList = data.result
+                        self.specialSubList = data
                         // 清空之前分好的组
                         self.sectionSpecialDetail.removeAll()
                         // 遍历并按sublist的title分组
@@ -129,7 +129,7 @@ extension ColumnDetailViewController {
                     switch response {
                     case let .gameSpecialDetail(data):
                         
-                        self.specialDetail = data.result
+                        self.specialDetail = data
                         self.tableView.reloadData()
                         self.tableView.qy_header.endRefreshing()
                         break
@@ -158,10 +158,10 @@ extension ColumnDetailViewController {
             
             GameApi.gameSpecialDetail(self.page, self.nodeID)
             .cache
-            .request().mapObject(BaseModel<[GameSpecialDetail]>.self)
+            .request().mapObject([GameSpecialDetail].self)
             .subscribe(onNext: {
                 
-                self.specialDetail += $0.result
+                self.specialDetail += $0
                 self.tableView.qy_footer.endRefreshing()
                 self.tableView.reloadData()
             }, onError: { _ in

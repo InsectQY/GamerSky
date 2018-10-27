@@ -3,8 +3,8 @@ import Moya
 
 public struct LightError: Error {
     
-    public var code: String
-    public var reason: String
+    public let code: Int
+    public let reason: String
 }
 
 extension Error {

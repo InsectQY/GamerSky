@@ -56,12 +56,12 @@ extension NewsListViewModel: ViewModelable {
                 NewsApi.allChannelList(self.page, input.nodeID)
                 .cache
                 .request()
-                .mapObject(BaseModel<[ChannelList]>.self)
+                .mapObject([ChannelList].self)
                 .subscribe(onNext: { response in
                     
-                    self.vmDatas.value = response.result
+                    self.vmDatas.value = response
                     self.vmDatas.value.removeFirst()
-                    ourtPut.banners.value = response.result.first?.childElements
+                    ourtPut.banners.value = response.first?.childElements
                     ourtPut.refreshStatus.value = .endHeaderRefresh
                 }, onError: { _ in
                     ourtPut.refreshStatus.value = .endHeaderRefresh
@@ -74,10 +74,10 @@ extension NewsListViewModel: ViewModelable {
                 NewsApi.allChannelList(self.page, input.nodeID)
                 .cache
                 .request()
-                .mapObject(BaseModel<[ChannelList]>.self)
+                .mapObject([ChannelList].self)
                 .subscribe(onNext: { response in
                     
-                    self.vmDatas.value += response.result
+                    self.vmDatas.value += response
                     ourtPut.refreshStatus.value = .endFooterRefresh
                 }, onError: { _ in
                     ourtPut.refreshStatus.value = .endFooterRefresh

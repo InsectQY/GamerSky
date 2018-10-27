@@ -62,10 +62,10 @@ extension GameCommentListViewController {
             GameApi.gameReviewList(self.page, self.commentType)
             .cache
             .request()
-            .mapObject(BaseModel<[GameComment]>.self)
+            .mapObject([GameComment].self)
             .subscribe(onNext: {
                 
-                self.commets = $0.result
+                self.commets = $0
                 self.tableView.reloadData()
                 self.tableView.qy_header.endRefreshing()
             }, onError: { _ in
@@ -84,10 +84,10 @@ extension GameCommentListViewController {
             GameApi.gameReviewList(self.page, self.commentType)
             .cache
             .request()
-            .mapObject(BaseModel<[GameComment]>.self)
+            .mapObject([GameComment].self)
             .subscribe(onNext: {
                 
-                self.commets += $0.result
+                self.commets += $0
                 self.tableView.reloadData()
                 self.tableView.qy_footer.endRefreshing()
             }, onError: { _ in

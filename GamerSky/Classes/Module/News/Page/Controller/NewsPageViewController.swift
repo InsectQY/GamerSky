@@ -75,11 +75,11 @@ extension NewsPageViewController {
         NewsApi.allChannel
         .cache
         .request()
-        .mapObject(BaseModel<[Channel]>.self)
+        .mapObject([Channel].self)
         .subscribe(onNext: { [weak self] in
 
             guard let `self` = self else {return}
-            self.allChannel = $0.result
+            self.allChannel = $0
         }, onError: {
              print("失败----\($0)")
         })

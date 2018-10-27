@@ -51,57 +51,57 @@ extension GameHomeViewModel: ViewModelable {
             let symbol1 = GameApi.gameSpecialDetail(1, 13)
             .cache
             .request()
-            .mapObject(BaseModel<[GameInfo]>.self)
-            .map({GameHomeSection.specialDetailSection([GameHomeItem.specialDetailItem($0.result)])})
+            .mapObject([GameInfo].self)
+            .map({GameHomeSection.specialDetailSection([GameHomeItem.specialDetailItem($0)])})
 
             // 最近大家都在玩
             let symbol2 = GameApi.gameHomePage(1, .hot)
             .cache
             .request()
-            .mapObject(BaseModel<[GameInfo]>.self)
-            .map({GameHomeSection.hotSection([GameHomeItem.hotItem($0.result, sectionData)])})
+            .mapObject([GameInfo].self)
+            .map({GameHomeSection.hotSection([GameHomeItem.hotItem($0, sectionData)])})
             
             // 特色专题
             let symbol3 = GameApi.gameSpecialList(1)
             .cache
             .request()
-            .mapObject(BaseModel<[GameSpecialList]>.self)
-            .map({GameHomeSection.specialListSection([GameHomeItem.specialListItem($0.result)])})
+            .mapObject([GameSpecialList].self)
+            .map({GameHomeSection.specialListSection([GameHomeItem.specialListItem($0)])})
 
             // 即将发售
             let symbol4 = GameApi.gameHomePage(1, .waitSell)
             .cache
             .request()
-            .mapObject(BaseModel<[GameInfo]>.self)
-            .map({GameHomeSection.waitSellSection([GameHomeItem.waitSellItem($0.result, sectionData)])})
+            .mapObject([GameInfo].self)
+            .map({GameHomeSection.waitSellSection([GameHomeItem.waitSellItem($0, sectionData)])})
 
             // 高分榜
             let symbol5 = GameApi.gameRankingList(1, .fractions, 0, "all")
             .cache
             .request()
-            .mapObject(BaseModel<[GameInfo]>.self)
-            .map({[Array($0.result.prefix(5))]})
+            .mapObject([GameInfo].self)
+            .map({[Array($0.prefix(5))]})
 
             // 热门榜
             let symbol6 = GameApi.gameRankingList(1, .hot, 0, "all")
             .cache
             .request()
-            .mapObject(BaseModel<[GameInfo]>.self)
-            .map({[Array($0.result.prefix(5))]})
+            .mapObject([GameInfo].self)
+            .map({[Array($0.prefix(5))]})
 
             // 最期待游戏
             let symbol7 = GameApi.gameHomePage(1, .expected)
             .cache
             .request()
-            .mapObject(BaseModel<[GameInfo]>.self)
-            .map({GameHomeSection.expectedSection([GameHomeItem.expectedItem($0.result, sectionData)])})
+            .mapObject([GameInfo].self)
+            .map({GameHomeSection.expectedSection([GameHomeItem.expectedItem($0, sectionData)])})
 
             // 找游戏
             let symbol8 = GameApi.gameTags
             .cache
             .request()
-            .mapObject(BaseModel<[GameTag]>.self)
-            .map({GameHomeSection.tagSection([GameHomeItem.tagItem($0.result)])})
+            .mapObject([GameTag].self)
+            .map({GameHomeSection.tagSection([GameHomeItem.tagItem($0)])})
 
             Observable
             .zip(symbol1, symbol2, symbol3, symbol4, symbol5, symbol6,symbol7, symbol8)

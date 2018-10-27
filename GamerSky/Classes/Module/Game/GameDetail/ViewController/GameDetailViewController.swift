@@ -58,10 +58,10 @@ extension GameDetailViewController {
         GameApi.gameDetail(contentID)
         .cache
         .request()
-        .mapObject(BaseModel<GameDetail>.self)
+        .mapObject(GameDetail.self)
         .subscribe(onNext: {
             
-            self.headerView.detail = $0.result
+            self.headerView.detail = $0
         }, onError: { (error) in
             
         }).disposed(by: rx.disposeBag)
