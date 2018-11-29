@@ -7,27 +7,31 @@
 //
 
 import UIKit
+import RxDataSources
 
 class GameSellListViewController: BaseViewController {
     
     public var date: Int = 0
     // MARK: - LazyLoad
-    private lazy var gameSellLists = [GameSellList]()
+    private var dataSource: RxTableViewSectionedReloadDataSource<GameSellListSection>!
     private lazy var tableView: UITableView = {
         
         let tableView = UITableView(frame: view.bounds)
-        tableView.dataSource = self
-        tableView.delegate = self
         tableView.register(cellType: GameSellListCell.self)
         tableView.rowHeight = GameSellListCell.cellHeight
         return tableView
     }()
+    
+    private lazy var viewModel = GameSellListViewModel()
+    private lazy var vmOutput = viewModel.transform(input: vmInput)
+    private lazy var vmInput = GameSellListViewModel.Input(date: date)
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setUpUI()
+        bindUI()
         setUpRefresh()
     }
 }
@@ -39,50 +43,32 @@ extension GameSellListViewController {
         view.addSubview(tableView)
     }
     
-    private func setUpRefresh() {
+    private func bindUI() {
         
-        tableView.qy_header = QYRefreshHeader(refreshingBlock: { [weak self] in
+        dataSource = RxTableViewSectionedReloadDataSource<GameSellListSection>(configureCell: { (ds, tb, ip, item) in
             
-            guard let `self` = self else {return}
-            
-            GameApi.twoGameList(self.date, .popular)
-            .cache
-            .request()
-            .mapObject([GameSellList].self)
-            .subscribe(onNext: {
-                
-                self.gameSellLists = $0
-                self.tableView.reloadData()
-                self.tableView.qy_header.endRefreshing()
-            }, onError: { _ in
-                self.tableView.qy_header.endRefreshing()
-            })
-            .disposed(by: self.rx.disposeBag)
+            let cell = tb.dequeueReusableCell(for: ip, cellType: GameSellListCell.self)
+            cell.item = item
+            return cell
         })
         
-        tableView.qy_header.beginRefreshing()
+        vmOutput.sections
+        .drive(tableView.rx.items(dataSource: dataSource))
+        .disposed(by: rx.disposeBag)
     }
 }
 
-// MARK: - UITableViewDataSource
-extension GameSellListViewController: UITableViewDataSource {
+// MARK: - Refreshable
+extension GameSellListViewController: Refreshable {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return gameSellLists.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    private func setUpRefresh() {
         
-        let cell = tableView.dequeueReusableCell(for: indexPath, cellType: GameSellListCell.self)
-        cell.gameInfo = gameSellLists[indexPath.row]
-        return cell
-    }
-}
-
-// MARK: - UITableViewDelegate
-extension GameSellListViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let refreshHeader = initRefreshHeader(tableView) { [weak self] in
+            self?.vmInput.requestCommand.onNext(())
+        }
+        vmOutput
+        .autoSetRefreshHeaderState(header: refreshHeader, footer: nil)
+        .disposed(by: rx.disposeBag)
+        refreshHeader.beginRefreshing()
     }
 }

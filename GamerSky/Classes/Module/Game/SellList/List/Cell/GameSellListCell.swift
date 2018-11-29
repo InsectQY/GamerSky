@@ -21,11 +21,11 @@ class GameSellListCell: UITableViewCell, NibReusable {
     @IBOutlet private weak var gameTypeLabel: BaseLabel!
     @IBOutlet private weak var sellTimeLabel: BaseLabel!
     
-    var gameInfo: GameSellList? {
+    public var item: GameSellList? {
         
         didSet {
             
-            guard let gameInfo = gameInfo else {return}
+            guard let gameInfo = item else {return}
             gameNameLabel.text = gameInfo.title
             
             gameImageView.qy_setImage(gameInfo.thumbnailURL, "")

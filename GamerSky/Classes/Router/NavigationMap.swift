@@ -7,7 +7,6 @@
 //
 
 import URLNavigator
-//import URLMatcher
 
 let navigator = NavigationMap.default
 
@@ -80,7 +79,7 @@ extension NavigationURL {
 
 enum NavigationMap {
     
-    static fileprivate let `default` = Navigator()
+    public static let `default` = Navigator()
     
     static func initialize() {
         

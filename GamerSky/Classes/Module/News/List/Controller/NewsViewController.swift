@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import URLNavigator
+import RxURLNavigator
 import RxDataSources
 
 class NewsViewController: BaseViewController {
@@ -88,11 +88,10 @@ extension NewsViewController {
         .drive(headerView.rx.bannerData)
         .disposed(by: rx.disposeBag)
         
-        tableView.rx.modelSelected(ChannelList.self).subscribe(onNext: {
-            
-            navigator
-            .push(NavigationURL.contentDetail($0.contentId).path)
-        }).disposed(by: rx.disposeBag)
+        tableView.rx.modelSelected(ChannelList.self)
+        .map({URLNavigatorPushWrap(navigator, NavigationURL.contentDetail($0.contentId).path)})
+        .bind(to: navigator.rx.push)
+        .disposed(by: rx.disposeBag)
     }
 }
 

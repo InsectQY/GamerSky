@@ -20,7 +20,7 @@ pod 'JXCategoryView'
 # 图片缓存
 pod 'Kingfisher'
 # Router
-pod 'URLNavigator'
+pod 'RxURLNavigator'
 # Bana
 pod 'FSPagerView'
 # 主题
