@@ -19,10 +19,10 @@ class NewsViewController: BaseViewController {
     private var dataSource: RxTableViewSectionedReloadDataSource<NewsListSection>!
     
     private lazy var viewModel = NewsListViewModel()
-    private lazy var vmInput = NewsListViewModel.Input(nodeID: nodeID)
+    private lazy var vmInput = NewsListViewModel.Input(nodeID: nodeID, headerRefresh: tableView.qy_header.rx.refreshing.asDriver(), footerRefresh: tableView.qy_footer.rx.refreshing.asDriver())
     private lazy var vmOutput = viewModel.transform(input: vmInput)
 
-    private lazy var tableView: UITableView = {
+    private lazy var tableView: BaseTableView = {
         
         let tableView = BaseTableView(frame: view.bounds, style: .grouped)
         tableView.separatorStyle = .none
@@ -33,6 +33,8 @@ class NewsViewController: BaseViewController {
         tableView.delegate = self
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: KBottomH, right: 0)
         tableView.contentInsetAdjustmentBehavior = .never
+        tableView.qy_header = QYRefreshHeader()
+        tableView.qy_footer = QYRefreshFooter()
         return tableView
     }()
     
@@ -54,7 +56,6 @@ class NewsViewController: BaseViewController {
         
         setUpUI()
         bindUI()
-        setUpRefresh()
     }
     
     override func repeatClickTabBar() {
@@ -65,7 +66,9 @@ class NewsViewController: BaseViewController {
 extension NewsViewController {
     
     private func setUpUI() {
+        
         view.addSubview(tableView)
+         tableView.qy_header.beginRefreshing()
     }
 }
 
@@ -84,7 +87,7 @@ extension NewsViewController {
         .drive(tableView.rx.items(dataSource: dataSource))
         .disposed(by: rx.disposeBag)
         
-        vmOutput.banners.asDriver()
+        vmOutput.banners
         .drive(headerView.rx.bannerData)
         .disposed(by: rx.disposeBag)
         
@@ -92,21 +95,14 @@ extension NewsViewController {
         .map({URLNavigatorPushWrap(navigator, NavigationURL.contentDetail($0.contentId).path)})
         .bind(to: navigator.rx.push)
         .disposed(by: rx.disposeBag)
-    }
-}
-
-extension NewsViewController: Refreshable {
-    
-    private func setUpRefresh() {
         
-        let refreshHeader = initRefreshHeader(tableView) { [weak self] in
-            self?.vmInput.requestCommand.onNext(true)
-        }
-        let refreshFooter = initRefreshFooter(tableView) { [weak self] in
-            self?.vmInput.requestCommand.onNext(false)
-        }
-        vmOutput.autoSetRefreshHeaderState(header: refreshHeader, footer: refreshFooter).disposed(by: rx.disposeBag)
-        refreshHeader.beginRefreshing()
+        vmOutput.endHeaderRefresh
+        .drive(tableView.mj_header.rx.isRefreshing)
+        .disposed(by: rx.disposeBag)
+        
+        vmOutput.endFooterRefresh
+        .drive(tableView.mj_footer.rx.refreshFooterState)
+        .disposed(by: rx.disposeBag)
     }
 }
 

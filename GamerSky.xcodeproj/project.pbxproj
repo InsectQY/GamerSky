@@ -107,6 +107,9 @@
 		E550C93F207CF06200C4AF2D /* GameHomeSectionData.plist in Resources */ = {isa = PBXBuildFile; fileRef = E550C93E207CF06200C4AF2D /* GameHomeSectionData.plist */; };
 		E550C941207CF51B00C4AF2D /* GameHomeSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = E550C940207CF51B00C4AF2D /* GameHomeSectionHeader.xib */; };
 		E550C943207CF52F00C4AF2D /* GameHomeSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E550C942207CF52F00C4AF2D /* GameHomeSectionHeader.swift */; };
+		E551665121AF8EC800E83044 /* MJRefreshComponent+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E551664E21AF8EC800E83044 /* MJRefreshComponent+Rx.swift */; };
+		E551665221AF8EC800E83044 /* MJRefreshHeader+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E551664F21AF8EC800E83044 /* MJRefreshHeader+Rx.swift */; };
+		E551665321AF8EC800E83044 /* MJRefreshFooter+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E551665021AF8EC800E83044 /* MJRefreshFooter+Rx.swift */; };
 		E56802DE20724AEB00CF944E /* ChannelListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56802DC20724AEB00CF944E /* ChannelListCell.swift */; };
 		E56802DF20724AEB00CF944E /* ChannelListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E56802DD20724AEB00CF944E /* ChannelListCell.xib */; };
 		E56802E120724EEB00CF944E /* KingfisherExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56802E020724EEB00CF944E /* KingfisherExtension.swift */; };
@@ -154,7 +157,6 @@
 		E5C1FEA42184A126009CCE4B /* UIScrollView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C1FE992184A126009CCE4B /* UIScrollView+Rx.swift */; };
 		E5C1FEA72184A126009CCE4B /* UIResponder+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C1FE9C2184A126009CCE4B /* UIResponder+Rx.swift */; };
 		E5C1FEA82184A126009CCE4B /* Observable+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C1FE9D2184A126009CCE4B /* Observable+Ext.swift */; };
-		E5C1FEA92184A126009CCE4B /* MJRefresh+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C1FE9E2184A126009CCE4B /* MJRefresh+Rx.swift */; };
 		E5C1FEAA2184A126009CCE4B /* UIView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C1FE9F2184A126009CCE4B /* UIView+Rx.swift */; };
 		E5C1FEAB2184A126009CCE4B /* UIViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C1FEA02184A126009CCE4B /* UIViewController+Rx.swift */; };
 		E5C1FEAC2184A126009CCE4B /* UIState+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C1FEA12184A126009CCE4B /* UIState+Rx.swift */; };
@@ -322,6 +324,9 @@
 		E550C93E207CF06200C4AF2D /* GameHomeSectionData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = GameHomeSectionData.plist; sourceTree = "<group>"; };
 		E550C940207CF51B00C4AF2D /* GameHomeSectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameHomeSectionHeader.xib; sourceTree = "<group>"; };
 		E550C942207CF52F00C4AF2D /* GameHomeSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHomeSectionHeader.swift; sourceTree = "<group>"; };
+		E551664E21AF8EC800E83044 /* MJRefreshComponent+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MJRefreshComponent+Rx.swift"; sourceTree = "<group>"; };
+		E551664F21AF8EC800E83044 /* MJRefreshHeader+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MJRefreshHeader+Rx.swift"; sourceTree = "<group>"; };
+		E551665021AF8EC800E83044 /* MJRefreshFooter+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MJRefreshFooter+Rx.swift"; sourceTree = "<group>"; };
 		E56802DC20724AEB00CF944E /* ChannelListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelListCell.swift; sourceTree = "<group>"; };
 		E56802DD20724AEB00CF944E /* ChannelListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChannelListCell.xib; sourceTree = "<group>"; };
 		E56802E020724EEB00CF944E /* KingfisherExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KingfisherExtension.swift; sourceTree = "<group>"; };
@@ -375,7 +380,6 @@
 		E5C1FE992184A126009CCE4B /* UIScrollView+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Rx.swift"; sourceTree = "<group>"; };
 		E5C1FE9C2184A126009CCE4B /* UIResponder+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIResponder+Rx.swift"; sourceTree = "<group>"; };
 		E5C1FE9D2184A126009CCE4B /* Observable+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+Ext.swift"; sourceTree = "<group>"; };
-		E5C1FE9E2184A126009CCE4B /* MJRefresh+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MJRefresh+Rx.swift"; sourceTree = "<group>"; };
 		E5C1FE9F2184A126009CCE4B /* UIView+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Rx.swift"; sourceTree = "<group>"; };
 		E5C1FEA02184A126009CCE4B /* UIViewController+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Rx.swift"; sourceTree = "<group>"; };
 		E5C1FEA12184A126009CCE4B /* UIState+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIState+Rx.swift"; sourceTree = "<group>"; };
@@ -695,6 +699,7 @@
 		998F0C2A2071EB4900C587C2 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				E551664D21AF8EC800E83044 /* RxMJ */,
 				E5C1FE982184A126009CCE4B /* RxSwift */,
 				E5C1FE7E21843E0C009CCE4B /* NetWork */,
 				E5DC0AEC20862BE2001E61C6 /* DateExtensions.swift */,
@@ -1153,6 +1158,16 @@
 			path = Footer;
 			sourceTree = "<group>";
 		};
+		E551664D21AF8EC800E83044 /* RxMJ */ = {
+			isa = PBXGroup;
+			children = (
+				E551664E21AF8EC800E83044 /* MJRefreshComponent+Rx.swift */,
+				E551664F21AF8EC800E83044 /* MJRefreshHeader+Rx.swift */,
+				E551665021AF8EC800E83044 /* MJRefreshFooter+Rx.swift */,
+			);
+			path = RxMJ;
+			sourceTree = "<group>";
+		};
 		E56802DB20724AA600CF944E /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1433,7 +1448,6 @@
 				E5C1FE992184A126009CCE4B /* UIScrollView+Rx.swift */,
 				E5C1FE9C2184A126009CCE4B /* UIResponder+Rx.swift */,
 				E5C1FE9D2184A126009CCE4B /* Observable+Ext.swift */,
-				E5C1FE9E2184A126009CCE4B /* MJRefresh+Rx.swift */,
 				E5C1FE9F2184A126009CCE4B /* UIView+Rx.swift */,
 				E5C1FEA02184A126009CCE4B /* UIViewController+Rx.swift */,
 				E5C1FEA12184A126009CCE4B /* UIState+Rx.swift */,
@@ -1916,6 +1930,7 @@
 				E57C5BB520824F3100655E0F /* ColumnDetailViewController.swift in Sources */,
 				E518D89E20B194770011BB6B /* ColumnApi.swift in Sources */,
 				E5C1FE8A21843E0C009CCE4B /* LightError.swift in Sources */,
+				E551665321AF8EC800E83044 /* MJRefreshFooter+Rx.swift in Sources */,
 				603CACB220F859A90001614F /* GameDetailHeaderView.swift in Sources */,
 				E518D8A220B19A900011BB6B /* UserApi.swift in Sources */,
 				9941411E2074B45E0016AC01 /* BaseCollectionView.swift in Sources */,
@@ -1931,6 +1946,7 @@
 				E550C943207CF52F00C4AF2D /* GameHomeSectionHeader.swift in Sources */,
 				99A6781E209AF7C600DB1AA7 /* IntExtension.swift in Sources */,
 				E5C1FE9021843F3F009CCE4B /* AppDelegate+Services.swift in Sources */,
+				E551665121AF8EC800E83044 /* MJRefreshComponent+Rx.swift in Sources */,
 				E5C1FEAA2184A126009CCE4B /* UIView+Rx.swift in Sources */,
 				60EAFAC520F49A3A0034D8AA /* DNSPageViewManager.swift in Sources */,
 				E5259685208E15E100B5F419 /* GameListViewController.swift in Sources */,
@@ -1948,7 +1964,6 @@
 				E5C1FE8821843E0C009CCE4B /* Response+Codable.swift in Sources */,
 				E523B1F42081E49800CE4701 /* BaseImageView.swift in Sources */,
 				E52B6DDD208C41CF004904C6 /* GameCommentPageViewController.swift in Sources */,
-				E5C1FEA92184A126009CCE4B /* MJRefresh+Rx.swift in Sources */,
 				9906819220721AAA00A825AC /* BaseModel.swift in Sources */,
 				E5CD69C3207BCF5F001A1A0A /* CosmosTouch.swift in Sources */,
 				60EAFAC420F49A3A0034D8AA /* DNSPageView.swift in Sources */,
@@ -1996,6 +2011,7 @@
 				9941411020747F8C0016AC01 /* BaseButton.swift in Sources */,
 				E57C5BBB20824FA400655E0F /* GameColumnDetailCell.swift in Sources */,
 				E5919D1720EC5AA4005E7E2C /* NewsListViewModel.swift in Sources */,
+				E551665221AF8EC800E83044 /* MJRefreshHeader+Rx.swift in Sources */,
 				E5CD69C1207BCF5F001A1A0A /* CosmosLocalizedRating.swift in Sources */,
 				E5919D1320EC56D3005E7E2C /* ViewModelable.swift in Sources */,
 				9958FFD62091CC070055DFAF /* GameListFlowLayout.swift in Sources */,

@@ -9,27 +9,25 @@
 import Foundation
 import RxDataSources
 
-class NewsListViewModel: NSObject {
+final class NewsListViewModel {
     
     struct NewsListInput {
         
         let nodeID: Int
-        let requestCommand = PublishSubject<Bool>()
+        let headerRefresh: Driver<Void>
+        let footerRefresh: Driver<Void>
     }
     
-    struct NewsListOutput: OutputRefreshProtocol {
+    struct NewsListOutput {
         
-        let refreshState = Variable<RefreshState>(.none)
+        let endHeaderRefresh: Driver<Bool>
+        let endFooterRefresh: Driver<RxMJRefreshFooterState>
         let sections: Driver<[NewsListSection]>
-        let banners = Variable<[ChannelList]?>([])
-        
-        init(sections : Driver<[NewsListSection]>) {
-            self.sections = sections
-        }
+        let banners: Driver<[ChannelList]?>
     }
 }
 
-extension NewsListViewModel: ViewModelable {
+extension NewsListViewModel: ViewModelable, HasDisposeBag {
 
     typealias Input = NewsListInput
     typealias Output = NewsListOutput
@@ -38,38 +36,49 @@ extension NewsListViewModel: ViewModelable {
 
         var page = 1
         
-        let vmDatas = Variable<[ChannelList]>([])
+        let vmDatas = BehaviorRelay<[ChannelList]>(value: [])
 
         let temp_sections = vmDatas.asObservable().map {
             [NewsListSection(items: $0)]
         }.asDriver(onErrorJustReturn: [])
         
-        let output = NewsListOutput(sections: temp_sections)
+        let header = input.headerRefresh.then(page = 1)
+            .flatMapLatest {
+                
+            NewsApi.allChannelList(page, input.nodeID)
+            .cache
+            .request()
+            .mapObject([ChannelList].self)
+            .asDriver(onErrorJustReturn: [])
+        }
         
-        input.requestCommand.asDriver(onErrorJustReturn: true)
-        .flatMapLatest { (isPull) -> SharedSequence<DriverSharingStrategy, [ChannelList]> in
-            
-            page = isPull ? 1 : page + 1
-            return NewsApi.allChannelList(page, input.nodeID)
+        let footer = input.footerRefresh.then(page += 1)
+            .flatMapLatest {
+                
+                NewsApi.allChannelList(page, input.nodeID)
                 .cache
                 .request()
                 .mapObject([ChannelList].self)
                 .asDriver(onErrorJustReturn: [])
-        }.drive(onNext: {
+        }
+        
+        header.map { lists -> [ChannelList] in
             
-            if page == 1 {
-                
-                vmDatas.value = $0
-                vmDatas.value.removeFirst()
-                output.banners.value = $0.first?.childElements
-                output.refreshState.value = .endHeaderRefresh
-                output.refreshState.value = .endFooterRefresh
-            }else {
-                
-                vmDatas.value += $0
-                output.refreshState.value = $0.count > 0 ? .endFooterRefresh : .noMoreData
-            }
-        }).disposed(by: rx.disposeBag)
+            var lists = lists
+            lists.removeFirst()
+            return lists
+        }.drive(vmDatas)
+        .disposed(by: disposeBag)
+        
+        footer.map({vmDatas.value + $0}).drive(vmDatas)
+        .disposed(by: disposeBag)
+        
+        let banners = header.map({$0.first?.childElements})
+        
+        let endHeader = header.map { _ in false}
+        let endFooter = Driver.merge(header.map({_ in RxMJRefreshFooterState.default}), footer.map({_ in RxMJRefreshFooterState.default})).startWith(.hidden)
+        
+        let output = NewsListOutput(endHeaderRefresh: endHeader, endFooterRefresh: endFooter, sections: temp_sections, banners: banners)
         
         return output
     }
