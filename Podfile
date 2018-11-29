@@ -12,7 +12,7 @@ pod 'FDFullscreenPopGesture'
 # Bug 统计
 pod 'Bugly'
 # Page
-pod 'JXCategoryView'
+pod 'YNPageViewController'
 
 
 # Swift

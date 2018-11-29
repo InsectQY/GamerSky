@@ -7,61 +7,30 @@
 //
 
 import UIKit
-import JXCategoryView
+import YNPageViewController
 
-class NewsPageViewController: BaseViewController {
+class NewsPageViewController: YNPageViewController {
+    
+    static public func pageVC() -> NewsPageViewController {
 
-    private let kContentCellID = "kContentCellID"
-    
-    private var childVcs: [UIViewController] = [] {
-        didSet {
-            collectionView.reloadData()
-        }
+        let vcs: [NewsViewController] = [NewsViewController()]
+        let titles: [String] = ["111"]
+
+        let configration = YNPageConfigration.defaultConfig()
+        configration?.pageStyle = .navigation
+        configration?.showTabbar = true
+        configration?.showNavigation = true
+        configration?.showBottomLine = true
+        
+        let navPageVC = NewsPageViewController(controllers: vcs, titles: titles, config: configration)
+        navPageVC?.dataSource = navPageVC
+        return navPageVC!
     }
-    
-    private lazy var collectionView: UICollectionView = {
-        
-        let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: ScreenWidth, height: ScreenHeight)
-        layout.minimumLineSpacing = 0
-        layout.minimumInteritemSpacing = 0
-        layout.scrollDirection = .horizontal
-        
-        let collectionView = UICollectionView(frame:view.bounds, collectionViewLayout: layout)
-        collectionView.dataSource = self
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: kContentCellID)
-        collectionView.isPagingEnabled = true
-        collectionView.scrollsToTop = false
-        collectionView.showsHorizontalScrollIndicator = false
-        collectionView.bounces = false
-        collectionView.contentInsetAdjustmentBehavior = .never
-        return collectionView
-    }()
-    
-    private var allChannel = [Channel]() {
-        didSet {
-            
-            categoryView.titles = allChannel.map({$0.nodeName})
-            childVcs = allChannel.map({NewsViewController(nodeID: $0.nodeId)})
-            categoryView.contentScrollView = collectionView
-        }
-    }
-    
-    private lazy var categoryView: JXCategoryTitleView = {
-        
-        let lineView = JXCategoryIndicatorLineView()
-        lineView.indicatorLineWidth = 10
-        lineView.lineStyle = .JD
-        let categoryView = JXCategoryTitleView(frame: CGRect(x: 0, y: 0, width: ScreenWidth - kNaviBarH, height: kNaviBarH))
-        categoryView.indicators = [lineView]
-        return categoryView
-    }()
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setUpUI()
         setUpNavi()
         loadAllChannel()
     }
@@ -79,7 +48,11 @@ extension NewsPageViewController {
         .subscribe(onNext: { [weak self] in
 
             guard let `self` = self else {return}
-            self.allChannel = $0
+//            self.allChannel = $0
+            
+            let childVcs = $0.map({NewsViewController(nodeID: $0.nodeId)})
+            let titles = $0.map({$0.nodeName})
+            self.insertPageChildControllers(withTitles: titles, controllers: childVcs, index: 0)
         }, onError: {
              print("失败----\($0)")
         })
@@ -89,16 +62,10 @@ extension NewsPageViewController {
 
 extension NewsPageViewController {
     
-    private func setUpUI() {
-        view.addSubview(collectionView)
-    }
-    
     // MARK: - 设置导航栏
     private func setUpNavi() {
-        
-        navigationItem.titleView = categoryView
+
         navigationItem.rightBarButtonItem = UIBarButtonItem(image:#imageLiteral(resourceName: "common_Icon_Search_16x16"), style: .plain, target: self, action: #selector(didClickSearch))
-        navigationController?.navigationBar.isTranslucent = false
     }
     
     // MARK: - 点击了搜索
@@ -107,25 +74,12 @@ extension NewsPageViewController {
     }
 }
 
-// MARK:- UICollectionViewDataSource
-extension NewsPageViewController: UICollectionViewDataSource {
+// MARK: - YNPageViewControllerDataSource
+extension NewsPageViewController: YNPageViewControllerDataSource {
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return childVcs.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func pageViewController(_ pageViewController: YNPageViewController!, pageFor index: Int) -> UIScrollView! {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kContentCellID, for: indexPath)
-        
-        for subview in cell.contentView.subviews {
-            subview.removeFromSuperview()
-        }
-        
-        let vc = childVcs[indexPath.item]
-        vc.view.frame = cell.contentView.bounds
-        cell.contentView.addSubview(vc.view)
-        
-        return cell
+        guard let vc = pageViewController.controllersM()[index] as? NewsViewController else {return UIScrollView()}
+        return vc.tableView
     }
 }

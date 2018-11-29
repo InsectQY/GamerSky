@@ -22,17 +22,13 @@ class NewsViewController: BaseViewController {
     private lazy var vmInput = NewsListViewModel.Input(nodeID: nodeID, headerRefresh: tableView.qy_header.rx.refreshing.asDriver(), footerRefresh: tableView.qy_footer.rx.refreshing.asDriver())
     private lazy var vmOutput = viewModel.transform(input: vmInput)
 
-    private lazy var tableView: BaseTableView = {
+    public lazy var tableView: BaseTableView = {
         
-        let tableView = BaseTableView(frame: view.bounds, style: .grouped)
+        let tableView = BaseTableView(frame: view.bounds)
         tableView.separatorStyle = .none
         tableView.register(cellType: ChannelListCell.self)
-        tableView.register(headerFooterViewType: NewsSectionHeaderView.self)
         tableView.tableHeaderView = headerView
         tableView.rowHeight = ChannelListCell.cellHeight
-        tableView.delegate = self
-        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: KBottomH, right: 0)
-        tableView.contentInsetAdjustmentBehavior = .never
         tableView.qy_header = QYRefreshHeader()
         tableView.qy_footer = QYRefreshFooter()
         return tableView
@@ -103,23 +99,5 @@ extension NewsViewController {
         vmOutput.endFooterRefresh
         .drive(tableView.mj_footer.rx.refreshFooterState)
         .disposed(by: rx.disposeBag)
-    }
-}
-
-// MARK: - UITableViewDelegate
-extension NewsViewController: UITableViewDelegate {
-
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-
-        let headerView = tableView.dequeueReusableHeaderFooterView(NewsSectionHeaderView.self)
-        return headerView
-    }
-
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return NewsSectionHeaderView.height
-    }
-
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return .leastNonzeroMagnitude
     }
 }
