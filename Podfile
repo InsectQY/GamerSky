@@ -3,7 +3,7 @@ platform :ios, '9.0'
 
 target 'GamerSky' do
 
-use_frameworks!
+use_modular_headers!
 
 # OC
 
@@ -12,8 +12,7 @@ pod 'FDFullscreenPopGesture'
 # Bug 统计
 pod 'Bugly'
 # Page
-pod 'YNPageViewController'
-
+pod 'JXCategoryView'
 
 # Swift
 

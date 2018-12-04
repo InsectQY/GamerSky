@@ -7,30 +7,38 @@
 //
 
 import UIKit
-import YNPageViewController
+import JXCategoryView
 
-class NewsPageViewController: YNPageViewController {
+class NewsPageViewController: BaseViewController {
     
-    static public func pageVC() -> NewsPageViewController {
-
-        let vcs: [NewsViewController] = [NewsViewController()]
-        let titles: [String] = ["111"]
-
-        let configration = YNPageConfigration.defaultConfig()
-        configration?.pageStyle = .navigation
-        configration?.showTabbar = true
-        configration?.showNavigation = true
-        configration?.showBottomLine = true
+    fileprivate let contentHeight: CGFloat = ScreenHeight - kTopH - KBottomH
+    
+    fileprivate lazy var scrollView: UIScrollView = {
         
-        let navPageVC = NewsPageViewController(controllers: vcs, titles: titles, config: configration)
-        navPageVC?.dataSource = navPageVC
-        return navPageVC!
-    }
+        let scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: contentHeight))
+        scrollView.isPagingEnabled = true
+        scrollView.bounces = false
+        scrollView.showsHorizontalScrollIndicator = false
+        scrollView.showsVerticalScrollIndicator = false
+        return scrollView
+    }()
+    
+    fileprivate lazy var categoryView: JXCategoryTitleView = {
+        
+        let lineView = JXCategoryIndicatorLineView()
+        lineView.lineStyle = .JD
+        lineView.indicatorLineWidth = 10
+        let categoryView = JXCategoryTitleView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: kNaviBarH))
+        categoryView.contentScrollView = scrollView
+        categoryView.indicators = [lineView]
+        return categoryView
+    }()
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setUpUI()
         setUpNavi()
         loadAllChannel()
     }
@@ -45,41 +53,66 @@ extension NewsPageViewController {
         .cache
         .request()
         .mapObject([Channel].self)
-        .subscribe(onNext: { [weak self] in
-
-            guard let `self` = self else {return}
-//            self.allChannel = $0
-            
-            let childVcs = $0.map({NewsViewController(nodeID: $0.nodeId)})
-            let titles = $0.map({$0.nodeName})
-            self.insertPageChildControllers(withTitles: titles, controllers: childVcs, index: 0)
-        }, onError: {
-             print("失败----\($0)")
-        })
+        .asDriver(onErrorJustReturn: [])
+        .drive(rx.channel)
         .disposed(by: rx.disposeBag)
     }
 }
 
 extension NewsPageViewController {
     
+    private func setUpUI() {
+        
+        edgesForExtendedLayout = UIRectEdge(rawValue: 0)
+        view.addSubview(scrollView)
+        disablesAdjustScrollViewInsets(scrollView)
+    }
+    
     // MARK: - 设置导航栏
     private func setUpNavi() {
-
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(image:#imageLiteral(resourceName: "common_Icon_Search_16x16"), style: .plain, target: self, action: #selector(didClickSearch))
+        navigationItem.titleView = categoryView
     }
     
     // MARK: - 点击了搜索
     @objc private func didClickSearch() {
         
     }
+    
+    private func setUpScrollView(_ channel: [Channel]) {
+        
+        var titles: [String] = []
+        for (index, value) in channel.enumerated() {
+            
+            titles.append(value.nodeName)
+            let listVC = NewsViewController(nodeID: value.nodeId)
+            listVC.view.frame = CGRect(x: CGFloat(index) * ScreenWidth, y: 0, width: ScreenWidth, height: contentHeight)
+            scrollView.addSubview(listVC.view)
+            addChild(listVC)
+        }
+        categoryView.titles = titles
+        scrollView.contentSize = CGSize(width: ScreenWidth * CGFloat(titles.count), height: contentHeight)
+    }
 }
 
-// MARK: - YNPageViewControllerDataSource
-extension NewsPageViewController: YNPageViewControllerDataSource {
+extension Reactive where Base: NewsPageViewController {
     
-    func pageViewController(_ pageViewController: YNPageViewController!, pageFor index: Int) -> UIScrollView! {
+    var channel: Binder<[Channel]> {
         
-        guard let vc = pageViewController.controllersM()[index] as? NewsViewController else {return UIScrollView()}
-        return vc.tableView
+        return Binder(base) { (vc, result) in
+            
+            var titles: [String] = []
+            for (index, value) in result.enumerated() {
+                
+                titles.append(value.nodeName)
+                let listVC = NewsViewController(nodeID: value.nodeId)
+                listVC.view.frame = CGRect(x: CGFloat(index) * ScreenWidth, y: 0, width: ScreenWidth, height: vc.contentHeight)
+                vc.scrollView.addSubview(listVC.view)
+                vc.addChild(listVC)
+            }
+            vc.categoryView.titles = titles
+            vc.scrollView.contentSize = CGSize(width: ScreenWidth * CGFloat(titles.count), height: vc.contentHeight)
+        }
     }
 }

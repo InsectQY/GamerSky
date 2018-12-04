@@ -24,7 +24,7 @@ class NewsViewController: BaseViewController {
 
     public lazy var tableView: BaseTableView = {
         
-        let tableView = BaseTableView(frame: view.bounds)
+        let tableView = BaseTableView(frame: UIScreen.main.bounds)
         tableView.separatorStyle = .none
         tableView.register(cellType: ChannelListCell.self)
         tableView.tableHeaderView = headerView
@@ -49,7 +49,6 @@ class NewsViewController: BaseViewController {
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setUpUI()
         bindUI()
     }
@@ -64,7 +63,7 @@ extension NewsViewController {
     private func setUpUI() {
         
         view.addSubview(tableView)
-         tableView.qy_header.beginRefreshing()
+        tableView.qy_header.beginRefreshing()
     }
 }
 

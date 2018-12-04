@@ -69,13 +69,7 @@ extension TabBarController {
     
     private func addChildVc(childVcName: String, normalImg: String, selImg: String) {
         
-        var childVc: UIViewController
-        if childVcName == "NewsPageViewController" {
-            childVc = NewsPageViewController.pageVC()
-        }else {
-            childVc = GetVc.getVcFromString(childVcName)
-        }
-        
+        let childVc = GetVc.getVcFromString(childVcName)
         childVc.tabBarItem.image = UIImage(named: normalImg)
         childVc.tabBarItem.selectedImage = UIImage(named: selImg)
         childVc.tabBarItem.imageInsets = UIEdgeInsets.init(top: 6, left: 0, bottom: -6, right: 0)

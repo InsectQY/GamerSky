@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4763D9DBC59A3C133C1D5734 /* Pods_GamerSky.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71BFE174E127314FD3FBE57C /* Pods_GamerSky.framework */; };
 		603CACAC20F8552A0001614F /* GameDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603CACAB20F8552A0001614F /* GameDetailViewController.swift */; };
 		603CACB220F859A90001614F /* GameDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603CACB120F859A90001614F /* GameDetailHeaderView.swift */; };
 		603CACB420F859B10001614F /* GameDetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 603CACB320F859B10001614F /* GameDetailHeaderView.xib */; };
@@ -78,6 +77,7 @@
 		99E7999B2071E10E005C3408 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E7999A2071E10E005C3408 /* AppDelegate.swift */; };
 		99E799A22071E10E005C3408 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99E799A12071E10E005C3408 /* Assets.xcassets */; };
 		99E799A52071E10E005C3408 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99E799A32071E10E005C3408 /* LaunchScreen.storyboard */; };
+		CC1088E1C61B090BD9D73420 /* libPods-GamerSky.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 374130AA40958FB95594DE0F /* libPods-GamerSky.a */; };
 		E518D89E20B194770011BB6B /* ColumnApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E518D89D20B194770011BB6B /* ColumnApi.swift */; };
 		E518D8A020B199890011BB6B /* SearchApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E518D89F20B199890011BB6B /* SearchApi.swift */; };
 		E518D8A220B19A900011BB6B /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E518D8A120B19A900011BB6B /* UserApi.swift */; };
@@ -140,6 +140,7 @@
 		E586EE79207E5B4100D8F3F0 /* GameHomePageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E586EE77207E5B4000D8F3F0 /* GameHomePageCell.xib */; };
 		E586EE7C207E68FA00D8F3F0 /* GameHomePageFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E586EE7A207E68FA00D8F3F0 /* GameHomePageFooterView.swift */; };
 		E586EE7D207E68FA00D8F3F0 /* GameHomePageFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E586EE7B207E68FA00D8F3F0 /* GameHomePageFooterView.xib */; };
+		E58E774821B61BFE002A00E6 /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58E774721B61BFE002A00E6 /* UIViewControllerExt.swift */; };
 		E5919D1020EC51E9005E7E2C /* Refreshable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5919D0F20EC51E9005E7E2C /* Refreshable.swift */; };
 		E5919D1320EC56D3005E7E2C /* ViewModelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5919D1220EC56D3005E7E2C /* ViewModelable.swift */; };
 		E5919D1720EC5AA4005E7E2C /* NewsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5919D1620EC5AA4005E7E2C /* NewsListViewModel.swift */; };
@@ -205,6 +206,7 @@
 
 /* Begin PBXFileReference section */
 		139F370220F1A14C00779106 /* SVProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVProgressHUD.framework; path = ../../../QY/Desktop/GamerSky/Carthage/Build/iOS/SVProgressHUD.framework; sourceTree = "<group>"; };
+		374130AA40958FB95594DE0F /* libPods-GamerSky.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GamerSky.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A76D4C644FCDE4465C7CD87 /* Pods-GamerSky.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GamerSky.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GamerSky/Pods-GamerSky.debug.xcconfig"; sourceTree = "<group>"; };
 		601AC7D720F58A69002FE3A6 /* SVProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVProgressHUD.framework; path = Carthage/Build/iOS/SVProgressHUD.framework; sourceTree = "<group>"; };
 		603CACAB20F8552A0001614F /* GameDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailViewController.swift; sourceTree = "<group>"; };
@@ -219,7 +221,6 @@
 		60EAFABC20F49A3A0034D8AA /* DNSPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNSPageView.h; sourceTree = "<group>"; };
 		60EAFABD20F49A3A0034D8AA /* DNSPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DNSPageView.swift; sourceTree = "<group>"; };
 		60EAFABE20F49A3A0034D8AA /* DNSPageViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DNSPageViewManager.swift; sourceTree = "<group>"; };
-		71BFE174E127314FD3FBE57C /* Pods_GamerSky.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GamerSky.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		990681802071FD5B00A825AC /* TabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		9906818C2072019E00A825AC /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		9906819120721AAA00A825AC /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
@@ -359,6 +360,7 @@
 		E586EE77207E5B4000D8F3F0 /* GameHomePageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameHomePageCell.xib; sourceTree = "<group>"; };
 		E586EE7A207E68FA00D8F3F0 /* GameHomePageFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHomePageFooterView.swift; sourceTree = "<group>"; };
 		E586EE7B207E68FA00D8F3F0 /* GameHomePageFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameHomePageFooterView.xib; sourceTree = "<group>"; };
+		E58E774721B61BFE002A00E6 /* UIViewControllerExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
 		E5919D0F20EC51E9005E7E2C /* Refreshable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Refreshable.swift; sourceTree = "<group>"; };
 		E5919D1220EC56D3005E7E2C /* ViewModelable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelable.swift; sourceTree = "<group>"; };
 		E5919D1620EC5AA4005E7E2C /* NewsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListViewModel.swift; sourceTree = "<group>"; };
@@ -436,7 +438,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4763D9DBC59A3C133C1D5734 /* Pods_GamerSky.framework in Frameworks */,
+				CC1088E1C61B090BD9D73420 /* libPods-GamerSky.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -707,6 +709,7 @@
 				998F0C442071EEC500C587C2 /* UIViewExtension.swift */,
 				E5DC0AEE2086301B001E61C6 /* StringExtensions.swift */,
 				99A6781D209AF7C600DB1AA7 /* IntExtension.swift */,
+				E58E774721B61BFE002A00E6 /* UIViewControllerExt.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1010,7 +1013,7 @@
 				998F0C4B2071EF1800C587C2 /* SwiftNotificationCenter.framework */,
 				998F0C4A2071EF1800C587C2 /* SwiftTheme.framework */,
 				998F0C4F2071EF1800C587C2 /* SwiftyJSON.framework */,
-				71BFE174E127314FD3FBE57C /* Pods_GamerSky.framework */,
+				374130AA40958FB95594DE0F /* libPods-GamerSky.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1685,7 +1688,7 @@
 				99E799932071E10D005C3408 /* Sources */,
 				99E799942071E10D005C3408 /* Frameworks */,
 				99E799952071E10D005C3408 /* Resources */,
-				6BCCF8F026839F28A125CABD /* [CP] Embed Pods Frameworks */,
+				67791C1A7D2280EEE45A14F1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1784,64 +1787,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6BCCF8F026839F28A125CABD /* [CP] Embed Pods Frameworks */ = {
+		67791C1A7D2280EEE45A14F1 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-GamerSky/Pods-GamerSky-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/Cache/Cache.framework",
-				"${BUILT_PRODUCTS_DIR}/CleanJSON/CleanJSON.framework",
-				"${BUILT_PRODUCTS_DIR}/DefaultsKit/DefaultsKit.framework",
-				"${BUILT_PRODUCTS_DIR}/DeviceKit/DeviceKit.framework",
-				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
-				"${BUILT_PRODUCTS_DIR}/FDFullscreenPopGesture/FDFullscreenPopGesture.framework",
-				"${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework",
-				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
-				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
-				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
-				"${BUILT_PRODUCTS_DIR}/NSObject+Rx/NSObject_Rx.framework",
-				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
-				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
-				"${BUILT_PRODUCTS_DIR}/RxNetwork/RxNetwork.framework",
-				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/RxURLNavigator/RxURLNavigator.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftNotificationCenter/SwiftNotificationCenter.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftTheme/SwiftTheme.framework",
-				"${BUILT_PRODUCTS_DIR}/URLNavigator/URLNavigator.framework",
-				"${BUILT_PRODUCTS_DIR}/YNPageViewController/YNPageViewController.framework",
+			inputFileListPaths = (
 			);
-			name = "[CP] Embed Pods Frameworks";
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-GamerSky/Pods-GamerSky-resources.sh",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cache.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CleanJSON.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DefaultsKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DeviceKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FDFullscreenPopGesture.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSPagerView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NSObject_Rx.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxNetwork.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxURLNavigator.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftNotificationCenter.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftTheme.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/URLNavigator.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YNPageViewController.framework",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GamerSky/Pods-GamerSky-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GamerSky/Pods-GamerSky-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9949B34A0E046E9B56734A3B /* [CP] Check Pods Manifest.lock */ = {
@@ -1959,6 +1924,7 @@
 				E5CD69BB207BCF5F001A1A0A /* StarLayer.swift in Sources */,
 				E5CD69C5207BCF5F001A1A0A /* CosmosSettings.swift in Sources */,
 				E5787F322088CAA300AB55E2 /* GameRankingListViewController.swift in Sources */,
+				E58E774821B61BFE002A00E6 /* UIViewControllerExt.swift in Sources */,
 				992C5B2220B66DCC00887A71 /* NavigationMap.swift in Sources */,
 				998F0C6E2071F77800C587C2 /* CircleViewController.swift in Sources */,
 				E5C1FE8821843E0C009CCE4B /* Response+Codable.swift in Sources */,
@@ -2158,7 +2124,7 @@
 				DEVELOPMENT_TEAM = W2W4C384BP;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = GamerSky/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = QY.GamerSky;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2179,7 +2145,7 @@
 				DEVELOPMENT_TEAM = W2W4C384BP;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = GamerSky/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = QY.GamerSky;
 				PRODUCT_NAME = "$(TARGET_NAME)";
