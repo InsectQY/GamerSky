@@ -11,17 +11,7 @@ import JXCategoryView
 
 class NewsPageViewController: BaseViewController {
     
-    fileprivate let contentHeight: CGFloat = ScreenHeight - kTopH - KBottomH
-    
-    fileprivate lazy var scrollView: UIScrollView = {
-        
-        let scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: contentHeight))
-        scrollView.isPagingEnabled = true
-        scrollView.bounces = false
-        scrollView.showsHorizontalScrollIndicator = false
-        scrollView.showsVerticalScrollIndicator = false
-        return scrollView
-    }()
+    private let contentHeight: CGFloat = ScreenHeight - kTopH - KBottomH
     
     fileprivate lazy var categoryView: JXCategoryTitleView = {
         
@@ -29,9 +19,15 @@ class NewsPageViewController: BaseViewController {
         lineView.lineStyle = .JD
         lineView.indicatorLineWidth = 10
         let categoryView = JXCategoryTitleView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: kNaviBarH))
-        categoryView.contentScrollView = scrollView
+        categoryView.contentScrollView = pageContentView.collectionView
         categoryView.indicators = [lineView]
         return categoryView
+    }()
+    
+    fileprivate lazy var pageContentView: PageContentView = {
+        
+        let pageContentView = PageContentView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: contentHeight), childVcs: [])
+        return pageContentView
     }()
     
     // MARK: - LifeCycle
@@ -64,8 +60,7 @@ extension NewsPageViewController {
     private func setUpUI() {
         
         edgesForExtendedLayout = UIRectEdge(rawValue: 0)
-        view.addSubview(scrollView)
-        disablesAdjustScrollViewInsets(scrollView)
+        view.addSubview(pageContentView)
     }
     
     // MARK: - 设置导航栏
@@ -87,17 +82,9 @@ extension Reactive where Base: NewsPageViewController {
         
         return Binder(base) { (vc, result) in
             
-            var titles: [String] = []
-            for (index, value) in result.enumerated() {
-                
-                titles.append(value.nodeName)
-                let listVC = NewsViewController(nodeID: value.nodeId)
-                listVC.view.frame = CGRect(x: CGFloat(index) * ScreenWidth, y: 0, width: ScreenWidth, height: vc.contentHeight)
-                vc.scrollView.addSubview(listVC.view)
-                vc.addChild(listVC)
-            }
-            vc.categoryView.titles = titles
-            vc.scrollView.contentSize = CGSize(width: ScreenWidth * CGFloat(titles.count), height: vc.contentHeight)
+            vc.pageContentView.childVcs = result.map({NewsViewController(nodeID: $0.nodeId)})
+            vc.categoryView.titles = result.map({$0.nodeName})
+            vc.categoryView.reloadData()
         }
     }
 }

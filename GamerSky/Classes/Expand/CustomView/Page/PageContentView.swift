@@ -1,32 +1,28 @@
 //
-//  QYContentView.swift
-//  QYPageView
+//  PageContentView.swift
+//  QYNews
 //
-//  Created by Insect on 2017/4/28.
-//  Copyright © 2017年 Insect. All rights reserved.
+//  Created by Insect on 2018/12/4.
+//  Copyright © 2018 Insect. All rights reserved.
 //
 
 import UIKit
 
-class QYContentView: UIView {
-    
+class PageContentView: UIView {
+
     private let kContentCellID = "kContentCellID"
     
-    /// 切换界面
-    public var selIndex: Int = 0 {
-        
+    public var childVcs: [UIViewController] = [] {
         didSet {
-            
-            let indexPath = IndexPath(item: selIndex, section: 0)
-            collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+            collectionView.reloadData()
         }
     }
-    private let childVcs: [UIViewController]
-        
+    
+    // MARK: - Lazyload
     public lazy var collectionView: UICollectionView = {
         
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = bounds.size
+        layout.itemSize = CGSize(width: ScreenWidth, height: bounds.height)
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         layout.scrollDirection = .horizontal
@@ -35,44 +31,33 @@ class QYContentView: UIView {
         collectionView.dataSource = self
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: kContentCellID)
         collectionView.isPagingEnabled = true
-        collectionView.scrollsToTop = false
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.bounces = false
+        collectionView.backgroundColor = .clear
         return collectionView
     }()
     
-    // MARK: 构造函数
-    init(frame: CGRect, childVcs: [UIViewController]) {
-        
-        self.childVcs = childVcs
-        
+    // MARK: - init
+    init(frame: CGRect, childVcs : [UIViewController]) {
         super.init(frame: frame)
-        
-        setupUI()
+        self.childVcs = childVcs
+        setUpUI()
     }
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError("不能从xib中加载")
+        fatalError("init(coder:) has not been implemented")
     }
-}
-
-// MARK:- 设置UI界面
-extension QYContentView {
     
-    private func setupUI() {
+    private func setUpUI() {
         
-        // 1.将childVc添加到父控制器中
-//        for vc in childVcs {
-//            parentVc.addChildViewController(vc)
-//        }
-        
-        // 2.初始化用于显示子控制器View的View（UIScrollView/UICollectionView）
+        if #available(iOS 11.0, *) {
+            collectionView.contentInsetAdjustmentBehavior = .never
+        }
         addSubview(collectionView)
     }
 }
 
-// MARK:- UICollectionViewDataSource
-extension QYContentView: UICollectionViewDataSource {
+extension PageContentView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return childVcs.count
@@ -82,9 +67,7 @@ extension QYContentView: UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kContentCellID, for: indexPath)
         
-        for subview in cell.contentView.subviews {
-            subview.removeFromSuperview()
-        }
+        let _ = cell.contentView.subviews.map({$0.removeFromSuperview()})
         
         let vc = childVcs[indexPath.item]
         vc.view.frame = cell.contentView.bounds

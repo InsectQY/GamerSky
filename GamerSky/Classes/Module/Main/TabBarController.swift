@@ -69,7 +69,7 @@ extension TabBarController {
     
     private func addChildVc(childVcName: String, normalImg: String, selImg: String) {
         
-        let childVc = GetVc.getVcFromString(childVcName)
+        let childVc = getVcFromString(childVcName)
         childVc.tabBarItem.image = UIImage(named: normalImg)
         childVc.tabBarItem.selectedImage = UIImage(named: selImg)
         childVc.tabBarItem.imageInsets = UIEdgeInsets.init(top: 6, left: 0, bottom: -6, right: 0)
@@ -77,5 +77,25 @@ extension TabBarController {
         let childNav = NavigationController(rootViewController: childVc)
         
         addChild(childNav)
+    }
+    
+    private func getVcFromString(_ vcName: String) -> UIViewController {
+        
+        guard let nameSpace = Bundle.main.infoDictionary!["CFBundleExecutable"] as? String else {
+            
+            print("没有获取到命名空间")
+            return UIViewController()
+        }
+        guard let childVcClass = NSClassFromString(nameSpace + "." + vcName) else {
+            
+            print("没有获取到字符串对应的Class")
+            return UIViewController()
+        }
+        guard let childVcType = childVcClass as? UIViewController.Type else {
+            print("没有获取对应控制器的类型")
+            return UIViewController()
+        }
+        
+        return childVcType.init()
     }
 }

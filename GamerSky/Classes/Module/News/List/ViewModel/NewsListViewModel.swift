@@ -46,6 +46,7 @@ extension NewsListViewModel: ViewModelable, HasDisposeBag {
             .flatMapLatest {
                 
             NewsApi.allChannelList(page, input.nodeID)
+            .cache
             .request()
             .mapObject([ChannelList].self)
             .asDriver(onErrorJustReturn: [])
