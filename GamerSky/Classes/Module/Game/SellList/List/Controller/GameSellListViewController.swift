@@ -11,7 +11,7 @@ import RxDataSources
 
 class GameSellListViewController: BaseViewController {
     
-    public var date: Int = 0
+    private var date: Int = 0
     // MARK: - LazyLoad
     private var dataSource: RxTableViewSectionedReloadDataSource<GameSellListSection>!
     private lazy var tableView: UITableView = {
@@ -33,6 +33,16 @@ class GameSellListViewController: BaseViewController {
         setUpUI()
         bindUI()
         setUpRefresh()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        tableView.frame = view.bounds
+    }
+    
+    convenience init(date: Int) {
+        self.init()
+        self.date = date
     }
 }
 

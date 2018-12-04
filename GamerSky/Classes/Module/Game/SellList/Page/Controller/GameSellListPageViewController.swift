@@ -7,10 +7,34 @@
 //
 
 import UIKit
+import JXCategoryView
 
 class GameSellListPageViewController: BaseViewController {
     
+    private let menuHeight: CGFloat = 44
+    private var contentHeight: CGFloat {
+        return ScreenHeight - kTopH - menuHeight
+    }
+    
     // MARK: - LazyLoad
+    private lazy var categoryView: JXCategoryTitleView = {
+        
+        let lineView = JXCategoryIndicatorLineView()
+        lineView.lineStyle = .JD
+        lineView.indicatorLineWidth = 10
+        let categoryView = JXCategoryTitleView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: menuHeight))
+        categoryView.contentScrollView = pageContentView.collectionView
+        categoryView.indicators = [lineView]
+        categoryView.titles = timeStrings
+        return categoryView
+    }()
+    
+    private lazy var pageContentView: PageContentView = {
+        
+        let childVcs = dates.map({GameSellListViewController(date: $0)})
+        let pageContentView = PageContentView(frame: CGRect(x: 0, y: menuHeight, width: ScreenWidth, height: contentHeight), childVcs: childVcs)
+        return pageContentView
+    }()
     /// 中文的日期
     private lazy var timeStrings = [String]()
     /// 毫秒(用于获取数据)
@@ -28,8 +52,14 @@ class GameSellListPageViewController: BaseViewController {
 // MARK: - 设置 UI 界面
 extension GameSellListPageViewController {
     
-    private func setUpNavi() {
+    private func setUpUI() {
         
+        edgesForExtendedLayout = UIRectEdge(rawValue: 0)
+        view.addSubview(pageContentView)
+        view.addSubview(categoryView)
+    }
+    
+    private func setUpNavi() {
         title = "发售表"
     }
     
@@ -50,33 +80,6 @@ extension GameSellListPageViewController {
                 }
             }
         }
-        setUpPageView()
-    }
-    
-    private func setUpPageView() {
-        
-        // 创建DNSPageStyle，设置样式
-        let style = DNSPageStyle()
-        style.bottomLineHeight = 2
-        style.isShowBottomLine = true
-        style.titleFontSize = 18
-        style.bottomLineColor = MainColor
-        style.titleColor = .black
-        style.titleSelectedColor = MainColor
-        style.isTitleScrollEnable = true
-        
-        // 创建每一页对应的controller
-        var childViewControllers = [GameSellListViewController]()
-
-        for i in 0..<timeStrings.count {
-            
-            let controller = GameSellListViewController()
-            controller.date = dates[i]
-            childViewControllers.append(controller)
-        }
-        
-        // 创建对应的DNSPageView，并设置它的frame
-        let pageView = DNSPageView(frame: CGRect(x: 0, y: kTopH, width: ScreenWidth, height: ScreenHeight), style: style, titles: timeStrings, childViewControllers: childViewControllers)
-        view.addSubview(pageView)
+        setUpUI()
     }
 }

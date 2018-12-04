@@ -7,15 +7,41 @@
 //
 
 import UIKit
+import JXCategoryView
 
 class GameCommentPageViewController: BaseViewController {
+    
+    private let menuHeight: CGFloat = 44
+    private var contentHeight: CGFloat {
+        return ScreenHeight - kTopH - menuHeight
+    }
+    
+    private lazy var categoryView: JXCategoryTitleView = {
+        
+        let lineView = JXCategoryIndicatorLineView()
+        lineView.lineStyle = .JD
+        lineView.indicatorLineWidth = 10
+        let categoryView = JXCategoryTitleView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: menuHeight))
+        categoryView.contentScrollView = pageContentView.collectionView
+        categoryView.indicators = [lineView]
+        categoryView.titles = ["热门", "最新"]
+        return categoryView
+    }()
+    
+    private lazy var pageContentView: PageContentView = {
+        
+        let commentType: [GameCommentType] = [.hot, .latest]
+        let childVcs = commentType.map({GameCommentListViewController(commentType: $0)})
+        let pageContentView = PageContentView(frame: CGRect(x: 0, y: menuHeight, width: ScreenWidth, height: contentHeight), childVcs: childVcs)
+        return pageContentView
+    }()
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setUpNavi()
-        setUpPageView()
+        setUpUI()
     }
 }
 
@@ -27,31 +53,10 @@ extension GameCommentPageViewController {
         title = "玩家点评"
     }
     
-    private func setUpPageView() {
+    private func setUpUI() {
         
-        // 创建DNSPageStyle，设置样式
-        let style = DNSPageStyle()
-        style.bottomLineHeight = 2
-        style.isShowBottomLine = true
-        style.titleFontSize = 18
-        style.bottomLineColor = MainColor
-        style.titleColor = .black
-        style.titleSelectedColor = MainColor
-        
-        // 创建每一页对应的controller
-        var childViewControllers = [GameCommentListViewController]()
-        let commentStrings = ["热门", "最新"]
-        let commentType: [GameCommentType] = [.hot, .latest]
-        
-        for i in 0..<commentStrings.count {
-            
-            let controller = GameCommentListViewController()
-            controller.commentType = commentType[i]
-            childViewControllers.append(controller)
-        }
-        
-        // 创建对应的DNSPageView，并设置它的frame
-        let pageView = DNSPageView(frame: CGRect(x: 0, y: kTopH, width: ScreenWidth, height: ScreenHeight), style: style, titles: commentStrings, childViewControllers: childViewControllers)
-        view.addSubview(pageView)
+        edgesForExtendedLayout = UIRectEdge(rawValue: 0)
+        view.addSubview(pageContentView)
+        view.addSubview(categoryView)
     }
 }

@@ -11,13 +11,6 @@
 		603CACB220F859A90001614F /* GameDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603CACB120F859A90001614F /* GameDetailHeaderView.swift */; };
 		603CACB420F859B10001614F /* GameDetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 603CACB320F859B10001614F /* GameDetailHeaderView.xib */; };
 		603CACB620F87D3B0001614F /* GameDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603CACB520F87D3B0001614F /* GameDetail.swift */; };
-		60EAFABF20F49A3A0034D8AA /* DNSPageCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EAFAB720F49A3A0034D8AA /* DNSPageCollectionViewFlowLayout.swift */; };
-		60EAFAC020F49A3A0034D8AA /* DNSPageContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EAFAB820F49A3A0034D8AA /* DNSPageContentView.swift */; };
-		60EAFAC120F49A3A0034D8AA /* DNSPageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EAFAB920F49A3A0034D8AA /* DNSPageHelper.swift */; };
-		60EAFAC220F49A3A0034D8AA /* DNSPageStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EAFABA20F49A3A0034D8AA /* DNSPageStyle.swift */; };
-		60EAFAC320F49A3A0034D8AA /* DNSPageTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EAFABB20F49A3A0034D8AA /* DNSPageTitleView.swift */; };
-		60EAFAC420F49A3A0034D8AA /* DNSPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EAFABD20F49A3A0034D8AA /* DNSPageView.swift */; };
-		60EAFAC520F49A3A0034D8AA /* DNSPageViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EAFABE20F49A3A0034D8AA /* DNSPageViewManager.swift */; };
 		990681812071FD5B00A825AC /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990681802071FD5B00A825AC /* TabBar.swift */; };
 		9906818D2072019E00A825AC /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9906818C2072019E00A825AC /* BaseViewController.swift */; };
 		9906819220721AAA00A825AC /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9906819120721AAA00A825AC /* BaseModel.swift */; };
@@ -212,14 +205,6 @@
 		603CACB120F859A90001614F /* GameDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailHeaderView.swift; sourceTree = "<group>"; };
 		603CACB320F859B10001614F /* GameDetailHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameDetailHeaderView.xib; sourceTree = "<group>"; };
 		603CACB520F87D3B0001614F /* GameDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetail.swift; sourceTree = "<group>"; };
-		60EAFAB720F49A3A0034D8AA /* DNSPageCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DNSPageCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
-		60EAFAB820F49A3A0034D8AA /* DNSPageContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DNSPageContentView.swift; sourceTree = "<group>"; };
-		60EAFAB920F49A3A0034D8AA /* DNSPageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DNSPageHelper.swift; sourceTree = "<group>"; };
-		60EAFABA20F49A3A0034D8AA /* DNSPageStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DNSPageStyle.swift; sourceTree = "<group>"; };
-		60EAFABB20F49A3A0034D8AA /* DNSPageTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DNSPageTitleView.swift; sourceTree = "<group>"; };
-		60EAFABC20F49A3A0034D8AA /* DNSPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNSPageView.h; sourceTree = "<group>"; };
-		60EAFABD20F49A3A0034D8AA /* DNSPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DNSPageView.swift; sourceTree = "<group>"; };
-		60EAFABE20F49A3A0034D8AA /* DNSPageViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DNSPageViewManager.swift; sourceTree = "<group>"; };
 		990681802071FD5B00A825AC /* TabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		9906818C2072019E00A825AC /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		9906819120721AAA00A825AC /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
@@ -476,21 +461,6 @@
 				603CACB320F859B10001614F /* GameDetailHeaderView.xib */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		60EAFAB620F49A3A0034D8AA /* DNSPageView */ = {
-			isa = PBXGroup;
-			children = (
-				60EAFAB720F49A3A0034D8AA /* DNSPageCollectionViewFlowLayout.swift */,
-				60EAFAB820F49A3A0034D8AA /* DNSPageContentView.swift */,
-				60EAFAB920F49A3A0034D8AA /* DNSPageHelper.swift */,
-				60EAFABA20F49A3A0034D8AA /* DNSPageStyle.swift */,
-				60EAFABB20F49A3A0034D8AA /* DNSPageTitleView.swift */,
-				60EAFABC20F49A3A0034D8AA /* DNSPageView.h */,
-				60EAFABD20F49A3A0034D8AA /* DNSPageView.swift */,
-				60EAFABE20F49A3A0034D8AA /* DNSPageViewManager.swift */,
-			);
-			path = DNSPageView;
 			sourceTree = "<group>";
 		};
 		69104DBA025C838A1AB55654 /* Pods */ = {
@@ -1513,7 +1483,6 @@
 		E5CD69A8207BCF46001A1A0A /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
-				60EAFAB620F49A3A0034D8AA /* DNSPageView */,
 				E5CD69A9207BCF5F001A1A0A /* Cosmos */,
 			);
 			path = ThirdParty;
@@ -1852,7 +1821,6 @@
 				998F0C372071EE2E00C587C2 /* AppConfig.swift in Sources */,
 				998F0C452071EEC500C587C2 /* UIViewExtension.swift in Sources */,
 				994141132074A2CD0016AC01 /* NewsSectionHeaderView.swift in Sources */,
-				60EAFAC220F49A3A0034D8AA /* DNSPageStyle.swift in Sources */,
 				E518D8A420B19B5A0011BB6B /* GameApi.swift in Sources */,
 				E550C92E207CD21200C4AF2D /* GameTagContentCell.swift in Sources */,
 				994141272074C2740016AC01 /* Preference.swift in Sources */,
@@ -1902,7 +1870,6 @@
 				E5C1FE9021843F3F009CCE4B /* AppDelegate+Services.swift in Sources */,
 				E551665121AF8EC800E83044 /* MJRefreshComponent+Rx.swift in Sources */,
 				E5C1FEAA2184A126009CCE4B /* UIView+Rx.swift in Sources */,
-				60EAFAC520F49A3A0034D8AA /* DNSPageViewManager.swift in Sources */,
 				E5259685208E15E100B5F419 /* GameListViewController.swift in Sources */,
 				E5CD6986207B95C0001A1A0A /* GameHomeHeaderView.swift in Sources */,
 				E52B6DE3208C4288004904C6 /* GameComment.swift in Sources */,
@@ -1921,7 +1888,6 @@
 				E52B6DDD208C41CF004904C6 /* GameCommentPageViewController.swift in Sources */,
 				9906819220721AAA00A825AC /* BaseModel.swift in Sources */,
 				E5CD69C3207BCF5F001A1A0A /* CosmosTouch.swift in Sources */,
-				60EAFAC420F49A3A0034D8AA /* DNSPageView.swift in Sources */,
 				998F0C402071EEAB00C587C2 /* UICollectionView+Reusable.swift in Sources */,
 				E52B6DE7208C4C7E004904C6 /* GameCommentCell.swift in Sources */,
 				998F0C602071EFB100C587C2 /* QYRefresh.swift in Sources */,
@@ -1942,7 +1908,6 @@
 				E5C1FE8E21843E99009CCE4B /* AppDelegate+Root.swift in Sources */,
 				E58548E0208F6C8300C1C7CD /* FilterKindCell.swift in Sources */,
 				E5F8116C20739B3400E9883F /* ColumnElementCell.swift in Sources */,
-				60EAFAC320F49A3A0034D8AA /* DNSPageTitleView.swift in Sources */,
 				E534FAD0207A6506006CE008 /* ColumnDescHeaderView.swift in Sources */,
 				998F0C6A2071F72800C587C2 /* GameHomeViewController.swift in Sources */,
 				9941412A2074C2E60016AC01 /* QYUserDefaults.swift in Sources */,
@@ -1955,12 +1920,10 @@
 				E5C1FEA82184A126009CCE4B /* Observable+Ext.swift in Sources */,
 				E5DC0AEB20862A4C001E61C6 /* GameSellListPageViewController.swift in Sources */,
 				99B41ECB209C45E00035987C /* WebViewImage.swift in Sources */,
-				60EAFAC020F49A3A0034D8AA /* DNSPageContentView.swift in Sources */,
 				E5CD6997207BAA9C001A1A0A /* GameHomeRecommendContentCell.swift in Sources */,
 				992B5F42209965DC005036CE /* GameColumnFlowLayout.swift in Sources */,
 				E5DC0AF420863556001E61C6 /* GameSellListViewController.swift in Sources */,
 				998F0C412071EEAB00C587C2 /* Reusable.swift in Sources */,
-				60EAFAC120F49A3A0034D8AA /* DNSPageHelper.swift in Sources */,
 				994141232074B7C00016AC01 /* BaseView.swift in Sources */,
 				9941411020747F8C0016AC01 /* BaseButton.swift in Sources */,
 				E57C5BBB20824FA400655E0F /* GameColumnDetailCell.swift in Sources */,
@@ -1970,7 +1933,6 @@
 				E5919D1320EC56D3005E7E2C /* ViewModelable.swift in Sources */,
 				9958FFD62091CC070055DFAF /* GameListFlowLayout.swift in Sources */,
 				9958FFCF2091C3EB0055DFAF /* GameListHeaderView.swift in Sources */,
-				60EAFABF20F49A3A0034D8AA /* DNSPageCollectionViewFlowLayout.swift in Sources */,
 				E518D8A020B199890011BB6B /* SearchApi.swift in Sources */,
 				998F0C722071F7AD00C587C2 /* OriginalViewController.swift in Sources */,
 				E550C92A207CD0E700C4AF2D /* GameHomeTagCell.swift in Sources */,

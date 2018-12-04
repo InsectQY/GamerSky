@@ -7,8 +7,33 @@
 //
 
 import UIKit
+import JXCategoryView
 
 class GameRankingPageViewController: BaseViewController {
+    
+    private let menuHeight: CGFloat = 44
+    private var contentHeight: CGFloat {
+        return ScreenHeight - kTopH - menuHeight
+    }
+    
+    private lazy var categoryView: JXCategoryTitleView = {
+        
+        let lineView = JXCategoryIndicatorLineView()
+        lineView.lineStyle = .JD
+        lineView.indicatorLineWidth = 10
+        let categoryView = JXCategoryTitleView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: menuHeight))
+        categoryView.contentScrollView = pageContentView.collectionView
+        categoryView.indicators = [lineView]
+        categoryView.titles = pageData.map({$0.name})
+        return categoryView
+    }()
+    
+    private lazy var pageContentView: PageContentView = {
+        
+        let childVcs = pageData.map({GameRankingListViewController(gameClassID: $0.searchid, rankingType: .fractions)})
+        let pageContentView = PageContentView(frame: CGRect(x: 0, y: menuHeight, width: ScreenWidth, height: contentHeight), childVcs: childVcs)
+        return pageContentView
+    }()
     
     private lazy var pageData = [GameTag]()
     // MARK: - LifeCycle
@@ -26,38 +51,13 @@ extension GameRankingPageViewController {
         
         let data = try! Data(contentsOf: Bundle.main.url(forResource: "GameCategoryData", withExtension: "plist")!)
         pageData = try! PropertyListDecoder().decode([GameTag].self, from: data)
-        setUpPageView()
+        setUpUI()
     }
     
-    private func setUpPageView() {
+    private func setUpUI() {
         
-        // 创建DNSPageStyle，设置样式
-        let style = DNSPageStyle()
-        style.bottomLineHeight = 2
-        style.isShowBottomLine = true
-        style.titleFontSize = 16
-        style.bottomLineColor = MainColor
-        style.titleColor = .black
-        style.titleSelectedColor = MainColor
-        style.isTitleScrollEnable = true
-        
-        // 设置标题内容
-        var titles = [String]()
-        
-        // 创建每一页对应的controller
-        var childViewControllers = [GameRankingListViewController]()
-        for element in pageData {
-            
-            let controller = GameRankingListViewController()
-            controller.gameClass = element.searchid
-            controller.rankingType = .fractions
-            titles.append(element.name)
-            childViewControllers.append(controller)
-            addChild(controller)
-        }
-        
-        // 创建对应的DNSPageView，并设置它的frame
-        let pageView = DNSPageView(frame: CGRect(x: 0, y: kTopH, width: ScreenWidth, height: ScreenHeight), style: style, titles: titles, childViewControllers: childViewControllers)
-        view.addSubview(pageView)
+        edgesForExtendedLayout = UIRectEdge(rawValue: 0)
+        view.addSubview(pageContentView)
+        view.addSubview(categoryView)
     }
 }

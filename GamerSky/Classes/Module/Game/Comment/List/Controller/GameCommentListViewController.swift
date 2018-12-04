@@ -11,7 +11,7 @@ import UIKit
 class GameCommentListViewController: BaseViewController {
     
     /// 评价类型
-    public var commentType: GameCommentType = .hot
+    private var commentType: GameCommentType = .hot
     /// 页码
     private var page = 1
     // MARK: - LazyLoad
@@ -37,6 +37,17 @@ class GameCommentListViewController: BaseViewController {
 
         setUpUI()
         setUpRefresh()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        tableView.frame = view.bounds
+    }
+    
+    // MARK: - convenience
+    convenience init(commentType: GameCommentType) {
+        self.init()
+        self.commentType = commentType
     }
 }
 

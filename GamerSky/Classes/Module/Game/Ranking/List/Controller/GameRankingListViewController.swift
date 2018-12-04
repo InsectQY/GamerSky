@@ -11,11 +11,11 @@ import UIKit
 class GameRankingListViewController: BaseViewController {
     
     /// 游戏种类 ID
-    public var gameClass = 0
+    private var gameClassID = 0
     /// 年代
-    public var annualClass = "all"
+    private var annualClass = "all"
     /// 排名方式
-    public var rankingType = GameRankingType.fractions
+    private var rankingType = GameRankingType.fractions
 
     // MARK: - LazyLoad
     private lazy var rankingData = [GameSpecialDetail]()
@@ -41,6 +41,18 @@ class GameRankingListViewController: BaseViewController {
         setUpUI()
         setUpRefresh()
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        tableView.frame = view.bounds
+    }
+    
+    convenience init(gameClassID: Int, rankingType: GameRankingType) {
+        
+        self.init()
+        self.gameClassID = gameClassID
+        self.rankingType = rankingType
+    }
 }
 
 // MARK: - 设置 UI 界面
@@ -61,7 +73,7 @@ extension GameRankingListViewController {
             guard let `self` = self else {return}
             self.page = 1
             
-            GameApi.gameRankingList(self.page, self.rankingType, self.gameClass, self.annualClass)
+            GameApi.gameRankingList(self.page, self.rankingType, self.gameClassID, self.annualClass)
             .cache
             .request()
             .mapObject([GameSpecialDetail].self)
@@ -81,7 +93,7 @@ extension GameRankingListViewController {
             guard let `self` = self else {return}
             self.page += 1
             
-            GameApi.gameRankingList(self.page, self.rankingType, self.gameClass, self.annualClass)
+            GameApi.gameRankingList(self.page, self.rankingType, self.gameClassID, self.annualClass)
             .cache
             .request()
             .mapObject([GameSpecialDetail].self)
