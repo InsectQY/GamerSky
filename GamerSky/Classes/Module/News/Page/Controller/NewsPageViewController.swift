@@ -79,21 +79,6 @@ extension NewsPageViewController {
     @objc private func didClickSearch() {
         
     }
-    
-    private func setUpScrollView(_ channel: [Channel]) {
-        
-        var titles: [String] = []
-        for (index, value) in channel.enumerated() {
-            
-            titles.append(value.nodeName)
-            let listVC = NewsViewController(nodeID: value.nodeId)
-            listVC.view.frame = CGRect(x: CGFloat(index) * ScreenWidth, y: 0, width: ScreenWidth, height: contentHeight)
-            scrollView.addSubview(listVC.view)
-            addChild(listVC)
-        }
-        categoryView.titles = titles
-        scrollView.contentSize = CGSize(width: ScreenWidth * CGFloat(titles.count), height: contentHeight)
-    }
 }
 
 extension Reactive where Base: NewsPageViewController {

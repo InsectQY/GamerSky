@@ -46,7 +46,6 @@ extension NewsListViewModel: ViewModelable, HasDisposeBag {
             .flatMapLatest {
                 
             NewsApi.allChannelList(page, input.nodeID)
-            .cache
             .request()
             .mapObject([ChannelList].self)
             .asDriver(onErrorJustReturn: [])
@@ -56,12 +55,11 @@ extension NewsListViewModel: ViewModelable, HasDisposeBag {
             .flatMapLatest {
                 
             NewsApi.allChannelList(page, input.nodeID)
-            .cache
             .request()
             .mapObject([ChannelList].self)
             .asDriver(onErrorJustReturn: [])
         }
-        
+
         header.map { lists -> [ChannelList] in
             
             var lists = lists
@@ -70,8 +68,8 @@ extension NewsListViewModel: ViewModelable, HasDisposeBag {
         }.drive(vmDatas)
         .disposed(by: disposeBag)
         
-//        footer.map({vmDatas.value + $0}).drive(vmDatas)
-//        .disposed(by: disposeBag)
+        footer.map({vmDatas.value + $0}).drive(vmDatas)
+        .disposed(by: disposeBag)
         
         let banners = header.map({$0.first?.childElements})
         

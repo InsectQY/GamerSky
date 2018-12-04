@@ -22,12 +22,11 @@ class NewsViewController: BaseViewController {
     private lazy var vmInput = NewsListViewModel.Input(nodeID: nodeID, headerRefresh: tableView.qy_header.rx.refreshing.asDriver(), footerRefresh: tableView.qy_footer.rx.refreshing.asDriver())
     private lazy var vmOutput = viewModel.transform(input: vmInput)
 
-    public lazy var tableView: BaseTableView = {
+    private lazy var tableView: BaseTableView = {
         
-        let tableView = BaseTableView(frame: UIScreen.main.bounds)
+        let tableView = BaseTableView(frame: view.bounds)
         tableView.separatorStyle = .none
         tableView.register(cellType: ChannelListCell.self)
-        tableView.tableHeaderView = headerView
         tableView.rowHeight = ChannelListCell.cellHeight
         tableView.qy_header = QYRefreshHeader()
         tableView.qy_footer = QYRefreshFooter()
@@ -51,6 +50,12 @@ class NewsViewController: BaseViewController {
         super.viewDidLoad()
         setUpUI()
         bindUI()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        tableView.frame = view.bounds
+        tableView.tableHeaderView = headerView
     }
     
     override func repeatClickTabBar() {
