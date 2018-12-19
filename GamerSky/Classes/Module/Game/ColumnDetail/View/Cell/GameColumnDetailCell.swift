@@ -45,7 +45,7 @@ class GameColumnDetailCell: UITableViewCell, NibReusable {
             
             guard let specitial = specitial else {return}
             
-            gameImageView.qy_setImage(specitial.DefaultPicUrl, "")
+            gameImageView.qy_setImage(specitial.DefaultPicUrl, placeholder: "")
             gameNameLabel.text = specitial.Title
             gameDescLabel.text = specitial.description
             gameTagLabel.text = specitial.gameTagString

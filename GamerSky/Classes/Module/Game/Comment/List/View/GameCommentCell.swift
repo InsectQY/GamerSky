@@ -31,8 +31,8 @@ class GameCommentCell: UITableViewCell, NibReusable {
             
             guard let comment = comment else {return}
             
-            userProfileImageView.qy_setImage(comment.img_URL, "")
-            gameImageView.qy_setImage(comment.DefaultPicUrl, "")
+            userProfileImageView.qy_setImage(comment.img_URL, placeholder: "")
+            gameImageView.qy_setImage(comment.DefaultPicUrl, placeholder: "")
             contentLabel.attributedText = comment.content.htmlString.getAttributeStringWith(lineSpace: 10)
             gameNameLabel.text = comment.Title
             userNameLabel.text = comment.nickname

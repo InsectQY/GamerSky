@@ -28,7 +28,7 @@ class GameSellListCell: UITableViewCell, NibReusable {
             guard let gameInfo = item else {return}
             gameNameLabel.text = gameInfo.title
             
-            gameImageView.qy_setImage(gameInfo.thumbnailURL, "")
+            gameImageView.qy_setImage(gameInfo.thumbnailURL, placeholder: "")
             gamePlatformLabel.text = "游戏平台: \(gameInfo.platform)"
             gameTypeLabel.text = "游戏类型: \(gameInfo.gameType)"
             sellTimeLabel.text = "发售时间: \(gameInfo.sellTime)"

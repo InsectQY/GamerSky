@@ -22,7 +22,7 @@ class GameListCell: BaseCollectionViewCell, NibReusable {
             
             guard let info = info else {return}
             
-            gameImageView.qy_setImage(info.image, "")
+            gameImageView.qy_setImage(info.image, placeholder: "")
             gameNameLabel.text = info.title
         }
     }
