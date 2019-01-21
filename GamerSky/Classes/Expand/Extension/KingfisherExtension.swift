@@ -29,7 +29,7 @@ extension UIButton {
         
         let placeholder: UIImage? = placeHolderName == nil ? nil : UIImage(named: placeHolderName!)
         
-        kf.setBackgroundImage(with: url, for: state, placeholder: placeholder, options: nil, progressBlock: { (receivedSize, totalSize) in
+        kf.setBackgroundImage(with: url, for: state, placeholder: placeholder, options: options, progressBlock: { (receivedSize, totalSize) in
             progress?(receivedSize,totalSize)
         }, completionHandler: { (image, error, cacheType, imageURL) in
             completionHandler?(image, error, cacheType, imageURL)
@@ -42,7 +42,7 @@ extension UIButton {
         
         let placeholder: UIImage? = placeHolderName == nil ? nil : UIImage(named: placeHolderName!)
         
-        kf.setImage(with: url, for: state, placeholder: placeholder, options: nil, progressBlock: { (receivedSize, totalSize) in
+        kf.setImage(with: url, for: state, placeholder: placeholder, options: options, progressBlock: { (receivedSize, totalSize) in
             progress?(receivedSize,totalSize)
         }, completionHandler: { (image, error, cacheType, imageURL) in
             completionHandler?(image, error, cacheType, imageURL)
