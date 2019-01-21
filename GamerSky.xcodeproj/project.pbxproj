@@ -142,6 +142,7 @@
 		E59EAE132075F92100D6284F /* ColumnListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E59EAE112075F92100D6284F /* ColumnListCell.xib */; };
 		E5B4EC3121F56EDC0065AB80 /* GameCommentListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B4EC3021F56EDC0065AB80 /* GameCommentListViewModel.swift */; };
 		E5B4EC3421F5789F0065AB80 /* GameRankingListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B4EC3321F5789F0065AB80 /* GameRankingListViewModel.swift */; };
+		E5B4EC3721F58C960065AB80 /* GameColumnViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B4EC3621F58C960065AB80 /* GameColumnViewModel.swift */; };
 		E5C1FE8621843E0C009CCE4B /* ObservableType+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C1FE8021843E0C009CCE4B /* ObservableType+Codable.swift */; };
 		E5C1FE8721843E0C009CCE4B /* Single+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C1FE8121843E0C009CCE4B /* Single+Codable.swift */; };
 		E5C1FE8821843E0C009CCE4B /* Response+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C1FE8221843E0C009CCE4B /* Response+Codable.swift */; };
@@ -356,6 +357,7 @@
 		E59EAE112075F92100D6284F /* ColumnListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColumnListCell.xib; sourceTree = "<group>"; };
 		E5B4EC3021F56EDC0065AB80 /* GameCommentListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCommentListViewModel.swift; sourceTree = "<group>"; };
 		E5B4EC3321F5789F0065AB80 /* GameRankingListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRankingListViewModel.swift; sourceTree = "<group>"; };
+		E5B4EC3621F58C960065AB80 /* GameColumnViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameColumnViewModel.swift; sourceTree = "<group>"; };
 		E5C1FE8021843E0C009CCE4B /* ObservableType+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ObservableType+Codable.swift"; sourceTree = "<group>"; };
 		E5C1FE8121843E0C009CCE4B /* Single+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Single+Codable.swift"; sourceTree = "<group>"; };
 		E5C1FE8221843E0C009CCE4B /* Response+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Response+Codable.swift"; sourceTree = "<group>"; };
@@ -1261,6 +1263,7 @@
 		E57C5BAF208245E900655E0F /* ColumnList */ = {
 			isa = PBXGroup;
 			children = (
+				E5B4EC3521F58C880065AB80 /* ViewModel */,
 				992B5F40209965B5005036CE /* FlowLayout */,
 				992B5F3F2099659C005036CE /* Controller */,
 			);
@@ -1393,6 +1396,14 @@
 			isa = PBXGroup;
 			children = (
 				E5B4EC3321F5789F0065AB80 /* GameRankingListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E5B4EC3521F58C880065AB80 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E5B4EC3621F58C960065AB80 /* GameColumnViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1861,6 +1872,7 @@
 				E59EAE122075F92100D6284F /* ColumnListCell.swift in Sources */,
 				E5CD6994207B9EC9001A1A0A /* GameHome.swift in Sources */,
 				E58548DE208F6C8300C1C7CD /* FilterCell.swift in Sources */,
+				E5B4EC3721F58C960065AB80 /* GameColumnViewModel.swift in Sources */,
 				9906818D2072019E00A825AC /* BaseViewController.swift in Sources */,
 				998F0C332071EBCE00C587C2 /* NavigationController.swift in Sources */,
 				99D32ADE2079B46A008A6B52 /* ColumnSectionHeader.swift in Sources */,

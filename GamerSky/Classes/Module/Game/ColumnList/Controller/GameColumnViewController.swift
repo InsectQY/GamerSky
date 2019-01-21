@@ -7,24 +7,23 @@
 //
 
 import UIKit
-import NSObject_Rx
 
 class GameColumnViewController: BaseViewController {
     
     // MARK: - LazyLoad
-    /// 特色专题
-    private lazy var gameColumn = [GameSpecialList]()
-    
     private lazy var collectionView: UICollectionView = {
         
         let collectionView = UICollectionView(frame: UIScreen.main.bounds, collectionViewLayout: GameColumnFlowLayout())
         collectionView.scrollIndicatorInsets = UIEdgeInsets.init(top: kTopH, left: 0, bottom: 0, right: 0)
-        collectionView.delegate = self
-        collectionView.dataSource = self
         collectionView.register(cellType: GameHomeColumnCell.self)
         collectionView.backgroundColor = .clear
+        collectionView.qy_header = QYRefreshHeader()
         return collectionView
     }()
+    
+    private lazy var viewModel = GameColumnViewModel()
+    private lazy var vmInput = GameColumnViewModel.Input(headerRefresh: collectionView.qy_header.rx.refreshing.asDriver())
+    private lazy var vmOutput = viewModel.transform(input: vmInput)
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -32,7 +31,7 @@ class GameColumnViewController: BaseViewController {
 
         setUpNavi()
         setUpUI()
-        setUpRefresh()
+        bindUI()
     }
 }
 
@@ -43,61 +42,34 @@ extension GameColumnViewController {
         
         view.backgroundColor = RGB(240, g: 240, b: 240)
         view.addSubview(collectionView)
+        collectionView.qy_header.beginRefreshing()
     }
     
     private func setUpNavi() {
-        
         title = "特色专题"
     }
     
-    private func setUpRefresh() {
+    private func bindUI() {
         
-        collectionView.qy_header = QYRefreshHeader(refreshingBlock: { [weak self] in
+        vmOutput.vmDatas.drive(collectionView.rx.items) { (collectionView, row, item) in
             
-            guard let `self` = self else {return}
+            let cell = collectionView.dequeueReusableCell(for: IndexPath(item: row, section: 0), cellType: GameHomeColumnCell.self)
+            cell.isLoadBigImage = true
+            cell.column = item
+            return cell
+        }.disposed(by: rx.disposeBag)
+        
+        // 刷新状态
+        vmOutput.endHeaderRefresh
+        .drive(collectionView.qy_header.rx.isRefreshing)
+        .disposed(by: rx.disposeBag)
+        
+        collectionView.rx.modelSelected(GameSpecialList.self)
+        .subscribe(onNext: {
             
-            // 特色专题
-            GameApi.gameSpecialList(1)
-            .cache
-            .request()
-            .mapObject([GameSpecialList].self)
-            .subscribe(onNext: {
-                self.gameColumn = $0
-                self.collectionView.reloadData()
-                self.collectionView.qy_header.endRefreshing()
-            }, onError: { _ in
-                self.collectionView.qy_header.endRefreshing()
-            })
-            .disposed(by: self.rx.disposeBag)
-        })
-        
-        collectionView.qy_header.beginRefreshing()
-    }
-}
-
-// MARK: - UICollectionViewDataSource
-extension GameColumnViewController: UICollectionViewDataSource {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return gameColumn.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: GameHomeColumnCell.self)
-        cell.isLoadBigImage = true
-        cell.column = gameColumn[indexPath.item]
-        return cell
-    }
-}
-
-// MARK: - UICollectionViewDelegate
-extension GameColumnViewController: UICollectionViewDelegate {
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
-        let hasSubList = gameColumn[indexPath.item].hasSubList
-        let nodeID = gameColumn[indexPath.item].nodeId
-        navigator.push(NavigationURL.columnDetail(hasSubList, nodeID).path)
+            let hasSubList = $0.hasSubList
+            let nodeID = $0.nodeId
+            navigator.push(NavigationURL.columnDetail(hasSubList, nodeID).path)
+        }).disposed(by: rx.disposeBag)
     }
 }

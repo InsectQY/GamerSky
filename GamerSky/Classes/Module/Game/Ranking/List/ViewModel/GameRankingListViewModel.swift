@@ -44,7 +44,7 @@ extension GameRankingListViewModel: ViewModelable, HasDisposeBag {
         
         var page = 1
         
-        // 加载最新视频
+        // 加载最新
         let header = input.headerRefresh.then(page = 1)
         .flatMapLatest { _ in
             
@@ -55,7 +55,7 @@ extension GameRankingListViewModel: ViewModelable, HasDisposeBag {
             .asDriverOnErrorJustComplete()
         }
         
-        // 加载更多视频
+        // 加载更多
         let footer = input.footerRefresh.then(page += 1)
         .flatMapLatest { _ in
                 
