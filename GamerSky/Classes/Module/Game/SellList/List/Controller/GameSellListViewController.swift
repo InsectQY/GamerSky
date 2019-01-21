@@ -7,24 +7,23 @@
 //
 
 import UIKit
-import RxDataSources
 
 class GameSellListViewController: BaseViewController {
     
     private var date: Int = 0
     // MARK: - LazyLoad
-    private var dataSource: RxTableViewSectionedReloadDataSource<GameSellListSection>!
     private lazy var tableView: UITableView = {
         
         let tableView = UITableView(frame: view.bounds)
         tableView.register(cellType: GameSellListCell.self)
         tableView.rowHeight = GameSellListCell.cellHeight
+        tableView.qy_header = QYRefreshHeader()
         return tableView
     }()
     
     private lazy var viewModel = GameSellListViewModel()
     private lazy var vmOutput = viewModel.transform(input: vmInput)
-    private lazy var vmInput = GameSellListViewModel.Input(date: date)
+    private lazy var vmInput = GameSellListViewModel.Input(date: date, headerRefresh: tableView.qy_header.rx.refreshing.asDriver())
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -32,7 +31,6 @@ class GameSellListViewController: BaseViewController {
 
         setUpUI()
         bindUI()
-        setUpRefresh()
     }
     
     override func viewDidLayoutSubviews() {
@@ -51,34 +49,21 @@ extension GameSellListViewController {
     
     private func setUpUI() {
         view.addSubview(tableView)
+        tableView.qy_header.beginRefreshing()
     }
     
     private func bindUI() {
         
-        dataSource = RxTableViewSectionedReloadDataSource<GameSellListSection>(configureCell: { (ds, tb, ip, item) in
+        vmOutput.vmDatas.drive(tableView.rx.items) { (tableView, row, item) in
             
-            let cell = tb.dequeueReusableCell(for: ip, cellType: GameSellListCell.self)
+            let cell = tableView.dequeueReusableCell(for: IndexPath(row: row, section: 0), cellType: GameSellListCell.self)
             cell.item = item
             return cell
-        })
+        }.disposed(by: rx.disposeBag)
         
-        vmOutput.sections
-        .drive(tableView.rx.items(dataSource: dataSource))
+        // 刷新状态
+        vmOutput.endHeaderRefresh
+        .drive(tableView.qy_header.rx.isRefreshing)
         .disposed(by: rx.disposeBag)
-    }
-}
-
-// MARK: - Refreshable
-extension GameSellListViewController: Refreshable {
-    
-    private func setUpRefresh() {
-        
-        let refreshHeader = initRefreshHeader(tableView) { [weak self] in
-            self?.vmInput.requestCommand.onNext(())
-        }
-        vmOutput
-        .autoSetRefreshHeaderState(header: refreshHeader, footer: nil)
-        .disposed(by: rx.disposeBag)
-        refreshHeader.beginRefreshing()
     }
 }

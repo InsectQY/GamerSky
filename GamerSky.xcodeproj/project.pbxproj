@@ -140,6 +140,7 @@
 		E5919D1E20ECC1E6005E7E2C /* GameHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5919D1D20ECC1E6005E7E2C /* GameHomeViewModel.swift */; };
 		E59EAE122075F92100D6284F /* ColumnListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59EAE102075F92100D6284F /* ColumnListCell.swift */; };
 		E59EAE132075F92100D6284F /* ColumnListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E59EAE112075F92100D6284F /* ColumnListCell.xib */; };
+		E5B4EC3121F56EDC0065AB80 /* GameCommentListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B4EC3021F56EDC0065AB80 /* GameCommentListViewModel.swift */; };
 		E5C1FE8621843E0C009CCE4B /* ObservableType+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C1FE8021843E0C009CCE4B /* ObservableType+Codable.swift */; };
 		E5C1FE8721843E0C009CCE4B /* Single+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C1FE8121843E0C009CCE4B /* Single+Codable.swift */; };
 		E5C1FE8821843E0C009CCE4B /* Response+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C1FE8221843E0C009CCE4B /* Response+Codable.swift */; };
@@ -188,7 +189,6 @@
 		E5DC0AFB20864CD0001E61C6 /* GameSellListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DC0AF920864CD0001E61C6 /* GameSellListCell.swift */; };
 		E5DC0AFC20864CD0001E61C6 /* GameSellListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5DC0AFA20864CD0001E61C6 /* GameSellListCell.xib */; };
 		E5E4D9B7218CAEE200EE661D /* GameSellListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E4D9B6218CAEE200EE661D /* GameSellListViewModel.swift */; };
-		E5E4D9B9218CAF5300EE661D /* GameSellListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E4D9B8218CAF5300EE661D /* GameSellListSection.swift */; };
 		E5F8116520738C2400E9883F /* Column.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F8116420738C2400E9883F /* Column.swift */; };
 		E5F8116720739A8C00E9883F /* ColumnHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F8116620739A8C00E9883F /* ColumnHeaderView.swift */; };
 		E5F8116920739AAB00E9883F /* ColumnHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F8116820739AAB00E9883F /* ColumnHeaderView.xib */; };
@@ -353,6 +353,7 @@
 		E5919D1D20ECC1E6005E7E2C /* GameHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHomeViewModel.swift; sourceTree = "<group>"; };
 		E59EAE102075F92100D6284F /* ColumnListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnListCell.swift; sourceTree = "<group>"; };
 		E59EAE112075F92100D6284F /* ColumnListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColumnListCell.xib; sourceTree = "<group>"; };
+		E5B4EC3021F56EDC0065AB80 /* GameCommentListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCommentListViewModel.swift; sourceTree = "<group>"; };
 		E5C1FE8021843E0C009CCE4B /* ObservableType+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ObservableType+Codable.swift"; sourceTree = "<group>"; };
 		E5C1FE8121843E0C009CCE4B /* Single+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Single+Codable.swift"; sourceTree = "<group>"; };
 		E5C1FE8221843E0C009CCE4B /* Response+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Response+Codable.swift"; sourceTree = "<group>"; };
@@ -408,7 +409,6 @@
 		E5DC0AF920864CD0001E61C6 /* GameSellListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSellListCell.swift; sourceTree = "<group>"; };
 		E5DC0AFA20864CD0001E61C6 /* GameSellListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameSellListCell.xib; sourceTree = "<group>"; };
 		E5E4D9B6218CAEE200EE661D /* GameSellListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSellListViewModel.swift; sourceTree = "<group>"; };
-		E5E4D9B8218CAF5300EE661D /* GameSellListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSellListSection.swift; sourceTree = "<group>"; };
 		E5F8116420738C2400E9883F /* Column.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Column.swift; sourceTree = "<group>"; };
 		E5F8116620739A8C00E9883F /* ColumnHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnHeaderView.swift; sourceTree = "<group>"; };
 		E5F8116820739AAB00E9883F /* ColumnHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColumnHeaderView.xib; sourceTree = "<group>"; };
@@ -1035,6 +1035,7 @@
 		E52B6DDB208C41AB004904C6 /* List */ = {
 			isa = PBXGroup;
 			children = (
+				E5B4EC2F21F56EBB0065AB80 /* ViewModel */,
 				E52B6DE0208C426D004904C6 /* Controller */,
 				E52B6DE4208C4C5F004904C6 /* View */,
 				E52B6DE1208C4275004904C6 /* Model */,
@@ -1377,6 +1378,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		E5B4EC2F21F56EBB0065AB80 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E5B4EC3021F56EDC0065AB80 /* GameCommentListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		E5C1FE7E21843E0C009CCE4B /* NetWork */ = {
 			isa = PBXGroup;
 			children = (
@@ -1611,7 +1620,6 @@
 			isa = PBXGroup;
 			children = (
 				E5E4D9B6218CAEE200EE661D /* GameSellListViewModel.swift */,
-				E5E4D9B8218CAF5300EE661D /* GameSellListSection.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1913,11 +1921,11 @@
 				9941412A2074C2E60016AC01 /* QYUserDefaults.swift in Sources */,
 				E5DC0AEF2086301B001E61C6 /* StringExtensions.swift in Sources */,
 				E550C933207CDBE200C4AF2D /* GameHomeColumnContentCell.swift in Sources */,
-				E5E4D9B9218CAF5300EE661D /* GameSellListSection.swift in Sources */,
 				99446AC8207CAC19004048C7 /* GameHomeRankingContentCell.swift in Sources */,
 				998F0C662071F6F700C587C2 /* NewsViewController.swift in Sources */,
 				998F0C322071EBCE00C587C2 /* TabBarController.swift in Sources */,
 				E5C1FEA82184A126009CCE4B /* Observable+Ext.swift in Sources */,
+				E5B4EC3121F56EDC0065AB80 /* GameCommentListViewModel.swift in Sources */,
 				E5DC0AEB20862A4C001E61C6 /* GameSellListPageViewController.swift in Sources */,
 				99B41ECB209C45E00035987C /* WebViewImage.swift in Sources */,
 				E5CD6997207BAA9C001A1A0A /* GameHomeRecommendContentCell.swift in Sources */,

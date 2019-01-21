@@ -7,22 +7,21 @@
 //
 
 import Foundation
-import RxSwift
-import RxCocoa
-import NSObject_Rx
 
 final class GameSellListViewModel {
     
     struct Input {
         
         let date: Int
-        let requestCommand = PublishSubject<Void>()
+        let headerRefresh: Driver<Void>
     }
     
-    struct Output: OutputRefreshProtocol {
+    struct Output {
         
-        let refreshState = Variable<RefreshState>(.none)
-        let sections: Driver<[GameSellListSection]>
+        /// 数据源
+        let vmDatas: Driver<[GameSellList]>
+        /// 刷新状态
+        let endHeaderRefresh: Driver<Bool>
     }
 }
 
@@ -30,14 +29,9 @@ extension GameSellListViewModel: ViewModelable, HasDisposeBag {
     
     func transform(input: GameSellListViewModel.Input) -> GameSellListViewModel.Output {
         
-        let vmDatas = Variable<[GameSellList]>([])
+        let vmDatas = BehaviorRelay<[GameSellList]>(value: [])
         
-        let sections = vmDatas.asDriver().map {
-            [GameSellListSection(items: $0)]
-        }
-        let output = Output(sections: sections)
-        
-        let result = input.requestCommand.asDriverOnErrorJustComplete()
+        let header = input.headerRefresh
         .flatMapLatest {
             
             GameApi.twoGameList(input.date, .popular)
@@ -47,13 +41,14 @@ extension GameSellListViewModel: ViewModelable, HasDisposeBag {
             .asDriver(onErrorJustReturn: [])
         }
             
-        result.asDriver()
+        header.asDriver()
         .drive(vmDatas)
         .disposed(by: disposeBag)
         
-        result.map({_ in RefreshState.endHeaderRefresh})
-        .drive(output.refreshState)
-        .disposed(by: disposeBag)
+        // 头部刷新状态
+        let endHeader = header.map { _ in false}
+        
+        let output = Output(vmDatas: vmDatas.asDriver(), endHeaderRefresh: endHeader)
         return output
     }
 }
