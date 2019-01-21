@@ -15,22 +15,25 @@ class GameRankingListViewController: BaseViewController {
     /// 年代
     private var annualClass = "all"
     /// 排名方式
-    private var rankingType = GameRankingType.fractions
+    private var rankingType: GameRankingType = .fractions
 
     // MARK: - LazyLoad
     private lazy var rankingData = [GameSpecialDetail]()
-    /// 页码
-    private var page = 1
+    
+    private lazy var viewModel = GameRankingListViewModel()
+    private lazy var vmInput = GameRankingListViewModel.Input(gameClassID: gameClassID, annualClass: annualClass, headerRefresh: tableView.qy_header.rx.refreshing.asDriver(), footerRefresh: tableView.qy_footer.rx.refreshing.asDriver())
+    private lazy var vmOutput = viewModel.transform(input: vmInput)
     
     private lazy var tableView: UITableView = {
         
         let tableView = UITableView(frame: view.bounds)
         tableView.delegate = self
-        tableView.dataSource = self
         tableView.register(cellType: GameColumnDetailCell.self)
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableView.automaticDimension
         tableView.separatorStyle = .none
+        tableView.qy_header = QYRefreshHeader()
+        tableView.qy_footer = QYRefreshFooter()
         return tableView
     }()
     
@@ -39,7 +42,7 @@ class GameRankingListViewController: BaseViewController {
         super.viewDidLoad()
 
         setUpUI()
-        setUpRefresh()
+        bindUI()
     }
     
     override func viewDidLayoutSubviews() {
@@ -61,71 +64,28 @@ extension GameRankingListViewController {
     private func setUpUI() {
         
         view.addSubview(tableView)
-    }
-}
-
-extension GameRankingListViewController {
-    
-    private func setUpRefresh() {
-        
-        tableView.qy_header = QYRefreshHeader(refreshingBlock: { [weak self] in
-            
-            guard let `self` = self else {return}
-            self.page = 1
-            
-            GameApi.gameRankingList(self.page, self.rankingType, self.gameClassID, self.annualClass)
-            .cache
-            .request()
-            .mapObject([GameSpecialDetail].self)
-            .subscribe(onNext: {
-                
-                self.rankingData = $0
-                self.tableView.reloadData()
-                self.tableView.qy_header.endRefreshing()
-            }, onError: { _ in
-                self.tableView.qy_header.endRefreshing()
-            })
-            .disposed(by: self.rx.disposeBag)
-        })
-        
-        tableView.mj_footer = QYRefreshFooter(refreshingBlock: {[weak self] in
-            
-            guard let `self` = self else {return}
-            self.page += 1
-            
-            GameApi.gameRankingList(self.page, self.rankingType, self.gameClassID, self.annualClass)
-            .cache
-            .request()
-            .mapObject([GameSpecialDetail].self)
-            .subscribe(onNext: {
-                
-                self.rankingData += $0
-                self.tableView.reloadData()
-                self.tableView.qy_footer.endRefreshing()
-            }, onError: { _ in
-                self.tableView.qy_footer.endRefreshing()
-            })
-            .disposed(by: self.rx.disposeBag)
-        })
-        
         tableView.qy_header.beginRefreshing()
     }
-}
-
-// MARK: - UITableViewDataSource
-extension GameRankingListViewController: UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return rankingData.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    private func bindUI() {
         
-        let cell = tableView.dequeueReusableCell(for: indexPath, cellType: GameColumnDetailCell.self)
-        cell.descLabelBottomConstraint.constant = 0
-        cell.tag = indexPath.row
-        cell.specitial = rankingData[indexPath.row]
-        return cell
+        vmOutput.vmDatas.drive(tableView.rx.items) { (tableView, row, item) in
+            
+            let cell = tableView.dequeueReusableCell(for: IndexPath(row: row, section: 0), cellType: GameColumnDetailCell.self)
+            cell.descLabelBottomConstraint.constant = 0
+            cell.tag = row
+            cell.specitial = item
+            return cell
+        }.disposed(by: rx.disposeBag)
+        
+        // 刷新状态
+        vmOutput.endHeaderRefresh
+        .drive(tableView.qy_header.rx.isRefreshing)
+        .disposed(by: rx.disposeBag)
+        
+        vmOutput.endFooterRefresh
+        .drive(tableView.qy_footer.rx.refreshFooterState)
+        .disposed(by: rx.disposeBag)
     }
 }
 
