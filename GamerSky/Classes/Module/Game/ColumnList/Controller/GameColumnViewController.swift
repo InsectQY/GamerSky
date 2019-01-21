@@ -14,7 +14,6 @@ class GameColumnViewController: BaseViewController {
     private lazy var collectionView: UICollectionView = {
         
         let collectionView = UICollectionView(frame: UIScreen.main.bounds, collectionViewLayout: GameColumnFlowLayout())
-        collectionView.scrollIndicatorInsets = UIEdgeInsets.init(top: kTopH, left: 0, bottom: 0, right: 0)
         collectionView.register(cellType: GameHomeColumnCell.self)
         collectionView.backgroundColor = .clear
         collectionView.qy_header = QYRefreshHeader()
