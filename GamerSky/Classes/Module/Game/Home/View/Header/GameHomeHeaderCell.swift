@@ -8,10 +8,10 @@
 
 import UIKit
 
-class GameHomeHeaderCell: BaseCollectionViewCell, NibReusable {
+class GameHomeHeaderCell: CollectionViewCell, NibReusable {
 
     // MARK: - IBOutlet
-    @IBOutlet private weak var titleLabel: BaseLabel!
+    @IBOutlet private weak var titleLabel: Label!
     @IBOutlet private weak var imageView: UIImageView!
     
     // MARK: - public

@@ -23,7 +23,7 @@ public extension Response {
     
     public func mapObject<T: Codable>(_ type: T.Type, using decoder: JSONDecoder = CleanJSONDecoder()) throws -> T {
         
-        let response = try mapObject(BaseModel<T>.self, atKeyPath: nil, using: decoder)
+        let response = try mapObject(Model<T>.self, atKeyPath: nil, using: decoder)
         if response.success {
             return response.result
         }

@@ -11,14 +11,14 @@ import FSPagerView
 import SwiftTheme
 import URLNavigator
 
-class NewsTableHeaderView: BaseView, NibReusable {
+class NewsTableHeaderView: View, NibReusable {
 
     private let CycleCellID = "CycleCellID"
     
     static let height: CGFloat = ScreenHeight * 0.31
     
     // MARK: - IBOutlet
-    @IBOutlet private weak var pageContentView: BaseView!
+    @IBOutlet private weak var pageContentView: View!
     @IBOutlet private weak var titleLabel: UILabel!
     
     // MARK: - public

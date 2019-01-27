@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GameHomeTagCell: BaseCollectionViewCell, NibReusable {
+class GameHomeTagCell: CollectionViewCell, NibReusable {
 
     static let cellHeight: CGFloat = 30
     

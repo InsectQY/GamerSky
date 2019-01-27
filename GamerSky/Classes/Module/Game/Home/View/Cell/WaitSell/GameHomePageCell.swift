@@ -8,13 +8,13 @@
 
 import UIKit
 
-class GameHomePageCell: BaseCollectionViewCell, NibReusable {
+class GameHomePageCell: CollectionViewCell, NibReusable {
 
     // MARK: - IBOutlet
     @IBOutlet private weak var gameImageTopConstraint: NSLayoutConstraint!
-    @IBOutlet public  weak var sellMonthLabel: BaseLabel!
-    @IBOutlet private weak var gameNameLabel: BaseLabel!
-    @IBOutlet private weak var gameScoreLabel: BaseLabel!
+    @IBOutlet public  weak var sellMonthLabel: Label!
+    @IBOutlet private weak var gameNameLabel: Label!
+    @IBOutlet private weak var gameScoreLabel: Label!
     @IBOutlet private weak var gameImageView: UIImageView!
     @IBOutlet private weak var activityImageView: UIImageView!
     @IBOutlet private weak var ratingView: CosmosView! {

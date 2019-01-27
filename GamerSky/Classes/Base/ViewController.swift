@@ -10,7 +10,7 @@ import UIKit
 import SwiftNotificationCenter
 import SwiftTheme
 
-class BaseViewController: UIViewController {
+class ViewController: UIViewController {
 
     /// 默认背景颜色
     private var defaultBackgroundColor = "colors.backgroundColor"
@@ -33,7 +33,7 @@ class BaseViewController: UIViewController {
     func repeatClickTabBar() {}
 }
 
-extension BaseViewController {
+extension ViewController {
     
     /// 主题背景颜色(传路径)
     @IBInspectable var qy_themeBackgroundColor: String? {
@@ -51,7 +51,7 @@ extension BaseViewController {
     }
 }
 
-extension BaseViewController {
+extension ViewController {
     
     // MARK: - 主题设置
     private func initTheme() {
@@ -61,7 +61,7 @@ extension BaseViewController {
 }
 
 // MARK: - 通知
-extension BaseViewController: TabBarProtocol {
+extension ViewController: TabBarProtocol {
     
     // MARK: - 注册通知
     private func registerNotification() {

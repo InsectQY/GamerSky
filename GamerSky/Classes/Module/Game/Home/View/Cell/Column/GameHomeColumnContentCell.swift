@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GameHomeColumnContentCell: BaseTableViewCell, NibReusable {
+class GameHomeColumnContentCell: TableViewCell, NibReusable {
 
     public static let cellHeight: CGFloat = GameHomeColumnContentFlowLayout.kItemW * 0.75
     
@@ -21,7 +21,7 @@ class GameHomeColumnContentCell: BaseTableViewCell, NibReusable {
     
     // MARK: - IBOutlet
     @IBOutlet private weak var flowLayout: GameHomeColumnContentFlowLayout!
-    @IBOutlet private weak var collectionView: BaseCollectionView! {
+    @IBOutlet private weak var collectionView: CollectionView! {
         
         didSet {
             

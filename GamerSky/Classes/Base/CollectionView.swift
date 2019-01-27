@@ -9,7 +9,7 @@
 import UIKit
 import SwiftTheme
 
-class BaseCollectionView: UICollectionView {
+class CollectionView: UICollectionView {
     
     /// 默认背景颜色
     private var defaultBackgroundColor = "colors.backgroundColor"
@@ -31,7 +31,7 @@ class BaseCollectionView: UICollectionView {
     }
 }
 
-extension BaseCollectionView {
+extension CollectionView {
     
     /// 主题背景颜色(传路径)
     @IBInspectable var qy_themeBackgroundColor: String? {
@@ -49,7 +49,7 @@ extension BaseCollectionView {
     }
 }
 
-extension BaseCollectionView {
+extension CollectionView {
     
     // MARK: - 主题设置
     private func initTheme() {

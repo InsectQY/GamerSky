@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct BaseModel<T: Codable>: Codable {
+struct Model<T: Codable>: Codable {
     
     let errorCode: Int
     let errorMessage: String

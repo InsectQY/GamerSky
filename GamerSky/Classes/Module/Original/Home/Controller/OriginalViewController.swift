@@ -10,7 +10,7 @@ import UIKit
 import SwiftTheme
 import URLNavigator
 
-class OriginalViewController: BaseViewController {
+class OriginalViewController: ViewController {
 
     /// 其他栏目
     private var columnList: ColumnList?
@@ -156,7 +156,7 @@ extension OriginalViewController {
             titleView.column = columnList
         }else {
            
-            let leftItem = BaseLabel(frame: CGRect(x: 10, y: 0, width: 200, height: kNaviBarH))
+            let leftItem = Label(frame: CGRect(x: 10, y: 0, width: 200, height: kNaviBarH))
             leftItem.font = PFM18Font
             leftItem.text = "游民原创"
             navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftItem)

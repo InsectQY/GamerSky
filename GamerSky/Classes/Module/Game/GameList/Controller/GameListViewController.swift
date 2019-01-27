@@ -8,15 +8,15 @@
 
 import UIKit
 
-class GameListViewController: BaseViewController {
+class GameListViewController: ViewController {
     
     /// 页码
     private var page = 1
     
     // MARK: - LazyLoad
-    private lazy var collectionView: BaseCollectionView = {
+    private lazy var collectionView: CollectionView = {
         
-        let collectionView = BaseCollectionView(frame: UIScreen.main.bounds, collectionViewLayout: GameListFlowLayout())
+        let collectionView = CollectionView(frame: UIScreen.main.bounds, collectionViewLayout: GameListFlowLayout())
         collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         collectionView.dataSource = self
         collectionView.delegate = self

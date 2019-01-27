@@ -11,13 +11,13 @@ import UIKit
 class GameColumnDetailCell: UITableViewCell, NibReusable {
 
     // MARK: - IBOutlet
-    @IBOutlet private weak var gameNameLabel: BaseLabel!
-    @IBOutlet private weak var gameScoreLabel: BaseLabel!
+    @IBOutlet private weak var gameNameLabel: Label!
+    @IBOutlet private weak var gameScoreLabel: Label!
     @IBOutlet private weak var ratingView: CosmosView!
-    @IBOutlet private weak var gameTagLabel: BaseLabel!
+    @IBOutlet private weak var gameTagLabel: Label!
     @IBOutlet private weak var gameImageView: UIImageView!
     @IBOutlet private weak var rankingBtn: UIButton!
-    @IBOutlet private weak var gameDescLabel: BaseLabel!
+    @IBOutlet private weak var gameDescLabel: Label!
     @IBOutlet private weak var activityImageView: UIImageView!
     @IBOutlet private weak var gameImageViewLeadingConstraint: NSLayoutConstraint!
     @IBOutlet private weak var gameScoreLabelLeadingConstraint: NSLayoutConstraint!

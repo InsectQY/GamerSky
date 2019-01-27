@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GameHomeRecommendContentCell: BaseTableViewCell, NibReusable {
+class GameHomeRecommendContentCell: TableViewCell, NibReusable {
     
     static let cellHeight: CGFloat = ScreenHeight * 0.28
     
@@ -36,7 +36,7 @@ class GameHomeRecommendContentCell: BaseTableViewCell, NibReusable {
     }
     
     // MARK: - IBOutlet
-    @IBOutlet private weak var collectionView: BaseCollectionView!
+    @IBOutlet private weak var collectionView: CollectionView!
     @IBOutlet private weak var flowLayout: UICollectionViewFlowLayout!
     
     // MARK: - inital

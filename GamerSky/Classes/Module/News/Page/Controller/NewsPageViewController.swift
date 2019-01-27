@@ -9,7 +9,7 @@
 import UIKit
 import JXCategoryView
 
-class NewsPageViewController: BaseViewController {
+class NewsPageViewController: ViewController {
     
     private let contentHeight: CGFloat = ScreenHeight - kTopH - KBottomH
     

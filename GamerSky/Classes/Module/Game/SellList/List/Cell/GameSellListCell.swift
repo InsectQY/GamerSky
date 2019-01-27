@@ -14,12 +14,12 @@ class GameSellListCell: UITableViewCell, NibReusable {
     
     // MARK: - IBOutlet
     @IBOutlet private weak var gameImageView: UIImageView!
-    @IBOutlet private weak var gameNameLabel: BaseLabel!
+    @IBOutlet private weak var gameNameLabel: Label!
     @IBOutlet private weak var ratingView: CosmosView!
-    @IBOutlet private weak var gameScoreLabel: BaseLabel!
-    @IBOutlet private weak var gamePlatformLabel: BaseLabel!
-    @IBOutlet private weak var gameTypeLabel: BaseLabel!
-    @IBOutlet private weak var sellTimeLabel: BaseLabel!
+    @IBOutlet private weak var gameScoreLabel: Label!
+    @IBOutlet private weak var gamePlatformLabel: Label!
+    @IBOutlet private weak var gameTypeLabel: Label!
+    @IBOutlet private weak var sellTimeLabel: Label!
     
     public var item: GameSellList? {
         

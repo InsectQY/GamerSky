@@ -1,5 +1,5 @@
 //
-//  BaseView.swift
+//  BaseTableViewCell.swift
 //  BookShopkeeper
 //
 //  Created by QY on 2018/2/1.
@@ -9,14 +9,16 @@
 import UIKit
 import SwiftTheme
 
-class BaseView: UIView {
+class TableViewCell: UITableViewCell {
 
     /// 默认背景颜色
     private var defaultBackgroundColor = "colors.backgroundColor"
+    /// 默认文字颜色
+    private var defaultTextColor = "colors.textColor"
     
     // MARK: - Inital
-    public override init(frame: CGRect) {
-        super.init(frame: frame)
+    public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         initTheme()
     }
     
@@ -31,7 +33,7 @@ class BaseView: UIView {
     }
 }
 
-extension BaseView {
+extension TableViewCell {
     
     /// 主题背景颜色(传路径)
     @IBInspectable var qy_themeBackgroundColor: String? {
@@ -47,13 +49,30 @@ extension BaseView {
             return defaultBackgroundColor
         }
     }
+    
+    /// 主题文字颜色(传路径)
+    @IBInspectable var qy_themeTextColor: String? {
+        
+        set {
+            
+            guard let newValue = newValue else {return}
+            defaultTextColor = newValue
+            initTheme()
+        }
+        
+        get {
+            return defaultTextColor
+        }
+    }
 }
 
-extension BaseView {
+extension TableViewCell {
     
     // MARK: - 主题设置
     private func initTheme() {
         
-        theme_backgroundColor = ThemeColorPicker(keyPath: defaultBackgroundColor)
+        contentView.theme_backgroundColor = ThemeColorPicker(keyPath: defaultBackgroundColor)
+        contentView.theme_tintColor = ThemeColorPicker(keyPath: defaultBackgroundColor)
+        textLabel?.theme_textColor = ThemeColorPicker(keyPath: defaultTextColor)
     }
 }

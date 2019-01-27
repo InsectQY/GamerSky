@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GameRankingListViewController: BaseViewController {
+class GameRankingListViewController: ViewController {
     
     /// 游戏种类 ID
     private var gameClassID = 0

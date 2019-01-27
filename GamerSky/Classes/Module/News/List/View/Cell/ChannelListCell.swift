@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChannelListCell: BaseTableViewCell, NibReusable {
+class ChannelListCell: TableViewCell, NibReusable {
 
     static let cellHeight: CGFloat = ScreenWidth * 0.22
     
@@ -16,7 +16,7 @@ class ChannelListCell: BaseTableViewCell, NibReusable {
     @IBOutlet private weak var thumbImageView: UIImageView!
     @IBOutlet private weak var updateTimeLabel: UILabel!
     @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var commentCountBtn: BaseButton! {
+    @IBOutlet private weak var commentCountBtn: Button! {
         didSet {
             commentCountBtn.qy_fitFont = PFR12Font
         }

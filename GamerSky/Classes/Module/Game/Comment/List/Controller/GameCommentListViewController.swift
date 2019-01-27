@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GameCommentListViewController: BaseViewController {
+class GameCommentListViewController: ViewController {
     
     /// 评价类型
     private var commentType: GameCommentType = .hot

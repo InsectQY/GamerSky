@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GameSellListViewController: BaseViewController {
+class GameSellListViewController: ViewController {
     
     private var date: Int = 0
     // MARK: - LazyLoad

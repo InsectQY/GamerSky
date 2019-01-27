@@ -1,16 +1,16 @@
 //
-//  BaseCollectionReusableView.swift
+//  BaseView.swift
 //  BookShopkeeper
 //
-//  Created by QY on 2018/2/2.
+//  Created by QY on 2018/2/1.
 //  Copyright © 2018年 dingding. All rights reserved.
 //
 
 import UIKit
 import SwiftTheme
 
-class BaseCollectionReusableView: UICollectionReusableView {
-    
+class View: UIView {
+
     /// 默认背景颜色
     private var defaultBackgroundColor = "colors.backgroundColor"
     
@@ -31,7 +31,7 @@ class BaseCollectionReusableView: UICollectionReusableView {
     }
 }
 
-extension BaseCollectionReusableView {
+extension View {
     
     /// 主题背景颜色(传路径)
     @IBInspectable var qy_themeBackgroundColor: String? {
@@ -49,7 +49,7 @@ extension BaseCollectionReusableView {
     }
 }
 
-extension BaseCollectionReusableView {
+extension View {
     
     // MARK: - 主题设置
     private func initTheme() {

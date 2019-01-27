@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BaseButton: UIButton {
+class Button: UIButton {
 
     public var qy_fitFont: UIFont = UIFont.systemFont(ofSize: 14) {
         didSet {
@@ -40,7 +40,7 @@ class BaseButton: UIButton {
 }
 
 // MARK: - 自适应字体(适应比例一开始我是在5.5寸屏幕上测试的，所以拿5.5的比例去缩放)
-extension BaseButton {
+extension Button {
     
     private func fitFontSize() {
         

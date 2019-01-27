@@ -9,7 +9,7 @@
 import UIKit
 import SwiftTheme
 
-class BaseLabel: UILabel {
+class Label: UILabel {
 
     /// 默认颜色
     private var defaultTextColor = "colors.textColor"
@@ -33,7 +33,7 @@ class BaseLabel: UILabel {
     }
 }
 
-extension BaseLabel {
+extension Label {
     
     /// 主题文字颜色(传路径)
     @IBInspectable var qy_themeTextColor: String? {
@@ -51,7 +51,7 @@ extension BaseLabel {
     }
 }
 
-extension BaseLabel {
+extension Label {
    
     // MARK: - 自适应字体(适应比例一开始我是在5.5寸屏幕上测试的，所以拿5.5的比例去缩放)
     private func fitFontSize() {

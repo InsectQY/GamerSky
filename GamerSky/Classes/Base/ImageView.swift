@@ -9,13 +9,13 @@
 import UIKit
 import SwiftTheme
 
-class BaseImageView: UIImageView {
+class ImageView: UIImageView {
 
     private var defaulBackgroundImage: String = ""
 
 }
 
-extension BaseImageView {
+extension ImageView {
     
     /// 主题图片(传路径)
     @IBInspectable var qy_themeBackgroundImage: String? {
@@ -33,7 +33,7 @@ extension BaseImageView {
     }
 }
 
-extension BaseImageView {
+extension ImageView {
 
     // MARK: - 主题设置
     private func initTheme() {

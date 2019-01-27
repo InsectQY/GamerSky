@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GameTagContentCell: BaseTableViewCell, NibReusable {
+class GameTagContentCell: TableViewCell, NibReusable {
 
     static let cellHeight: CGFloat = 44
     
@@ -21,7 +21,7 @@ class GameTagContentCell: BaseTableViewCell, NibReusable {
     
     // MARK: - IBOutlet
     @IBOutlet private weak var flowLayout: UICollectionViewFlowLayout!
-    @IBOutlet private weak var collectionView: BaseCollectionView! {
+    @IBOutlet private weak var collectionView: CollectionView! {
         didSet {
             collectionView.register(cellType: GameHomeTagCell.self)
         }

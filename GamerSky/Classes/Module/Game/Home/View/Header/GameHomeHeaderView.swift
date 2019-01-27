@@ -8,16 +8,16 @@
 
 import UIKit
 
-class GameHomeHeaderView: BaseView {
+class GameHomeHeaderView: View {
 
     static let height: CGFloat = ScreenHeight * 0.16
     
     // MARK: - Lazyload
     private lazy var headerData = [GameHomeHeader]()
     
-    private lazy var collectionView: BaseCollectionView = {
+    private lazy var collectionView: CollectionView = {
         
-        let collectionView = BaseCollectionView(frame: bounds, collectionViewLayout: GameHomeHeaderFlowLayout())
+        let collectionView = CollectionView(frame: bounds, collectionViewLayout: GameHomeHeaderFlowLayout())
         collectionView.register(cellType: GameHomeHeaderCell.self)
         collectionView.dataSource = self
         collectionView.delegate = self

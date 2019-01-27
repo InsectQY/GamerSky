@@ -9,7 +9,7 @@
 import UIKit
 import SwiftTheme
 
-class BaseTableView: UITableView {
+class TableView: UITableView {
     
     /// 默认背景颜色
     private var defaultBackgroundColor = "colors.backgroundColor"
@@ -31,7 +31,7 @@ class BaseTableView: UITableView {
     } 
 }
 
-extension BaseTableView {
+extension TableView {
     
     /// 主题背景颜色(传路径)
     @IBInspectable var qy_themeBackgroundColor: String? {
@@ -49,7 +49,7 @@ extension BaseTableView {
     }
 }
 
-extension BaseTableView {
+extension TableView {
     
     // MARK: - 主题设置
     private func initTheme() {

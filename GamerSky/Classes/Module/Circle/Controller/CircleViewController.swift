@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CircleViewController: BaseViewController {
+class CircleViewController: ViewController {
 
     // MARK: - LifeCycle
     override func viewDidLoad() {

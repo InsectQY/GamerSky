@@ -13,7 +13,7 @@ enum ColumnDetailContainer {
     case gameSpecialDetail([GameSpecialDetail])
 }
 
-class ColumnDetailViewController: BaseViewController {
+class ColumnDetailViewController: ViewController {
     
     private var isHasSubList: Bool = false
     private var nodeID: Int = 0

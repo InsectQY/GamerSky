@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ColumnListCell: BaseCollectionViewCell, NibReusable {
+class ColumnListCell: CollectionViewCell, NibReusable {
 
     // MARK: - IBOutlet
     @IBOutlet private weak var columnLabel: UILabel!

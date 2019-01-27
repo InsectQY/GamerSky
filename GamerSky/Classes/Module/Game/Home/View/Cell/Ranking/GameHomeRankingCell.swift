@@ -8,14 +8,14 @@
 
 import UIKit
 
-class GameHomeRankingCell: BaseCollectionViewCell, NibReusable {
+class GameHomeRankingCell: CollectionViewCell, NibReusable {
 
     // MARK: - IBOutlet
     @IBOutlet private weak var ratingView: CosmosView!
     @IBOutlet private weak var rankingBtn: UIButton!
-    @IBOutlet private weak var gameScoreLabel: BaseLabel!
+    @IBOutlet private weak var gameScoreLabel: Label!
     @IBOutlet private weak var gameImageView: UIImageView!
-    @IBOutlet private weak var gameNameLabel: BaseLabel!
+    @IBOutlet private weak var gameNameLabel: Label!
     
     private var rankingImage = [#imageLiteral(resourceName: "common_Icon_Index1_16x18"), #imageLiteral(resourceName: "common_Icon_Index2_16x18"), #imageLiteral(resourceName: "common_Icon_Index3_16x18")]
     

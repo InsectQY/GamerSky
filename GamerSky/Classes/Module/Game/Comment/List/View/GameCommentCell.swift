@@ -12,17 +12,17 @@ class GameCommentCell: UITableViewCell, NibReusable {
 
     // MARK: - IBOutlet
     @IBOutlet private weak var userProfileImageView: UIImageView!
-    @IBOutlet private weak var userNameLabel: BaseLabel!
-    @IBOutlet private weak var playTypeLabel: BaseLabel!
-    @IBOutlet private weak var commentTimeLabel: BaseLabel!
+    @IBOutlet private weak var userNameLabel: Label!
+    @IBOutlet private weak var playTypeLabel: Label!
+    @IBOutlet private weak var commentTimeLabel: Label!
     @IBOutlet private weak var commentBtn: UIButton!
     @IBOutlet private weak var likeBtn: UIButton!
-    @IBOutlet private weak var contentLabel: BaseLabel!
+    @IBOutlet private weak var contentLabel: Label!
     @IBOutlet private weak var gameImageView: UIImageView!
-    @IBOutlet private weak var gameNameLabel: BaseLabel!
-    @IBOutlet private weak var gameTagsLabel: BaseLabel!
+    @IBOutlet private weak var gameNameLabel: Label!
+    @IBOutlet private weak var gameTagsLabel: Label!
     @IBOutlet private weak var gameRatingView: CosmosView!
-    @IBOutlet private weak var gameScoreLabel: BaseLabel!
+    @IBOutlet private weak var gameScoreLabel: Label!
     @IBOutlet private weak var commentRatingView: CosmosView!
     
     public var comment: GameComment? {

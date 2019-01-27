@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MineViewController: BaseViewController {
+class MineViewController: ViewController {
 
     // MARK: - IBOutlet
     @IBOutlet private weak var tableView: UITableView!
@@ -85,7 +85,7 @@ extension MineViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = BaseTableViewCell(style: .value1, reuseIdentifier: mineCellID)
+        let cell = TableViewCell(style: .value1, reuseIdentifier: mineCellID)
         cell.textLabel?.text = "夜间模式"
         cell.selectionStyle = .none
         cell.contentView.addSubview(nightModeSwitch)

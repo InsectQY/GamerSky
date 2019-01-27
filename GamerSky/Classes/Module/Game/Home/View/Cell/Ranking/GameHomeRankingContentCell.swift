@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GameHomeRankingContentCell: BaseTableViewCell, NibReusable {
+class GameHomeRankingContentCell: TableViewCell, NibReusable {
 
     static let cellHeight: CGFloat = 370
     
@@ -28,7 +28,7 @@ class GameHomeRankingContentCell: BaseTableViewCell, NibReusable {
             flowLayout.itemSize = CGSize(width: ScreenWidth, height: kItemH)
         }
     }
-    @IBOutlet private weak var collectionView: BaseCollectionView! {
+    @IBOutlet private weak var collectionView: CollectionView! {
         didSet {
             collectionView.register(cellType: GameHomeRankingCell.self)
         }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GameDetailViewController: BaseViewController {
+class GameDetailViewController: ViewController {
 
     private var contentID = 0
     

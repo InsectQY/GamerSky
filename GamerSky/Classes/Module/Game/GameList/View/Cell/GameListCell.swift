@@ -8,13 +8,13 @@
 
 import UIKit
 
-class GameListCell: BaseCollectionViewCell, NibReusable {
+class GameListCell: CollectionViewCell, NibReusable {
 
     // MARK: - IBOutlet
     @IBOutlet private weak var gameImageView: UIImageView!
     @IBOutlet private weak var ratingView: CosmosView!
-    @IBOutlet private weak var gameScoreLabel: BaseLabel!
-    @IBOutlet private weak var gameNameLabel: BaseLabel!
+    @IBOutlet private weak var gameScoreLabel: Label!
+    @IBOutlet private weak var gameNameLabel: Label!
     
     public var info: GameChildElement? {
         

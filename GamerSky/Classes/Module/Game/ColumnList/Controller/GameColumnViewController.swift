@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GameColumnViewController: BaseViewController {
+class GameColumnViewController: ViewController {
     
     // MARK: - LazyLoad
     private lazy var collectionView: UICollectionView = {

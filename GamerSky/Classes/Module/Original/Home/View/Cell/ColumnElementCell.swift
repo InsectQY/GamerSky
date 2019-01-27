@@ -14,14 +14,14 @@ class ColumnElementCell: UITableViewCell, NibReusable {
     static let cellHeight: CGFloat = 250
     
     // MARK: - IBOutlet
-    @IBOutlet private weak var bottomContentView: BaseView!
+    @IBOutlet private weak var bottomContentView: View!
     @IBOutlet private weak var columnNameLabel: UILabel!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var updateTimeLabel: UILabel!
     @IBOutlet private weak var authorNameLabel: UILabel!
     @IBOutlet private weak var thumbImageView: UIImageView!
     @IBOutlet private weak var authorImageView: UIImageView!
-    @IBOutlet private weak var commentsBtn: BaseButton! {
+    @IBOutlet private weak var commentsBtn: Button! {
         didSet{
             commentsBtn.qy_fitFont = PFR12Font
         }

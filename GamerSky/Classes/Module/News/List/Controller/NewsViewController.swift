@@ -10,7 +10,7 @@ import UIKit
 import RxURLNavigator
 import RxDataSources
 
-class NewsViewController: BaseViewController {
+class NewsViewController: ViewController {
     
     // MARK: - public
     private var nodeID = 0
@@ -22,9 +22,9 @@ class NewsViewController: BaseViewController {
     private lazy var vmInput = NewsListViewModel.Input(nodeID: nodeID, headerRefresh: tableView.qy_header.rx.refreshing.asDriver(), footerRefresh: tableView.qy_footer.rx.refreshing.asDriver())
     private lazy var vmOutput = viewModel.transform(input: vmInput)
 
-    private lazy var tableView: BaseTableView = {
+    private lazy var tableView: TableView = {
         
-        let tableView = BaseTableView(frame: view.bounds)
+        let tableView = TableView(frame: view.bounds)
         tableView.separatorStyle = .none
         tableView.register(cellType: ChannelListCell.self)
         tableView.rowHeight = ChannelListCell.cellHeight

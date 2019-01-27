@@ -9,7 +9,7 @@
 import UIKit
 import RxDataSources
 
-class GameHomeViewController: BaseViewController {
+class GameHomeViewController: ViewController {
     
     private lazy var tableView: UITableView = {
         
@@ -129,7 +129,7 @@ extension GameHomeViewController {
     // MARK: - 设置导航栏
     private func setUpNavi() {
         
-        let leftItem = BaseLabel(frame: CGRect(x: 10, y: 0, width: 200, height: kNaviBarH))
+        let leftItem = Label(frame: CGRect(x: 10, y: 0, width: 200, height: kNaviBarH))
         leftItem.font = PFM18Font
         leftItem.text = "游戏"
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftItem)
