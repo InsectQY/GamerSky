@@ -27,28 +27,18 @@ class GameColumnViewController: ViewController {
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setUpNavi()
-        setUpUI()
-        bindUI()
     }
-}
-
-// MARK: - 设置 UI 界面
-extension GameColumnViewController {
     
-    private func setUpUI() {
+    override func makeUI() {
         
+        super.makeUI()
         view.backgroundColor = RGB(240, g: 240, b: 240)
         view.addSubview(collectionView)
         collectionView.qy_header.beginRefreshing()
     }
     
-    private func setUpNavi() {
-        title = "特色专题"
-    }
-    
-    private func bindUI() {
+    override func bindViewModel() {
         
         vmOutput.vmDatas.drive(collectionView.rx.items) { (collectionView, row, item) in
             
@@ -65,10 +55,18 @@ extension GameColumnViewController {
         
         collectionView.rx.modelSelected(GameSpecialList.self)
         .subscribe(onNext: {
-            
+                
             let hasSubList = $0.hasSubList
             let nodeID = $0.nodeId
             navigator.push(NavigationURL.columnDetail(hasSubList, nodeID).path)
         }).disposed(by: rx.disposeBag)
+    }
+}
+
+// MARK: - 设置 UI 界面
+extension GameColumnViewController {
+    
+    private func setUpNavi() {
+        title = "特色专题"
     }
 }

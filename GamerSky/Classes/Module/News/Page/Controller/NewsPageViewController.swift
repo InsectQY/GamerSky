@@ -33,10 +33,15 @@ class NewsPageViewController: ViewController {
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        setUpUI()
         setUpNavi()
         loadAllChannel()
+    }
+    
+    override func makeUI() {
+        
+        super.makeUI()
+        edgesForExtendedLayout = UIRectEdge(rawValue: 0)
+        view.addSubview(pageContentView)
     }
 }
 
@@ -56,12 +61,6 @@ extension NewsPageViewController {
 }
 
 extension NewsPageViewController {
-    
-    private func setUpUI() {
-        
-        edgesForExtendedLayout = UIRectEdge(rawValue: 0)
-        view.addSubview(pageContentView)
-    }
     
     // MARK: - 设置导航栏
     private func setUpNavi() {

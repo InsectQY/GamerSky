@@ -48,8 +48,6 @@ class NewsViewController: ViewController {
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpUI()
-        bindUI()
     }
     
     override func viewDidLayoutSubviews() {
@@ -61,20 +59,15 @@ class NewsViewController: ViewController {
     override func repeatClickTabBar() {
         print("\(self)")
     }
-}
-
-extension NewsViewController {
     
-    private func setUpUI() {
+    override func makeUI() {
         
+        super.makeUI()
         view.addSubview(tableView)
         tableView.qy_header.beginRefreshing()
     }
-}
-
-extension NewsViewController {
     
-    private func bindUI() {
+    override func bindViewModel() {
         
         dataSource = RxTableViewSectionedReloadDataSource<NewsListSection>(configureCell: { (ds, tb, ip, item) -> UITableViewCell in
             

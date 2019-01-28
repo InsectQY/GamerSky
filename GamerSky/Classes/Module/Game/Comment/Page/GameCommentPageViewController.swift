@@ -39,9 +39,15 @@ class GameCommentPageViewController: ViewController {
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setUpNavi()
-        setUpUI()
+    }
+    
+    override func makeUI() {
+        
+        super.makeUI()
+        edgesForExtendedLayout = UIRectEdge(rawValue: 0)
+        view.addSubview(pageContentView)
+        view.addSubview(categoryView)
     }
 }
 
@@ -51,12 +57,5 @@ extension GameCommentPageViewController {
     private func setUpNavi() {
         
         title = "玩家点评"
-    }
-    
-    private func setUpUI() {
-        
-        edgesForExtendedLayout = UIRectEdge(rawValue: 0)
-        view.addSubview(pageContentView)
-        view.addSubview(categoryView)
     }
 }

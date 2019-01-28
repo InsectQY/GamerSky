@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SwiftNotificationCenter
 import SwiftTheme
 
 class ViewController: UIViewController {
@@ -19,14 +18,29 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .white
         initTheme()
         registerNotification()
+        makeUI()
+        bindViewModel()
     }
     
     // MARK: - deinit
     deinit {
-        print("\(self)---销毁")
+        print("\(type(of: self)): Deinited")
+    }
+    
+    // MARK: - didReceiveMemoryWarning
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        print("\(type(of: self)): Received Memory Warning")
+    }
+    
+    func makeUI() {
+        view.backgroundColor = .white
+    }
+    
+    func bindViewModel() {
+        
     }
     
     /// 重复点击 TabBar
@@ -61,11 +75,11 @@ extension ViewController {
 }
 
 // MARK: - 通知
-extension ViewController: TabBarProtocol {
+extension ViewController {
     
     // MARK: - 注册通知
     private func registerNotification() {
-        Broadcaster.register(TabBarProtocol.self, observer: self)
+    
     }
     
     // MARK: - tabBar重复点击

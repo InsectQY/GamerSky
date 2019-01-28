@@ -28,9 +28,6 @@ class GameSellListViewController: ViewController {
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        setUpUI()
-        bindUI()
     }
     
     override func viewDidLayoutSubviews() {
@@ -42,17 +39,14 @@ class GameSellListViewController: ViewController {
         self.init()
         self.date = date
     }
-}
-
-// MARK: - 设置 UI 界面
-extension GameSellListViewController {
     
-    private func setUpUI() {
+    override func makeUI() {
+        super.makeUI()
         view.addSubview(tableView)
         tableView.qy_header.beginRefreshing()
     }
     
-    private func bindUI() {
+    override func bindViewModel() {
         
         vmOutput.vmDatas.drive(tableView.rx.items) { (tableView, row, item) in
             

@@ -41,14 +41,14 @@ class PageContentView: UIView {
     init(frame: CGRect, childVcs : [UIViewController]) {
         super.init(frame: frame)
         self.childVcs = childVcs
-        setUpUI()
+        makeUI()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setUpUI() {
+    private func makeUI() {
         
         if #available(iOS 11.0, *) {
             collectionView.contentInsetAdjustmentBehavior = .never

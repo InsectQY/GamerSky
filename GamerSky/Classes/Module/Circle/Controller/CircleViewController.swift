@@ -13,18 +13,13 @@ class CircleViewController: ViewController {
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        setUpUI()
     }
     
     override func repeatClickTabBar() {
         print("\(self)")
     }
-}
-
-extension CircleViewController {
     
-    private func setUpUI() {
-        
+    override func makeUI() {
+        super.makeUI()
     }
 }

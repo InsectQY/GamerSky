@@ -41,8 +41,8 @@ class GameRankingListViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setUpUI()
-        bindUI()
+        makeUI()
+        bindViewModel()
     }
     
     override func viewDidLayoutSubviews() {
@@ -56,18 +56,15 @@ class GameRankingListViewController: ViewController {
         self.gameClassID = gameClassID
         self.rankingType = rankingType
     }
-}
-
-// MARK: - 设置 UI 界面
-extension GameRankingListViewController {
     
-    private func setUpUI() {
+    override func makeUI() {
         
+        super.makeUI()
         view.addSubview(tableView)
         tableView.qy_header.beginRefreshing()
     }
     
-    private func bindUI() {
+    override func bindViewModel() {
         
         vmOutput.vmDatas.drive(tableView.rx.items) { (tableView, row, item) in
             

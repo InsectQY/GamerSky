@@ -66,26 +66,25 @@ class OriginalViewController: ViewController {
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setUpNavi()
-        setUpUI()
     }
     
     override func repeatClickTabBar() {
         tableView.qy_header.beginRefreshing()
     }
-}
-
-extension OriginalViewController {
     
-    private func setUpUI() {
+    override func makeUI() {
         
+        super.makeUI()
         view.backgroundColor = RGB(245, g: 245, b: 245)
         qy_themeBackgroundColor = "colors.whiteSmoke"
         view.addSubview(tableView)
         setUpHeaderView()
         setUpRefresh()
     }
+}
+
+extension OriginalViewController {
     
     // MARK: - 设置刷新
     private func setUpRefresh() {

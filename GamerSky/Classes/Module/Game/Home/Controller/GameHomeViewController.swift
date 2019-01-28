@@ -43,20 +43,20 @@ class GameHomeViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setUpUI()
         setUpNavi()
         setUpRefresh()
-        bindUI()
     }
     
     override func repeatClickTabBar() {
         print("\(self)")
     }
-}
-
-extension GameHomeViewController {
     
-    private func bindUI() {
+    override func makeUI() {
+        super.makeUI()
+        view.addSubview(tableView)
+    }
+    
+    override func bindViewModel() {
         
         dataSource = RxTableViewSectionedReloadDataSource<GameHomeSection>(configureCell: { (ds, tableView, indexPath, item) -> UITableViewCell in
             
@@ -121,11 +121,7 @@ extension GameHomeViewController: Refreshable {
 }
 
 extension GameHomeViewController {
-    
-    private func setUpUI() {
-        view.addSubview(tableView)
-    }
-    
+
     // MARK: - 设置导航栏
     private func setUpNavi() {
         

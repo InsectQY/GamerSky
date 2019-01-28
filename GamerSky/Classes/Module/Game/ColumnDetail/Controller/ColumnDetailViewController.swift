@@ -55,18 +55,18 @@ class ColumnDetailViewController: ViewController {
         super.viewDidLoad()
 
         setUpNavi()
-        setUpUI()
         setUpRefresh()
+    }
+    
+    override func makeUI() {
+        
+        super.makeUI()
+        view.addSubview(tableView)
     }
 }
 
 // MARK: - 设置 UI 界面
 extension ColumnDetailViewController {
-    
-    private func setUpUI() {
-        
-        view.addSubview(tableView)
-    }
     
     private func setUpNavi() {
         

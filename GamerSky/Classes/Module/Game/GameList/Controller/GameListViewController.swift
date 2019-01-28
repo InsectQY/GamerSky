@@ -39,8 +39,14 @@ class GameListViewController: ViewController {
         super.viewDidLoad()
 
         setUpNavi()
-        setUpUI()
         setUpRefresh()
+    }
+    
+    override func makeUI() {
+        
+        super.makeUI()
+        view.addSubview(collectionView)
+        collectionView.addSubview(filterView)
     }
 }
 
@@ -50,12 +56,6 @@ extension GameListViewController {
     private func setUpNavi() {
         
         title = "找游戏"
-    }
-
-    private func setUpUI() {
-        
-        view.addSubview(collectionView)
-        collectionView.addSubview(filterView)
     }
 }
 

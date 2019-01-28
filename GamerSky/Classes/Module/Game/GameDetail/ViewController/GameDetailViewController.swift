@@ -37,16 +37,11 @@ class GameDetailViewController: ViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        setUpUI()
         loadData()
     }
-}
-
-// MARK: - setUpUI
-extension GameDetailViewController {
     
-    private func setUpUI() {
+    override func makeUI() {
+        super.makeUI()
         view.addSubview(tableView)
     }
 }

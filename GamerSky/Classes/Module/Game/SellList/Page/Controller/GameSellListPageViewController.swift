@@ -47,17 +47,18 @@ class GameSellListPageViewController: ViewController {
         setUpNavi()
         getTime()
     }
-}
-
-// MARK: - 设置 UI 界面
-extension GameSellListPageViewController {
     
-    private func setUpUI() {
+    override func makeUI() {
         
+        super.makeUI()
         edgesForExtendedLayout = UIRectEdge(rawValue: 0)
         view.addSubview(pageContentView)
         view.addSubview(categoryView)
     }
+}
+
+// MARK: - 设置 UI 界面
+extension GameSellListPageViewController {
     
     private func setUpNavi() {
         title = "发售表"
@@ -80,6 +81,6 @@ extension GameSellListPageViewController {
                 }
             }
         }
-        setUpUI()
+        makeUI()
     }
 }

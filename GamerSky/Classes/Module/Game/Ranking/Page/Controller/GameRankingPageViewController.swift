@@ -42,6 +42,14 @@ class GameRankingPageViewController: ViewController {
         
         loadPageData()
     }
+    
+    override func makeUI() {
+        
+        super.makeUI()
+        edgesForExtendedLayout = UIRectEdge(rawValue: 0)
+        view.addSubview(pageContentView)
+        view.addSubview(categoryView)
+    }
 }
 
 // MARK: - 加载本地数据
@@ -51,13 +59,6 @@ extension GameRankingPageViewController {
         
         let data = try! Data(contentsOf: Bundle.main.url(forResource: "GameCategoryData", withExtension: "plist")!)
         pageData = try! PropertyListDecoder().decode([GameTag].self, from: data)
-        setUpUI()
-    }
-    
-    private func setUpUI() {
-        
-        edgesForExtendedLayout = UIRectEdge(rawValue: 0)
-        view.addSubview(pageContentView)
-        view.addSubview(categoryView)
+        makeUI()
     }
 }

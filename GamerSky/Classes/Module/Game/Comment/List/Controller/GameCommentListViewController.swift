@@ -35,7 +35,7 @@ class GameCommentListViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setUpUI()
+        makeUI()
         setUpRefresh()
     }
     
@@ -49,13 +49,9 @@ class GameCommentListViewController: ViewController {
         self.init()
         self.commentType = commentType
     }
-}
-
-// MARK: - 设置 UI 界面
-extension GameCommentListViewController {
     
-    private func setUpUI() {
-        
+    override func makeUI() {
+        super.makeUI()
         view.addSubview(tableView)
     }
 }
