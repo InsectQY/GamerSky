@@ -24,6 +24,7 @@ class GameHomeViewController: ViewController {
         tableView.separatorStyle = .none
         tableView.backgroundColor = .clear
         tableView.tableHeaderView = headerView
+        tableView.qy_header = QYRefreshHeader()
         return tableView
     }()
     
@@ -34,17 +35,12 @@ class GameHomeViewController: ViewController {
     }()
     
     private lazy var viewModel = GameHomeViewModel()
-    private lazy var vmInput = GameHomeViewModel.GameHomeInput()
-    private lazy var vmOutput = viewModel.transform(input: vmInput)
-    
-    var dataSource : RxTableViewSectionedReloadDataSource<GameHomeSection>!
 
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setUpNavi()
-        setUpRefresh()
     }
     
     override func repeatClickTabBar() {
@@ -54,11 +50,15 @@ class GameHomeViewController: ViewController {
     override func makeUI() {
         super.makeUI()
         view.addSubview(tableView)
+        tableView.qy_header.beginRefreshing()
     }
     
     override func bindViewModel() {
         
-        dataSource = RxTableViewSectionedReloadDataSource<GameHomeSection>(configureCell: { (ds, tableView, indexPath, item) -> UITableViewCell in
+        let input = GameHomeViewModel.GameHomeInput(headerRefresh: tableView.qy_header.rx.refreshing.asDriver())
+        let output = viewModel.transform(input: input)
+        
+        let dataSource = RxTableViewSectionedReloadDataSource<GameHomeSection>(configureCell: { (ds, tableView, indexPath, item) -> UITableViewCell in
             
             switch ds[indexPath] {
             case let .specialDetailItem(row):
@@ -102,21 +102,14 @@ class GameHomeViewController: ViewController {
             }
         })
         
-        vmOutput.sections
+        output.sections
         .drive(tableView.rx.items(dataSource: dataSource))
         .disposed(by: rx.disposeBag)
-    }
-}
-
-extension GameHomeViewController: Refreshable {
-    
-    private func setUpRefresh() {
         
-        let refreshHeader = initRefreshHeader(tableView) { [weak self] in
-            self?.vmInput.requestCommand.onNext(())
-        }
-        vmOutput.autoSetRefreshHeaderState(header: refreshHeader).disposed(by: rx.disposeBag)
-        refreshHeader.beginRefreshing()
+        // 刷新状态
+        output.endHeaderRefresh
+        .drive(tableView.qy_header.rx.isRefreshing)
+        .disposed(by: rx.disposeBag)
     }
 }
 

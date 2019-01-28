@@ -14,20 +14,17 @@ class GameHomeViewModel: NSObject {
     private let vmDatas = Variable<[GameHomeSection]>([])
     
     struct GameHomeInput {
-        let requestCommand = PublishSubject<Void>()
+        let headerRefresh: Driver<Void>
     }
     
-    struct GameHomeOutput: OutputRefreshProtocol {
+    struct GameHomeOutput {
         
-        let refreshState = Variable<RefreshState>(.none)
+        let endHeaderRefresh: Driver<Bool>
         let sections: Driver<[GameHomeSection]>
     }
 }
 
 extension GameHomeViewModel: ViewModelable {
-
-    typealias Input = GameHomeInput
-    typealias Output = GameHomeOutput
 
     func transform(input: GameHomeViewModel.GameHomeInput) -> GameHomeViewModel.GameHomeOutput {
 
@@ -36,10 +33,8 @@ extension GameHomeViewModel: ViewModelable {
                 return item
             })
         }.asDriver(onErrorJustReturn: [])
-
-        let output = GameHomeOutput(sections: temp_sections)
         
-        input.requestCommand.asDriverOnErrorJustComplete()
+        let header = input.headerRefresh
         .flatMapLatest { _ -> SharedSequence<DriverSharingStrategy, (GameHomeSection, GameHomeSection, GameHomeSection, GameHomeSection, [Array<GameInfo>], [Array<GameInfo>], GameHomeSection, GameHomeSection)> in
             
             // sectionHeader 数据
@@ -111,12 +106,14 @@ extension GameHomeViewModel: ViewModelable {
             .map({GameHomeSection.tagSection([GameHomeItem.tagItem($0)])})
 
             return Driver.zip(symbol1, symbol2, symbol3, symbol4, symbol5, symbol6, symbol7, symbol8)
-        }.drive(onNext: { (symbol1Data, symbol2Data, symbol3Data, symbol4Data, symbol5Data, symbol6Data,symbol7Data,symbol8Data) in
-                
+        }
+        
+        header.drive(onNext: { (symbol1Data, symbol2Data, symbol3Data, symbol4Data, symbol5Data, symbol6Data,symbol7Data,symbol8Data) in
+            
             var rankingGame = symbol5Data
             rankingGame += symbol6Data
             let rankingSection = GameHomeSection
-                .rankingSection([GameHomeItem.rankingItem(rankingGame)])
+            .rankingSection([GameHomeItem.rankingItem(rankingGame)])
             
             var sectionModels: ([GameHomeSection]) = []
             sectionModels.append(symbol1Data)
@@ -126,10 +123,14 @@ extension GameHomeViewModel: ViewModelable {
             sectionModels.append(rankingSection)
             sectionModels.append(symbol7Data)
             self.vmDatas.value = sectionModels
-            
-            output.refreshState.value = .endHeaderRefresh
+
         }).disposed(by: self.rx.disposeBag)
 
+        // 头部状态
+        let endHeader = header.map {_ in false}
+        
+        let output = GameHomeOutput(endHeaderRefresh: endHeader, sections: temp_sections)
+        
         return output
     }
 }
