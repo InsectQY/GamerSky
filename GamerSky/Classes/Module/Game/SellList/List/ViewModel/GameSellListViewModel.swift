@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class GameSellListViewModel {
+final class GameSellListViewModel: ViewModel {
     
     struct Input {
         
@@ -25,7 +25,7 @@ final class GameSellListViewModel {
     }
 }
 
-extension GameSellListViewModel: ViewModelable, HasDisposeBag {
+extension GameSellListViewModel: ViewModelable {
     
     func transform(input: GameSellListViewModel.Input) -> GameSellListViewModel.Output {
         

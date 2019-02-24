@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class GameCommentListViewModel {
+final class GameCommentListViewModel: ViewModel {
     
     struct Input {
         
@@ -19,12 +19,9 @@ final class GameCommentListViewModel {
     }
 }
 
-extension GameCommentListViewModel: ViewModelable, HasDisposeBag {
+extension GameCommentListViewModel: ViewModelable {
     
     func transform(input: GameCommentListViewModel.Input) -> GameCommentListViewModel.Output {
-
-        // HUD 状态
-        let HUDState = PublishRelay<UIState>()
         
         let output = Output()
         return output

@@ -25,7 +25,7 @@ class GameSellListCell: UITableViewCell, NibReusable {
         
         didSet {
             
-            guard let gameInfo = item else {return}
+            guard let gameInfo = item else { return }
             gameNameLabel.text = gameInfo.title
             
             gameImageView.qy_setImage(gameInfo.thumbnailURL, placeholder: "")

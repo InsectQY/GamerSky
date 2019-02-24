@@ -27,18 +27,13 @@ class ColumnDetailViewController: ViewController {
     public lazy var sectionSpecialDetail = [[GameSpecialDetail]]()
     
     // MARK: - LazyLoad
-    private lazy var tableView: UITableView = {
+    private lazy var tableView: TableView = {
         
-        let tableView = UITableView(frame: UIScreen.main.bounds, style: .grouped)
+        let tableView = TableView(frame: UIScreen.main.bounds, style: .grouped)
         tableView.register(cellType: GameColumnDetailCell.self)
         tableView.register(headerFooterViewType: GameColumnDetailSectionHeader.self)
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.separatorStyle = .none
-        tableView.estimatedRowHeight = 100
-        tableView.estimatedSectionHeaderHeight = 0
-        tableView.estimatedSectionFooterHeight = 0
-        tableView.rowHeight = UITableView.automaticDimension
         return tableView
     }()
     
