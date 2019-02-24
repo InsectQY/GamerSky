@@ -4,7 +4,6 @@ PODS:
   - Cache (5.2.0)
   - CleanJSON (0.6.4)
   - DefaultsKit (0.0.9)
-  - DeviceKit (1.11.0)
   - Differentiator (3.1.0)
   - FDFullscreenPopGesture (1.1)
   - FSPagerView (0.8.2)
@@ -50,7 +49,6 @@ DEPENDENCIES:
   - Bugly
   - CleanJSON
   - DefaultsKit
-  - DeviceKit
   - FDFullscreenPopGesture
   - FSPagerView
   - JXCategoryView
@@ -70,7 +68,6 @@ SPEC REPOS:
     - Cache
     - CleanJSON
     - DefaultsKit
-    - DeviceKit
     - Differentiator
     - FDFullscreenPopGesture
     - FSPagerView
@@ -98,7 +95,6 @@ SPEC CHECKSUMS:
   Cache: 807c5d86d01a177f06ede9865add3aea269bbfd4
   CleanJSON: ab7818bd1b4e61561d2154d5d4780e916510ea31
   DefaultsKit: e47d11c54a53c66f9e5c65a1992dead90bc7144f
-  DeviceKit: a3a86f8dddbe1317a9a243cdf9646858bf135dce
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   FSPagerView: 816a18842306973cc7cc6df8a5332272f7815c30
@@ -119,6 +115,6 @@ SPEC CHECKSUMS:
   SwiftyThirdParty: 76b5888ac646910b8115e15b8906752177ef0f6d
   URLNavigator: e8cea3835b3456d7876eb728831e742273c8d209
 
-PODFILE CHECKSUM: 7f114cd7a76a843772fa5942ad689874ddd318c2
+PODFILE CHECKSUM: 84852ae51aaf0faebfd884af8c8aa72058fcbaf8
 
 COCOAPODS: 1.6.0

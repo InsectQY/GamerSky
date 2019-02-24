@@ -38,7 +38,5 @@ pod 'RxDataSources'
 pod 'CleanJSON'
 # 通知
 pod 'SwiftNotificationCenter'
-# 设备型号
-pod 'DeviceKit'
 
 end

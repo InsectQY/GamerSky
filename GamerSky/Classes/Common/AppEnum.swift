@@ -7,17 +7,9 @@
 //
 
 import UIKit
-import DeviceKit
 
 public let ScreenWidth: CGFloat = UIScreen.main.bounds.size.width
 public let ScreenHeight: CGFloat = UIScreen.main.bounds.size.height
-
-public func isiPhoneXSeries() -> Bool {
-    
-    let device = Device()
-    let iPhoneXSeries: [Device] = [.iPhoneX, .iPhoneXr, .iPhoneXs, .iPhoneXsMax, .simulator(.iPhoneX), .simulator(.iPhoneXr), .simulator(.iPhoneXs), .simulator(.iPhoneXsMax)]
-    return device.isOneOf(iPhoneXSeries)
-}
 
 /// 游戏类型
 ///
