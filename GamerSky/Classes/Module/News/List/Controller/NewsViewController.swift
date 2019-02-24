@@ -9,6 +9,7 @@
 import UIKit
 import RxURLNavigator
 import RxDataSources
+import JXCategoryView
 
 class NewsViewController: ViewController {
     
@@ -68,6 +69,7 @@ class NewsViewController: ViewController {
     }
     
     override func bindViewModel() {
+        super.bindViewModel()
         
         dataSource = RxTableViewSectionedReloadDataSource<NewsListSection>(configureCell: { (ds, tb, ip, item) -> UITableViewCell in
             
@@ -96,5 +98,13 @@ class NewsViewController: ViewController {
         vmOutput.endFooterRefresh
         .drive(tableView.mj_footer.rx.refreshFooterState)
         .disposed(by: rx.disposeBag)
+    }
+}
+
+// MARK: - JXCategoryListContentViewDelegate
+extension NewsViewController: JXCategoryListContentViewDelegate {
+
+    func listView() -> UIView! {
+        return view
     }
 }

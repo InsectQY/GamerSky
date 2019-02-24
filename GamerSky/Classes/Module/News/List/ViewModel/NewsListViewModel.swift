@@ -9,7 +9,7 @@
 import Foundation
 import RxDataSources
 
-final class NewsListViewModel {
+final class NewsListViewModel: ViewModel {
     
     struct NewsListInput {
         
@@ -27,10 +27,7 @@ final class NewsListViewModel {
     }
 }
 
-extension NewsListViewModel: ViewModelable, HasDisposeBag {
-
-    typealias Input = NewsListInput
-    typealias Output = NewsListOutput
+extension NewsListViewModel: ViewModelable {
 
     func transform(input: NewsListViewModel.NewsListInput) -> NewsListViewModel.NewsListOutput {
 

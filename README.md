@@ -5,7 +5,7 @@
 
 ## Requirements
 * Xcode 10
-* iOS11+
+* iOS 9+
 * Swift 4.2
 
 ## How to build

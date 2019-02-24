@@ -11,50 +11,46 @@ import JXCategoryView
 
 class NewsPageViewController: ViewController {
     
-    private let contentHeight: CGFloat = ScreenHeight - kTopH - KBottomH
-    
     fileprivate lazy var categoryView: JXCategoryTitleView = {
         
         let lineView = JXCategoryIndicatorLineView()
         lineView.lineStyle = .JD
         lineView.indicatorLineWidth = 10
         let categoryView = JXCategoryTitleView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: kNaviBarH))
-        categoryView.contentScrollView = pageContentView.collectionView
+        categoryView.contentScrollView = listContainerView.scrollView
         categoryView.indicators = [lineView]
+        categoryView.delegate = self
         return categoryView
     }()
+
+    private lazy var viewModel = NewsPageViewModel()
     
-    fileprivate lazy var pageContentView: PageContentView = {
-        
-        let pageContentView = PageContentView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: contentHeight), childVcs: [])
-        return pageContentView
-    }()
+    // swiftlint:disable force_unwrapping
+    fileprivate lazy var listContainerView = JXCategoryListContainerView(delegate: self)!
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpNavi()
-        loadAllChannel()
     }
-    
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        listContainerView.frame = view.bounds
+    }
+
     override func makeUI() {
         
         super.makeUI()
         edgesForExtendedLayout = UIRectEdge(rawValue: 0)
-        view.addSubview(pageContentView)
+        view.addSubview(listContainerView)
     }
-}
 
-// MARK: - 加载频道数据
-extension NewsPageViewController {
-    
-    private func loadAllChannel() {
-        
-        NewsApi.allChannel
-        .cache
-        .request()
-        .mapObject([Channel].self)
-        .asDriver(onErrorJustReturn: [])
+    override func bindViewModel() {
+        super.bindViewModel()
+        viewModel.transform(input: NewsPageViewModel.Input())
+
+        viewModel.category.asDriver()
         .drive(rx.channel)
         .disposed(by: rx.disposeBag)
     }
@@ -75,15 +71,41 @@ extension NewsPageViewController {
     }
 }
 
+// MARK: - JXCategoryViewDelegate
+extension NewsPageViewController: JXCategoryViewDelegate {
+
+    func categoryView(_ categoryView: JXCategoryBaseView!, didSelectedItemAt index: Int) {
+        listContainerView.didClickSelectedItem(at: index)
+    }
+
+    func categoryView(_ categoryView: JXCategoryBaseView!, scrollingFromLeftIndex leftIndex: Int, toRightIndex rightIndex: Int, ratio: CGFloat) {
+        listContainerView.scrolling(fromLeftIndex: leftIndex, toRightIndex: rightIndex, ratio: ratio, selectedIndex: categoryView.selectedIndex)
+    }
+}
+
+// MARK: - JXCategoryListContainerViewDelegate
+extension NewsPageViewController: JXCategoryListContainerViewDelegate {
+
+    func number(ofListsInlistContainerView listContainerView: JXCategoryListContainerView!) -> Int {
+        return viewModel.category.value.count
+    }
+
+    func listContainerView(_ listContainerView: JXCategoryListContainerView!, initListFor index: Int) -> JXCategoryListContentViewDelegate! {
+        return NewsViewController(nodeID: viewModel.category.value[index].nodeId)
+    }
+}
+
 extension Reactive where Base: NewsPageViewController {
     
     var channel: Binder<[Channel]> {
         
         return Binder(base) { (vc, result) in
-            
-            vc.pageContentView.childVcs = result.map({NewsViewController(nodeID: $0.nodeId)})
-            vc.categoryView.titles = result.map({$0.nodeName})
+
+            vc.categoryView.titles = result.map{ $0.nodeName }
+            vc.categoryView.defaultSelectedIndex = 0
+            vc.listContainerView.defaultSelectedIndex = 0
             vc.categoryView.reloadData()
+            vc.listContainerView.reloadData()
         }
     }
 }

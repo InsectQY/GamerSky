@@ -84,6 +84,7 @@
 		E52B6DE3208C4288004904C6 /* GameComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52B6DE2208C4288004904C6 /* GameComment.swift */; };
 		E52B6DE7208C4C7E004904C6 /* GameCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52B6DE5208C4C7E004904C6 /* GameCommentCell.swift */; };
 		E52B6DE8208C4C7E004904C6 /* GameCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E52B6DE6208C4C7E004904C6 /* GameCommentCell.xib */; };
+		E52FA5D422224AFC00037279 /* NewsPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52FA5D322224AFC00037279 /* NewsPageViewModel.swift */; };
 		E534FACC207A60F5006CE008 /* ColumnNavTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E534FACA207A60F5006CE008 /* ColumnNavTitleView.swift */; };
 		E534FACD207A60F5006CE008 /* ColumnNavTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E534FACB207A60F5006CE008 /* ColumnNavTitleView.xib */; };
 		E534FAD0207A6506006CE008 /* ColumnDescHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E534FACF207A6506006CE008 /* ColumnDescHeaderView.swift */; };
@@ -297,6 +298,7 @@
 		E52B6DE2208C4288004904C6 /* GameComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameComment.swift; sourceTree = "<group>"; };
 		E52B6DE5208C4C7E004904C6 /* GameCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCommentCell.swift; sourceTree = "<group>"; };
 		E52B6DE6208C4C7E004904C6 /* GameCommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameCommentCell.xib; sourceTree = "<group>"; };
+		E52FA5D322224AFC00037279 /* NewsPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPageViewModel.swift; sourceTree = "<group>"; };
 		E534FACA207A60F5006CE008 /* ColumnNavTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColumnNavTitleView.swift; sourceTree = "<group>"; };
 		E534FACB207A60F5006CE008 /* ColumnNavTitleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColumnNavTitleView.xib; sourceTree = "<group>"; };
 		E534FACF207A6506006CE008 /* ColumnDescHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnDescHeaderView.swift; sourceTree = "<group>"; };
@@ -1078,6 +1080,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		E52FA5D222224AE400037279 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E52FA5D322224AFC00037279 /* NewsPageViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		E534FAC0207A5237006CE008 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -1200,6 +1210,7 @@
 		E56802ED207274C900CF944E /* Page */ = {
 			isa = PBXGroup;
 			children = (
+				E52FA5D222224AE400037279 /* ViewModel */,
 				E56802EE207274D300CF944E /* Controller */,
 			);
 			path = Page;
@@ -1797,7 +1808,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-GamerSky/Pods-GamerSky-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-GamerSky/Pods-GamerSky-resources.sh",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -1808,7 +1819,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GamerSky/Pods-GamerSky-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GamerSky/Pods-GamerSky-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9949B34A0E046E9B56734A3B /* [CP] Check Pods Manifest.lock */ = {
@@ -1860,6 +1871,7 @@
 				E5F8116720739A8C00E9883F /* ColumnHeaderView.swift in Sources */,
 				E5CD69BF207BCF5F001A1A0A /* CosmosSize.swift in Sources */,
 				E5CD69A1207BB360001A1A0A /* Game.swift in Sources */,
+				E52FA5D422224AFC00037279 /* NewsPageViewModel.swift in Sources */,
 				E5E4D9B7218CAEE200EE661D /* GameSellListViewModel.swift in Sources */,
 				9966511820736F580010430E /* AppTheme.swift in Sources */,
 				E5C1FEAC2184A126009CCE4B /* UIState+Rx.swift in Sources */,

@@ -22,7 +22,6 @@ Carthage
 CocoaPods
 Pods
 *.xcworkspace
-Podfile.lock
 
 # Swift Package Manager
 .build

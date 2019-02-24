@@ -1,0 +1,117 @@
+PODS:
+  - Alamofire (4.8.1)
+  - Bugly (2.5.0)
+  - Cache (5.2.0)
+  - CleanJSON (0.6.4)
+  - DefaultsKit (0.0.9)
+  - DeviceKit (1.11.0)
+  - Differentiator (3.1.0)
+  - FDFullscreenPopGesture (1.1)
+  - FSPagerView (0.8.2)
+  - JXCategoryView (1.2.6)
+  - Kingfisher (4.10.1)
+  - MJRefresh (3.1.15.7)
+  - Moya/Core (12.0.1):
+    - Alamofire (~> 4.1)
+    - Result (~> 4.0)
+  - Moya/RxSwift (12.0.1):
+    - Moya/Core
+    - RxSwift (~> 4.0)
+  - "NSObject+Rx (4.4.1)":
+    - RxSwift (~> 4.3)
+  - Result (4.1.0)
+  - RxAtomic (4.4.1)
+  - RxCocoa (4.4.1):
+    - RxSwift (~> 4.0)
+  - RxDataSources (3.1.0):
+    - Differentiator (~> 3.0)
+    - RxCocoa (~> 4.0)
+    - RxSwift (~> 4.0)
+  - RxNetwork/Cache (0.8.6):
+    - Cache
+    - RxNetwork/Core
+  - RxNetwork/Core (0.8.6):
+    - Moya/RxSwift
+  - RxSwift (4.4.1):
+    - RxAtomic (~> 4.4)
+  - RxURLNavigator (1.1.0):
+    - RxCocoa
+    - RxSwift
+    - URLNavigator
+  - SwiftNotificationCenter (1.0.4)
+  - SwiftTheme (0.4.3)
+  - URLNavigator (2.1.0)
+
+DEPENDENCIES:
+  - Bugly
+  - CleanJSON
+  - DefaultsKit
+  - DeviceKit
+  - FDFullscreenPopGesture
+  - FSPagerView
+  - JXCategoryView
+  - Kingfisher
+  - MJRefresh
+  - "NSObject+Rx"
+  - RxDataSources
+  - RxNetwork/Cache
+  - RxURLNavigator
+  - SwiftNotificationCenter
+  - SwiftTheme
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - Bugly
+    - Cache
+    - CleanJSON
+    - DefaultsKit
+    - DeviceKit
+    - Differentiator
+    - FDFullscreenPopGesture
+    - FSPagerView
+    - JXCategoryView
+    - Kingfisher
+    - MJRefresh
+    - Moya
+    - "NSObject+Rx"
+    - Result
+    - RxAtomic
+    - RxCocoa
+    - RxDataSources
+    - RxNetwork
+    - RxSwift
+    - RxURLNavigator
+    - SwiftNotificationCenter
+    - SwiftTheme
+    - URLNavigator
+
+SPEC CHECKSUMS:
+  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
+  Bugly: 3ca9f255c01025582df26f9222893b383c7e4b4e
+  Cache: 807c5d86d01a177f06ede9865add3aea269bbfd4
+  CleanJSON: ab7818bd1b4e61561d2154d5d4780e916510ea31
+  DefaultsKit: e47d11c54a53c66f9e5c65a1992dead90bc7144f
+  DeviceKit: a3a86f8dddbe1317a9a243cdf9646858bf135dce
+  Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
+  FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
+  FSPagerView: 816a18842306973cc7cc6df8a5332272f7815c30
+  JXCategoryView: e88c22b5f3d037e2b093c2e2d48a3cc81ba64ead
+  Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
+  MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
+  Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
+  "NSObject+Rx": 9884a92f19b610795c431e10b4e601913b59c9e9
+  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
+  RxAtomic: f8d6adc1ccb87a767811269e4875887bc74dbf19
+  RxCocoa: 2f35a76bf8887872e28a1914112395b11b8e0e64
+  RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
+  RxNetwork: b906988fc69c84ef2aa6639f5c5746f3fbe76a24
+  RxSwift: 92fcf68dfef21f3e2ab1965363d9e7b3d787597e
+  RxURLNavigator: e1af8d62c8f5b4853768e8f77f4b669d02016e43
+  SwiftNotificationCenter: 760386da2ce03d3594cb5e96d1e22ec80b44b46f
+  SwiftTheme: 628345b948068a48d330d76dffb1a990ea5f90aa
+  URLNavigator: e8cea3835b3456d7876eb728831e742273c8d209
+
+PODFILE CHECKSUM: b53aa7e0018fb86c5b59270c9bbd49a629fc4919
+
+COCOAPODS: 1.6.0
