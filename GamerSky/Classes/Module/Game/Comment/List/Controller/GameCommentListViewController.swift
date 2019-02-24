@@ -129,11 +129,3 @@ extension GameCommentListViewController: UITableViewDelegate {
         
     }
 }
-
-// MARK: - JXCategoryListContentViewDelegate
-extension GameCommentListViewController: JXCategoryListContentViewDelegate {
-
-    func listView() -> UIView! {
-        return view
-    }
-}

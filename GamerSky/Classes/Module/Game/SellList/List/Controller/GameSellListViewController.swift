@@ -62,11 +62,3 @@ class GameSellListViewController: ViewController {
         .disposed(by: rx.disposeBag)
     }
 }
-
-// MARK: - JXCategoryListContentViewDelegate
-extension GameSellListViewController: JXCategoryListContentViewDelegate {
-
-    func listView() -> UIView! {
-        return view
-    }
-}

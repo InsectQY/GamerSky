@@ -19,6 +19,8 @@ pod 'FDFullscreenPopGesture'
 pod 'Bugly'
 # Page
 pod 'JXCategoryView'
+# Placeholder
+pod 'DZNEmptyDataSet' # https://github.com/dzenbot/DZNEmptyDataSet
 
 # Swift
 

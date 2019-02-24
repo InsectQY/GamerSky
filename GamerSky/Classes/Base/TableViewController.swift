@@ -36,14 +36,24 @@ class TableViewController: ViewController {
     override func bindViewModel() {
         super.bindViewModel()
 
-
     }
 
     func beginHeaderRefresh() {
 
-//        tableView.refreshHeader.beginRefreshing { [weak self] in
-//            self?.tableView.emptyDataSetSource = self
-//            self?.tableView.emptyDataSetDelegate = self
-//        }
+        tableView.refreshHeader.beginRefreshing { [weak self] in
+            self?.tableView.emptyDataSetSource = self
+            self?.tableView.emptyDataSetDelegate = self
+        }
+    }
+}
+
+// MARK: - Reactive-extension
+extension Reactive where Base: TableViewController {
+
+    var reloadEmptyDataSet: Binder<Bool> {
+
+        return Binder(base) { vc, _ in
+            vc.tableView.reloadEmptyDataSet()
+        }
     }
 }

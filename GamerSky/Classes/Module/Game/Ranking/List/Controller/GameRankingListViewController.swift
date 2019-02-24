@@ -88,11 +88,3 @@ extension GameRankingListViewController: UITableViewDelegate {
         
     }
 }
-
-// MARK: - JXCategoryListContentViewDelegate
-extension GameRankingListViewController: JXCategoryListContentViewDelegate {
-
-    func listView() -> UIView! {
-        return view
-    }
-}

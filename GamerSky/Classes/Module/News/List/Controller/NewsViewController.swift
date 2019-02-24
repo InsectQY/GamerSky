@@ -26,7 +26,6 @@ class NewsViewController: ViewController {
     private lazy var tableView: TableView = {
         
         let tableView = TableView(frame: view.bounds)
-        tableView.separatorStyle = .none
         tableView.register(cellType: ChannelListCell.self)
         tableView.rowHeight = ChannelListCell.cellHeight
         tableView.refreshHeader = RefreshHeader()
@@ -98,13 +97,5 @@ class NewsViewController: ViewController {
         vmOutput.endFooterRefresh
         .drive(tableView.mj_footer.rx.refreshFooterState)
         .disposed(by: rx.disposeBag)
-    }
-}
-
-// MARK: - JXCategoryListContentViewDelegate
-extension NewsViewController: JXCategoryListContentViewDelegate {
-
-    func listView() -> UIView! {
-        return view
     }
 }
