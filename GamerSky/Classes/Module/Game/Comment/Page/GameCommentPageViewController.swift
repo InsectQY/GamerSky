@@ -10,11 +10,10 @@ import UIKit
 import JXCategoryView
 
 class GameCommentPageViewController: ViewController {
-    
+
+    private let commentType: [GameCommentType] = [.hot, .latest]
+
     private let menuHeight: CGFloat = 44
-    private var contentHeight: CGFloat {
-        return ScreenHeight - kTopH - menuHeight
-    }
     
     private lazy var categoryView: JXCategoryTitleView = {
         
@@ -22,19 +21,15 @@ class GameCommentPageViewController: ViewController {
         lineView.lineStyle = .JD
         lineView.indicatorLineWidth = 10
         let categoryView = JXCategoryTitleView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: menuHeight))
-        categoryView.contentScrollView = pageContentView.collectionView
+        categoryView.contentScrollView = listContainerView.scrollView
         categoryView.indicators = [lineView]
         categoryView.titles = ["热门", "最新"]
+        categoryView.delegate = self
         return categoryView
     }()
-    
-    private lazy var pageContentView: PageContentView = {
-        
-        let commentType: [GameCommentType] = [.hot, .latest]
-        let childVcs = commentType.map({GameCommentListViewController(commentType: $0)})
-        let pageContentView = PageContentView(frame: CGRect(x: 0, y: menuHeight, width: ScreenWidth, height: contentHeight), childVcs: childVcs)
-        return pageContentView
-    }()
+
+    // swiftlint:disable force_unwrapping
+    fileprivate lazy var listContainerView = JXCategoryListContainerView(delegate: self)!
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -46,8 +41,14 @@ class GameCommentPageViewController: ViewController {
         
         super.makeUI()
         edgesForExtendedLayout = UIRectEdge(rawValue: 0)
-        view.addSubview(pageContentView)
         view.addSubview(categoryView)
+        view.addSubview(listContainerView)
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        categoryView.frame = CGRect(x: 0, y: 0, width: view.width, height: menuHeight)
+        listContainerView.frame = CGRect(x: 0, y: menuHeight, width: view.width, height: view.height)
     }
 }
 
@@ -59,3 +60,28 @@ extension GameCommentPageViewController {
         title = "玩家点评"
     }
 }
+
+// MARK: - JXCategoryListContainerViewDelegate
+extension GameCommentPageViewController: JXCategoryListContainerViewDelegate {
+
+    func number(ofListsInlistContainerView listContainerView: JXCategoryListContainerView!) -> Int {
+        return commentType.count
+    }
+
+    func listContainerView(_ listContainerView: JXCategoryListContainerView!, initListFor index: Int) -> JXCategoryListContentViewDelegate! {
+        return GameCommentListViewController(commentType: commentType[index])
+    }
+}
+
+// MARK: - JXCategoryViewDelegate
+extension GameCommentPageViewController: JXCategoryViewDelegate {
+
+    func categoryView(_ categoryView: JXCategoryBaseView!, didSelectedItemAt index: Int) {
+        listContainerView.didClickSelectedItem(at: index)
+    }
+
+    func categoryView(_ categoryView: JXCategoryBaseView!, scrollingFromLeftIndex leftIndex: Int, toRightIndex rightIndex: Int, ratio: CGFloat) {
+        listContainerView.scrolling(fromLeftIndex: leftIndex, toRightIndex: rightIndex, ratio: ratio, selectedIndex: categoryView.selectedIndex)
+    }
+}
+

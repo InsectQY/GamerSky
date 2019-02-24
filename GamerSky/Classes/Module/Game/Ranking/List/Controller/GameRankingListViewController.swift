@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import JXCategoryView
 
 class GameRankingListViewController: ViewController {
     
@@ -24,14 +25,11 @@ class GameRankingListViewController: ViewController {
     private lazy var vmInput = GameRankingListViewModel.Input(gameClassID: gameClassID, annualClass: annualClass, headerRefresh: tableView.refreshHeader.rx.refreshing.asDriver(), footerRefresh: tableView.refreshFooter.rx.refreshing.asDriver())
     private lazy var vmOutput = viewModel.transform(input: vmInput)
     
-    private lazy var tableView: UITableView = {
+    private lazy var tableView: TableView = {
         
-        let tableView = UITableView(frame: view.bounds)
+        let tableView = TableView(frame: view.bounds)
         tableView.delegate = self
         tableView.register(cellType: GameColumnDetailCell.self)
-        tableView.estimatedRowHeight = 100
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.separatorStyle = .none
         tableView.refreshHeader = RefreshHeader()
         tableView.refreshFooter = RefreshFooter()
         return tableView
@@ -40,9 +38,6 @@ class GameRankingListViewController: ViewController {
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        makeUI()
-        bindViewModel()
     }
     
     override func viewDidLayoutSubviews() {
@@ -91,5 +86,13 @@ extension GameRankingListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+    }
+}
+
+// MARK: - JXCategoryListContentViewDelegate
+extension GameRankingListViewController: JXCategoryListContentViewDelegate {
+
+    func listView() -> UIView! {
+        return view
     }
 }

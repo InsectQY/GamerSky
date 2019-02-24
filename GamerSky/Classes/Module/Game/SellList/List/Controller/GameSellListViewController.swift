@@ -7,14 +7,15 @@
 //
 
 import UIKit
+import JXCategoryView
 
 class GameSellListViewController: ViewController {
     
     private var date: Int = 0
     // MARK: - LazyLoad
-    private lazy var tableView: UITableView = {
+    private lazy var tableView: TableView = {
         
-        let tableView = UITableView(frame: view.bounds)
+        let tableView = TableView(frame: view.bounds)
         tableView.register(cellType: GameSellListCell.self)
         tableView.rowHeight = GameSellListCell.cellHeight
         tableView.refreshHeader = RefreshHeader()
@@ -59,5 +60,13 @@ class GameSellListViewController: ViewController {
         vmOutput.endHeaderRefresh
         .drive(tableView.refreshHeader.rx.isRefreshing)
         .disposed(by: rx.disposeBag)
+    }
+}
+
+// MARK: - JXCategoryListContentViewDelegate
+extension GameSellListViewController: JXCategoryListContentViewDelegate {
+
+    func listView() -> UIView! {
+        return view
     }
 }

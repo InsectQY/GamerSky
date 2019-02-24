@@ -12,10 +12,7 @@ import JXCategoryView
 class GameSellListPageViewController: ViewController {
     
     private let menuHeight: CGFloat = 44
-    private var contentHeight: CGFloat {
-        return ScreenHeight - kTopH - menuHeight
-    }
-    
+
     // MARK: - LazyLoad
     private lazy var categoryView: JXCategoryTitleView = {
         
@@ -23,18 +20,15 @@ class GameSellListPageViewController: ViewController {
         lineView.lineStyle = .JD
         lineView.indicatorLineWidth = 10
         let categoryView = JXCategoryTitleView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: menuHeight))
-        categoryView.contentScrollView = pageContentView.collectionView
+        categoryView.contentScrollView = listContainerView.scrollView
+        categoryView.delegate = self
         categoryView.indicators = [lineView]
-        categoryView.titles = timeStrings
         return categoryView
     }()
-    
-    private lazy var pageContentView: PageContentView = {
-        
-        let childVcs = dates.map({GameSellListViewController(date: $0)})
-        let pageContentView = PageContentView(frame: CGRect(x: 0, y: menuHeight, width: ScreenWidth, height: contentHeight), childVcs: childVcs)
-        return pageContentView
-    }()
+
+    // swiftlint:disable force_unwrapping
+    fileprivate lazy var listContainerView = JXCategoryListContainerView(delegate: self)!
+
     /// 中文的日期
     private lazy var timeStrings = [String]()
     /// 毫秒(用于获取数据)
@@ -52,8 +46,14 @@ class GameSellListPageViewController: ViewController {
         
         super.makeUI()
         edgesForExtendedLayout = UIRectEdge(rawValue: 0)
-        view.addSubview(pageContentView)
         view.addSubview(categoryView)
+        view.addSubview(listContainerView)
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        categoryView.frame = CGRect(x: 0, y: 0, width: view.width, height: menuHeight)
+        listContainerView.frame = CGRect(x: 0, y: menuHeight, width: view.width, height: view.height)
     }
 }
 
@@ -82,5 +82,31 @@ extension GameSellListPageViewController {
             }
         }
         makeUI()
+        categoryView.titles = timeStrings
     }
 }
+
+// MARK: - JXCategoryViewDelegate
+extension GameSellListPageViewController: JXCategoryViewDelegate {
+
+    func categoryView(_ categoryView: JXCategoryBaseView!, didSelectedItemAt index: Int) {
+        listContainerView.didClickSelectedItem(at: index)
+    }
+
+    func categoryView(_ categoryView: JXCategoryBaseView!, scrollingFromLeftIndex leftIndex: Int, toRightIndex rightIndex: Int, ratio: CGFloat) {
+        listContainerView.scrolling(fromLeftIndex: leftIndex, toRightIndex: rightIndex, ratio: ratio, selectedIndex: categoryView.selectedIndex)
+    }
+}
+
+// MARK: - JXCategoryListContainerViewDelegate
+extension GameSellListPageViewController: JXCategoryListContainerViewDelegate {
+
+    func number(ofListsInlistContainerView listContainerView: JXCategoryListContainerView!) -> Int {
+        return dates.count
+    }
+
+    func listContainerView(_ listContainerView: JXCategoryListContainerView!, initListFor index: Int) -> JXCategoryListContentViewDelegate! {
+        return GameSellListViewController(date: dates[index])
+    }
+}
+

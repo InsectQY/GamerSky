@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import JXCategoryView
 
 class GameCommentListViewController: ViewController {
     
@@ -17,15 +18,12 @@ class GameCommentListViewController: ViewController {
     // MARK: - LazyLoad
     private lazy var commets = [GameComment]()
 
-    private lazy var tableView: UITableView = {
+    private lazy var tableView: TableView = {
         
-        let tableView = UITableView(frame: view.bounds, style: .grouped)
-        tableView.separatorStyle = .none
+        let tableView = TableView(frame: view.bounds, style: .grouped)
         tableView.register(cellType: GameCommentCell.self)
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.estimatedRowHeight = 150
-        tableView.rowHeight = UITableView.automaticDimension
         tableView.sectionHeaderHeight = 10
         tableView.sectionFooterHeight = 10
         return tableView
@@ -34,8 +32,6 @@ class GameCommentListViewController: ViewController {
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        makeUI()
         setUpRefresh()
     }
     
@@ -131,5 +127,13 @@ extension GameCommentListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+    }
+}
+
+// MARK: - JXCategoryListContentViewDelegate
+extension GameCommentListViewController: JXCategoryListContentViewDelegate {
+
+    func listView() -> UIView! {
+        return view
     }
 }

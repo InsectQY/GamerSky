@@ -12,28 +12,21 @@ import JXCategoryView
 class GameRankingPageViewController: ViewController {
     
     private let menuHeight: CGFloat = 44
-    private var contentHeight: CGFloat {
-        return ScreenHeight - kTopH - menuHeight
-    }
-    
+
     private lazy var categoryView: JXCategoryTitleView = {
         
         let lineView = JXCategoryIndicatorLineView()
         lineView.lineStyle = .JD
         lineView.indicatorLineWidth = 10
         let categoryView = JXCategoryTitleView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: menuHeight))
-        categoryView.contentScrollView = pageContentView.collectionView
+        categoryView.contentScrollView = listContainerView.scrollView
         categoryView.indicators = [lineView]
-        categoryView.titles = pageData.map({$0.name})
+        categoryView.delegate = self
         return categoryView
     }()
-    
-    private lazy var pageContentView: PageContentView = {
-        
-        let childVcs = pageData.map({GameRankingListViewController(gameClassID: $0.searchid, rankingType: .fractions)})
-        let pageContentView = PageContentView(frame: CGRect(x: 0, y: menuHeight, width: ScreenWidth, height: contentHeight), childVcs: childVcs)
-        return pageContentView
-    }()
+
+    // swiftlint:disable force_unwrapping
+    fileprivate lazy var listContainerView = JXCategoryListContainerView(delegate: self)!
     
     private lazy var pageData = [GameTag]()
     // MARK: - LifeCycle
@@ -47,8 +40,14 @@ class GameRankingPageViewController: ViewController {
         
         super.makeUI()
         edgesForExtendedLayout = UIRectEdge(rawValue: 0)
-        view.addSubview(pageContentView)
+        view.addSubview(listContainerView)
         view.addSubview(categoryView)
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        categoryView.frame = CGRect(x: 0, y: 0, width: view.width, height: menuHeight)
+        listContainerView.frame = CGRect(x: 0, y: menuHeight, width: view.width, height: view.height)
     }
 }
 
@@ -59,6 +58,30 @@ extension GameRankingPageViewController {
         
         let data = try! Data(contentsOf: Bundle.main.url(forResource: "GameCategoryData", withExtension: "plist")!)
         pageData = try! PropertyListDecoder().decode([GameTag].self, from: data)
-        makeUI()
+        categoryView.titles = pageData.map{ $0.name }
+    }
+}
+
+// MARK: - JXCategoryViewDelegate
+extension GameRankingPageViewController: JXCategoryViewDelegate {
+
+    func categoryView(_ categoryView: JXCategoryBaseView!, didSelectedItemAt index: Int) {
+        listContainerView.didClickSelectedItem(at: index)
+    }
+
+    func categoryView(_ categoryView: JXCategoryBaseView!, scrollingFromLeftIndex leftIndex: Int, toRightIndex rightIndex: Int, ratio: CGFloat) {
+        listContainerView.scrolling(fromLeftIndex: leftIndex, toRightIndex: rightIndex, ratio: ratio, selectedIndex: categoryView.selectedIndex)
+    }
+}
+
+// MARK: - JXCategoryListContainerViewDelegate
+extension GameRankingPageViewController: JXCategoryListContainerViewDelegate {
+
+    func number(ofListsInlistContainerView listContainerView: JXCategoryListContainerView!) -> Int {
+        return pageData.count
+    }
+
+    func listContainerView(_ listContainerView: JXCategoryListContainerView!, initListFor index: Int) -> JXCategoryListContentViewDelegate! {
+        return GameRankingListViewController(gameClassID: pageData[index].searchid, rankingType: .fractions)
     }
 }
