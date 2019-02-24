@@ -12,3 +12,4 @@ import Foundation
 @_exported import RxCocoa
 @_exported import NSObject_Rx
 @_exported import RxNetwork
+@_exported import SwiftyThirdParty

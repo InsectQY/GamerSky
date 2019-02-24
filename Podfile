@@ -1,13 +1,19 @@
 
+source 'https://github.com/CocoaPods/Specs.git'
+source 'https://github.com/InsectQY/QYSpecs.git'
+
 platform :ios, '9.0'
 
 target 'GamerSky' do
 
 use_modular_headers!
+inhibit_all_warnings!
+
+pod 'SwiftyThirdParty/MJRefresh' # https://github.com/InsectQY/SwiftyThirdParty
+pod 'SwiftyThirdParty/Kingfisher/Core'
 
 # OC
 
-pod 'MJRefresh'
 pod 'FDFullscreenPopGesture'
 # Bug 统计
 pod 'Bugly'
@@ -16,8 +22,6 @@ pod 'JXCategoryView'
 
 # Swift
 
-# 图片缓存
-pod 'Kingfisher'
 # Router
 pod 'RxURLNavigator'
 # Bana
@@ -36,6 +40,5 @@ pod 'CleanJSON'
 pod 'SwiftNotificationCenter'
 # 设备型号
 pod 'DeviceKit'
-
 
 end

@@ -24,7 +24,7 @@ class GameHomeViewController: ViewController {
         tableView.separatorStyle = .none
         tableView.backgroundColor = .clear
         tableView.tableHeaderView = headerView
-        tableView.qy_header = QYRefreshHeader()
+        tableView.refreshHeader = RefreshHeader()
         return tableView
     }()
     
@@ -50,12 +50,12 @@ class GameHomeViewController: ViewController {
     override func makeUI() {
         super.makeUI()
         view.addSubview(tableView)
-        tableView.qy_header.beginRefreshing()
+        tableView.refreshHeader.beginRefreshing()
     }
     
     override func bindViewModel() {
         
-        let input = GameHomeViewModel.GameHomeInput(headerRefresh: tableView.qy_header.rx.refreshing.asDriver())
+        let input = GameHomeViewModel.GameHomeInput(headerRefresh: tableView.refreshHeader.rx.refreshing.asDriver())
         let output = viewModel.transform(input: input)
         
         let dataSource = RxTableViewSectionedReloadDataSource<GameHomeSection>(configureCell: { (ds, tableView, indexPath, item) -> UITableViewCell in
@@ -108,7 +108,7 @@ class GameHomeViewController: ViewController {
         
         // 刷新状态
         output.endHeaderRefresh
-        .drive(tableView.qy_header.rx.isRefreshing)
+        .drive(tableView.refreshHeader.rx.isRefreshing)
         .disposed(by: rx.disposeBag)
     }
 }

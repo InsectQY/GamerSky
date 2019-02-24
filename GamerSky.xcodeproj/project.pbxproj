@@ -55,7 +55,6 @@
 		998F0C422071EEAB00C587C2 /* UITableView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998F0C3E2071EEAB00C587C2 /* UITableView+Reusable.swift */; };
 		998F0C432071EEAB00C587C2 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998F0C3F2071EEAB00C587C2 /* NibLoadable.swift */; };
 		998F0C452071EEC500C587C2 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998F0C442071EEC500C587C2 /* UIViewExtension.swift */; };
-		998F0C602071EFB100C587C2 /* QYRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998F0C5E2071EFB100C587C2 /* QYRefresh.swift */; };
 		998F0C662071F6F700C587C2 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998F0C652071F6F700C587C2 /* NewsViewController.swift */; };
 		998F0C6A2071F72800C587C2 /* GameHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998F0C692071F72800C587C2 /* GameHomeViewController.swift */; };
 		998F0C6E2071F77800C587C2 /* CircleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998F0C6D2071F77800C587C2 /* CircleViewController.swift */; };
@@ -85,6 +84,7 @@
 		E52B6DE7208C4C7E004904C6 /* GameCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52B6DE5208C4C7E004904C6 /* GameCommentCell.swift */; };
 		E52B6DE8208C4C7E004904C6 /* GameCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E52B6DE6208C4C7E004904C6 /* GameCommentCell.xib */; };
 		E52FA5D422224AFC00037279 /* NewsPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52FA5D322224AFC00037279 /* NewsPageViewModel.swift */; };
+		E52FA5D62222502600037279 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52FA5D52222502600037279 /* TableViewController.swift */; };
 		E534FACC207A60F5006CE008 /* ColumnNavTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E534FACA207A60F5006CE008 /* ColumnNavTitleView.swift */; };
 		E534FACD207A60F5006CE008 /* ColumnNavTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E534FACB207A60F5006CE008 /* ColumnNavTitleView.xib */; };
 		E534FAD0207A6506006CE008 /* ColumnDescHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E534FACF207A6506006CE008 /* ColumnDescHeaderView.swift */; };
@@ -105,7 +105,6 @@
 		E551665321AF8EC800E83044 /* MJRefreshFooter+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E551665021AF8EC800E83044 /* MJRefreshFooter+Rx.swift */; };
 		E56802DE20724AEB00CF944E /* ChannelListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56802DC20724AEB00CF944E /* ChannelListCell.swift */; };
 		E56802DF20724AEB00CF944E /* ChannelListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E56802DD20724AEB00CF944E /* ChannelListCell.xib */; };
-		E56802E120724EEB00CF944E /* KingfisherExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56802E020724EEB00CF944E /* KingfisherExtension.swift */; };
 		E56802E520725C9100CF944E /* NewsTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56802E420725C9100CF944E /* NewsTableHeaderView.swift */; };
 		E56802E720725CBE00CF944E /* NewsTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E56802E620725CBE00CF944E /* NewsTableHeaderView.xib */; };
 		E56802EC207268A500CF944E /* ContentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56802EB207268A500CF944E /* ContentDetailViewController.swift */; };
@@ -266,7 +265,6 @@
 		998F0C4D2071EF1800C587C2 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		998F0C4E2071EF1800C587C2 /* Moya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Moya.framework; path = Carthage/Build/iOS/Moya.framework; sourceTree = "<group>"; };
 		998F0C4F2071EF1800C587C2 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
-		998F0C5E2071EFB100C587C2 /* QYRefresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QYRefresh.swift; sourceTree = "<group>"; };
 		998F0C652071F6F700C587C2 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		998F0C692071F72800C587C2 /* GameHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHomeViewController.swift; sourceTree = "<group>"; };
 		998F0C6D2071F77800C587C2 /* CircleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleViewController.swift; sourceTree = "<group>"; };
@@ -299,6 +297,7 @@
 		E52B6DE5208C4C7E004904C6 /* GameCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCommentCell.swift; sourceTree = "<group>"; };
 		E52B6DE6208C4C7E004904C6 /* GameCommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameCommentCell.xib; sourceTree = "<group>"; };
 		E52FA5D322224AFC00037279 /* NewsPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPageViewModel.swift; sourceTree = "<group>"; };
+		E52FA5D52222502600037279 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		E534FACA207A60F5006CE008 /* ColumnNavTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColumnNavTitleView.swift; sourceTree = "<group>"; };
 		E534FACB207A60F5006CE008 /* ColumnNavTitleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColumnNavTitleView.xib; sourceTree = "<group>"; };
 		E534FACF207A6506006CE008 /* ColumnDescHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnDescHeaderView.swift; sourceTree = "<group>"; };
@@ -319,7 +318,6 @@
 		E551665021AF8EC800E83044 /* MJRefreshFooter+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MJRefreshFooter+Rx.swift"; sourceTree = "<group>"; };
 		E56802DC20724AEB00CF944E /* ChannelListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelListCell.swift; sourceTree = "<group>"; };
 		E56802DD20724AEB00CF944E /* ChannelListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChannelListCell.xib; sourceTree = "<group>"; };
-		E56802E020724EEB00CF944E /* KingfisherExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KingfisherExtension.swift; sourceTree = "<group>"; };
 		E56802E420725C9100CF944E /* NewsTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableHeaderView.swift; sourceTree = "<group>"; };
 		E56802E620725CBE00CF944E /* NewsTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsTableHeaderView.xib; sourceTree = "<group>"; };
 		E56802EB207268A500CF944E /* ContentDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDetailViewController.swift; sourceTree = "<group>"; };
@@ -485,6 +483,7 @@
 		9906819020721A8C00A825AC /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				E52FA5D52222502600037279 /* TableViewController.swift */,
 				E5D749E921FE97BB00BCE75F /* ViewModel.swift */,
 				9906819120721AAA00A825AC /* Model.swift */,
 				994141222074B7C00016AC01 /* View.swift */,
@@ -684,7 +683,6 @@
 				E5C1FE982184A126009CCE4B /* RxSwift */,
 				E5C1FE7E21843E0C009CCE4B /* NetWork */,
 				E5DC0AEC20862BE2001E61C6 /* DateExtensions.swift */,
-				E56802E020724EEB00CF944E /* KingfisherExtension.swift */,
 				998F0C442071EEC500C587C2 /* UIViewExtension.swift */,
 				E5DC0AEE2086301B001E61C6 /* StringExtensions.swift */,
 				99A6781D209AF7C600DB1AA7 /* IntExtension.swift */,
@@ -767,17 +765,8 @@
 			children = (
 				E59112FF21B66F3F00436D08 /* Page */,
 				994141282074C2A80016AC01 /* UserDefaults */,
-				998F0C5D2071EFB100C587C2 /* Refresh */,
 			);
 			path = CustomView;
-			sourceTree = "<group>";
-		};
-		998F0C5D2071EFB100C587C2 /* Refresh */ = {
-			isa = PBXGroup;
-			children = (
-				998F0C5E2071EFB100C587C2 /* QYRefresh.swift */,
-			);
-			path = Refresh;
 			sourceTree = "<group>";
 		};
 		998F0C632071F6DB00C587C2 /* News */ = {
@@ -1701,7 +1690,7 @@
 				99E799932071E10D005C3408 /* Sources */,
 				99E799942071E10D005C3408 /* Frameworks */,
 				99E799952071E10D005C3408 /* Resources */,
-				67791C1A7D2280EEE45A14F1 /* [CP] Copy Pods Resources */,
+				53A035A9BF6F46792D7B22BE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1800,7 +1789,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		67791C1A7D2280EEE45A14F1 /* [CP] Copy Pods Resources */ = {
+		53A035A9BF6F46792D7B22BE /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1887,7 +1876,6 @@
 				E5CD69BD207BCF5F001A1A0A /* CosmosText.swift in Sources */,
 				E550C937207CDCBB00C4AF2D /* GameHomeColumnCell.swift in Sources */,
 				E56802DE20724AEB00CF944E /* ChannelListCell.swift in Sources */,
-				E56802E120724EEB00CF944E /* KingfisherExtension.swift in Sources */,
 				E5CD699C207BAADC001A1A0A /* GameHomeRecommendCell.swift in Sources */,
 				E534FACC207A60F5006CE008 /* ColumnNavTitleView.swift in Sources */,
 				E5DC0AFB20864CD0001E61C6 /* GameSellListCell.swift in Sources */,
@@ -1920,6 +1908,7 @@
 				E5CD69C6207BCF5F001A1A0A /* CosmosTouchTarget.swift in Sources */,
 				E5B4EC3421F5789F0065AB80 /* GameRankingListViewModel.swift in Sources */,
 				99A67817209ADF5500DB1AA7 /* AppKey.swift in Sources */,
+				E52FA5D62222502600037279 /* TableViewController.swift in Sources */,
 				9941411F2074B45E0016AC01 /* CollectionReusableView.swift in Sources */,
 				998F0C432071EEAB00C587C2 /* NibLoadable.swift in Sources */,
 				992C5B2420B69AF600887A71 /* ConvertToStringable.swift in Sources */,
@@ -1950,7 +1939,6 @@
 				E5CD69C3207BCF5F001A1A0A /* CosmosTouch.swift in Sources */,
 				998F0C402071EEAB00C587C2 /* UICollectionView+Reusable.swift in Sources */,
 				E52B6DE7208C4C7E004904C6 /* GameCommentCell.swift in Sources */,
-				998F0C602071EFB100C587C2 /* QYRefresh.swift in Sources */,
 				E5F8116520738C2400E9883F /* Column.swift in Sources */,
 				994141082074605E0016AC01 /* AppEnum.swift in Sources */,
 				994141192074B3B80016AC01 /* TableViewCell.swift in Sources */,

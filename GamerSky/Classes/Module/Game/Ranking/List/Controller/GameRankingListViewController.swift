@@ -21,7 +21,7 @@ class GameRankingListViewController: ViewController {
     private lazy var rankingData = [GameSpecialDetail]()
     
     private lazy var viewModel = GameRankingListViewModel()
-    private lazy var vmInput = GameRankingListViewModel.Input(gameClassID: gameClassID, annualClass: annualClass, headerRefresh: tableView.qy_header.rx.refreshing.asDriver(), footerRefresh: tableView.qy_footer.rx.refreshing.asDriver())
+    private lazy var vmInput = GameRankingListViewModel.Input(gameClassID: gameClassID, annualClass: annualClass, headerRefresh: tableView.refreshHeader.rx.refreshing.asDriver(), footerRefresh: tableView.refreshFooter.rx.refreshing.asDriver())
     private lazy var vmOutput = viewModel.transform(input: vmInput)
     
     private lazy var tableView: UITableView = {
@@ -32,8 +32,8 @@ class GameRankingListViewController: ViewController {
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableView.automaticDimension
         tableView.separatorStyle = .none
-        tableView.qy_header = QYRefreshHeader()
-        tableView.qy_footer = QYRefreshFooter()
+        tableView.refreshHeader = RefreshHeader()
+        tableView.refreshFooter = RefreshFooter()
         return tableView
     }()
     
@@ -61,7 +61,7 @@ class GameRankingListViewController: ViewController {
         
         super.makeUI()
         view.addSubview(tableView)
-        tableView.qy_header.beginRefreshing()
+        tableView.refreshHeader.beginRefreshing()
     }
     
     override func bindViewModel() {
@@ -77,11 +77,11 @@ class GameRankingListViewController: ViewController {
         
         // 刷新状态
         vmOutput.endHeaderRefresh
-        .drive(tableView.qy_header.rx.isRefreshing)
+        .drive(tableView.refreshHeader.rx.isRefreshing)
         .disposed(by: rx.disposeBag)
         
         vmOutput.endFooterRefresh
-        .drive(tableView.qy_footer.rx.refreshFooterState)
+        .drive(tableView.refreshFooter.rx.refreshFooterState)
         .disposed(by: rx.disposeBag)
     }
 }

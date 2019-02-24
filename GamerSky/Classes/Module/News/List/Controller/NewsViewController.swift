@@ -20,7 +20,7 @@ class NewsViewController: ViewController {
     private var dataSource: RxTableViewSectionedReloadDataSource<NewsListSection>!
     
     private lazy var viewModel = NewsListViewModel()
-    private lazy var vmInput = NewsListViewModel.Input(nodeID: nodeID, headerRefresh: tableView.qy_header.rx.refreshing.asDriver(), footerRefresh: tableView.qy_footer.rx.refreshing.asDriver())
+    private lazy var vmInput = NewsListViewModel.Input(nodeID: nodeID, headerRefresh: tableView.refreshHeader.rx.refreshing.asDriver(), footerRefresh: tableView.refreshFooter.rx.refreshing.asDriver())
     private lazy var vmOutput = viewModel.transform(input: vmInput)
 
     private lazy var tableView: TableView = {
@@ -29,8 +29,8 @@ class NewsViewController: ViewController {
         tableView.separatorStyle = .none
         tableView.register(cellType: ChannelListCell.self)
         tableView.rowHeight = ChannelListCell.cellHeight
-        tableView.qy_header = QYRefreshHeader()
-        tableView.qy_footer = QYRefreshFooter()
+        tableView.refreshHeader = RefreshHeader()
+        tableView.refreshFooter = RefreshFooter()
         return tableView
     }()
     
@@ -65,7 +65,7 @@ class NewsViewController: ViewController {
         
         super.makeUI()
         view.addSubview(tableView)
-        tableView.qy_header.beginRefreshing()
+        tableView.refreshHeader.beginRefreshing()
     }
     
     override func bindViewModel() {

@@ -40,6 +40,10 @@ PODS:
     - URLNavigator
   - SwiftNotificationCenter (1.0.4)
   - SwiftTheme (0.4.3)
+  - SwiftyThirdParty/Kingfisher/Core (0.1.0):
+    - Kingfisher
+  - SwiftyThirdParty/MJRefresh (0.1.0):
+    - MJRefresh
   - URLNavigator (2.1.0)
 
 DEPENDENCIES:
@@ -50,14 +54,14 @@ DEPENDENCIES:
   - FDFullscreenPopGesture
   - FSPagerView
   - JXCategoryView
-  - Kingfisher
-  - MJRefresh
   - "NSObject+Rx"
   - RxDataSources
   - RxNetwork/Cache
   - RxURLNavigator
   - SwiftNotificationCenter
   - SwiftTheme
+  - SwiftyThirdParty/Kingfisher/Core
+  - SwiftyThirdParty/MJRefresh
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -85,6 +89,8 @@ SPEC REPOS:
     - SwiftNotificationCenter
     - SwiftTheme
     - URLNavigator
+  https://github.com/InsectQY/QYSpecs.git:
+    - SwiftyThirdParty
 
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
@@ -110,8 +116,9 @@ SPEC CHECKSUMS:
   RxURLNavigator: e1af8d62c8f5b4853768e8f77f4b669d02016e43
   SwiftNotificationCenter: 760386da2ce03d3594cb5e96d1e22ec80b44b46f
   SwiftTheme: 628345b948068a48d330d76dffb1a990ea5f90aa
+  SwiftyThirdParty: 76b5888ac646910b8115e15b8906752177ef0f6d
   URLNavigator: e8cea3835b3456d7876eb728831e742273c8d209
 
-PODFILE CHECKSUM: b53aa7e0018fb86c5b59270c9bbd49a629fc4919
+PODFILE CHECKSUM: 7f114cd7a76a843772fa5942ad689874ddd318c2
 
 COCOAPODS: 1.6.0

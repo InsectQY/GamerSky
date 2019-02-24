@@ -19,8 +19,8 @@ class GameListViewController: ViewController {
         collectionView.contentInset = UIEdgeInsets.init(top: FilterView.height, left: 0, bottom: 0, right: 0)
         collectionView.register(cellType: GameListCell.self)
         collectionView.register(supplementaryViewType: GameListHeaderView.self, ofKind: UICollectionView.elementKindSectionHeader)
-        collectionView.qy_header = QYRefreshHeader()
-        collectionView.qy_footer = QYRefreshFooter()
+        collectionView.refreshHeader = RefreshHeader()
+        collectionView.refreshFooter = RefreshFooter()
         return collectionView
     }()
     
@@ -48,7 +48,7 @@ class GameListViewController: ViewController {
     
     override func bindViewModel() {
         
-        let input = GameListViewModel.Input(headerRefresh: collectionView.qy_header.rx.refreshing.asDriver(), footerRefresh: collectionView.qy_footer.rx.refreshing.asDriver())
+        let input = GameListViewModel.Input(headerRefresh: collectionView.refreshHeader.rx.refreshing.asDriver(), footerRefresh: collectionView.refreshFooter.rx.refreshing.asDriver())
         let output = viewModel.transform(input: input)
         
         output.items.drive(collectionView.rx.items(cellIdentifier: GameListCell.ID, cellType: GameListCell.self)) { (collectionView, item, cell) in
@@ -57,11 +57,11 @@ class GameListViewController: ViewController {
         
         // 刷新状态
         output.endHeaderRefresh
-        .drive(collectionView.qy_header.rx.isRefreshing)
+        .drive(collectionView.refreshHeader.rx.isRefreshing)
         .disposed(by: rx.disposeBag)
         
         output.endFooterRefresh
-        .drive(collectionView.qy_footer.rx.refreshFooterState)
+        .drive(collectionView.refreshFooter.rx.refreshFooterState)
         .disposed(by: rx.disposeBag)
     }
 }

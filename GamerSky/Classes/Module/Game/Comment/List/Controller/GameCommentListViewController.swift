@@ -60,12 +60,12 @@ extension GameCommentListViewController {
     
     private func setUpRefresh() {
         
-        tableView.qy_header = QYRefreshHeader(refreshingBlock: { [weak self] in
+        tableView.refreshHeader = RefreshHeader(refreshingBlock: { [weak self] in
             
             guard let `self` = self else {return}
             
             self.page = 1
-            self.tableView.qy_footer.endRefreshing()
+            self.tableView.refreshFooter.endRefreshing()
             GameApi.gameReviewList(self.page, self.commentType)
             .cache
             .request()
@@ -74,19 +74,19 @@ extension GameCommentListViewController {
                 
                 self.commets = $0
                 self.tableView.reloadData()
-                self.tableView.qy_header.endRefreshing()
+                self.tableView.refreshHeader.endRefreshing()
             }, onError: { _ in
-                self.tableView.qy_header.endRefreshing()
+                self.tableView.refreshHeader.endRefreshing()
             })
             .disposed(by: self.rx.disposeBag)
         })
         
-        tableView.qy_footer = QYRefreshFooter(refreshingBlock: { [weak self] in
+        tableView.refreshFooter = RefreshFooter(refreshingBlock: { [weak self] in
             
             guard let `self` = self else {return}
             
             self.page += 1
-            self.tableView.qy_header.endRefreshing()
+            self.tableView.refreshHeader.endRefreshing()
             
             GameApi.gameReviewList(self.page, self.commentType)
             .cache
@@ -96,14 +96,14 @@ extension GameCommentListViewController {
                 
                 self.commets += $0
                 self.tableView.reloadData()
-                self.tableView.qy_footer.endRefreshing()
+                self.tableView.refreshFooter.endRefreshing()
             }, onError: { _ in
-                self.tableView.qy_header.endRefreshing()
+                self.tableView.refreshHeader.endRefreshing()
             })
             .disposed(by: self.rx.disposeBag)
         })
         
-        tableView.qy_header.beginRefreshing()
+        tableView.refreshHeader.beginRefreshing()
     }
 }
 

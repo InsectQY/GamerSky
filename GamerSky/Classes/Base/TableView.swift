@@ -17,18 +17,32 @@ class TableView: UITableView {
     // MARK: - Inital
     public override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
-        initTheme()
-    }
-    
-    override open func awakeFromNib() {
-        super.awakeFromNib()
+        makeUI()
         initTheme()
     }
     
     /// required
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-    } 
+        makeUI()
+        initTheme()
+    }
+
+    func makeUI() {
+
+        estimatedRowHeight = 50
+        rowHeight = UITableView.automaticDimension
+        backgroundColor = .clear
+        if #available(iOS 9.0, *) {
+            cellLayoutMarginsFollowReadableWidth = false
+        }
+        keyboardDismissMode = .onDrag
+        separatorStyle = .none
+    }
+
+    func updateUI() {
+        setNeedsDisplay()
+    }
 }
 
 extension TableView {

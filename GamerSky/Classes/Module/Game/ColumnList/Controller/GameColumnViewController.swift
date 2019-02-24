@@ -16,12 +16,12 @@ class GameColumnViewController: ViewController {
         let collectionView = UICollectionView(frame: UIScreen.main.bounds, collectionViewLayout: GameColumnFlowLayout())
         collectionView.register(cellType: GameHomeColumnCell.self)
         collectionView.backgroundColor = .clear
-        collectionView.qy_header = QYRefreshHeader()
+        collectionView.refreshHeader = RefreshHeader()
         return collectionView
     }()
     
     private lazy var viewModel = GameColumnViewModel()
-    private lazy var vmInput = GameColumnViewModel.Input(headerRefresh: collectionView.qy_header.rx.refreshing.asDriver())
+    private lazy var vmInput = GameColumnViewModel.Input(headerRefresh: collectionView.refreshHeader.rx.refreshing.asDriver())
     private lazy var vmOutput = viewModel.transform(input: vmInput)
     
     // MARK: - LifeCycle
@@ -35,7 +35,7 @@ class GameColumnViewController: ViewController {
         super.makeUI()
         view.backgroundColor = RGB(240, g: 240, b: 240)
         view.addSubview(collectionView)
-        collectionView.qy_header.beginRefreshing()
+        collectionView.refreshHeader.beginRefreshing()
     }
     
     override func bindViewModel() {
@@ -50,7 +50,7 @@ class GameColumnViewController: ViewController {
         
         // 刷新状态
         vmOutput.endHeaderRefresh
-        .drive(collectionView.qy_header.rx.isRefreshing)
+        .drive(collectionView.refreshHeader.rx.isRefreshing)
         .disposed(by: rx.disposeBag)
         
         collectionView.rx.modelSelected(GameSpecialList.self)

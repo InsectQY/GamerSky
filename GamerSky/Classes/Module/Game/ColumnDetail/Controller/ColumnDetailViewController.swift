@@ -75,7 +75,7 @@ extension ColumnDetailViewController {
     
     private func setUpRefresh() {
         
-        tableView.qy_header = QYRefreshHeader(refreshingBlock: { [weak self] in
+        tableView.refreshHeader = RefreshHeader(refreshingBlock: { [weak self] in
             
             guard let `self` = self else {return}
             
@@ -114,11 +114,11 @@ extension ColumnDetailViewController {
                             self.sectionSpecialDetail.append(result)
                         })
                         self.tableView.reloadData()
-                        self.tableView.qy_header.endRefreshing()
+                        self.tableView.refreshHeader.endRefreshing()
                         break
                     }
                 }, onError: { _ in
-                    self.tableView.qy_header.endRefreshing()
+                    self.tableView.refreshHeader.endRefreshing()
                 })
                 .disposed(by: self.rx.disposeBag)
             }else {
@@ -130,30 +130,30 @@ extension ColumnDetailViewController {
                         
                         self.specialDetail = data
                         self.tableView.reloadData()
-                        self.tableView.qy_header.endRefreshing()
+                        self.tableView.refreshHeader.endRefreshing()
                         break
                     case .gameSpecialSubList:
                         break
                     }
                 }, onError: { _ in
-                    self.tableView.qy_header.endRefreshing()
+                    self.tableView.refreshHeader.endRefreshing()
                 })
                 .disposed(by: self.rx.disposeBag)
                 
-                self.tableView.qy_footer.endRefreshingWithNoMoreData()
+                self.tableView.refreshFooter.endRefreshingWithNoMoreData()
             }
         })
         
-        tableView.qy_header.beginRefreshing()
+        tableView.refreshHeader.beginRefreshing()
         
         guard !isHasSubList else {return}
 
-        tableView.qy_footer = QYRefreshFooter(refreshingBlock: { [weak self] in
+        tableView.refreshFooter = RefreshFooter(refreshingBlock: { [weak self] in
             
             guard let `self` = self else {return}
             
             self.page += 1
-            self.tableView.qy_header.endRefreshing()
+            self.tableView.refreshHeader.endRefreshing()
             
             GameApi.gameSpecialDetail(self.page, self.nodeID)
             .cache
@@ -161,10 +161,10 @@ extension ColumnDetailViewController {
             .subscribe(onNext: {
                 
                 self.specialDetail += $0
-                self.tableView.qy_footer.endRefreshing()
+                self.tableView.refreshFooter.endRefreshing()
                 self.tableView.reloadData()
             }, onError: { _ in
-                self.tableView.qy_footer.endRefreshing()
+                self.tableView.refreshFooter.endRefreshing()
             })
             .disposed(by: self.rx.disposeBag)
         })

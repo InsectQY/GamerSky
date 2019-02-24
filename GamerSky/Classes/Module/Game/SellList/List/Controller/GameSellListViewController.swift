@@ -17,13 +17,13 @@ class GameSellListViewController: ViewController {
         let tableView = UITableView(frame: view.bounds)
         tableView.register(cellType: GameSellListCell.self)
         tableView.rowHeight = GameSellListCell.cellHeight
-        tableView.qy_header = QYRefreshHeader()
+        tableView.refreshHeader = RefreshHeader()
         return tableView
     }()
     
     private lazy var viewModel = GameSellListViewModel()
     private lazy var vmOutput = viewModel.transform(input: vmInput)
-    private lazy var vmInput = GameSellListViewModel.Input(date: date, headerRefresh: tableView.qy_header.rx.refreshing.asDriver())
+    private lazy var vmInput = GameSellListViewModel.Input(date: date, headerRefresh: tableView.refreshHeader.rx.refreshing.asDriver())
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -43,7 +43,7 @@ class GameSellListViewController: ViewController {
     override func makeUI() {
         super.makeUI()
         view.addSubview(tableView)
-        tableView.qy_header.beginRefreshing()
+        tableView.refreshHeader.beginRefreshing()
     }
     
     override func bindViewModel() {
@@ -57,7 +57,7 @@ class GameSellListViewController: ViewController {
         
         // 刷新状态
         vmOutput.endHeaderRefresh
-        .drive(tableView.qy_header.rx.isRefreshing)
+        .drive(tableView.refreshHeader.rx.isRefreshing)
         .disposed(by: rx.disposeBag)
     }
 }

@@ -70,7 +70,7 @@ class OriginalViewController: ViewController {
     }
     
     override func repeatClickTabBar() {
-        tableView.qy_header.beginRefreshing()
+        tableView.refreshHeader.beginRefreshing()
     }
     
     override func makeUI() {
@@ -90,12 +90,12 @@ extension OriginalViewController {
     private func setUpRefresh() {
         
         let columnID = columnList == nil ? 47 : columnList!.Id
-        
-        tableView.qy_header = QYRefreshHeader(refreshingBlock: { [weak self] in
+
+        tableView.refreshHeader = RefreshHeader(refreshingBlock: { [weak self] in
             
             guard let `self` = self else {return}
             self.page = 1
-            self.tableView.qy_footer.endRefreshing()
+            self.tableView.refreshFooter.endRefreshing()
             
             ColumnApi.columnContent(self.page, columnID)
             .cache
@@ -110,18 +110,18 @@ extension OriginalViewController {
                 }
                 
                 self.tableView.reloadData()
-                self.tableView.qy_header.endRefreshing()
+                self.tableView.refreshHeader.endRefreshing()
             }, onError: { _ in
-                self.tableView.qy_header.endRefreshing()
+                self.tableView.refreshHeader.endRefreshing()
             })
             .disposed(by: self.rx.disposeBag)
         })
         
-        tableView.qy_footer = QYRefreshFooter(refreshingBlock: { [weak self] in
+        tableView.refreshFooter = RefreshFooter(refreshingBlock: { [weak self] in
             
             guard let `self` = self else {return}
             self.page += 1
-            self.tableView.qy_header.endRefreshing()
+            self.tableView.refreshHeader.endRefreshing()
             
             ColumnApi.columnContent(self.page, columnID)
             .cache
@@ -136,14 +136,14 @@ extension OriginalViewController {
                 }
                 
                 self.tableView.reloadData()
-                self.tableView.qy_footer.endRefreshing()
+                self.tableView.refreshFooter.endRefreshing()
             }, onError: { _ in
-                self.tableView.qy_footer.endRefreshing()
+                self.tableView.refreshFooter.endRefreshing()
             })
             .disposed(by: self.rx.disposeBag)
         })
         
-        tableView.qy_header.beginRefreshing()
+        tableView.refreshHeader.beginRefreshing()
     }
     
     // MARK: - 设置导航栏
