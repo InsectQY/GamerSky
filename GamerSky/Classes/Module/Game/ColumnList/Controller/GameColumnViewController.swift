@@ -8,49 +8,48 @@
 
 import UIKit
 
-class GameColumnViewController: ViewController {
+class GameColumnViewController: CollectionViewController {
     
     // MARK: - LazyLoad
-    private lazy var collectionView: UICollectionView = {
-        
-        let collectionView = UICollectionView(frame: UIScreen.main.bounds, collectionViewLayout: GameColumnFlowLayout())
-        collectionView.register(cellType: GameHomeColumnCell.self)
-        collectionView.backgroundColor = .clear
-        collectionView.refreshHeader = RefreshHeader()
-        return collectionView
-    }()
-    
-    private lazy var viewModel = GameColumnViewModel()
-    private lazy var vmInput = GameColumnViewModel.Input(headerRefresh: collectionView.refreshHeader.rx.refreshing.asDriver())
-    private lazy var vmOutput = viewModel.transform(input: vmInput)
+    private lazy var viewModel = GameColumnViewModel(input: self)
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpNavi()
     }
-    
+
+    init() {
+        super.init(collectionViewLayout: GameColumnFlowLayout())
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func makeUI() {
-        
         super.makeUI()
+
         view.backgroundColor = RGB(240, g: 240, b: 240)
-        view.addSubview(collectionView)
-        collectionView.refreshHeader.beginRefreshing()
+
+        collectionView.register(cellType: GameHomeColumnCell.self)
+        collectionView.refreshHeader = RefreshHeader()
+        beginHeaderRefresh()
     }
     
     override func bindViewModel() {
-        
-        vmOutput.vmDatas.drive(collectionView.rx.items) { (collectionView, row, item) in
+        super.bindViewModel()
+
+        let input = GameColumnViewModel.Input()
+        let output = viewModel.transform(input: input)
+
+        output.items.drive(collectionView.rx.items) { (collectionView, row, item) in
             
             let cell = collectionView.dequeueReusableCell(for: IndexPath(item: row, section: 0), cellType: GameHomeColumnCell.self)
             cell.isLoadBigImage = true
             cell.column = item
             return cell
-        }.disposed(by: rx.disposeBag)
-        
-        // 刷新状态
-        vmOutput.endHeaderRefresh
-        .drive(collectionView.refreshHeader.rx.isRefreshing)
+        }
         .disposed(by: rx.disposeBag)
         
         collectionView.rx.modelSelected(GameSpecialList.self)
@@ -59,7 +58,8 @@ class GameColumnViewController: ViewController {
             let hasSubList = $0.hasSubList
             let nodeID = $0.nodeId
             navigator.push(NavigationURL.columnDetail(hasSubList, nodeID).path)
-        }).disposed(by: rx.disposeBag)
+        })
+        .disposed(by: rx.disposeBag)
     }
 }
 

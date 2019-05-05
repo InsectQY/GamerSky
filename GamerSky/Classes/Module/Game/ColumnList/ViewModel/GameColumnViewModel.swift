@@ -8,50 +8,58 @@
 
 import Foundation
 
-final class GameColumnViewModel {
+final class GameColumnViewModel: RefreshViewModel {
     
-    struct Input {
-        
-        let headerRefresh: Driver<Void>
-    }
+    struct Input {}
     
     struct Output {
         /// 数据源
-        let vmDatas: Driver<[GameSpecialList]>
-        /// 刷新状态
-        let endHeaderRefresh: Driver<Bool>
+        let items: Driver<[GameSpecialList]>
     }
 }
 
-extension GameColumnViewModel: ViewModelable, HasDisposeBag {
+extension GameColumnViewModel: ViewModelable {
     
     func transform(input: GameColumnViewModel.Input) -> GameColumnViewModel.Output {
 
-        // HUD 状态
-        let HUDState = PublishRelay<UIState>()
         /// 数据源
-        let vmDatas = BehaviorRelay<[GameSpecialList]>(value: [])
-        
+        let elements = BehaviorRelay<[GameSpecialList]>(value: [])
+
+        let output = Output(items: elements.asDriver())
+
+        guard let refresh = unified else { return output }
+
         // 加载最新
-        let header = input.headerRefresh
-        .flatMapLatest { _ in
-            
-            GameApi.gameSpecialList(1)
-            .cache
-            .request()
-            .trackState(HUDState)
-            .mapObject([GameSpecialList].self)
-            .asDriver(onErrorJustReturn: [])
+        let loadNew = refresh.header
+        .asDriver()
+        .flatMapLatest { [unowned self] _ in
+            self.request()
         }
         
         // 数据源
-        header.drive(vmDatas)
+        loadNew
+        .drive(elements)
         .disposed(by: disposeBag)
         
         // 头部刷新状态
-        let endHeader = header.map { _ in false}
-        
-        let output = Output(vmDatas: vmDatas.asDriver(), endHeaderRefresh: endHeader)
+        loadNew
+        .map { _ in false }
+        .drive(headerRefreshState)
+        .disposed(by: disposeBag)
+
         return output
+    }
+}
+
+extension GameColumnViewModel {
+
+    func request() -> Driver<[GameSpecialList]> {
+
+        return   GameApi.gameSpecialList(1)
+                .request()
+                .mapObject([GameSpecialList].self)
+                .trackActivity(loading)
+                .trackError(refreshError)
+                .asDriverOnErrorJustComplete()
     }
 }
