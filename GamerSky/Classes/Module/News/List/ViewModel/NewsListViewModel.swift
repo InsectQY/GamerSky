@@ -7,22 +7,17 @@
 //
 
 import Foundation
-import RxDataSources
 
-final class NewsListViewModel: ViewModel {
+final class NewsListViewModel: RefreshViewModel {
     
     struct NewsListInput {
         
         let nodeID: Int
-        let headerRefresh: Driver<Void>
-        let footerRefresh: Driver<Void>
     }
     
     struct NewsListOutput {
-        
-        let endHeaderRefresh: Driver<Bool>
-        let endFooterRefresh: Driver<RxMJRefreshFooterState>
-        let sections: Driver<[NewsListSection]>
+
+        let items: Driver<[ChannelList]>
         let banners: Driver<[ChannelList]?>
     }
 }
@@ -33,65 +28,77 @@ extension NewsListViewModel: ViewModelable {
 
         var page = 1
         
-        let vmDatas = BehaviorRelay<[ChannelList]>(value: [])
+        let elements = BehaviorRelay<[ChannelList]>(value: [])
+        let banners = BehaviorRelay<[ChannelList]?>(value: [])
 
-        let temp_sections = vmDatas.asObservable().map {
-            [NewsListSection(items: $0)]
-        }.asDriver(onErrorJustReturn: [])
-        
-        let header = input.headerRefresh.then(page = 1)
-            .flatMapLatest {
-                
-            NewsApi.allChannelList(page, input.nodeID)
-            .cache
-            .request()
-            .mapObject([ChannelList].self)
-            .asDriver(onErrorJustReturn: [])
+        let output = NewsListOutput(items: elements.asDriver(), banners: banners.asDriver())
+
+        guard let refresh = unified else { return output }
+
+        let laodNew = refresh.header.asDriver()
+        .then(page = 1)
+        .flatMapLatest { [unowned self] in
+            self.request(page: page, nodeID: input.nodeID)
         }
         
-        let footer = input.footerRefresh.then(page += 1)
-            .flatMapLatest {
-                
-            NewsApi.allChannelList(page, input.nodeID)
-            .request()
-            .mapObject([ChannelList].self)
-            .asDriver(onErrorJustReturn: [])
+        let loadMore = refresh.footer
+        .asDriver()
+        .then(page += 1)
+        .flatMapLatest { [unowned self] in
+            self.request(page: page, nodeID: input.nodeID)
         }
 
-        header.map { lists -> [ChannelList] in
+        laodNew.map { lists -> [ChannelList] in
             
             var lists = lists
             lists.removeFirst()
             return lists
-        }.drive(vmDatas)
+        }
+        .drive(elements)
         .disposed(by: disposeBag)
         
-        footer.map({vmDatas.value + $0}).drive(vmDatas)
+        loadMore.map { elements.value + $0 }
+        .drive(elements)
         .disposed(by: disposeBag)
         
-        let banners = header.map({$0.first?.childElements})
+        laodNew.map { $0.first?.childElements }
+        .drive(banners)
+        .disposed(by: disposeBag)
         
-        let endHeader = header.map { _ in false}
-        let endFooter = Driver.merge(header.map({_ in RxMJRefreshFooterState.default}), footer.map({_ in RxMJRefreshFooterState.default})).startWith(.hidden)
-        
-        let output = NewsListOutput(endHeaderRefresh: endHeader, endFooterRefresh: endFooter, sections: temp_sections, banners: banners)
+        // 头部刷新状态
+        laodNew
+        .map { _ in false }
+        .drive(headerRefreshState)
+        .disposed(by: disposeBag)
+
+        // 尾部刷新状态
+        Driver.merge(
+            laodNew.map { _ in
+                RxMJRefreshFooterState.default
+            },
+            loadMore.map { _ in
+                RxMJRefreshFooterState.default
+            }
+        )
+        .startWith(.hidden)
+        .drive(footerRefreshState)
+        .disposed(by: disposeBag)
+
+        bindErrorToRefreshFooterState(elements.value.isEmpty)
         
         return output
     }
 }
 
-struct NewsListSection {
-    
-    var items: [Item]
-}
+extension NewsListViewModel {
 
-extension NewsListSection: SectionModelType {
-    
-    typealias Item = ChannelList
-    
-    init(original: NewsListSection, items: [Item]) {
-        
-        self = original
-        self.items = items
+    func request(page: Int, nodeID: Int) -> Driver<[ChannelList]> {
+
+        return  NewsApi.allChannelList(page, nodeID)
+                .request()
+                .mapObject([ChannelList].self)
+                .trackActivity(loading)
+                .trackError(refreshError)
+                .asDriverOnErrorJustComplete()
     }
 }

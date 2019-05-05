@@ -18,7 +18,14 @@ class NewsTableHeaderView: View, NibReusable {
     static let height: CGFloat = ScreenHeight * 0.31
     
     // MARK: - IBOutlet
-    @IBOutlet private weak var pageContentView: View!
+    @IBOutlet private weak var pagerView: FSPagerView! {
+        didSet {
+            pagerView.isInfinite = true
+            pagerView.dataSource = self
+            pagerView.delegate = self
+            pagerView.register(FSPagerViewCell.self, forCellWithReuseIdentifier: CycleCellID)
+        }
+    }
     @IBOutlet private weak var titleLabel: UILabel!
     
     // MARK: - public
@@ -27,23 +34,10 @@ class NewsTableHeaderView: View, NibReusable {
             pagerView.reloadData()
         }
     }
-    
-    // MARK: - Lazylaod
-    private lazy var pagerView: FSPagerView = {
-        
-        let pagerView = FSPagerView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: ScreenHeight * 0.3 - 40))
-        pagerView.automaticSlidingInterval = 8
-        pagerView.isInfinite = true
-        pagerView.dataSource = self
-        pagerView.delegate = self
-        pagerView.register(FSPagerViewCell.self, forCellWithReuseIdentifier: CycleCellID)
-        return pagerView
-    }()
 
     // MARK: - awakeFromNib
     override func awakeFromNib() {
        theme_backgroundColor = ThemeColorPicker(keyPath: "colors.backgroundColor")
-        pageContentView.addSubview(pagerView)
     }    
 }
 
