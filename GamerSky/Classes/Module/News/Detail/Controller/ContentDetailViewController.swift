@@ -55,7 +55,7 @@ extension ContentDetailViewController {
             guard let URL = URL(string: "\(AppHostIP)/v1/ContentDetail/\(self.contentID)/1?fontSize=0&nullImageMode=1&tag=news&deviceid=\(deviceID)&platform=ios&nightMode=\(nightMode)&v=") else {return}
             self.webView.load(URLRequest(url: URL))
         }
-        webView.scrollView.refreshHeader.beginRefreshing()
+        webView.scrollView.refreshHeader?.beginRefreshing()
     }
 }
 
@@ -66,7 +66,7 @@ extension ContentDetailViewController: WKNavigationDelegate {
         
         webView.evaluateJavaScript("$('#gsTemplateContent_AD1').css('display', 'none');", completionHandler: nil)
         webView.evaluateJavaScript("$('#gsTemplateContent_AD2').css('display', 'none');", completionHandler: nil)
-        webView.scrollView.refreshHeader.endRefreshing()
+        webView.scrollView.refreshHeader?.endRefreshing()
     }
     
 //    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {

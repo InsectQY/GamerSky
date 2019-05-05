@@ -109,11 +109,11 @@ extension ColumnDetailViewController {
                             self.sectionSpecialDetail.append(result)
                         })
                         self.tableView.reloadData()
-                        self.tableView.refreshHeader.endRefreshing()
+                        self.tableView.refreshHeader?.endRefreshing()
                         break
                     }
                 }, onError: { _ in
-                    self.tableView.refreshHeader.endRefreshing()
+                    self.tableView.refreshHeader?.endRefreshing()
                 })
                 .disposed(by: self.rx.disposeBag)
             }else {
@@ -125,21 +125,21 @@ extension ColumnDetailViewController {
                         
                         self.specialDetail = data
                         self.tableView.reloadData()
-                        self.tableView.refreshHeader.endRefreshing()
+                        self.tableView.refreshHeader?.endRefreshing()
                         break
                     case .gameSpecialSubList:
                         break
                     }
                 }, onError: { _ in
-                    self.tableView.refreshHeader.endRefreshing()
+                    self.tableView.refreshHeader?.endRefreshing()
                 })
                 .disposed(by: self.rx.disposeBag)
                 
-                self.tableView.refreshFooter.endRefreshingWithNoMoreData()
+                self.tableView.refreshFooter?.endRefreshingWithNoMoreData()
             }
         })
         
-        tableView.refreshHeader.beginRefreshing()
+        tableView.refreshHeader?.beginRefreshing()
         
         guard !isHasSubList else {return}
 
@@ -148,7 +148,7 @@ extension ColumnDetailViewController {
             guard let `self` = self else {return}
             
             self.page += 1
-            self.tableView.refreshHeader.endRefreshing()
+            self.tableView.refreshHeader?.endRefreshing()
             
             GameApi.gameSpecialDetail(self.page, self.nodeID)
             .cache
@@ -156,10 +156,10 @@ extension ColumnDetailViewController {
             .subscribe(onNext: {
                 
                 self.specialDetail += $0
-                self.tableView.refreshFooter.endRefreshing()
+                self.tableView.refreshFooter?.endRefreshing()
                 self.tableView.reloadData()
             }, onError: { _ in
-                self.tableView.refreshFooter.endRefreshing()
+                self.tableView.refreshFooter?.endRefreshing()
             })
             .disposed(by: self.rx.disposeBag)
         })

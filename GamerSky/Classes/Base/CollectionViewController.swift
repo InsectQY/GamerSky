@@ -53,14 +53,14 @@ class CollectionViewController: ViewController {
         super.bindViewModel()
 
         isLoading.asDriver()
-        .distinctUntilChanged()
-        .mapToVoid()
-        .drive(rx.reloadEmptyDataSet)
-        .disposed(by: rx.disposeBag)
+            .distinctUntilChanged()
+            .mapToVoid()
+            .drive(rx.reloadEmptyDataSet)
+            .disposed(by: rx.disposeBag)
     }
 
     func beginHeaderRefresh() {
-        collectionView.refreshHeader.beginRefreshing { [weak self] in
+        collectionView.refreshHeader?.beginRefreshing { [weak self] in
             self?.setUpEmptyDataSet()
         }
     }
@@ -76,12 +76,18 @@ class CollectionViewController: ViewController {
 extension CollectionViewController: RefreshComponentable {
     var header: ControlEvent<Void> {
 
-        return collectionView.refreshHeader.rx.refreshing
+        if let refreshHeader = collectionView.refreshHeader {
+            return refreshHeader.rx.refreshing
+        }
+        return ControlEvent(events: Observable.empty())
     }
 
     var footer: ControlEvent<Void> {
 
-        return collectionView.refreshFooter.rx.refreshing
+        if let refreshFooter = collectionView.refreshFooter {
+            return refreshFooter.rx.refreshing
+        }
+        return ControlEvent(events: Observable.empty())
     }
 }
 
@@ -90,15 +96,17 @@ extension CollectionViewController: BindRefreshStateable {
 
     func bindHeaderRefresh(with state: Observable<Bool>) {
 
+        guard let refreshHeader = collectionView.refreshHeader else { return }
         state
-        .bind(to: collectionView.refreshHeader.rx.isRefreshing)
+        .bind(to: refreshHeader.rx.isRefreshing)
         .disposed(by: rx.disposeBag)
     }
 
     func bindFooterRefresh(with state: Observable<RxMJRefreshFooterState>) {
 
+        guard let refreshFooter = collectionView.refreshFooter else { return }
         state
-        .bind(to: collectionView.refreshFooter.rx.refreshFooterState)
+        .bind(to: refreshFooter.rx.refreshFooterState)
         .disposed(by: rx.disposeBag)
     }
 }

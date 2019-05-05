@@ -70,7 +70,7 @@ class OriginalViewController: ViewController {
     }
     
     override func repeatClickTabBar() {
-        tableView.refreshHeader.beginRefreshing()
+        tableView.refreshHeader?.beginRefreshing()
     }
     
     override func makeUI() {
@@ -95,7 +95,7 @@ extension OriginalViewController {
             
             guard let `self` = self else {return}
             self.page = 1
-            self.tableView.refreshFooter.endRefreshing()
+            self.tableView.refreshFooter?.endRefreshing()
             
             ColumnApi.columnContent(self.page, columnID)
             .cache
@@ -110,9 +110,9 @@ extension OriginalViewController {
                 }
                 
                 self.tableView.reloadData()
-                self.tableView.refreshHeader.endRefreshing()
+                self.tableView.refreshHeader?.endRefreshing()
             }, onError: { _ in
-                self.tableView.refreshHeader.endRefreshing()
+                self.tableView.refreshHeader?.endRefreshing()
             })
             .disposed(by: self.rx.disposeBag)
         })
@@ -121,7 +121,7 @@ extension OriginalViewController {
             
             guard let `self` = self else {return}
             self.page += 1
-            self.tableView.refreshHeader.endRefreshing()
+            self.tableView.refreshHeader?.endRefreshing()
             
             ColumnApi.columnContent(self.page, columnID)
             .cache
@@ -136,14 +136,14 @@ extension OriginalViewController {
                 }
                 
                 self.tableView.reloadData()
-                self.tableView.refreshFooter.endRefreshing()
+                self.tableView.refreshFooter?.endRefreshing()
             }, onError: { _ in
-                self.tableView.refreshFooter.endRefreshing()
+                self.tableView.refreshFooter?.endRefreshing()
             })
             .disposed(by: self.rx.disposeBag)
         })
         
-        tableView.refreshHeader.beginRefreshing()
+        tableView.refreshHeader?.beginRefreshing()
     }
     
     // MARK: - 设置导航栏

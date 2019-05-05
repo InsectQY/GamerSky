@@ -61,7 +61,7 @@ extension GameCommentListViewController {
             guard let `self` = self else {return}
             
             self.page = 1
-            self.tableView.refreshFooter.endRefreshing()
+            self.tableView.refreshFooter?.endRefreshing()
             GameApi.gameReviewList(self.page, self.commentType)
             .cache
             .request()
@@ -70,9 +70,9 @@ extension GameCommentListViewController {
                 
                 self.commets = $0
                 self.tableView.reloadData()
-                self.tableView.refreshHeader.endRefreshing()
+                self.tableView.refreshHeader?.endRefreshing()
             }, onError: { _ in
-                self.tableView.refreshHeader.endRefreshing()
+                self.tableView.refreshHeader?.endRefreshing()
             })
             .disposed(by: self.rx.disposeBag)
         })
@@ -82,7 +82,7 @@ extension GameCommentListViewController {
             guard let `self` = self else {return}
             
             self.page += 1
-            self.tableView.refreshHeader.endRefreshing()
+            self.tableView.refreshHeader?.endRefreshing()
             
             GameApi.gameReviewList(self.page, self.commentType)
             .cache
@@ -92,14 +92,14 @@ extension GameCommentListViewController {
                 
                 self.commets += $0
                 self.tableView.reloadData()
-                self.tableView.refreshFooter.endRefreshing()
+                self.tableView.refreshFooter?.endRefreshing()
             }, onError: { _ in
-                self.tableView.refreshHeader.endRefreshing()
+                self.tableView.refreshHeader?.endRefreshing()
             })
             .disposed(by: self.rx.disposeBag)
         })
         
-        tableView.refreshHeader.beginRefreshing()
+        tableView.refreshHeader?.beginRefreshing()
     }
 }
 

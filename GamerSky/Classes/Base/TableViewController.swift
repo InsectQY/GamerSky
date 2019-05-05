@@ -54,15 +54,15 @@ class TableViewController: ViewController {
         super.bindViewModel()
 
         isLoading.asDriver()
-        .distinctUntilChanged()
-        .mapToVoid()
-        .drive(rx.reloadEmptyDataSet)
-        .disposed(by: rx.disposeBag)
+            .distinctUntilChanged()
+            .mapToVoid()
+            .drive(rx.reloadEmptyDataSet)
+            .disposed(by: rx.disposeBag)
     }
 
     // MARK: - 开始刷新
     func beginHeaderRefresh() {
-        tableView.refreshHeader.beginRefreshing { [weak self] in
+        tableView.refreshHeader?.beginRefreshing { [weak self] in
             self?.setUpEmptyDataSet()
         }
     }
@@ -79,12 +79,18 @@ extension TableViewController: RefreshComponentable {
 
     var header: ControlEvent<Void> {
 
-        return tableView.refreshHeader.rx.refreshing
+        if let refreshHeader = tableView.refreshHeader {
+            return refreshHeader.rx.refreshing
+        }
+        return ControlEvent(events: Observable.empty())
     }
 
     var footer: ControlEvent<Void> {
 
-        return tableView.refreshFooter.rx.refreshing
+        if let refreshFooter = tableView.refreshFooter {
+            return refreshFooter.rx.refreshing
+        }
+        return ControlEvent(events: Observable.empty())
     }
 }
 
@@ -93,15 +99,19 @@ extension TableViewController: BindRefreshStateable {
 
     func bindHeaderRefresh(with state: Observable<Bool>) {
 
+        guard let refreshHeader = tableView.refreshHeader else { return }
+
         state
-        .bind(to: tableView.refreshHeader.rx.isRefreshing)
+        .bind(to: refreshHeader.rx.isRefreshing)
         .disposed(by: rx.disposeBag)
     }
 
     func bindFooterRefresh(with state: Observable<RxMJRefreshFooterState>) {
 
+        guard let refreshFooter = tableView.refreshFooter else { return }
+
         state
-        .bind(to: tableView.refreshFooter.rx.refreshFooterState)
+        .bind(to: refreshFooter.rx.refreshFooterState)
         .disposed(by: rx.disposeBag)
     }
 }
