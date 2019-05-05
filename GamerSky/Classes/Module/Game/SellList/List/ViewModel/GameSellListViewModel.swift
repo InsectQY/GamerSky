@@ -8,20 +8,16 @@
 
 import Foundation
 
-final class GameSellListViewModel: ViewModel {
+final class GameSellListViewModel: RefreshViewModel {
     
     struct Input {
-        
         let date: Int
-        let headerRefresh: Driver<Void>
     }
     
     struct Output {
         
         /// 数据源
-        let vmDatas: Driver<[GameSellList]>
-        /// 刷新状态
-        let endHeaderRefresh: Driver<Bool>
+        let items: Driver<[GameSellList]>
     }
 }
 
@@ -29,26 +25,32 @@ extension GameSellListViewModel: ViewModelable {
     
     func transform(input: GameSellListViewModel.Input) -> GameSellListViewModel.Output {
         
-        let vmDatas = BehaviorRelay<[GameSellList]>(value: [])
-        
-        let header = input.headerRefresh
+        let elements = BehaviorRelay<[GameSellList]>(value: [])
+
+        let output = Output(items: elements.asDriver())
+
+        guard let refresh = unified else { return output }
+
+        let loadNew = refresh.header
+        .asDriver()
         .flatMapLatest {
             
             GameApi.twoGameList(input.date, .popular)
-            .cache
             .request()
             .mapObject([GameSellList].self)
             .asDriver(onErrorJustReturn: [])
         }
             
-        header.asDriver()
-        .drive(vmDatas)
+        loadNew
+        .drive(elements)
         .disposed(by: disposeBag)
-        
+
         // 头部刷新状态
-        let endHeader = header.map { _ in false}
-        
-        let output = Output(vmDatas: vmDatas.asDriver(), endHeaderRefresh: endHeader)
+        loadNew
+        .map { _ in false }
+        .drive(headerRefreshState)
+        .disposed(by: disposeBag)
+
         return output
     }
 }

@@ -13,24 +13,29 @@ class GameSellListViewController: TableViewController {
     
     private var date: Int = 0
     // MARK: - LazyLoad
-    private lazy var viewModel = GameSellListViewModel()
+    private lazy var viewModel = GameSellListViewModel(input: self)
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    convenience init(date: Int) {
-        self.init()
+    init(date: Int) {
+        super.init(style: .plain)
         self.date = date
     }
-    
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func makeUI() {
         super.makeUI()
 
         tableView.register(cellType: GameSellListCell.self)
         tableView.rowHeight = GameSellListCell.cellHeight
         tableView.refreshHeader = RefreshHeader()
+        tableView.refreshFooter = RefreshFooter()
         beginHeaderRefresh()
     }
     
@@ -38,16 +43,12 @@ class GameSellListViewController: TableViewController {
 
         super.bindViewModel()
 
-        let input = GameSellListViewModel.Input(date: date, headerRefresh: tableView.refreshHeader.rx.refreshing.asDriver())
+        let input = GameSellListViewModel.Input(date: date)
         let output = viewModel.transform(input: input)
 
-        output.vmDatas.drive(tableView.rx.items(cellIdentifier: GameSellListCell.ID, cellType: GameSellListCell.self)) { tableView, item, cell in
+        output.items.drive(tableView.rx.items(cellIdentifier: GameSellListCell.ID, cellType: GameSellListCell.self)) { tableView, item, cell in
             cell.item = item
-        }.disposed(by: rx.disposeBag)
-        
-        // 刷新状态
-        output.endHeaderRefresh
-        .drive(tableView.refreshHeader.rx.isRefreshing)
+        }
         .disposed(by: rx.disposeBag)
     }
 }
