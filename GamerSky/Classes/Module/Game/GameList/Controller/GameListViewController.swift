@@ -8,29 +8,12 @@
 
 import UIKit
 
-class GameListViewController: ViewController {
+class GameListViewController: CollectionViewController {
 
     // MARK: - LazyLoad
-    private lazy var collectionView: CollectionView = {
-        
-        let collectionView = CollectionView(frame: UIScreen.main.bounds, collectionViewLayout: GameListFlowLayout())
-        collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        collectionView.delegate = self
-        collectionView.contentInset = UIEdgeInsets.init(top: FilterView.height, left: 0, bottom: 0, right: 0)
-        collectionView.register(cellType: GameListCell.self)
-        collectionView.register(supplementaryViewType: GameListHeaderView.self, ofKind: UICollectionView.elementKindSectionHeader)
-        collectionView.refreshHeader = RefreshHeader()
-        collectionView.refreshFooter = RefreshFooter()
-        return collectionView
-    }()
+    private lazy var filterView = FilterView(frame: CGRect(x: 0, y: -FilterView.height, width: ScreenWidth, height: FilterView.height))
     
-    private lazy var filterView: FilterView = {
-        
-        let filterView = FilterView(frame: CGRect(x: 0, y: -FilterView.height, width: ScreenWidth, height: FilterView.height))
-        return filterView
-    }()
-    
-    private lazy var viewModel = GameListViewModel()
+    private lazy var viewModel = GameListViewModel(input: self)
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -38,31 +21,44 @@ class GameListViewController: ViewController {
 
         setUpNavi()
     }
-    
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        filterView.frame = CGRect(x: 0, y: -FilterView.height, width: ScreenWidth, height: FilterView.height)
+    }
+
+    init() {
+        super.init(collectionViewLayout: GameListFlowLayout())
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func makeUI() {
-        
         super.makeUI()
-        view.addSubview(collectionView)
+
+        collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        collectionView.delegate = self
+        collectionView.contentInset = UIEdgeInsets.init(top: FilterView.height, left: 0, bottom: 0, right: 0)
+        collectionView.register(cellType: GameListCell.self)
+        collectionView.register(supplementaryViewType: GameListHeaderView.self, ofKind: UICollectionView.elementKindSectionHeader)
+        collectionView.refreshHeader = RefreshHeader()
+        collectionView.refreshFooter = RefreshFooter()
         collectionView.addSubview(filterView)
+        beginHeaderRefresh()
     }
     
     override func bindViewModel() {
-        
-        let input = GameListViewModel.Input(headerRefresh: collectionView.refreshHeader.rx.refreshing.asDriver(), footerRefresh: collectionView.refreshFooter.rx.refreshing.asDriver())
+        super.bindViewModel()
+
+        let input = GameListViewModel.Input()
         let output = viewModel.transform(input: input)
         
         output.items.drive(collectionView.rx.items(cellIdentifier: GameListCell.ID, cellType: GameListCell.self)) { (collectionView, item, cell) in
             cell.info = item
-        } .disposed(by: self.rx.disposeBag)
-        
-        // 刷新状态
-        output.endHeaderRefresh
-        .drive(collectionView.refreshHeader.rx.isRefreshing)
-        .disposed(by: rx.disposeBag)
-        
-        output.endFooterRefresh
-        .drive(collectionView.refreshFooter.rx.refreshFooterState)
-        .disposed(by: rx.disposeBag)
+        }
+        .disposed(by: self.rx.disposeBag)
     }
 }
 

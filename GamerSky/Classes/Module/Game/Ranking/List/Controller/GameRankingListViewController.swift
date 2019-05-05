@@ -9,7 +9,7 @@
 import UIKit
 import JXCategoryView
 
-class GameRankingListViewController: ViewController {
+class GameRankingListViewController: TableViewController {
     
     /// 游戏种类 ID
     private var gameClassID = 0
@@ -21,70 +21,46 @@ class GameRankingListViewController: ViewController {
     // MARK: - LazyLoad
     private lazy var rankingData = [GameSpecialDetail]()
     
-    private lazy var viewModel = GameRankingListViewModel()
-    private lazy var vmInput = GameRankingListViewModel.Input(gameClassID: gameClassID, annualClass: annualClass, headerRefresh: tableView.refreshHeader.rx.refreshing.asDriver(), footerRefresh: tableView.refreshFooter.rx.refreshing.asDriver())
-    private lazy var vmOutput = viewModel.transform(input: vmInput)
-    
-    private lazy var tableView: TableView = {
-        
-        let tableView = TableView(frame: view.bounds)
-        tableView.delegate = self
-        tableView.register(cellType: GameColumnDetailCell.self)
-        tableView.refreshHeader = RefreshHeader()
-        tableView.refreshFooter = RefreshFooter()
-        return tableView
-    }()
+    private lazy var viewModel = GameRankingListViewModel(input: self)
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        tableView.frame = view.bounds
-    }
-    
-    convenience init(gameClassID: Int, rankingType: GameRankingType) {
-        
-        self.init()
+    init(gameClassID: Int, rankingType: GameRankingType) {
+        super.init(style: .plain)
+
         self.gameClassID = gameClassID
         self.rankingType = rankingType
     }
-    
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func makeUI() {
-        
         super.makeUI()
-        view.addSubview(tableView)
-        tableView.refreshHeader.beginRefreshing()
+
+        tableView.register(cellType: GameColumnDetailCell.self)
+        tableView.refreshHeader = RefreshHeader()
+        tableView.refreshFooter = RefreshFooter()
+        beginHeaderRefresh()
     }
     
     override func bindViewModel() {
-        
-        vmOutput.vmDatas.drive(tableView.rx.items) { (tableView, row, item) in
+
+        let input = GameRankingListViewModel.Input(gameClassID: gameClassID, annualClass: annualClass)
+        let output = viewModel.transform(input: input)
+
+        output.items.drive(tableView.rx.items) { (tableView, row, item) in
             
             let cell = tableView.dequeueReusableCell(for: IndexPath(row: row, section: 0), cellType: GameColumnDetailCell.self)
             cell.descLabelBottomConstraint.constant = 0
             cell.tag = row
             cell.specitial = item
             return cell
-        }.disposed(by: rx.disposeBag)
-        
-        // 刷新状态
-        vmOutput.endHeaderRefresh
-        .drive(tableView.refreshHeader.rx.isRefreshing)
+        }
         .disposed(by: rx.disposeBag)
-        
-        vmOutput.endFooterRefresh
-        .drive(tableView.refreshFooter.rx.refreshFooterState)
-        .disposed(by: rx.disposeBag)
-    }
-}
-
-// MARK: - UITableViewDelegate
-extension GameRankingListViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
     }
 }

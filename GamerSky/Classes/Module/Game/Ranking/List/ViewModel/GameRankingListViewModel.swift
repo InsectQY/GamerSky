@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class GameRankingListViewModel {
+final class GameRankingListViewModel: RefreshViewModel {
     
     struct Input {
         
@@ -18,68 +18,93 @@ final class GameRankingListViewModel {
         let annualClass: String
         /// 排名方式
         let rankingType: GameRankingType = .fractions
-        
-        let headerRefresh: Driver<Void>
-        let footerRefresh: Driver<Void>
     }
     
     struct Output {
         
         /// 数据源
-        let vmDatas: Driver<[GameSpecialDetail]>
-        /// 刷新状态
-        let endHeaderRefresh: Driver<Bool>
-        let endFooterRefresh: Driver<RxMJRefreshFooterState>
+        let items: Driver<[GameSpecialDetail]>
     }
 }
 
-extension GameRankingListViewModel: ViewModelable, HasDisposeBag {
+extension GameRankingListViewModel: ViewModelable {
     
     func transform(input: GameRankingListViewModel.Input) -> GameRankingListViewModel.Output {
 
-        // HUD 状态
-        let HUDState = PublishRelay<UIState>()
         /// 数据源
-        let vmDatas = BehaviorRelay<[GameSpecialDetail]>(value: [])
-        
+        let elements = BehaviorRelay<[GameSpecialDetail]>(value: [])
+
+        let output = Output(items: elements.asDriver())
+
+        guard let refresh = unified else { return output }
+
         var page = 1
         
         // 加载最新
-        let header = input.headerRefresh.then(page = 1)
-        .flatMapLatest { _ in
-            
-            GameApi.gameRankingList(page, input.rankingType, input.gameClassID, input.annualClass)
-            .request()
-            .trackState(HUDState)
-            .mapObject([GameSpecialDetail].self)
-            .asDriverOnErrorJustComplete()
+        let loadNew = refresh.header
+        .asDriver()
+        .then(page = 1)
+        .flatMapLatest { [unowned self] _ in
+            self.request(page: page, rankingType: input.rankingType, gameClassID: input.gameClassID, annualClass: input.annualClass)
         }
         
         // 加载更多
-        let footer = input.footerRefresh.then(page += 1)
-        .flatMapLatest { _ in
-                
-            GameApi.gameRankingList(page, input.rankingType, input.gameClassID, input.annualClass)
-            .request()
-            .trackState(HUDState)
-            .mapObject([GameSpecialDetail].self)
-            .asDriverOnErrorJustComplete()
+        let loadMore = refresh.footer
+        .asDriver()
+        .then(page += 1)
+        .flatMapLatest { [unowned self] _ in
+            self.request(page: page, rankingType: input.rankingType, gameClassID: input.gameClassID, annualClass: input.annualClass)
         }
         
         // 数据源
-        header.drive(vmDatas)
+        loadNew.drive(elements)
         .disposed(by: disposeBag)
         
-        footer.map({vmDatas.value + $0})
-        .drive(vmDatas)
+        loadMore.map { elements.value + $0 }
+        .drive(elements)
         .disposed(by: disposeBag)
-        
+
         // 头部刷新状态
-        let endHeader = header.map { _ in false}
+        loadNew
+        .map { _ in false }
+        .drive(headerRefreshState)
+        .disposed(by: disposeBag)
+
         // 尾部刷新状态
-        let endFooter = footer.map { _ in RxMJRefreshFooterState.default}
-        
-        let output = Output(vmDatas: vmDatas.asDriver(), endHeaderRefresh: endHeader, endFooterRefresh: endFooter)
+        Driver.merge(
+            loadNew.map { _ in
+                RxMJRefreshFooterState.default
+            },
+            loadMore.map { _ in
+                RxMJRefreshFooterState.default
+            }
+        )
+        .startWith(.hidden)
+        .drive(footerRefreshState)
+        .disposed(by: disposeBag)
+
+        bindErrorToRefreshFooterState(elements.value.isEmpty)
+
         return output
+    }
+}
+
+extension GameRankingListViewModel {
+
+    /// 加载某条评论的回复
+    func request(page: Int,
+                 rankingType: GameRankingType,
+                 gameClassID: Int,
+                 annualClass: String) -> Driver<[GameSpecialDetail]> {
+
+        return  GameApi.gameRankingList(page,
+                                        rankingType,
+                                        gameClassID,
+                                        annualClass)
+                .request()
+                .mapObject([GameSpecialDetail].self)
+                .trackActivity(loading)
+                .trackError(refreshError)
+                .asDriverOnErrorJustComplete()
     }
 }
