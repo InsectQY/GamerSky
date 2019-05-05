@@ -20,6 +20,9 @@ PODS:
   - "NSObject+Rx (4.4.1)":
     - RxSwift (~> 4.3)
   - Result (4.1.0)
+  - RxActivityIndicator (0.1.1):
+    - RxCocoa
+    - RxSwift
   - RxAtomic (4.4.1)
   - RxCocoa (4.4.1):
     - RxSwift (~> 4.0)
@@ -55,6 +58,7 @@ DEPENDENCIES:
   - FSPagerView
   - JXCategoryView
   - "NSObject+Rx"
+  - RxActivityIndicator
   - RxDataSources
   - RxNetwork/Cache
   - RxURLNavigator
@@ -80,6 +84,7 @@ SPEC REPOS:
     - Moya
     - "NSObject+Rx"
     - Result
+    - RxActivityIndicator
     - RxAtomic
     - RxCocoa
     - RxDataSources
@@ -108,6 +113,7 @@ SPEC CHECKSUMS:
   Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
   "NSObject+Rx": 9884a92f19b610795c431e10b4e601913b59c9e9
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
+  RxActivityIndicator: 3ce24abf73d9608cad9925a3237397713d727bbe
   RxAtomic: f8d6adc1ccb87a767811269e4875887bc74dbf19
   RxCocoa: 2f35a76bf8887872e28a1914112395b11b8e0e64
   RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
@@ -116,9 +122,9 @@ SPEC CHECKSUMS:
   RxURLNavigator: e1af8d62c8f5b4853768e8f77f4b669d02016e43
   SwiftNotificationCenter: 760386da2ce03d3594cb5e96d1e22ec80b44b46f
   SwiftTheme: 628345b948068a48d330d76dffb1a990ea5f90aa
-  SwiftyThirdParty: 76b5888ac646910b8115e15b8906752177ef0f6d
+  SwiftyThirdParty: d85f5462a201da40642ff41746cf8b4241c36bd7
   URLNavigator: e8cea3835b3456d7876eb728831e742273c8d209
 
-PODFILE CHECKSUM: d624fc33363634d3f607768042a56f48c0c0dbac
+PODFILE CHECKSUM: 54752dfffaef02b1f11d232aa0ec265ab7dd3ff8
 
-COCOAPODS: 1.6.0
+COCOAPODS: 1.6.1

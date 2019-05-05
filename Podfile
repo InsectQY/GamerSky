@@ -36,6 +36,7 @@ pod 'DefaultsKit'
 pod 'RxNetwork/Cache'
 pod 'NSObject+Rx'
 pod 'RxDataSources'
+pod 'RxActivityIndicator' # https://github.com/InsectQY/RxActivityIndicator
 # JSON 解析
 pod 'CleanJSON'
 # 通知

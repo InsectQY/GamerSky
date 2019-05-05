@@ -62,6 +62,26 @@ class ViewController: UIViewController {
     func repeatClickTabBar() {}
 }
 
+// MARK: - BindErrorStateable
+extension ViewController: BindErrorStateable {
+
+    func bindErrorToShowToast(_ error: ErrorTracker) {
+        error
+        .drive(rx.showError)
+        .disposed(by: rx.disposeBag)
+    }
+}
+
+// MARK: - BindLoadState
+extension ViewController: BindLoadStateable {
+
+    func bindLoading(with loading: ActivityIndicator) {
+        loading
+        .drive(isLoading)
+        .disposed(by: rx.disposeBag)
+    }
+}
+
 // MARK: - JXCategoryListContentViewDelegate
 extension ViewController: JXCategoryListContentViewDelegate {
 
@@ -146,5 +166,16 @@ extension ViewController {
         
         guard view.isShowingOnKeyWindow() else {return}
         repeatClickTabBar()
+    }
+}
+
+// MARK: - Reactive-extension
+extension Reactive where Base: ViewController {
+
+    var showError: Binder<Error> {
+
+        return Binder(base) { vc, error in
+            
+        }
     }
 }
