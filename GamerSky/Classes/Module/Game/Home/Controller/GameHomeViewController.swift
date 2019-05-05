@@ -9,11 +9,40 @@
 import UIKit
 import RxDataSources
 
-class GameHomeViewController: ViewController {
+class GameHomeViewController: TableViewController {
+
+    private lazy var headerView = GameHomeHeaderView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: GameHomeHeaderView.height))
     
-    private lazy var tableView: UITableView = {
-        
-        let tableView = UITableView(frame: UIScreen.main.bounds, style: .grouped)
+    private lazy var viewModel = GameHomeViewModel(input: self)
+
+    // MARK: - LifeCycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        setUpNavi()
+    }
+
+    init() {
+        super.init(style: .grouped)
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        headerView.frame = CGRect(x: 0, y: 0, width: ScreenWidth, height: GameHomeHeaderView.height)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    override func repeatClickTabBar() {
+        print("\(self)")
+    }
+    
+    override func makeUI() {
+        super.makeUI()
+
         tableView.delegate = self
         tableView.register(cellType: GameHomeRecommendContentCell.self)
         tableView.register(cellType: GameHomeWaitSellContentCell.self)
@@ -22,40 +51,15 @@ class GameHomeViewController: ViewController {
         tableView.register(cellType: GameHomeColumnContentCell.self)
         tableView.register(headerFooterViewType: GameHomeSectionHeader.self)
         tableView.separatorStyle = .none
-        tableView.backgroundColor = .clear
         tableView.tableHeaderView = headerView
         tableView.refreshHeader = RefreshHeader()
-        return tableView
-    }()
-    
-    private lazy var headerView: GameHomeHeaderView = {
-        
-        let headerView = GameHomeHeaderView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: GameHomeHeaderView.height))
-        return headerView
-    }()
-    
-    private lazy var viewModel = GameHomeViewModel()
-
-    // MARK: - LifeCycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        setUpNavi()
-    }
-    
-    override func repeatClickTabBar() {
-        print("\(self)")
-    }
-    
-    override func makeUI() {
-        super.makeUI()
-        view.addSubview(tableView)
-        tableView.refreshHeader.beginRefreshing()
+        tableView.refreshFooter = RefreshFooter()
+        beginHeaderRefresh()
     }
     
     override func bindViewModel() {
         
-        let input = GameHomeViewModel.GameHomeInput(headerRefresh: tableView.refreshHeader.rx.refreshing.asDriver())
+        let input = GameHomeViewModel.GameHomeInput()
         let output = viewModel.transform(input: input)
         
         let dataSource = RxTableViewSectionedReloadDataSource<GameHomeSection>(configureCell: { (ds, tableView, indexPath, item) -> UITableViewCell in
@@ -104,11 +108,6 @@ class GameHomeViewController: ViewController {
         
         output.sections
         .drive(tableView.rx.items(dataSource: dataSource))
-        .disposed(by: rx.disposeBag)
-        
-        // 刷新状态
-        output.endHeaderRefresh
-        .drive(tableView.refreshHeader.rx.isRefreshing)
         .disposed(by: rx.disposeBag)
     }
 }

@@ -1,5 +1,5 @@
 //
-//  BaseTableViewController.swift
+//  CollectionViewController.swift
 //  QYNews
 //
 //  Created by Insect on 2019/1/25.
@@ -8,15 +8,14 @@
 
 import UIKit
 
-class TableViewController: ViewController {
+class CollectionViewController: ViewController {
 
-    private var style: UITableView.Style = .plain
-
+    private var layout: UICollectionViewLayout = UICollectionViewLayout()
     // MARK: - Lazyload
-    lazy var tableView: TableView = {
+    lazy var collectionView: CollectionView = {
 
-        let tableView = TableView(frame: view.bounds, style: style)
-        return tableView
+        let collectionView = CollectionView(frame: view.bounds, collectionViewLayout: layout)
+        return collectionView
     }()
 
     // MARK: - LifeCycle
@@ -26,12 +25,12 @@ class TableViewController: ViewController {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        tableView.frame = view.bounds
+        collectionView.frame = view.bounds
     }
 
     // MARK: - init
-    init(style: UITableView.Style) {
-        self.style = style
+    init(collectionViewLayout layout: UICollectionViewLayout) {
+        self.layout = layout
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -47,7 +46,7 @@ class TableViewController: ViewController {
     override func makeUI() {
         super.makeUI()
 
-        view.addSubview(tableView)
+        view.addSubview(collectionView)
     }
 
     override func bindViewModel() {
@@ -60,59 +59,57 @@ class TableViewController: ViewController {
         .disposed(by: rx.disposeBag)
     }
 
-    // MARK: - 开始刷新
     func beginHeaderRefresh() {
-        tableView.refreshHeader.beginRefreshing { [weak self] in
+        collectionView.refreshHeader.beginRefreshing { [weak self] in
             self?.setUpEmptyDataSet()
         }
     }
 
     // MARK: - 设置 DZNEmptyDataSet
     func setUpEmptyDataSet() {
-        tableView.emptyDataSetSource = self
-        tableView.emptyDataSetDelegate = self
+        collectionView.emptyDataSetSource = self
+        collectionView.emptyDataSetDelegate = self
     }
 }
 
 // MARK: - RefreshComponent
-extension TableViewController: RefreshComponentable {
-
+extension CollectionViewController: RefreshComponentable {
     var header: ControlEvent<Void> {
 
-        return tableView.refreshHeader.rx.refreshing
+        return collectionView.refreshHeader.rx.refreshing
     }
 
     var footer: ControlEvent<Void> {
 
-        return tableView.refreshFooter.rx.refreshing
+        return collectionView.refreshFooter.rx.refreshing
     }
 }
 
 // MARK: - BindRefreshState
-extension TableViewController: BindRefreshStateable {
+extension CollectionViewController: BindRefreshStateable {
 
     func bindHeaderRefresh(with state: Observable<Bool>) {
 
         state
-        .bind(to: tableView.refreshHeader.rx.isRefreshing)
+        .bind(to: collectionView.refreshHeader.rx.isRefreshing)
         .disposed(by: rx.disposeBag)
     }
 
     func bindFooterRefresh(with state: Observable<RxMJRefreshFooterState>) {
 
         state
-        .bind(to: tableView.refreshFooter.rx.refreshFooterState)
+        .bind(to: collectionView.refreshFooter.rx.refreshFooterState)
         .disposed(by: rx.disposeBag)
     }
 }
 
 // MARK: - Reactive-extension
-extension Reactive where Base: TableViewController {
+extension Reactive where Base: CollectionViewController {
 
     var reloadEmptyDataSet: Binder<Void> {
 
         return Binder(base) { vc, _ in
-            vc.tableView.reloadEmptyDataSet()
+            vc.collectionView.reloadEmptyDataSet()
         }
     }
 

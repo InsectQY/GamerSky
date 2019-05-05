@@ -20,11 +20,15 @@ class NewsViewController: TableViewController {
     
     private lazy var headerView = NewsTableHeaderView.loadFromNib()
     
-    convenience init(nodeID: Int) {
-        self.init()
+    init(nodeID: Int) {
+        super.init(style: .plain)
         self.nodeID = nodeID
     }
-    
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,7 +70,7 @@ class NewsViewController: TableViewController {
         .disposed(by: rx.disposeBag)
         
         tableView.rx.modelSelected(ChannelList.self)
-        .map({URLNavigatorPushWrap(navigator, NavigationURL.contentDetail($0.contentId).path)})
+        .map { URLNavigatorPushWrap(navigator, NavigationURL.contentDetail($0.contentId).path) }
         .bind(to: navigator.rx.push)
         .disposed(by: rx.disposeBag)
     }
