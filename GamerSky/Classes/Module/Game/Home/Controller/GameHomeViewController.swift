@@ -53,7 +53,6 @@ class GameHomeViewController: TableViewController {
         tableView.separatorStyle = .none
         tableView.tableHeaderView = headerView
         tableView.refreshHeader = RefreshHeader()
-        tableView.refreshFooter = RefreshFooter()
         beginHeaderRefresh()
     }
     

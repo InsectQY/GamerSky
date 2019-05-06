@@ -9,123 +9,46 @@
 import UIKit
 import JXCategoryView
 
-class GameCommentListViewController: ViewController {
+class GameCommentListViewController: TableViewController {
     
     /// 评价类型
     private var commentType: GameCommentType = .hot
-    /// 页码
-    private var page = 1
     // MARK: - LazyLoad
-    private lazy var commets = [GameComment]()
-
-    private lazy var tableView: TableView = {
-        
-        let tableView = TableView(frame: view.bounds, style: .grouped)
-        tableView.register(cellType: GameCommentCell.self)
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.sectionHeaderHeight = 10
-        tableView.sectionFooterHeight = 10
-        return tableView
-    }()
+    private lazy var viewModel = GameCommentListViewModel(input: self)
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpRefresh()
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        tableView.frame = view.bounds
     }
     
     // MARK: - convenience
-    convenience init(commentType: GameCommentType) {
-        self.init()
+    init(commentType: GameCommentType) {
+        super.init(style: .grouped)
         self.commentType = commentType
     }
-    
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func makeUI() {
         super.makeUI()
-        view.addSubview(tableView)
-    }
-}
 
-extension GameCommentListViewController {
-    
-    private func setUpRefresh() {
-        
-        tableView.refreshHeader = RefreshHeader(refreshingBlock: { [weak self] in
-            
-            guard let `self` = self else {return}
-            
-            self.page = 1
-            self.tableView.refreshFooter?.endRefreshing()
-            GameApi.gameReviewList(self.page, self.commentType)
-            .cache
-            .request()
-            .mapObject([GameComment].self)
-            .subscribe(onNext: {
-                
-                self.commets = $0
-                self.tableView.reloadData()
-                self.tableView.refreshHeader?.endRefreshing()
-            }, onError: { _ in
-                self.tableView.refreshHeader?.endRefreshing()
-            })
-            .disposed(by: self.rx.disposeBag)
-        })
-        
-        tableView.refreshFooter = RefreshFooter(refreshingBlock: { [weak self] in
-            
-            guard let `self` = self else {return}
-            
-            self.page += 1
-            self.tableView.refreshHeader?.endRefreshing()
-            
-            GameApi.gameReviewList(self.page, self.commentType)
-            .cache
-            .request()
-            .mapObject([GameComment].self)
-            .subscribe(onNext: {
-                
-                self.commets += $0
-                self.tableView.reloadData()
-                self.tableView.refreshFooter?.endRefreshing()
-            }, onError: { _ in
-                self.tableView.refreshHeader?.endRefreshing()
-            })
-            .disposed(by: self.rx.disposeBag)
-        })
-        
-        tableView.refreshHeader?.beginRefreshing()
+        tableView.register(cellType: GameCommentCell.self)
+        tableView.refreshHeader = RefreshHeader()
+        tableView.refreshFooter = RefreshFooter()
+        beginHeaderRefresh()
     }
-}
 
-// MARK: - UITableViewDataSource
-extension GameCommentListViewController: UITableViewDataSource {
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return commets.count
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(for: indexPath, cellType: GameCommentCell.self)
-        cell.comment = commets[indexPath.section]
-        return cell
-    }
-}
+    override func bindViewModel() {
+        super.bindViewModel()
 
-// MARK: - UITableViewDelegate
-extension GameCommentListViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let input = GameCommentListViewModel.Input(commentType: commentType)
+        let output = viewModel.transform(input: input)
         
+        output.items.drive(tableView.rx.items(cellIdentifier: GameCommentCell.ID, cellType: GameCommentCell.self)) { tableView, item, cell in
+            cell.comment = item
+        }
+        .disposed(by: rx.disposeBag)
     }
 }
