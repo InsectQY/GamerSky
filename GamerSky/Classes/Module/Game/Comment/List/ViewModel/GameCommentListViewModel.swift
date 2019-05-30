@@ -27,22 +27,22 @@ extension GameCommentListViewModel: ViewModelable {
 
         let output = Output(items: elements.asDriver())
 
-        guard let refresh = unified else { return output }
-
         var page = 1
 
-        let loadNew = refresh.header
-        .asDriver()
+        let loadNew = refreshOutput
+        .headerRefreshing
         .then(page = 1)
         .flatMapLatest { [unowned self] in
-            self.request(page: page, commentType: input.commentType)
+            self.request(page: page,
+                         commentType: input.commentType)
         }
 
-        let loadMore = refresh.footer
-        .asDriver()
+        let loadMore = refreshOutput
+        .footerRefreshing
         .then(page += 1)
         .flatMapLatest { [unowned self] in
-            self.request(page: page, commentType: input.commentType)
+            self.request(page: page,
+                         commentType: input.commentType)
         }
 
         // 数据源绑定
@@ -51,14 +51,13 @@ extension GameCommentListViewModel: ViewModelable {
         .disposed(by: disposeBag)
 
         loadMore
-        .map { elements.value + $0 }
-        .drive(elements)
+        .drive(elements.append)
         .disposed(by: disposeBag)
 
         // 头部刷新状态
         loadNew
         .map { _ in false }
-        .drive(headerRefreshState)
+        .drive(refreshInput.headerRefreshState)
         .disposed(by: disposeBag)
 
         // 尾部刷新状态
@@ -71,10 +70,8 @@ extension GameCommentListViewModel: ViewModelable {
             }
         )
         .startWith(.hidden)
-        .drive(footerRefreshState)
+        .drive(refreshInput.footerRefreshState)
         .disposed(by: disposeBag)
-
-        bindErrorToRefreshFooterState(elements.value.isEmpty)
 
         return output
     }

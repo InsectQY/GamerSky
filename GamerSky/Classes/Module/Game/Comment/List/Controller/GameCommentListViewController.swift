@@ -7,14 +7,11 @@
 //
 
 import UIKit
-import JXCategoryView
 
-class GameCommentListViewController: TableViewController {
+class GameCommentListViewController: TableViewController<GameCommentListViewModel> {
     
     /// 评价类型
     private var commentType: GameCommentType = .hot
-    // MARK: - LazyLoad
-    private lazy var viewModel = GameCommentListViewModel(input: self)
     
     // MARK: - LifeCycle
     override func viewDidLoad() {

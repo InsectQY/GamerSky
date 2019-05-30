@@ -24,11 +24,12 @@ extension AppDelegate {
         
         Network.Configuration.default.timeoutInterval = 20
 //        Network.Configuration.default.plugins = [NetworkLoggerPlugin(verbose: true)]
-        Network.Configuration.default.taskClosure = { target in
-            
+
+        Network.Configuration.default.replacingTask = { target in
+
             switch target.task {
             case let .requestParameters(parameters, encoding):
-                
+
                 let params: [String: Any] = ["device_id": deviceID,
                  "os": "iOS",
                  "osVersion": osVersion,

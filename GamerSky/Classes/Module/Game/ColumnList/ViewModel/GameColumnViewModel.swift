@@ -27,11 +27,9 @@ extension GameColumnViewModel: ViewModelable {
 
         let output = Output(items: elements.asDriver())
 
-        guard let refresh = unified else { return output }
-
         // 加载最新
-        let loadNew = refresh.header
-        .asDriver()
+        let loadNew = refreshOutput
+        .headerRefreshing
         .flatMapLatest { [unowned self] _ in
             self.request()
         }
@@ -43,8 +41,8 @@ extension GameColumnViewModel: ViewModelable {
         
         // 头部刷新状态
         loadNew
-        .map { _ in false }
-        .drive(headerRefreshState)
+        .mapTo(false)
+        .drive(refreshInput.headerRefreshState)
         .disposed(by: disposeBag)
 
         return output

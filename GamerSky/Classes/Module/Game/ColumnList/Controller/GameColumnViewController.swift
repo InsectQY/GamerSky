@@ -8,10 +8,7 @@
 
 import UIKit
 
-class GameColumnViewController: CollectionViewController {
-    
-    // MARK: - LazyLoad
-    private lazy var viewModel = GameColumnViewModel(input: self)
+class GameColumnViewController: CollectionViewController<GameColumnViewModel> {
     
     // MARK: - LifeCycle
     override func viewDidLoad() {

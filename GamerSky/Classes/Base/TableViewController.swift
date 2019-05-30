@@ -8,14 +8,17 @@
 
 import UIKit
 
-class TableViewController: ViewController {
+/// 继承时需指定 RefreshViewModel 或其子类作为泛型。
+/// 该类实现 UITableView 的 header / footer 刷新逻辑。
+class TableViewController<RVM: RefreshViewModel>: ViewController<RVM> {
 
     private var style: UITableView.Style = .plain
 
     // MARK: - Lazyload
     lazy var tableView: TableView = {
 
-        let tableView = TableView(frame: view.bounds, style: style)
+        let tableView = TableView(frame: view.bounds,
+                                  style: style)
         return tableView
     }()
 
@@ -50,17 +53,19 @@ class TableViewController: ViewController {
         view.addSubview(tableView)
     }
 
+    /// 子类调用 super.bindViewModel 会自动创建 viewModel 对象。
+    /// 如果不需要自动创建 viewModel，不调用 super 即可。
     override func bindViewModel() {
         super.bindViewModel()
 
-        isLoading.asDriver()
-            .distinctUntilChanged()
-            .mapToVoid()
-            .drive(rx.reloadEmptyDataSet)
-            .disposed(by: rx.disposeBag)
+        bindReloadEmpty()
+        bindHeader()
+        bindFooter()
+
+        viewModel.bindState()
     }
 
-    // MARK: - 开始刷新
+    // MARK: - 开始头部刷新
     func beginHeaderRefresh() {
         tableView.refreshHeader?.beginRefreshing { [weak self] in
             self?.setUpEmptyDataSet()
@@ -72,64 +77,75 @@ class TableViewController: ViewController {
         tableView.emptyDataSetSource = self
         tableView.emptyDataSetDelegate = self
     }
-}
 
-// MARK: - RefreshComponent
-extension TableViewController: RefreshComponentable {
+    // MARK: - 绑定头部刷新回调和头部刷新状态
+    func bindHeader() {
 
-    var header: ControlEvent<Void> {
-
-        if let refreshHeader = tableView.refreshHeader {
-            return refreshHeader.rx.refreshing
+        guard
+            let refreshHeader = tableView.refreshHeader
+        else {
+            return
         }
-        return ControlEvent(events: Observable.empty())
-    }
 
-    var footer: ControlEvent<Void> {
+        // 将刷新事件传递给 refreshVM
+        refreshHeader.rx.refreshing
+        .bind(to: viewModel.refreshInput.beginHeaderRefresh)
+        .disposed(by: rx.disposeBag)
 
-        if let refreshFooter = tableView.refreshFooter {
-            return refreshFooter.rx.refreshing
-        }
-        return ControlEvent(events: Observable.empty())
-    }
-}
+        // 成功时的头部状态
+        viewModel
+        .refreshOutput
+        .headerRefreshState
+        .drive(refreshHeader.rx.isRefreshing)
+        .disposed(by: rx.disposeBag)
 
-// MARK: - BindRefreshState
-extension TableViewController: BindRefreshStateable {
-
-    func bindHeaderRefresh(with state: Observable<Bool>) {
-
-        guard let refreshHeader = tableView.refreshHeader else { return }
-
-        state
-        .bind(to: refreshHeader.rx.isRefreshing)
+        // 失败时的头部状态
+        viewModel
+        .refreshError
+        .mapTo(false)
+        .drive(refreshHeader.rx.isRefreshing)
         .disposed(by: rx.disposeBag)
     }
 
-    func bindFooterRefresh(with state: Observable<RxMJRefreshFooterState>) {
+    // MARK: - 绑定尾部刷新回调和尾部刷新状态
+    func bindFooter() {
 
-        guard let refreshFooter = tableView.refreshFooter else { return }
+        guard
+            let refreshFooter = tableView.refreshFooter
+        else {
+            return
+        }
 
-        state
-        .bind(to: refreshFooter.rx.refreshFooterState)
+        // 将刷新事件传递给 refreshVM
+        refreshFooter.rx.refreshing
+        .bind(to: viewModel.refreshInput.beginFooterRefresh)
+        .disposed(by: rx.disposeBag)
+
+        // 成功时的尾部状态
+        viewModel
+        .refreshOutput
+        .footerRefreshState
+        .drive(refreshFooter.rx.refreshFooterState)
+        .disposed(by: rx.disposeBag)
+
+        // 失败时的尾部状态
+        viewModel
+        .refreshError
+        .map { [weak self] _ -> RxMJRefreshFooterState in
+            guard let self = self else { return .hidden }
+            return self.tableView.isTotalDataEmpty ? .hidden : .default
+        }
+        .drive(refreshFooter.rx.refreshFooterState)
         .disposed(by: rx.disposeBag)
     }
-}
 
-// MARK: - Reactive-extension
-extension Reactive where Base: TableViewController {
+    // MARK: - 绑定数据源 nil 的占位图
+    func bindReloadEmpty() {
 
-    var reloadEmptyDataSet: Binder<Void> {
-
-        return Binder(base) { vc, _ in
-            vc.tableView.reloadEmptyDataSet()
-        }
-    }
-
-    var beginHeaderRefresh: Binder<Void> {
-
-        return Binder(base) { vc, _ in
-            vc.beginHeaderRefresh()
-        }
+        viewModel.loading
+        .distinctUntilChanged()
+        .mapToVoid()
+        .drive(tableView.rx.reloadEmptyDataSet)
+        .disposed(by: rx.disposeBag)
     }
 }

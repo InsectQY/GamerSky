@@ -9,7 +9,7 @@
 import UIKit
 import JXCategoryView
 
-class GameCommentPageViewController: ViewController {
+class GameCommentPageViewController: ViewController<ViewModel> {
 
     private let commentType: [GameCommentType] = [.hot, .latest]
 

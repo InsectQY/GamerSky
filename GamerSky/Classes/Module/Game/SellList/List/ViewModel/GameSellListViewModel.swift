@@ -29,10 +29,8 @@ extension GameSellListViewModel: ViewModelable {
 
         let output = Output(items: elements.asDriver())
 
-        guard let refresh = unified else { return output }
-
-        let loadNew = refresh.header
-        .asDriver()
+        let loadNew = refreshOutput
+        .headerRefreshing
         .flatMapLatest {
             
             GameApi.twoGameList(input.date, .popular)
@@ -47,8 +45,8 @@ extension GameSellListViewModel: ViewModelable {
 
         // 头部刷新状态
         loadNew
-        .map { _ in false }
-        .drive(headerRefreshState)
+        .mapTo(false)
+        .drive(refreshInput.headerRefreshState)
         .disposed(by: disposeBag)
 
         return output

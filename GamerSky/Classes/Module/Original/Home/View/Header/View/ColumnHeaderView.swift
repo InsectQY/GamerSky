@@ -35,10 +35,9 @@ class ColumnHeaderView: UIView, NibLoadable {
     private func loadColumnList() {
         
         ColumnApi.columnNodeList
-        .cache
         .request()
         .mapObject([ColumnList].self)
-        .subscribe(onNext: { [weak self] in
+        .subscribe(onSuccess: { [weak self] in
             
             guard let `self` = self else {return}
             self.columnLists = $0

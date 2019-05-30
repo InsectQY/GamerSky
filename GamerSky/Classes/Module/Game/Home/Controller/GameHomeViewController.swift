@@ -9,11 +9,9 @@
 import UIKit
 import RxDataSources
 
-class GameHomeViewController: TableViewController {
+class GameHomeViewController: TableViewController<GameHomeViewModel> {
 
     private lazy var headerView = GameHomeHeaderView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: GameHomeHeaderView.height))
-    
-    private lazy var viewModel = GameHomeViewModel(input: self)
 
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -57,6 +55,7 @@ class GameHomeViewController: TableViewController {
     }
     
     override func bindViewModel() {
+        super.bindViewModel()
         
         let input = GameHomeViewModel.GameHomeInput()
         let output = viewModel.transform(input: input)

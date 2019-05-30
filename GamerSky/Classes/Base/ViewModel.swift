@@ -8,22 +8,15 @@
 
 import Foundation
 
+/// 轻量级 ViewModel，只包含了 error 和耗时操作状态
 class ViewModel {
 
-    weak var unified: Unifiedable?
     /// 是否正在加载
     let loading = ActivityIndicator()
     /// track error
     let error = ErrorTracker()
 
-    init(input: Unifiedable? = nil) {
-        unified = input
-        bindState()
-    }
-
-    func bindState() {
-        unified?.bindErrorToShowToast(error)
-    }
+    required init() {}
 
     deinit {
         print("\(type(of: self)): Deinited")

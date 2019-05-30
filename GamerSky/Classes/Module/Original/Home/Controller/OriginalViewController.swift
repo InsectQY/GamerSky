@@ -10,7 +10,7 @@ import UIKit
 import SwiftTheme
 import URLNavigator
 
-class OriginalViewController: ViewController {
+class OriginalViewController: ViewController<ViewModel> {
 
     /// 其他栏目
     private var columnList: ColumnList?
@@ -98,10 +98,9 @@ extension OriginalViewController {
             self.tableView.refreshFooter?.endRefreshing()
             
             ColumnApi.columnContent(self.page, columnID)
-            .cache
             .request()
             .mapObject(ColumnContent.self)
-            .subscribe(onNext: {
+            .subscribe(onSuccess: {
                 
                 if self.columnList == nil {
                     self.columnAry = [$0.childElements]
@@ -124,10 +123,9 @@ extension OriginalViewController {
             self.tableView.refreshHeader?.endRefreshing()
             
             ColumnApi.columnContent(self.page, columnID)
-            .cache
             .request()
             .mapObject(ColumnContent.self)
-            .subscribe(onNext: {
+            .subscribe(onSuccess: {
                 
                 if self.columnList == nil {
                     self.columnAry += [$0.childElements]

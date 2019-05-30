@@ -19,8 +19,6 @@ pod 'FDFullscreenPopGesture'
 pod 'Bugly'
 # Page
 pod 'JXCategoryView'
-# Placeholder
-pod 'DZNEmptyDataSet' # https://github.com/dzenbot/DZNEmptyDataSet
 
 # Swift
 
@@ -37,9 +35,16 @@ pod 'RxNetwork/Cache'
 pod 'NSObject+Rx'
 pod 'RxDataSources'
 pod 'RxActivityIndicator' # https://github.com/InsectQY/RxActivityIndicator
+pod 'RxReachability' # https://github.com/RxSwiftCommunity/RxReachability
+pod 'RxURLNavigator' # https://github.com/InsectQY/RxURLNavigator
 # JSON 解析
 pod 'CleanJSON'
 # 通知
 pod 'SwiftNotificationCenter'
+# Placeholder
+pod 'EmptyDataSet-Swift' # https://github.com/Xiaoye220/EmptyDataSet-Swift
+# Resources
+pod 'R.swift' # https://github.com/mac-cain13/R.swift
+pod 'NVActivityIndicatorView' # https://github.com/ninjaprox/NVActivityIndicatorView
 
 end

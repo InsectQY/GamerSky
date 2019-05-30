@@ -10,8 +10,6 @@ import Foundation
 import RxDataSources
 
 class GameHomeViewModel: RefreshViewModel {
-
-    private let vmDatas = Variable<[GameHomeSection]>([])
     
     struct GameHomeInput {}
     
@@ -25,6 +23,8 @@ extension GameHomeViewModel: ViewModelable {
 
     func transform(input: GameHomeViewModel.GameHomeInput) -> GameHomeViewModel.GameHomeOutput {
 
+        let vmDatas = Variable<[GameHomeSection]>([])
+
         let temp_sections = vmDatas.asObservable().map { (sections) -> [GameHomeSection] in
             return sections.map { (item) -> GameHomeSection in
                 return item
@@ -32,12 +32,8 @@ extension GameHomeViewModel: ViewModelable {
         }
         .asDriver(onErrorJustReturn: [])
 
-        let output = GameHomeOutput(sections: temp_sections)
-
-        guard let refresh = unified else { return output }
-
-        let loadNew = refresh.header
-        .asDriver()
+        let loadNew = refreshOutput
+        .headerRefreshing
         .flatMapLatest { _ -> SharedSequence<DriverSharingStrategy, (GameHomeSection, GameHomeSection, GameHomeSection, GameHomeSection, [Array<GameInfo>], [Array<GameInfo>], GameHomeSection, GameHomeSection)> in
             
             // sectionHeader 数据
@@ -45,56 +41,56 @@ extension GameHomeViewModel: ViewModelable {
             let sectionData = try! PropertyListDecoder().decode([GameHomeSectionModel].self, from: data)
             
             // 新游推荐
-            let symbol1 = GameApi.gameSpecialDetail(1, 13)
-            .cache
+            let symbol1 = GameApi
+            .gameSpecialDetail(1, 13)
             .request()
             .mapObject([GameInfo].self)
             .asDriver(onErrorJustReturn: [])
             .map { GameHomeSection.specialDetailSection([GameHomeItem.specialDetailItem($0)]) }
             
             // 最近大家都在玩
-            let symbol2 = GameApi.gameHomePage(1, .hot)
-            .cache
+            let symbol2 = GameApi
+            .gameHomePage(1, .hot)
             .request()
             .mapObject([GameInfo].self)
             .asDriver(onErrorJustReturn: [])
             .map { GameHomeSection.hotSection([GameHomeItem.hotItem($0, sectionData)]) }
             
             // 特色专题
-            let symbol3 = GameApi.gameSpecialList(1)
-            .cache
+            let symbol3 = GameApi
+            .gameSpecialList(1)
             .request()
             .mapObject([GameSpecialList].self)
             .asDriver(onErrorJustReturn: [])
             .map { GameHomeSection.specialListSection([GameHomeItem.specialListItem($0)]) }
             
             // 即将发售
-            let symbol4 = GameApi.gameHomePage(1, .waitSell)
-            .cache
+            let symbol4 = GameApi
+            .gameHomePage(1, .waitSell)
             .request()
             .mapObject([GameInfo].self)
             .asDriver(onErrorJustReturn: [])
             .map { GameHomeSection.waitSellSection([GameHomeItem.waitSellItem($0, sectionData)]) }
             
             // 高分榜
-            let symbol5 = GameApi.gameRankingList(1, .fractions, 0, "all")
-            .cache
+            let symbol5 = GameApi
+            .gameRankingList(1, .fractions, 0, "all")
             .request()
             .mapObject([GameInfo].self)
             .asDriver(onErrorJustReturn: [])
             .map { [Array($0.prefix(5))] }
             
             // 热门榜
-            let symbol6 = GameApi.gameRankingList(1, .hot, 0, "all")
-            .cache
+            let symbol6 = GameApi
+            .gameRankingList(1, .hot, 0, "all")
             .request()
             .mapObject([GameInfo].self)
             .asDriver(onErrorJustReturn: [])
             .map { [Array($0.prefix(5))] }
             
             // 最期待游戏
-            let symbol7 = GameApi.gameHomePage(1, .expected)
-            .cache
+            let symbol7 = GameApi
+            .gameHomePage(1, .expected)
             .request()
             .mapObject([GameInfo].self)
             .asDriver(onErrorJustReturn: [])
@@ -102,7 +98,6 @@ extension GameHomeViewModel: ViewModelable {
             
             // 找游戏
             let symbol8 = GameApi.gameTags
-            .cache
             .request()
             .mapObject([GameTag].self)
             .asDriver(onErrorJustReturn: [])
@@ -125,17 +120,19 @@ extension GameHomeViewModel: ViewModelable {
             sectionModels.append(symbol4Data)
             sectionModels.append(rankingSection)
             sectionModels.append(symbol7Data)
-            self.vmDatas.value = sectionModels
+            vmDatas.value = sectionModels
 
         })
         .disposed(by: disposeBag)
 
         // 头部刷新状态
         loadNew
-        .map { _ in false }
-        .drive(headerRefreshState)
+        .mapTo(false)
+        .drive(refreshInput.headerRefreshState)
         .disposed(by: disposeBag)
-        
+
+        let output = GameHomeOutput(sections: temp_sections)
+
         return output
     }
 }

@@ -9,7 +9,7 @@
 import UIKit
 import JXCategoryView
 
-class GameRankingPageViewController: ViewController {
+class GameRankingPageViewController: ViewController<ViewModel> {
     
     private let menuHeight: CGFloat = 44
 

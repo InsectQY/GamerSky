@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GameDetailViewController: ViewController {
+class GameDetailViewController: ViewController<ViewModel> {
 
     private var contentID = 0
     
@@ -51,15 +51,15 @@ extension GameDetailViewController {
     private func loadData() {
         
         GameApi.gameDetail(contentID)
-        .cache
         .request()
         .mapObject(GameDetail.self)
-        .subscribe(onNext: {
+        .subscribe(onSuccess: {
             
             self.headerView.detail = $0
         }, onError: { (error) in
             
-        }).disposed(by: rx.disposeBag)
+        })
+        .disposed(by: rx.disposeBag)
     }
 }
 

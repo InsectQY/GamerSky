@@ -31,21 +31,20 @@ extension NewsListViewModel: ViewModelable {
         let elements = BehaviorRelay<[ChannelList]>(value: [])
         let banners = BehaviorRelay<[ChannelList]?>(value: [])
 
-        let output = NewsListOutput(items: elements.asDriver(), banners: banners.asDriver())
-
-        guard let refresh = unified else { return output }
-
-        let laodNew = refresh.header.asDriver()
+        let laodNew = refreshOutput
+        .headerRefreshing
         .then(page = 1)
         .flatMapLatest { [unowned self] in
-            self.request(page: page, nodeID: input.nodeID)
+            self.request(page: page,
+                         nodeID: input.nodeID)
         }
         
-        let loadMore = refresh.footer
-        .asDriver()
+        let loadMore = refreshOutput
+        .footerRefreshing
         .then(page += 1)
         .flatMapLatest { [unowned self] in
-            self.request(page: page, nodeID: input.nodeID)
+            self.request(page: page,
+                         nodeID: input.nodeID)
         }
 
         laodNew.map { lists -> [ChannelList] in
@@ -57,8 +56,8 @@ extension NewsListViewModel: ViewModelable {
         .drive(elements)
         .disposed(by: disposeBag)
         
-        loadMore.map { elements.value + $0 }
-        .drive(elements)
+        loadMore
+        .drive(elements.append)
         .disposed(by: disposeBag)
         
         laodNew.map { $0.first?.childElements }
@@ -67,8 +66,8 @@ extension NewsListViewModel: ViewModelable {
         
         // 头部刷新状态
         laodNew
-        .map { _ in false }
-        .drive(headerRefreshState)
+        .mapTo(false)
+        .drive(refreshInput.headerRefreshState)
         .disposed(by: disposeBag)
 
         // 尾部刷新状态
@@ -81,11 +80,12 @@ extension NewsListViewModel: ViewModelable {
             }
         )
         .startWith(.hidden)
-        .drive(footerRefreshState)
+        .drive(refreshInput.footerRefreshState)
         .disposed(by: disposeBag)
 
-        bindErrorToRefreshFooterState(elements.value.isEmpty)
-        
+        let output = NewsListOutput(items: elements.asDriver(),
+                                    banners: banners.asDriver())
+
         return output
     }
 }
@@ -94,7 +94,8 @@ extension NewsListViewModel {
 
     func request(page: Int, nodeID: Int) -> Driver<[ChannelList]> {
 
-        return  NewsApi.allChannelList(page, nodeID)
+        return  NewsApi
+                .allChannelList(page, nodeID)
                 .request()
                 .mapObject([ChannelList].self)
                 .trackActivity(loading)

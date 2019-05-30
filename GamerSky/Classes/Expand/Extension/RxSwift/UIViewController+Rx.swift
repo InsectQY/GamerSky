@@ -8,6 +8,7 @@
 
 import RxSwift
 import RxCocoa
+import SwiftyThirdParty
 
 public extension Reactive where Base: UIViewController {
         
@@ -45,6 +46,13 @@ public extension Reactive where Base: UIViewController {
     func dismiss(animated: Bool = true) -> Binder<Void> {
         return Binder(base) { this, _ in
             this.dismiss(animated: animated, completion: nil)
+        }
+    }
+
+    var showError: Binder<Error> {
+
+        return Binder(base) { vc, error in
+//            vc.view.show(error.errorMessage)
         }
     }
 }

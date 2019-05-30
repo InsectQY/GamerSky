@@ -10,14 +10,12 @@ import UIKit
 import RxURLNavigator
 import JXCategoryView
 
-class NewsViewController: TableViewController {
+class NewsViewController: TableViewController<NewsListViewModel> {
     
     // MARK: - public
     private var nodeID = 0
     
     // MARK: - Lazyload
-    private lazy var viewModel = NewsListViewModel(input: self)
-    
     private lazy var headerView = NewsTableHeaderView.loadFromNib()
     
     init(nodeID: Int) {

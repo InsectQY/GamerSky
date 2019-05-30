@@ -9,7 +9,7 @@
 import UIKit
 import JXCategoryView
 
-class NewsPageViewController: ViewController {
+class NewsPageViewController: ViewController<NewsPageViewModel> {
     
     fileprivate lazy var categoryView: JXCategoryTitleView = {
         
@@ -22,8 +22,6 @@ class NewsPageViewController: ViewController {
         categoryView.delegate = self
         return categoryView
     }()
-
-    private lazy var viewModel = NewsPageViewModel()
     
     // swiftlint:disable force_unwrapping
     fileprivate lazy var listContainerView = JXCategoryListContainerView(delegate: self)!

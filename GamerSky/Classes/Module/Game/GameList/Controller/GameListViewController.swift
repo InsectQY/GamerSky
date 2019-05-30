@@ -8,12 +8,10 @@
 
 import UIKit
 
-class GameListViewController: CollectionViewController {
+class GameListViewController: CollectionViewController<GameListViewModel> {
 
     // MARK: - LazyLoad
     private lazy var filterView = FilterView(frame: CGRect(x: 0, y: -FilterView.height, width: ScreenWidth, height: FilterView.height))
-    
-    private lazy var viewModel = GameListViewModel(input: self)
     
     // MARK: - LifeCycle
     override func viewDidLoad() {

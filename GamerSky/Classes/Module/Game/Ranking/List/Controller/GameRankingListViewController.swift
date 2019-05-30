@@ -9,7 +9,7 @@
 import UIKit
 import JXCategoryView
 
-class GameRankingListViewController: TableViewController {
+class GameRankingListViewController: TableViewController<GameRankingListViewModel> {
     
     /// 游戏种类 ID
     private var gameClassID = 0
@@ -20,8 +20,6 @@ class GameRankingListViewController: TableViewController {
 
     // MARK: - LazyLoad
     private lazy var rankingData = [GameSpecialDetail]()
-    
-    private lazy var viewModel = GameRankingListViewModel(input: self)
     
     // MARK: - LifeCycle
     override func viewDidLoad() {

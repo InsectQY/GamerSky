@@ -10,7 +10,7 @@ import UIKit
 import WebKit
 import URLNavigator
 
-class ContentDetailViewController: ViewController {
+class ContentDetailViewController: ViewController<ViewModel> {
 
     private var contentID = 0
     

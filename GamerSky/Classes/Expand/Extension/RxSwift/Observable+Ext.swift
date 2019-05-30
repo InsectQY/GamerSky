@@ -9,12 +9,6 @@ extension ObservableType where E == Bool {
     }
 }
 
-extension SharedSequenceConvertibleType {
-    func mapToVoid() -> SharedSequence<SharingStrategy, Void> {
-        return map { _ in }
-    }
-}
-
 public extension Driver {
     
     func then(_ closure: @escaping @autoclosure () -> Void) -> SharedSequence<S, E> {
@@ -38,10 +32,6 @@ extension ObservableType {
         return asDriver { error in
             return Driver.empty()
         }
-    }
-    
-    func mapToVoid() -> Observable<Void> {
-        return map { _ in }
     }
     
     func then(_ closure: @escaping @autoclosure () throws -> Void) -> Observable<E> {

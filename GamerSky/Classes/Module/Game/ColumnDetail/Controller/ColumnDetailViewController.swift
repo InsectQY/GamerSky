@@ -13,7 +13,7 @@ enum ColumnDetailContainer {
     case gameSpecialDetail([GameSpecialDetail])
 }
 
-class ColumnDetailViewController: ViewController {
+class ColumnDetailViewController: ViewController<ViewModel> {
     
     private var isHasSubList: Bool = false
     private var nodeID: Int = 0
@@ -76,14 +76,12 @@ extension ColumnDetailViewController {
             
             self.page = 1
             let symbol1 = GameApi.gameSpecialDetail(self.page, self.nodeID)
-            .cache
             .request().mapObject([GameSpecialDetail].self)
             .map({ColumnDetailContainer.gameSpecialDetail($0)})
             
             if self.isHasSubList {
                 
                 let symbol2 = GameApi.gameSpecialSubList(self.nodeID)
-                .cache
                 .request().mapObject([GameSpecialSubList].self)
                 .map({ColumnDetailContainer.gameSpecialSubList($0)})
                 
@@ -118,7 +116,7 @@ extension ColumnDetailViewController {
                 .disposed(by: self.rx.disposeBag)
             }else {
                 
-                symbol1.subscribe(onNext: { response in
+                symbol1.subscribe(onSuccess: { response in
                     
                     switch response {
                     case let .gameSpecialDetail(data):
@@ -151,9 +149,9 @@ extension ColumnDetailViewController {
             self.tableView.refreshHeader?.endRefreshing()
             
             GameApi.gameSpecialDetail(self.page, self.nodeID)
-            .cache
-            .request().mapObject([GameSpecialDetail].self)
-            .subscribe(onNext: {
+            .request()
+            .mapObject([GameSpecialDetail].self)
+            .subscribe(onSuccess: {
                 
                 self.specialDetail += $0
                 self.tableView.refreshFooter?.endRefreshing()

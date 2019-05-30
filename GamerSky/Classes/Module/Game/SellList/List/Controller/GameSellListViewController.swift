@@ -9,11 +9,9 @@
 import UIKit
 import JXCategoryView
 
-class GameSellListViewController: TableViewController {
+class GameSellListViewController: TableViewController<GameSellListViewModel> {
     
     private var date: Int = 0
-    // MARK: - LazyLoad
-    private lazy var viewModel = GameSellListViewModel(input: self)
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -40,7 +38,6 @@ class GameSellListViewController: TableViewController {
     }
     
     override func bindViewModel() {
-
         super.bindViewModel()
 
         let input = GameSellListViewModel.Input(date: date)

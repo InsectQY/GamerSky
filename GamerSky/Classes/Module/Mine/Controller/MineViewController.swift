@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MineViewController: ViewController {
+class MineViewController: ViewController<ViewModel> {
 
     // MARK: - IBOutlet
     @IBOutlet private weak var tableView: UITableView!

@@ -28,7 +28,6 @@ extension NewsPageViewModel: ViewModelable {
     func transform(input: NewsPageViewModel.Input) -> NewsPageViewModel.Output {
 
         NewsApi.allChannel
-        .cache
         .request()
         .mapObject([Channel].self)
         .asDriver(onErrorJustReturn: [])
