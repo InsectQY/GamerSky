@@ -23,7 +23,7 @@ class ColumnElementCell: UITableViewCell, NibReusable {
     @IBOutlet private weak var authorImageView: UIImageView!
     @IBOutlet private weak var commentsBtn: Button! {
         didSet{
-            commentsBtn.qy_fitFont = PFR12Font
+            commentsBtn.qy_fitFont = .pingFangSCRegular(12)
         }
     }
     

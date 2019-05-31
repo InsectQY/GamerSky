@@ -15,7 +15,7 @@ class NewsTableHeaderView: View, NibReusable {
 
     private let CycleCellID = "CycleCellID"
     
-    static let height: CGFloat = ScreenHeight * 0.31
+    static let height: CGFloat = Configs.Dimensions.screenHeight * 0.31
     
     // MARK: - IBOutlet
     @IBOutlet private weak var pagerView: FSPagerView! {

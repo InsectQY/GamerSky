@@ -18,7 +18,7 @@ class GameHomeColumnContentFlowLayout: UICollectionViewFlowLayout {
     private static let kMaxCol: CGFloat = 2
     /// cell 宽度
     public static var kItemW: CGFloat {
-        return (ScreenWidth - (2 * kEdge) - ((kMaxCol - 1) * kItemMargin)) / kMaxCol
+        return (Configs.Dimensions.screenWidth - (2 * kEdge) - ((kMaxCol - 1) * kItemMargin)) / kMaxCol
     }
     
     override func awakeFromNib() {

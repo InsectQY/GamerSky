@@ -21,7 +21,7 @@ class GameColumnDetailSectionHeader: UITableViewHeaderFooterView, NibReusable {
         didSet {
             
             titleBtn.setTitle(title, for: .normal)
-            titleBtnWidthConstraint.constant = (title?.size(ScreenWidth, PFR13Font).width ?? 0) + 90
+            titleBtnWidthConstraint.constant = (title?.size(Configs.Dimensions.screenWidth, .pingFangSCRegular(13)).width ?? 0) + 90
         }
     }
     

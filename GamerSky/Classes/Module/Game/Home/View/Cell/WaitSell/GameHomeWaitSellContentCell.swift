@@ -21,7 +21,7 @@ class GameHomeWaitSellContentCell: TableViewCell, NibReusable {
     private static let kMaxCol: CGFloat = 4
     /// cell 宽度
     static var kItemW: CGFloat {
-        return (ScreenWidth - (2 * kEdge) - ((kMaxCol - 1) * kItemMargin)) / kMaxCol
+        return (Configs.Dimensions.screenWidth - (2 * kEdge) - ((kMaxCol - 1) * kItemMargin)) / kMaxCol
     }
 
     // MARK: - IBOutlet

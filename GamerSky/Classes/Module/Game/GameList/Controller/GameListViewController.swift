@@ -11,7 +11,7 @@ import UIKit
 class GameListViewController: CollectionViewController<GameListViewModel> {
 
     // MARK: - LazyLoad
-    private lazy var filterView = FilterView(frame: CGRect(x: 0, y: -FilterView.height, width: ScreenWidth, height: FilterView.height))
+    private lazy var filterView = FilterView(frame: CGRect(x: 0, y: -FilterView.height, width: Configs.Dimensions.screenWidth, height: FilterView.height))
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -22,7 +22,7 @@ class GameListViewController: CollectionViewController<GameListViewModel> {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        filterView.frame = CGRect(x: 0, y: -FilterView.height, width: ScreenWidth, height: FilterView.height)
+        filterView.frame = CGRect(x: 0, y: -FilterView.height, width: Configs.Dimensions.screenWidth, height: FilterView.height)
     }
 
     init() {

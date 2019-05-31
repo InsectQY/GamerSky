@@ -20,7 +20,7 @@ class GameHomePageCell: CollectionViewCell, NibReusable {
     @IBOutlet private weak var ratingView: CosmosView! {
         didSet {
             // 按比例缩放星星大小
-            ratingView.starSize = Double(12 * ScreenWidth / 414)
+            ratingView.starSize = Double(12 * Configs.Dimensions.screenWidth / 414)
         }
     }
     

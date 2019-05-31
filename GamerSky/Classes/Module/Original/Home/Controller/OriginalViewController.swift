@@ -24,23 +24,23 @@ class OriginalViewController: ViewController<ViewModel> {
     
     // MARK: - Lazyload
     private lazy var titleView: ColumnNavTitleView = {
-        
+
         let titleView = ColumnNavTitleView.loadFromNib()
-        titleView.frame = CGRect(x: 0, y: 0, width: ScreenWidth, height: kNaviBarH)
+        titleView.frame = CGRect(x: 0, y: 0, width: Configs.Dimensions.screenWidth, height: Configs.Dimensions.naviBarHeight)
         return titleView
     }()
     
     private lazy var descHeaderView: ColumnDescHeaderView = {
         
         let descHeaderView = ColumnDescHeaderView.loadFromNib()
-        descHeaderView.frame = CGRect(x: 0, y: 0, width: ScreenWidth, height: ColumnDescHeaderView.headerHeight)
+        descHeaderView.frame = CGRect(x: 0, y: 0, width: Configs.Dimensions.screenWidth, height: ColumnDescHeaderView.headerHeight)
         return descHeaderView
     }()
     
     private lazy var headerView: ColumnHeaderView = {
         
         let headerView = ColumnHeaderView.loadFromNib()
-        headerView.frame = CGRect(x: 0, y: 0, width: ScreenWidth, height: ColumnHeaderView.headerHeight)
+        headerView.frame = CGRect(x: 0, y: 0, width: Configs.Dimensions.screenWidth, height: ColumnHeaderView.headerHeight)
         return headerView
     }()
     
@@ -76,7 +76,7 @@ class OriginalViewController: ViewController<ViewModel> {
     override func makeUI() {
         
         super.makeUI()
-        view.backgroundColor = RGB(245, g: 245, b: 245)
+        view.backgroundColor = .RGBA(245, 245, 245)
         qy_themeBackgroundColor = "colors.whiteSmoke"
         view.addSubview(tableView)
         setUpHeaderView()
@@ -153,8 +153,8 @@ extension OriginalViewController {
             titleView.column = columnList
         }else {
            
-            let leftItem = Label(frame: CGRect(x: 10, y: 0, width: 200, height: kNaviBarH))
-            leftItem.font = PFM18Font
+            let leftItem = Label(frame: CGRect(x: 10, y: 0, width: 200, height: Configs.Dimensions.naviBarHeight))
+            leftItem.font = .pingFangSCMedium(18)
             leftItem.text = "游民原创"
             navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftItem)
         }

@@ -21,7 +21,7 @@ class MineViewController: ViewController<ViewModel> {
         let nightSwitch = UISwitch()
         nightSwitch.addTarget(self, action: #selector(nightModeSwitchChanged), for: .valueChanged)
         nightSwitch.backgroundColor = .clear
-        nightSwitch.frame = CGRect(x: ScreenWidth - 66, y: 8, width: 44, height: 44)
+        nightSwitch.frame = CGRect(x: Configs.Dimensions.screenWidth - 66, y: 8, width: 44, height: 44)
         return nightSwitch
     }()
     

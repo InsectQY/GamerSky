@@ -58,7 +58,7 @@ extension Label {
         
         // 如果不想自适应字体大小，把 tag 值设置为666即可
         guard tag != 666 else {return}
-        font = UIFont(name: font.fontName, size: font.pointSize * ScreenWidth / 414)
+        font = UIFont(name: font.fontName, size: font.pointSize * Configs.Dimensions.screenWidth / 414)
     }
     
     // MARK: - 主题设置

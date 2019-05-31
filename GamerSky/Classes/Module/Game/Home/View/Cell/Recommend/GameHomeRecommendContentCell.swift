@@ -10,7 +10,7 @@ import UIKit
 
 class GameHomeRecommendContentCell: TableViewCell, NibReusable {
     
-    static let cellHeight: CGFloat = ScreenHeight * 0.28
+    static let cellHeight: CGFloat = Configs.Dimensions.screenHeight * 0.28
     
     //分页序号
     private var selectedIndex: CGFloat = 0
@@ -21,10 +21,10 @@ class GameHomeRecommendContentCell: TableViewCell, NibReusable {
     /// 每行最大列数
     private let kMaxCol: CGFloat = 1
     /// 每行最大列数
-    private let kFooterWidth: CGFloat = ScreenWidth * 0.25
+    private let kFooterWidth: CGFloat = Configs.Dimensions.screenWidth * 0.25
     /// cell 宽度
     private var kItemW: CGFloat {
-        return (ScreenWidth - (2 * kEdge) - ((kMaxCol - 1) * kItemMargin)) / kMaxCol
+        return (Configs.Dimensions.screenWidth - (2 * kEdge) - ((kMaxCol - 1) * kItemMargin)) / kMaxCol
     }
     
     // MARK: - public

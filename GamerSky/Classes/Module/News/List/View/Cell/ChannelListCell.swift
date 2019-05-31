@@ -10,7 +10,7 @@ import UIKit
 
 class ChannelListCell: TableViewCell, NibReusable {
 
-    static let cellHeight: CGFloat = ScreenWidth * 0.22
+    static let cellHeight: CGFloat = Configs.Dimensions.screenWidth * 0.22
     
     // MARK: - IBOutlet
     @IBOutlet private weak var thumbImageView: UIImageView!
@@ -18,7 +18,7 @@ class ChannelListCell: TableViewCell, NibReusable {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var commentCountBtn: Button! {
         didSet {
-            commentCountBtn.qy_fitFont = PFR12Font
+            commentCountBtn.qy_fitFont = .pingFangSCRegular(12)
         }
     }
     

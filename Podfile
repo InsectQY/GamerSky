@@ -37,6 +37,7 @@ pod 'RxDataSources'
 pod 'RxActivityIndicator' # https://github.com/InsectQY/RxActivityIndicator
 pod 'RxReachability' # https://github.com/RxSwiftCommunity/RxReachability
 pod 'RxURLNavigator' # https://github.com/InsectQY/RxURLNavigator
+pod 'RxMJ', :tag => '0.5.0', :git => 'https://github.com/InsectQY/RxMJ.git' # https://github.com/srv7/RxMJ
 # JSON 解析
 pod 'CleanJSON'
 # 通知
@@ -45,6 +46,8 @@ pod 'SwiftNotificationCenter'
 pod 'EmptyDataSet-Swift' # https://github.com/Xiaoye220/EmptyDataSet-Swift
 # Resources
 pod 'R.swift' # https://github.com/mac-cain13/R.swift
+# Font
+pod 'UIFontComplete' # https://github.com/Nirma/UIFontComplete
 pod 'NVActivityIndicatorView' # https://github.com/ninjaprox/NVActivityIndicatorView
 
 end

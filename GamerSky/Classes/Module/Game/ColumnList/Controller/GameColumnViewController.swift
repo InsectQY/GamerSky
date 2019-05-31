@@ -27,7 +27,7 @@ class GameColumnViewController: CollectionViewController<GameColumnViewModel> {
     override func makeUI() {
         super.makeUI()
 
-        view.backgroundColor = RGB(240, g: 240, b: 240)
+        view.backgroundColor = .RGBA(240, 240, 240)
 
         collectionView.register(cellType: GameHomeColumnCell.self)
         collectionView.refreshHeader = RefreshHeader()

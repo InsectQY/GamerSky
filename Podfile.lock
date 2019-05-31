@@ -36,6 +36,9 @@ PODS:
     - Differentiator (~> 3.0)
     - RxCocoa (~> 4.0)
     - RxSwift (~> 4.0)
+  - RxMJ (0.5.0):
+    - MJRefresh
+    - RxCocoa
   - RxNetwork/Cache (0.9.3):
     - Cache
     - RxNetwork/Cacheable
@@ -58,6 +61,7 @@ PODS:
     - Kingfisher
   - SwiftyThirdParty/MJRefresh (0.1.1):
     - MJRefresh
+  - UIFontComplete (4.0.0)
   - URLNavigator (2.2.0)
 
 DEPENDENCIES:
@@ -73,6 +77,7 @@ DEPENDENCIES:
   - R.swift
   - RxActivityIndicator
   - RxDataSources
+  - RxMJ (from `https://github.com/InsectQY/RxMJ.git`, tag `0.5.0`)
   - RxNetwork/Cache
   - RxReachability
   - RxURLNavigator
@@ -80,6 +85,7 @@ DEPENDENCIES:
   - SwiftTheme
   - SwiftyThirdParty/Kingfisher/Core
   - SwiftyThirdParty/MJRefresh
+  - UIFontComplete
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -111,9 +117,20 @@ SPEC REPOS:
     - RxURLNavigator
     - SwiftNotificationCenter
     - SwiftTheme
+    - UIFontComplete
     - URLNavigator
   https://github.com/InsectQY/QYSpecs.git:
     - SwiftyThirdParty
+
+EXTERNAL SOURCES:
+  RxMJ:
+    :git: https://github.com/InsectQY/RxMJ.git
+    :tag: 0.5.0
+
+CHECKOUT OPTIONS:
+  RxMJ:
+    :git: https://github.com/InsectQY/RxMJ.git
+    :tag: 0.5.0
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
@@ -138,6 +155,7 @@ SPEC CHECKSUMS:
   RxActivityIndicator: 3ce24abf73d9608cad9925a3237397713d727bbe
   RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
   RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
+  RxMJ: 46f3a35f582856d3ed1030b16141363cb084d2b0
   RxNetwork: b3bd1a6554cd3989945d57180b6ae2182d27e7e6
   RxReachability: 053f2d913db44998242ade488ccaef558f3ce7cb
   RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
@@ -145,8 +163,9 @@ SPEC CHECKSUMS:
   SwiftNotificationCenter: 760386da2ce03d3594cb5e96d1e22ec80b44b46f
   SwiftTheme: a381f983da92153908b7a9eeb961b18b6d94d614
   SwiftyThirdParty: 949e49d932aa4c511a9b51e0e73a5be4853433f5
+  UIFontComplete: 9542d390ee6114412a585d979b09fe820896695d
   URLNavigator: 0bffc3efdeb2d97f7b5eec7ac82d290f4a099431
 
-PODFILE CHECKSUM: 8577ac717ed0fc9f9f0b7cca718159aae5168ee6
+PODFILE CHECKSUM: 1e118b329db61b15621dfa43852ff50c7063e79e
 
 COCOAPODS: 1.7.0

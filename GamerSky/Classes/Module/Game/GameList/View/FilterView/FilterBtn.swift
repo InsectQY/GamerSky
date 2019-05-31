@@ -10,8 +10,8 @@ import UIKit
 
 class FilterBtn: UIButton {
 
-    private let selBorderColor = RGB(168, g: 203, b: 184)
-    private let selTitleColor = RGB(100, g: 173, b: 125)
+    private let selBorderColor: UIColor = .RGBA(168, 203, 184)
+    private let selTitleColor: UIColor = .RGBA(100, 173, 125)
     
     override open func awakeFromNib() {
         super.awakeFromNib()

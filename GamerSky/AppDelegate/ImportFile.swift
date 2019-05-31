@@ -14,3 +14,4 @@ import Foundation
 @_exported import RxNetwork
 @_exported import SwiftyThirdParty
 @_exported import RxActivityIndicator
+@_exported import RxMJ

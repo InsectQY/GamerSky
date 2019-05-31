@@ -19,11 +19,9 @@
 		18147401229FCE5A0092F546 /* mapTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181473FF229FCE5A0092F546 /* mapTo.swift */; };
 		18147402229FCE5A0092F546 /* mapAt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18147400229FCE5A0092F546 /* mapAt.swift */; };
 		18302CF222A0B5C9008CE7B6 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18302CF122A0B5C9008CE7B6 /* R.generated.swift */; };
-		1834A2CF227E7C07001DC841 /* BindRefreshStateable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1834A2CA227E7C07001DC841 /* BindRefreshStateable.swift */; };
-		1834A2D0227E7C07001DC841 /* BindLoadStateable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1834A2CB227E7C07001DC841 /* BindLoadStateable.swift */; };
-		1834A2D1227E7C07001DC841 /* BindErrorStateable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1834A2CC227E7C07001DC841 /* BindErrorStateable.swift */; };
-		1834A2D2227E7C07001DC841 /* UnifiedProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1834A2CD227E7C07001DC841 /* UnifiedProtocol.swift */; };
-		1834A2D3227E7C07001DC841 /* RefreshComponentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1834A2CE227E7C07001DC841 /* RefreshComponentable.swift */; };
+		18302CF422A105CD008CE7B6 /* AppConfigs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18302CF322A105CD008CE7B6 /* AppConfigs.swift */; };
+		18302CF722A1079C008CE7B6 /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18302CF622A1079C008CE7B6 /* UIFontExtension.swift */; };
+		18302CFA22A107F3008CE7B6 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18302CF922A107F3008CE7B6 /* UIColorExtension.swift */; };
 		1834A2D6227E7C68001DC841 /* ErrorTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1834A2D5227E7C68001DC841 /* ErrorTracker.swift */; };
 		603CACAC20F8552A0001614F /* GameDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603CACAB20F8552A0001614F /* GameDetailViewController.swift */; };
 		603CACB220F859A90001614F /* GameDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603CACB120F859A90001614F /* GameDetailHeaderView.swift */; };
@@ -117,9 +115,6 @@
 		E550C93F207CF06200C4AF2D /* GameHomeSectionData.plist in Resources */ = {isa = PBXBuildFile; fileRef = E550C93E207CF06200C4AF2D /* GameHomeSectionData.plist */; };
 		E550C941207CF51B00C4AF2D /* GameHomeSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = E550C940207CF51B00C4AF2D /* GameHomeSectionHeader.xib */; };
 		E550C943207CF52F00C4AF2D /* GameHomeSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E550C942207CF52F00C4AF2D /* GameHomeSectionHeader.swift */; };
-		E551665121AF8EC800E83044 /* MJRefreshComponent+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E551664E21AF8EC800E83044 /* MJRefreshComponent+Rx.swift */; };
-		E551665221AF8EC800E83044 /* MJRefreshHeader+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E551664F21AF8EC800E83044 /* MJRefreshHeader+Rx.swift */; };
-		E551665321AF8EC800E83044 /* MJRefreshFooter+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E551665021AF8EC800E83044 /* MJRefreshFooter+Rx.swift */; };
 		E56802DE20724AEB00CF944E /* ChannelListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56802DC20724AEB00CF944E /* ChannelListCell.swift */; };
 		E56802DF20724AEB00CF944E /* ChannelListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E56802DD20724AEB00CF944E /* ChannelListCell.xib */; };
 		E56802E520725C9100CF944E /* NewsTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56802E420725C9100CF944E /* NewsTableHeaderView.swift */; };
@@ -230,11 +225,9 @@
 		181473FF229FCE5A0092F546 /* mapTo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mapTo.swift; sourceTree = "<group>"; };
 		18147400229FCE5A0092F546 /* mapAt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mapAt.swift; sourceTree = "<group>"; };
 		18302CF122A0B5C9008CE7B6 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
-		1834A2CA227E7C07001DC841 /* BindRefreshStateable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BindRefreshStateable.swift; sourceTree = "<group>"; };
-		1834A2CB227E7C07001DC841 /* BindLoadStateable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BindLoadStateable.swift; sourceTree = "<group>"; };
-		1834A2CC227E7C07001DC841 /* BindErrorStateable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BindErrorStateable.swift; sourceTree = "<group>"; };
-		1834A2CD227E7C07001DC841 /* UnifiedProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnifiedProtocol.swift; sourceTree = "<group>"; };
-		1834A2CE227E7C07001DC841 /* RefreshComponentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshComponentable.swift; sourceTree = "<group>"; };
+		18302CF322A105CD008CE7B6 /* AppConfigs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfigs.swift; sourceTree = "<group>"; };
+		18302CF622A1079C008CE7B6 /* UIFontExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
+		18302CF922A107F3008CE7B6 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		1834A2D5227E7C68001DC841 /* ErrorTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorTracker.swift; sourceTree = "<group>"; };
 		374130AA40958FB95594DE0F /* libPods-GamerSky.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GamerSky.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A76D4C644FCDE4465C7CD87 /* Pods-GamerSky.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GamerSky.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GamerSky/Pods-GamerSky.debug.xcconfig"; sourceTree = "<group>"; };
@@ -346,9 +339,6 @@
 		E550C93E207CF06200C4AF2D /* GameHomeSectionData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = GameHomeSectionData.plist; sourceTree = "<group>"; };
 		E550C940207CF51B00C4AF2D /* GameHomeSectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameHomeSectionHeader.xib; sourceTree = "<group>"; };
 		E550C942207CF52F00C4AF2D /* GameHomeSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHomeSectionHeader.swift; sourceTree = "<group>"; };
-		E551664E21AF8EC800E83044 /* MJRefreshComponent+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MJRefreshComponent+Rx.swift"; sourceTree = "<group>"; };
-		E551664F21AF8EC800E83044 /* MJRefreshHeader+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MJRefreshHeader+Rx.swift"; sourceTree = "<group>"; };
-		E551665021AF8EC800E83044 /* MJRefreshFooter+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MJRefreshFooter+Rx.swift"; sourceTree = "<group>"; };
 		E56802DC20724AEB00CF944E /* ChannelListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelListCell.swift; sourceTree = "<group>"; };
 		E56802DD20724AEB00CF944E /* ChannelListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChannelListCell.xib; sourceTree = "<group>"; };
 		E56802E420725C9100CF944E /* NewsTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableHeaderView.swift; sourceTree = "<group>"; };
@@ -468,16 +458,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1834A2C9227E7C07001DC841 /* Unified */ = {
+		18302CF522A1079C008CE7B6 /* UIFont */ = {
 			isa = PBXGroup;
 			children = (
-				1834A2CA227E7C07001DC841 /* BindRefreshStateable.swift */,
-				1834A2CB227E7C07001DC841 /* BindLoadStateable.swift */,
-				1834A2CC227E7C07001DC841 /* BindErrorStateable.swift */,
-				1834A2CD227E7C07001DC841 /* UnifiedProtocol.swift */,
-				1834A2CE227E7C07001DC841 /* RefreshComponentable.swift */,
+				18302CF622A1079C008CE7B6 /* UIFontExtension.swift */,
 			);
-			path = Unified;
+			path = UIFont;
+			sourceTree = "<group>";
+		};
+		18302CF822A107F3008CE7B6 /* UIColor */ = {
+			isa = PBXGroup;
+			children = (
+				18302CF922A107F3008CE7B6 /* UIColorExtension.swift */,
+			);
+			path = UIColor;
 			sourceTree = "<group>";
 		};
 		1834A2D4227E7C68001DC841 /* RxErrorTracker */ = {
@@ -726,16 +720,16 @@
 				E5CD69A8207BCF46001A1A0A /* ThirdParty */,
 				998F0C5A2071EF9000C587C2 /* CustomView */,
 				998F0C2B2071EB5200C587C2 /* Protocol */,
-				998F0C2A2071EB4900C587C2 /* Extension */,
+				998F0C2A2071EB4900C587C2 /* Extensions */,
 			);
 			path = Expand;
 			sourceTree = "<group>";
 		};
-		998F0C2A2071EB4900C587C2 /* Extension */ = {
+		998F0C2A2071EB4900C587C2 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				1834A2C9227E7C07001DC841 /* Unified */,
-				E551664D21AF8EC800E83044 /* RxMJ */,
+				18302CF822A107F3008CE7B6 /* UIColor */,
+				18302CF522A1079C008CE7B6 /* UIFont */,
 				E5C1FE982184A126009CCE4B /* RxSwift */,
 				E5C1FE7E21843E0C009CCE4B /* NetWork */,
 				E5DC0AEC20862BE2001E61C6 /* DateExtensions.swift */,
@@ -745,7 +739,7 @@
 				E58E774721B61BFE002A00E6 /* UIViewControllerExt.swift */,
 				181473EC229FC61C0092F546 /* UIViewControllerExtension.swift */,
 			);
-			path = Extension;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		998F0C2B2071EB5200C587C2 /* Protocol */ = {
@@ -786,6 +780,7 @@
 		998F0C352071EDB700C587C2 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				18302CF322A105CD008CE7B6 /* AppConfigs.swift */,
 				998F0C362071EE2E00C587C2 /* AppConfig.swift */,
 				9966511720736F580010430E /* AppTheme.swift */,
 				994141072074605E0016AC01 /* AppEnum.swift */,
@@ -794,7 +789,7 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
-		998F0C382071EE7E00C587C2 /* Api */ = {
+		998F0C382071EE7E00C587C2 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
 				E575DD1520B0763600C66BA8 /* NewsApi.swift */,
@@ -803,7 +798,7 @@
 				E518D8A120B19A900011BB6B /* UserApi.swift */,
 				E518D8A320B19B5A0011BB6B /* GameApi.swift */,
 			);
-			path = Api;
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		998F0C3B2071EEAB00C587C2 /* Reusable */ = {
@@ -995,7 +990,7 @@
 				998F0C292071EB4300C587C2 /* Expand */,
 				998F0C2C2071EB6E00C587C2 /* Module */,
 				998F0C352071EDB700C587C2 /* Common */,
-				998F0C382071EE7E00C587C2 /* Api */,
+				998F0C382071EE7E00C587C2 /* Networking */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1184,16 +1179,6 @@
 				E57C5BAB2082402800655E0F /* GameRecommendFooterView.xib */,
 			);
 			path = Footer;
-			sourceTree = "<group>";
-		};
-		E551664D21AF8EC800E83044 /* RxMJ */ = {
-			isa = PBXGroup;
-			children = (
-				E551664E21AF8EC800E83044 /* MJRefreshComponent+Rx.swift */,
-				E551664F21AF8EC800E83044 /* MJRefreshHeader+Rx.swift */,
-				E551665021AF8EC800E83044 /* MJRefreshFooter+Rx.swift */,
-			);
-			path = RxMJ;
 			sourceTree = "<group>";
 		};
 		E56802DB20724AA600CF944E /* View */ = {
@@ -1917,7 +1902,6 @@
 				181473F0229FCBC60092F546 /* RefreshViewModel.swift in Sources */,
 				E5C1FEA72184A126009CCE4B /* UIResponder+Rx.swift in Sources */,
 				992B5F5620999388005036CE /* FilterBtn.swift in Sources */,
-				1834A2D2227E7C07001DC841 /* UnifiedProtocol.swift in Sources */,
 				E58548DD208F6C8300C1C7CD /* Filter.swift in Sources */,
 				603CACB620F87D3B0001614F /* GameDetail.swift in Sources */,
 				99E7999B2071E10E005C3408 /* AppDelegate.swift in Sources */,
@@ -1937,7 +1921,6 @@
 				E5CD69A1207BB360001A1A0A /* Game.swift in Sources */,
 				E52FA5D422224AFC00037279 /* NewsPageViewModel.swift in Sources */,
 				E5E4D9B7218CAEE200EE661D /* GameSellListViewModel.swift in Sources */,
-				1834A2CF227E7C07001DC841 /* BindRefreshStateable.swift in Sources */,
 				9966511820736F580010430E /* AppTheme.swift in Sources */,
 				E5C1FEAC2184A126009CCE4B /* UIState+Rx.swift in Sources */,
 				998F0C372071EE2E00C587C2 /* AppConfig.swift in Sources */,
@@ -1954,7 +1937,6 @@
 				E550C937207CDCBB00C4AF2D /* GameHomeColumnCell.swift in Sources */,
 				E56802DE20724AEB00CF944E /* ChannelListCell.swift in Sources */,
 				E5CD699C207BAADC001A1A0A /* GameHomeRecommendCell.swift in Sources */,
-				1834A2D1227E7C07001DC841 /* BindErrorStateable.swift in Sources */,
 				E534FACC207A60F5006CE008 /* ColumnNavTitleView.swift in Sources */,
 				E5DC0AFB20864CD0001E61C6 /* GameSellListCell.swift in Sources */,
 				E57C5BB12082460400655E0F /* GameColumnViewController.swift in Sources */,
@@ -1980,9 +1962,8 @@
 				E57C5BB520824F3100655E0F /* ColumnDetailViewController.swift in Sources */,
 				E518D89E20B194770011BB6B /* ColumnApi.swift in Sources */,
 				E5C1FE8A21843E0C009CCE4B /* LightError.swift in Sources */,
-				E551665321AF8EC800E83044 /* MJRefreshFooter+Rx.swift in Sources */,
+				18302CF422A105CD008CE7B6 /* AppConfigs.swift in Sources */,
 				603CACB220F859A90001614F /* GameDetailHeaderView.swift in Sources */,
-				1834A2D3227E7C07001DC841 /* RefreshComponentable.swift in Sources */,
 				E518D8A220B19A900011BB6B /* UserApi.swift in Sources */,
 				9941411E2074B45E0016AC01 /* CollectionView.swift in Sources */,
 				E56802E520725C9100CF944E /* NewsTableHeaderView.swift in Sources */,
@@ -1999,7 +1980,6 @@
 				E550C943207CF52F00C4AF2D /* GameHomeSectionHeader.swift in Sources */,
 				99A6781E209AF7C600DB1AA7 /* IntExtension.swift in Sources */,
 				E5C1FE9021843F3F009CCE4B /* AppDelegate+Services.swift in Sources */,
-				E551665121AF8EC800E83044 /* MJRefreshComponent+Rx.swift in Sources */,
 				E5C1FEAA2184A126009CCE4B /* UIView+Rx.swift in Sources */,
 				E5259685208E15E100B5F419 /* GameListViewController.swift in Sources */,
 				E5CD6986207B95C0001A1A0A /* GameHomeHeaderView.swift in Sources */,
@@ -2021,6 +2001,7 @@
 				E5CD69C3207BCF5F001A1A0A /* CosmosTouch.swift in Sources */,
 				998F0C402071EEAB00C587C2 /* UICollectionView+Reusable.swift in Sources */,
 				E52B6DE7208C4C7E004904C6 /* GameCommentCell.swift in Sources */,
+				18302CFA22A107F3008CE7B6 /* UIColorExtension.swift in Sources */,
 				E5F8116520738C2400E9883F /* Column.swift in Sources */,
 				181473F3229FCBEB0092F546 /* TableViewController.swift in Sources */,
 				994141082074605E0016AC01 /* AppEnum.swift in Sources */,
@@ -2037,7 +2018,6 @@
 				9906819520721F8700A825AC /* Channel.swift in Sources */,
 				E5787F2E2088C98E00AB55E2 /* GameRankingPageViewController.swift in Sources */,
 				9941411D2074B45E0016AC01 /* CollectionViewCell.swift in Sources */,
-				1834A2D0227E7C07001DC841 /* BindLoadStateable.swift in Sources */,
 				E5C1FE8E21843E99009CCE4B /* AppDelegate+Root.swift in Sources */,
 				E58548E0208F6C8300C1C7CD /* FilterKindCell.swift in Sources */,
 				E5F8116C20739B3400E9883F /* ColumnElementCell.swift in Sources */,
@@ -2063,7 +2043,7 @@
 				9941411020747F8C0016AC01 /* Button.swift in Sources */,
 				E57C5BBB20824FA400655E0F /* GameColumnDetailCell.swift in Sources */,
 				E5919D1720EC5AA4005E7E2C /* NewsListViewModel.swift in Sources */,
-				E551665221AF8EC800E83044 /* MJRefreshHeader+Rx.swift in Sources */,
+				18302CF722A1079C008CE7B6 /* UIFontExtension.swift in Sources */,
 				E5CD69C1207BCF5F001A1A0A /* CosmosLocalizedRating.swift in Sources */,
 				181473FE229FCC310092F546 /* BehaviorRelay+RangeReplaceableCollection.swift in Sources */,
 				E5919D1320EC56D3005E7E2C /* ViewModelable.swift in Sources */,
@@ -2217,7 +2197,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "GamerSky/Bridging-Header/GamerSky-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -2237,7 +2217,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = QY.GamerSky;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "GamerSky/Bridging-Header/GamerSky-Bridging-Header.h";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

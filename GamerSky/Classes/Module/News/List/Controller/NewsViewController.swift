@@ -34,7 +34,7 @@ class NewsViewController: TableViewController<NewsListViewModel> {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        headerView.frame = CGRect(x: 0, y: 0, width: ScreenWidth, height: NewsTableHeaderView.height)
+        headerView.frame = CGRect(x: 0, y: 0, width: Configs.Dimensions.screenWidth, height: NewsTableHeaderView.height)
     }
     
     override func repeatClickTabBar() {

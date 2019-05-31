@@ -35,7 +35,7 @@ enum GameApi {
 extension GameApi: TargetType {
     
     var baseURL: URL {
-        return URL(string: AppHostIP)!
+        return URL(string: Configs.Network.appHostUrl)!
     }
     
     var path: String {

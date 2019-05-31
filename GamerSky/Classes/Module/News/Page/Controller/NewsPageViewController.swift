@@ -16,7 +16,7 @@ class NewsPageViewController: ViewController<NewsPageViewModel> {
         let lineView = JXCategoryIndicatorLineView()
         lineView.lineStyle = .JD
         lineView.indicatorLineWidth = 10
-        let categoryView = JXCategoryTitleView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: kNaviBarH))
+        let categoryView = JXCategoryTitleView(frame: CGRect(x: 0, y: 0, width: Configs.Dimensions.screenWidth, height: Configs.Dimensions.naviBarHeight))
         categoryView.contentScrollView = listContainerView.scrollView
         categoryView.indicators = [lineView]
         categoryView.delegate = self

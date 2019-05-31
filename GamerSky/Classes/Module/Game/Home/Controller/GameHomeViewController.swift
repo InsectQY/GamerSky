@@ -11,7 +11,7 @@ import RxDataSources
 
 class GameHomeViewController: TableViewController<GameHomeViewModel> {
 
-    private lazy var headerView = GameHomeHeaderView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: GameHomeHeaderView.height))
+    private lazy var headerView = GameHomeHeaderView(frame: CGRect(x: 0, y: 0, width: Configs.Dimensions.screenWidth, height: GameHomeHeaderView.height))
 
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -27,7 +27,7 @@ class GameHomeViewController: TableViewController<GameHomeViewModel> {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
-        headerView.frame = CGRect(x: 0, y: 0, width: ScreenWidth, height: GameHomeHeaderView.height)
+        headerView.frame = CGRect(x: 0, y: 0, width: Configs.Dimensions.screenWidth, height: GameHomeHeaderView.height)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -115,8 +115,8 @@ extension GameHomeViewController {
     // MARK: - 设置导航栏
     private func setUpNavi() {
         
-        let leftItem = Label(frame: CGRect(x: 10, y: 0, width: 200, height: kNaviBarH))
-        leftItem.font = PFM18Font
+        let leftItem = Label(frame: CGRect(x: 10, y: 0, width: 200, height: Configs.Dimensions.naviBarHeight))
+        leftItem.font = .pingFangSCMedium(18)
         leftItem.text = "游戏"
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftItem)
     }

@@ -15,7 +15,7 @@ class GameDetailViewController: ViewController<ViewModel> {
     private lazy var headerView: GameDetailHeaderView = {
         
         let headerView = GameDetailHeaderView.loadFromNib()
-        headerView.frame = CGRect(x: 0, y: 0, width: ScreenWidth, height: GameDetailHeaderView.height)
+        headerView.frame = CGRect(x: 0, y: 0, width: Configs.Dimensions.screenWidth, height: GameDetailHeaderView.height)
         return headerView
     }()
     

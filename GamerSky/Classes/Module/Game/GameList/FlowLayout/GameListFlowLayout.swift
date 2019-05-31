@@ -20,7 +20,7 @@ class GameListFlowLayout: UICollectionViewFlowLayout {
     private let kMaxCol: CGFloat = 3
     /// cell 宽度
     private var kItemW: CGFloat {
-        return (ScreenWidth - (2 * kEdge) - ((kMaxCol - 1) * kInteritemSpacing)) / kMaxCol
+        return (Configs.Dimensions.screenWidth - (2 * kEdge) - ((kMaxCol - 1) * kInteritemSpacing)) / kMaxCol
     }
     private var kItemH: CGFloat {
         return kItemW * 1.8
@@ -33,7 +33,7 @@ class GameListFlowLayout: UICollectionViewFlowLayout {
         sectionInset = UIEdgeInsets.init(top: 0, left: kEdge, bottom: 0, right: kEdge)
         minimumLineSpacing = kLineSpacing
         minimumInteritemSpacing = kInteritemSpacing
-        headerReferenceSize = CGSize(width: ScreenWidth, height: GameListHeaderView.height)
+        headerReferenceSize = CGSize(width: Configs.Dimensions.screenWidth, height: GameListHeaderView.height)
     }
     
     required init?(coder aDecoder: NSCoder) {

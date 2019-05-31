@@ -19,7 +19,7 @@ class GameSellListPageViewController: ViewController<ViewModel> {
         let lineView = JXCategoryIndicatorLineView()
         lineView.lineStyle = .JD
         lineView.indicatorLineWidth = 10
-        let categoryView = JXCategoryTitleView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: menuHeight))
+        let categoryView = JXCategoryTitleView(frame: CGRect(x: 0, y: 0, width: Configs.Dimensions.screenWidth, height: menuHeight))
         categoryView.contentScrollView = listContainerView.scrollView
         categoryView.delegate = self
         categoryView.indicators = [lineView]

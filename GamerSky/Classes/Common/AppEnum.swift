@@ -8,9 +8,6 @@
 
 import UIKit
 
-public let ScreenWidth: CGFloat = UIScreen.main.bounds.size.width
-public let ScreenHeight: CGFloat = UIScreen.main.bounds.size.height
-
 /// 游戏类型
 ///
 /// - expected: 最期待的游戏

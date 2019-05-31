@@ -10,7 +10,7 @@ import UIKit
 
 class GameSellListCell: UITableViewCell, NibReusable {
 
-    static let cellHeight: CGFloat = ScreenWidth * 0.28 + 30
+    static let cellHeight: CGFloat = Configs.Dimensions.screenWidth * 0.28 + 30
     
     // MARK: - IBOutlet
     @IBOutlet private weak var gameImageView: UIImageView!

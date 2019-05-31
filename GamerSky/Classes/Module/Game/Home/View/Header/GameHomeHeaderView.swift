@@ -10,7 +10,7 @@ import UIKit
 
 class GameHomeHeaderView: View {
 
-    static let height: CGFloat = ScreenHeight * 0.16
+    static let height: CGFloat = Configs.Dimensions.screenHeight * 0.16
     
     // MARK: - Lazyload
     private lazy var headerData = [GameHomeHeader]()

@@ -18,7 +18,7 @@ class GameColumnFlowLayout: UICollectionViewFlowLayout {
     private let kMaxCol: CGFloat = 1
     /// cell 宽度
     private var kItemW: CGFloat {
-        return (ScreenWidth - (2 * kEdge) - ((kMaxCol - 1) * kItemMargin)) / kMaxCol
+        return (Configs.Dimensions.screenWidth - (2 * kEdge) - ((kMaxCol - 1) * kItemMargin)) / kMaxCol
     }
     /// cell 高度
     private var kItemH: CGFloat {

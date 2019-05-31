@@ -25,7 +25,7 @@ class GameHomeRankingContentCell: TableViewCell, NibReusable {
     // MARK: - IBOutlet
     @IBOutlet private weak var flowLayout: UICollectionViewFlowLayout! {
         didSet {
-            flowLayout.itemSize = CGSize(width: ScreenWidth, height: kItemH)
+            flowLayout.itemSize = CGSize(width: Configs.Dimensions.screenWidth, height: kItemH)
         }
     }
     @IBOutlet private weak var collectionView: CollectionView! {

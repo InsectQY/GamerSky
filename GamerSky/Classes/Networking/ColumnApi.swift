@@ -1,5 +1,5 @@
 //
-//  SearchApi.swift
+//  ColumnApi.swift
 //  GamerSky
 //
 //  Created by QY on 2018/5/20.
@@ -8,28 +8,27 @@
 
 import Moya
 
-enum SearchApi {
-    
-    /// 热搜
-    case hotSearch
-    /// 搜索(参数依次是: page, 搜索类型, 搜索内容)
-    case twoSearch(Int, SearchType, String)
+enum ColumnApi {
+    /// 全部栏目
+    case columnNodeList
+    /// 最新动态(参数依次是: page, 频道 ID)
+    case columnContent(Int, Int)
 }
 
-extension SearchApi: TargetType {
+extension ColumnApi: TargetType {
     
     var baseURL: URL {
-        return URL(string: AppHostIP)!
+        return URL(string: Configs.Network.appHostUrl)!
     }
     
     var path: String {
         
         switch self {
 
-        case .hotSearch:
-            return "v2/SearchHotDict"
-        case .twoSearch:
-            return "v2/TwoSearch"
+        case .columnNodeList:
+            return "v2/ColumnNodeList"
+        case .columnContent:
+            return "v2/ColumnContent"
         }
     }
     
@@ -48,11 +47,10 @@ extension SearchApi: TargetType {
         
         switch self {
             
-        case .hotSearch:
-            return .requestParameters(parameters: ["searchType" : "strategy"], encoding: JSONEncoding.default)
-        case let .twoSearch(page, searchType, searchKey):
-            return .requestParameters(parameters: ["searchType" : searchType.rawValue,
-                                                   "searchKey" : searchKey,
+        case .columnNodeList:
+            return .requestParameters(parameters: ["date" : 1], encoding: JSONEncoding.default)
+        case let .columnContent(page, id):
+            return .requestParameters(parameters: ["id" : id,
                                                    "pageIndex" : page,
                                                    "elementsCountPerPage" : 20], encoding: JSONEncoding.default)
         }

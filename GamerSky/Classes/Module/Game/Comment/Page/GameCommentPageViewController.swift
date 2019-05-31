@@ -20,7 +20,7 @@ class GameCommentPageViewController: ViewController<ViewModel> {
         let lineView = JXCategoryIndicatorLineView()
         lineView.lineStyle = .JD
         lineView.indicatorLineWidth = 10
-        let categoryView = JXCategoryTitleView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: menuHeight))
+        let categoryView = JXCategoryTitleView(frame: CGRect(x: 0, y: 0, width: Configs.Dimensions.screenWidth, height: menuHeight))
         categoryView.contentScrollView = listContainerView.scrollView
         categoryView.indicators = [lineView]
         categoryView.titles = ["热门", "最新"]
