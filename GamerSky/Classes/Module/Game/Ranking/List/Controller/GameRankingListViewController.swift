@@ -47,7 +47,8 @@ class GameRankingListViewController: TableViewController<GameRankingListViewMode
     }
     
     override func bindViewModel() {
-
+        super.bindViewModel()
+        
         let input = GameRankingListViewModel.Input(gameClassID: gameClassID, annualClass: annualClass)
         let output = viewModel.transform(input: input)
 

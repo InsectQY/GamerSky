@@ -25,8 +25,6 @@ extension GameColumnViewModel: ViewModelable {
         /// 数据源
         let elements = BehaviorRelay<[GameSpecialList]>(value: [])
 
-        let output = Output(items: elements.asDriver())
-
         // 加载最新
         let loadNew = refreshOutput
         .headerRefreshing
@@ -45,6 +43,8 @@ extension GameColumnViewModel: ViewModelable {
         .drive(refreshInput.headerRefreshState)
         .disposed(by: disposeBag)
 
+        let output = Output(items: elements.asDriver())
+        
         return output
     }
 }

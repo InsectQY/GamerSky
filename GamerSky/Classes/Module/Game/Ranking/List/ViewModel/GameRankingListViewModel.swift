@@ -34,8 +34,6 @@ extension GameRankingListViewModel: ViewModelable {
         /// 数据源
         let elements = BehaviorRelay<[GameSpecialDetail]>(value: [])
 
-        let output = Output(items: elements.asDriver())
-
         var page = 1
         
         // 加载最新
@@ -61,11 +59,12 @@ extension GameRankingListViewModel: ViewModelable {
         }
         
         // 数据源
-        loadNew.drive(elements)
+        loadNew
+        .drive(elements)
         .disposed(by: disposeBag)
         
-        loadMore.map { elements.value + $0 }
-        .drive(elements)
+        loadMore
+        .drive(elements.append)
         .disposed(by: disposeBag)
 
         // 头部刷新状态
@@ -86,6 +85,8 @@ extension GameRankingListViewModel: ViewModelable {
         .startWith(.hidden)
         .drive(refreshInput.footerRefreshState)
         .disposed(by: disposeBag)
+
+        let output = Output(items: elements.asDriver())
 
         return output
     }

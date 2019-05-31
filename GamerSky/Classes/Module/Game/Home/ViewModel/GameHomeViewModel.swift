@@ -35,11 +35,10 @@ extension GameHomeViewModel: ViewModelable {
         let loadNew = refreshOutput
         .headerRefreshing
         .flatMapLatest { _ -> SharedSequence<DriverSharingStrategy, (GameHomeSection, GameHomeSection, GameHomeSection, GameHomeSection, [Array<GameInfo>], [Array<GameInfo>], GameHomeSection, GameHomeSection)> in
-            
+
             // sectionHeader 数据
-            let data = try! Data(contentsOf: Bundle.main.url(forResource: "GameHomeSectionData", withExtension: "plist")!)
+            let data = try! Data(contentsOf: R.file.gameHomeSectionDataPlist()!)
             let sectionData = try! PropertyListDecoder().decode([GameHomeSectionModel].self, from: data)
-            
             // 新游推荐
             let symbol1 = GameApi
             .gameSpecialDetail(1, 13)

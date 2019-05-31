@@ -48,8 +48,8 @@ extension FilterView {
     
     // MARK: - 加载本地数据
     private func loadFilterData() {
-        
-        let data = try! Data(contentsOf: Bundle.main.url(forResource: "FilterData", withExtension: "plist")!)
+
+        let data = try! Data(contentsOf: R.file.filterDataPlist()!)
         filter = try! PropertyListDecoder().decode([[Filter]].self, from: data)
         tableView.reloadData()
     }

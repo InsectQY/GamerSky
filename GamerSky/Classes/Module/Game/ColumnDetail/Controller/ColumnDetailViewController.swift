@@ -13,7 +13,7 @@ enum ColumnDetailContainer {
     case gameSpecialDetail([GameSpecialDetail])
 }
 
-class ColumnDetailViewController: ViewController<ViewModel> {
+class ColumnDetailViewController: TableViewController<RefreshViewModel> {
     
     private var isHasSubList: Bool = false
     private var nodeID: Int = 0
@@ -26,25 +26,17 @@ class ColumnDetailViewController: ViewController<ViewModel> {
     /// 分组的详情
     public lazy var sectionSpecialDetail = [[GameSpecialDetail]]()
     
-    // MARK: - LazyLoad
-    private lazy var tableView: TableView = {
-        
-        let tableView = TableView(frame: UIScreen.main.bounds, style: .grouped)
-        tableView.register(cellType: GameColumnDetailCell.self)
-        tableView.register(headerFooterViewType: GameColumnDetailSectionHeader.self)
-        tableView.delegate = self
-        tableView.dataSource = self
-        return tableView
-    }()
-    
     // MARK: - convenience
-    convenience init(isHasSubList: Bool, nodeID: Int) {
-        
-        self.init()
+    init(isHasSubList: Bool, nodeID: Int) {
+        super.init(style: .grouped)
         self.isHasSubList = isHasSubList
         self.nodeID = nodeID
     }
-    
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,9 +46,12 @@ class ColumnDetailViewController: ViewController<ViewModel> {
     }
     
     override func makeUI() {
-        
         super.makeUI()
-        view.addSubview(tableView)
+
+        tableView.register(cellType: GameColumnDetailCell.self)
+        tableView.register(headerFooterViewType: GameColumnDetailSectionHeader.self)
+        tableView.delegate = self
+        tableView.dataSource = self
     }
 }
 

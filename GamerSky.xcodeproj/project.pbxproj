@@ -18,6 +18,7 @@
 		181473FE229FCC310092F546 /* BehaviorRelay+RangeReplaceableCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181473FD229FCC310092F546 /* BehaviorRelay+RangeReplaceableCollection.swift */; };
 		18147401229FCE5A0092F546 /* mapTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181473FF229FCE5A0092F546 /* mapTo.swift */; };
 		18147402229FCE5A0092F546 /* mapAt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18147400229FCE5A0092F546 /* mapAt.swift */; };
+		18302CF222A0B5C9008CE7B6 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18302CF122A0B5C9008CE7B6 /* R.generated.swift */; };
 		1834A2CF227E7C07001DC841 /* BindRefreshStateable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1834A2CA227E7C07001DC841 /* BindRefreshStateable.swift */; };
 		1834A2D0227E7C07001DC841 /* BindLoadStateable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1834A2CB227E7C07001DC841 /* BindLoadStateable.swift */; };
 		1834A2D1227E7C07001DC841 /* BindErrorStateable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1834A2CC227E7C07001DC841 /* BindErrorStateable.swift */; };
@@ -228,6 +229,7 @@
 		181473FD229FCC310092F546 /* BehaviorRelay+RangeReplaceableCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BehaviorRelay+RangeReplaceableCollection.swift"; sourceTree = "<group>"; };
 		181473FF229FCE5A0092F546 /* mapTo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mapTo.swift; sourceTree = "<group>"; };
 		18147400229FCE5A0092F546 /* mapAt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mapAt.swift; sourceTree = "<group>"; };
+		18302CF122A0B5C9008CE7B6 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		1834A2CA227E7C07001DC841 /* BindRefreshStateable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BindRefreshStateable.swift; sourceTree = "<group>"; };
 		1834A2CB227E7C07001DC841 /* BindLoadStateable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BindLoadStateable.swift; sourceTree = "<group>"; };
 		1834A2CC227E7C07001DC841 /* BindErrorStateable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BindErrorStateable.swift; sourceTree = "<group>"; };
@@ -691,6 +693,7 @@
 		998F0C262071EACC00C587C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				18302CF122A0B5C9008CE7B6 /* R.generated.swift */,
 				9966511220736D2C0010430E /* Plist */,
 				99EECD7A2072226700C8E914 /* Assets */,
 				998F0C272071EAD500C587C2 /* JSON */,
@@ -1740,11 +1743,11 @@
 			buildConfigurationList = 99E799A92071E10E005C3408 /* Build configuration list for PBXNativeTarget "GamerSky" */;
 			buildPhases = (
 				9949B34A0E046E9B56734A3B /* [CP] Check Pods Manifest.lock */,
+				181473EE229FC6E80092F546 /* R.Swift */,
 				99E799932071E10D005C3408 /* Sources */,
 				99E799942071E10D005C3408 /* Frameworks */,
 				99E799952071E10D005C3408 /* Resources */,
 				53A035A9BF6F46792D7B22BE /* [CP] Copy Pods Resources */,
-				181473EE229FC6E80092F546 /* R.Swift */,
 			);
 			buildRules = (
 			);
@@ -2029,6 +2032,7 @@
 				9941410E20747B0C0016AC01 /* Label.swift in Sources */,
 				E52B6DDF208C41F2004904C6 /* GameCommentListViewController.swift in Sources */,
 				E586EE7C207E68FA00D8F3F0 /* GameHomePageFooterView.swift in Sources */,
+				18302CF222A0B5C9008CE7B6 /* R.generated.swift in Sources */,
 				99A67820209B03BD00DB1AA7 /* GameHomeHeaderFlowLayout.swift in Sources */,
 				9906819520721F8700A825AC /* Channel.swift in Sources */,
 				E5787F2E2088C98E00AB55E2 /* GameRankingPageViewController.swift in Sources */,

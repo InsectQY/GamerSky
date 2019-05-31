@@ -15,7 +15,6 @@ final class GameSellListViewModel: RefreshViewModel {
     }
     
     struct Output {
-        
         /// 数据源
         let items: Driver<[GameSellList]>
     }
@@ -27,15 +26,16 @@ extension GameSellListViewModel: ViewModelable {
         
         let elements = BehaviorRelay<[GameSellList]>(value: [])
 
-        let output = Output(items: elements.asDriver())
-
         let loadNew = refreshOutput
         .headerRefreshing
-        .flatMapLatest {
+        .flatMapLatest { [unowned self] in
             
-            GameApi.twoGameList(input.date, .popular)
+            GameApi
+            .twoGameList(input.date, .popular)
             .request()
             .mapObject([GameSellList].self)
+            .trackActivity(self.loading)
+            .trackError(self.error)
             .asDriver(onErrorJustReturn: [])
         }
             
@@ -49,6 +49,8 @@ extension GameSellListViewModel: ViewModelable {
         .drive(refreshInput.headerRefreshState)
         .disposed(by: disposeBag)
 
+        let output = Output(items: elements.asDriver())
+        
         return output
     }
 }

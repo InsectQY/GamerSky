@@ -56,7 +56,7 @@ extension GameCommentListViewModel: ViewModelable {
 
         // 头部刷新状态
         loadNew
-        .map { _ in false }
+        .mapTo(false)
         .drive(refreshInput.headerRefreshState)
         .disposed(by: disposeBag)
 

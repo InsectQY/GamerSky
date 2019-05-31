@@ -41,8 +41,8 @@ class GameHomeHeaderView: View {
 extension GameHomeHeaderView {
     
     private func loadHeaderData() {
-        
-        let data = try! Data(contentsOf: Bundle.main.url(forResource: "GameHomeHeaderData", withExtension: "plist")!)
+
+        let data = try! Data(contentsOf: R.file.gameHomeHeaderDataPlist()!)
         headerData = try! PropertyListDecoder().decode([GameHomeHeader].self, from: data)
     }
 }

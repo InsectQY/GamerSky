@@ -24,8 +24,6 @@ extension GameListViewModel: ViewModelable {
         
         let elements = BehaviorRelay<[GameChildElement]>(value: [])
 
-        let output = Output(items: elements.asDriver())
-
         var page = 1
         
         let loadNew = refreshOutput
@@ -49,8 +47,8 @@ extension GameListViewModel: ViewModelable {
         .disposed(by: disposeBag)
         
         loadMore
-        .map { elements.value + $0.childelements }
-        .drive(elements)
+        .map { $0.childelements }
+        .drive(elements.append)
         .disposed(by: disposeBag)
         
         // 头部刷新状态
@@ -72,6 +70,8 @@ extension GameListViewModel: ViewModelable {
         .drive(refreshInput.footerRefreshState)
         .disposed(by: disposeBag)
 
+        let output = Output(items: elements.asDriver())
+        
         return output
     }
 }

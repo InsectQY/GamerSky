@@ -55,8 +55,8 @@ class GameRankingPageViewController: ViewController<ViewModel> {
 extension GameRankingPageViewController {
     
     private func loadPageData() {
-        
-        let data = try! Data(contentsOf: Bundle.main.url(forResource: "GameCategoryData", withExtension: "plist")!)
+
+        let data = try! Data(contentsOf: R.file.gameCategoryDataPlist()!)
         pageData = try! PropertyListDecoder().decode([GameTag].self, from: data)
         categoryView.titles = pageData.map{ $0.name }
     }
