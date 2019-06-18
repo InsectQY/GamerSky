@@ -83,7 +83,7 @@ extension GameCommentListViewModel {
 
         return  GameApi
                 .gameReviewList(page,
-                        commentType)
+                                commentType)
                 .request()
                 .mapObject([GameComment].self)
                 .trackActivity(loading)

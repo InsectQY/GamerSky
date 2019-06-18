@@ -36,4 +36,12 @@ struct Configs {
         /// 网络请求超时时间
         static let netWorkTimeout: TimeInterval = 15
     }
+
+    struct Device {
+
+        /// 系统版本
+        static let osVersion = UIDevice.current.systemVersion
+        /// 设备 ID
+        static let ID = UIDevice.current.identifierForVendor!.uuidString
+    }
 }

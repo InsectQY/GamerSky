@@ -52,7 +52,7 @@ extension ContentDetailViewController {
         webView.scrollView.refreshHeader = RefreshHeader { [weak self] in
 
             guard let `self` = self else {return}
-            guard let URL = URL(string: "\(Configs.Network.appHostUrl)/v1/ContentDetail/\(self.contentID)/1?fontSize=0&nullImageMode=1&tag=news&deviceid=\(deviceID)&platform=ios&nightMode=\(nightMode)&v=") else {return}
+            guard let URL = URL(string: "\(Configs.Network.appHostUrl)/v1/ContentDetail/\(self.contentID)/1?fontSize=0&nullImageMode=1&tag=news&deviceid=\(Configs.Device.ID)&platform=ios&nightMode=\(nightMode)&v=") else {return}
             self.webView.load(URLRequest(url: URL))
         }
         webView.scrollView.refreshHeader?.beginRefreshing()

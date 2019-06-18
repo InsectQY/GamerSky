@@ -30,9 +30,9 @@ extension AppDelegate {
             switch target.task {
             case let .requestParameters(parameters, encoding):
 
-                let params: [String: Any] = ["device_id": deviceID,
+                let params: [String: Any] = ["device_id": Configs.Device.ID,
                  "os": "iOS",
-                 "osVersion": osVersion,
+                 "osVersion": Configs.Device.osVersion,
                  "app": "GSApp",
                  "appVersion": "3.7.4",
                   "request": parameters]
