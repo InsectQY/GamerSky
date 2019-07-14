@@ -20,7 +20,7 @@ class ColumnListCell: CollectionViewCell, NibReusable {
         didSet {
             
             columnLabel.text = column?.title
-            columnImageView.qy_setImage(column?.icon, placeholder: "")
+            columnImageView.qy_setImage(column?.icon)
         }
     }
 }

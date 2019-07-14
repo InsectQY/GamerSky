@@ -20,7 +20,7 @@ class GameHomeColumnCell: CollectionViewCell, NibReusable {
         didSet {
             
             let image = isLoadBigImage ? column?.image : column?.smallImage
-            columnImageView.qy_setImage(image, placeholder: "")
+            columnImageView.qy_setImage(image)
         }
     }
 }

@@ -20,7 +20,7 @@ class ColumnNavTitleView: UIView, NibLoadable {
         didSet {
             
             titleLabel.text = column?.title
-            titleImageView.qy_setImage(column?.icon, placeholder: "")
+            titleImageView.qy_setImage(column?.icon)
         }
     }
     

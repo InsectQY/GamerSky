@@ -37,8 +37,8 @@ class ColumnElementCell: UITableViewCell, NibReusable {
             columnNameLabel.text = columnElement?.zhuanlanTitle
             titleLabel.text = columnElement?.title
             authorNameLabel.text = columnElement?.authorName
-            thumbImageView.qy_setImage(columnElement?.thumbnailURL, placeholder: "")
-            authorImageView.qy_setImage(columnElement?.authorPhoto, placeholder: "")
+            thumbImageView.qy_setImage(columnElement?.thumbnailURL)
+            authorImageView.qy_setImage(columnElement?.authorPhoto)
             commentsBtn.setTitle("\(columnElement?.commentsCount ?? 0)", for: .normal)
             updateTimeLabel.text = columnElement?.updateTimeString
         }

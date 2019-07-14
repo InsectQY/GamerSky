@@ -24,8 +24,8 @@ class GameDetailHeaderView: UIView, NibLoadable {
             
             guard let detail = detail else {return}
             
-            bgImageView.qy_setImage(detail.thumbnailURL, placeholder: "")
-            thumbImageView.qy_setImage(detail.thumbnailURL, placeholder: "")
+            bgImageView.qy_setImage(detail.thumbnailURL)
+            thumbImageView.qy_setImage(detail.thumbnailURL)
             nameLabel.text = "\(detail.title) \(detail.englishTitle)"
         }
     }

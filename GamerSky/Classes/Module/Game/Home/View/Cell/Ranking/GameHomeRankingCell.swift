@@ -25,7 +25,7 @@ class GameHomeRankingCell: CollectionViewCell, NibReusable {
         didSet {
             
             gameNameLabel.text = info?.Title
-            gameImageView.qy_setImage(info?.DefaultPicUrl, placeholder: "")
+            gameImageView.qy_setImage(info?.DefaultPicUrl)
             gameScoreLabel.text = info?.gsScore
             ratingView.rating = info?.score ?? 0
             rankingBtn.setTitle("\(tag + 1)", for: .normal)

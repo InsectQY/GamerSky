@@ -2,13 +2,13 @@ PODS:
   - Alamofire (4.8.2)
   - Bugly (2.5.0)
   - Cache (5.2.0)
-  - CleanJSON (0.9.2)
+  - CleanJSON (0.9.3)
   - DefaultsKit (0.2.0)
   - Differentiator (3.1.0)
   - EmptyDataSet-Swift (4.2.0)
   - FDFullscreenPopGesture (1.1)
   - FSPagerView (0.8.2)
-  - JXCategoryView (1.3.7)
+  - JXCategoryView (1.3.14)
   - Kingfisher (4.10.1)
   - MJRefresh (3.2.0)
   - Moya/Core (13.0.1):
@@ -136,13 +136,13 @@ SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   Bugly: 3ca9f255c01025582df26f9222893b383c7e4b4e
   Cache: 807c5d86d01a177f06ede9865add3aea269bbfd4
-  CleanJSON: 83e37238a637dad0ada84561d0a7d44a638e4655
+  CleanJSON: e7e3950845b522326790ae0b114bc98102a33456
   DefaultsKit: 6c767941b2c3fe34c4d70e300e6c3b80c94964dd
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
   EmptyDataSet-Swift: 1fa0b35f530a35f852ecb2b53564728b0c300aaf
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   FSPagerView: 816a18842306973cc7cc6df8a5332272f7815c30
-  JXCategoryView: db36864126f6431bed4613b185d1a334a5c683f2
+  JXCategoryView: 008a9d2eb3ba6035eb2df9a2b3e9a4806d6601a3
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   MJRefresh: ed450d6eb9d3346a2cb033ab7eb6de090aeef437
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
@@ -168,4 +168,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 1e118b329db61b15621dfa43852ff50c7063e79e
 
-COCOAPODS: 1.7.0
+COCOAPODS: 1.7.4

@@ -43,7 +43,7 @@ class GameHomePageCell: CollectionViewCell, NibReusable {
         didSet {
             
             gameNameLabel.text = info?.Title
-            gameImageView.qy_setImage(info?.DefaultPicUrl, placeholder: "")
+            gameImageView.qy_setImage(info?.DefaultPicUrl)
             sellMonthLabel.isHidden = tag != 0
             sellMonthLabel.text = "\(info?.month ?? "")月"
             activityImageView.isHidden = !(info?.Position ?? "").contains("活动")

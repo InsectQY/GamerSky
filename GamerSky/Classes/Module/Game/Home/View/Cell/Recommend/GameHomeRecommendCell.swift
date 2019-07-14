@@ -25,7 +25,7 @@ class GameHomeRecommendCell: CollectionViewCell, NibReusable {
         didSet {
             
             percentLabel.text = detail?.gsScore
-            backgroundImageView.qy_setImage(detail?.largeImage, placeholder: "")
+            backgroundImageView.qy_setImage(detail?.largeImage)
             nameLabel.text = detail?.Title
             descLabel.text = detail?.description
             ratingView.rating = detail?.score ?? 0
