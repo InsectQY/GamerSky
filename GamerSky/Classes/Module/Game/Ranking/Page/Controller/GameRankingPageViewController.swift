@@ -16,8 +16,8 @@ class GameRankingPageViewController: ViewController<ViewModel> {
     private lazy var categoryView: JXCategoryTitleView = {
         
         let lineView = JXCategoryIndicatorLineView()
-        lineView.lineStyle = .JD
-        lineView.indicatorLineWidth = 10
+        lineView.lineStyle = .lengthen
+        lineView.indicatorWidth = 10
         let categoryView = JXCategoryTitleView(frame: CGRect(x: 0, y: 0, width: Configs.Dimensions.screenWidth, height: menuHeight))
         categoryView.contentScrollView = listContainerView.scrollView
         categoryView.indicators = [lineView]
@@ -26,7 +26,7 @@ class GameRankingPageViewController: ViewController<ViewModel> {
     }()
 
     // swiftlint:disable force_unwrapping
-    fileprivate lazy var listContainerView = JXCategoryListContainerView(delegate: self)!
+    fileprivate lazy var listContainerView = JXCategoryListContainerView(type: .scrollView, delegate: self)!
     
     private lazy var pageData = [GameTag]()
     // MARK: - LifeCycle

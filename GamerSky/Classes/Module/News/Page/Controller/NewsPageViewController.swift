@@ -14,8 +14,8 @@ class NewsPageViewController: ViewController<NewsPageViewModel> {
     fileprivate lazy var categoryView: JXCategoryTitleView = {
         
         let lineView = JXCategoryIndicatorLineView()
-        lineView.lineStyle = .JD
-        lineView.indicatorLineWidth = 10
+        lineView.lineStyle = .lengthen
+        lineView.indicatorWidth = 10
         let categoryView = JXCategoryTitleView(frame: CGRect(x: 0, y: 0, width: Configs.Dimensions.screenWidth, height: Configs.Dimensions.naviBarHeight))
         categoryView.contentScrollView = listContainerView.scrollView
         categoryView.indicators = [lineView]
@@ -24,7 +24,7 @@ class NewsPageViewController: ViewController<NewsPageViewModel> {
     }()
     
     // swiftlint:disable force_unwrapping
-    fileprivate lazy var listContainerView = JXCategoryListContainerView(delegate: self)!
+    fileprivate lazy var listContainerView = JXCategoryListContainerView(type: .scrollView, delegate: self)!
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -101,7 +101,6 @@ extension Reactive where Base: NewsPageViewController {
 
             vc.categoryView.titles = result.map{ $0.nodeName }
             vc.categoryView.defaultSelectedIndex = 0
-            vc.listContainerView.defaultSelectedIndex = 0
             vc.categoryView.reloadData()
             vc.listContainerView.reloadData()
         }

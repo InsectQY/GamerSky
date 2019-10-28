@@ -17,8 +17,8 @@ class GameSellListPageViewController: ViewController<ViewModel> {
     private lazy var categoryView: JXCategoryTitleView = {
         
         let lineView = JXCategoryIndicatorLineView()
-        lineView.lineStyle = .JD
-        lineView.indicatorLineWidth = 10
+        lineView.lineStyle = .lengthen
+        lineView.indicatorWidth = 10
         let categoryView = JXCategoryTitleView(frame: CGRect(x: 0, y: 0, width: Configs.Dimensions.screenWidth, height: menuHeight))
         categoryView.contentScrollView = listContainerView.scrollView
         categoryView.delegate = self
@@ -27,7 +27,7 @@ class GameSellListPageViewController: ViewController<ViewModel> {
     }()
 
     // swiftlint:disable force_unwrapping
-    fileprivate lazy var listContainerView = JXCategoryListContainerView(delegate: self)!
+    fileprivate lazy var listContainerView = JXCategoryListContainerView(type: .scrollView, delegate: self)!
 
     /// 中文的日期
     private lazy var timeStrings = [String]()

@@ -18,8 +18,8 @@ class GameCommentPageViewController: ViewController<ViewModel> {
     private lazy var categoryView: JXCategoryTitleView = {
         
         let lineView = JXCategoryIndicatorLineView()
-        lineView.lineStyle = .JD
-        lineView.indicatorLineWidth = 10
+        lineView.lineStyle = .lengthen
+        lineView.indicatorWidth = 10
         let categoryView = JXCategoryTitleView(frame: CGRect(x: 0, y: 0, width: Configs.Dimensions.screenWidth, height: menuHeight))
         categoryView.contentScrollView = listContainerView.scrollView
         categoryView.indicators = [lineView]
@@ -29,7 +29,7 @@ class GameCommentPageViewController: ViewController<ViewModel> {
     }()
 
     // swiftlint:disable force_unwrapping
-    fileprivate lazy var listContainerView = JXCategoryListContainerView(delegate: self)!
+    fileprivate lazy var listContainerView = JXCategoryListContainerView(type: .scrollView, delegate: self)!
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
